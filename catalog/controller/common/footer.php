@@ -56,8 +56,9 @@ class ControllerCommonFooter extends Controller {
 		$data['egeser_url_teknik'] = $this->url->link('information/information', 'information_id=10');
 
 		// EGESER sabit iletisim bilgileri (kullanici tarafindan teyitli).
+		require_once(DIR_SYSTEM . 'library/egeser_contact.php');
 		$data['eg112_phone'] = '0531 886 60 90';
-		$data['egeser_whatsapp'] = '905318866090';
+		$data['egeser_whatsapp'] = EgeserContact::WHATSAPP;
 		$data['return'] = $this->url->link('account/return/add', '', true);
 		$data['sitemap'] = $this->url->link('information/sitemap');
 		$data['manufacturer'] = $this->url->link('product/manufacturer');

@@ -462,8 +462,9 @@ class ControllerProductProduct extends Controller {
 
 			// EGESER - Product CTA contact data V1.0
 			// Product detail CTA'lari tek ve kurumsal iletişim verisi kullanir.
+			require_once(DIR_SYSTEM . 'library/egeser_contact.php');
 			$data['telephone'] = '0531 886 60 90';
-			$data['egeser_whatsapp'] = '905318866090';
+			$data['egeser_whatsapp'] = EgeserContact::WHATSAPP;
 			$data['egeser_url_iletisim'] = $this->url->link('information/contact');
 			$data['egeser_product_id'] = (int)$this->request->get['product_id'];
 			$data['egeser_current_url'] = $this->url->link(

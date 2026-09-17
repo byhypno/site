@@ -1926,7 +1926,7 @@ echo json_encode(array(
           </article>
           <article>
             <small>WHATSAPP</small>
-            <strong><a href="https://wa.me/905318866090?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>" target="_blank" rel="noopener">WhatsApp'tan yazın</a></strong>
+            <strong><a href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>" target="_blank" rel="noopener">WhatsApp'tan yazın</a></strong>
             <span>Hızlı bilgi ve teklif talebi</span>
           </article>
           <article>

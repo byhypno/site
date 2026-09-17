@@ -96,6 +96,10 @@ class ControllerInformationContact extends Controller {
 			}
 		}
 
+		// EGESER sabit iletisim bilgileri (kullanici tarafindan teyitli).
+		require_once(DIR_SYSTEM . 'library/egeser_contact.php');
+		$data['egeser_whatsapp'] = EgeserContact::WHATSAPP;
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

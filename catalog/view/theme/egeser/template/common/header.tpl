@@ -977,7 +977,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
 </header>
 
 <a class="eg17-float-wa"
-   href="https://wa.me/905318866090?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>"
+   href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>"
    target="_blank"
    rel="noopener"
    aria-label="WhatsApp üzerinden prefabrik yapı teklifi alın">

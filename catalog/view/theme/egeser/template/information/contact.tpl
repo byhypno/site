@@ -20,7 +20,7 @@
 
         <div class="egc-actions">
           <a class="egc-btn egc-btn--primary" href="tel:05318866090">0531 886 60 90</a>
-          <a class="egc-btn egc-btn--whatsapp" href="https://wa.me/905318866090" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="egc-btn egc-btn--whatsapp" href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
         <div class="egc-trust">
@@ -52,7 +52,7 @@
           <p>Satış, proje ve genel bilgi için arayabilirsiniz.</p>
         </a>
 
-        <a class="egc-contactcard" href="https://wa.me/905318866090" target="_blank" rel="noopener">
+        <a class="egc-contactcard" href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">
           <small>WHATSAPP</small>
           <h3>Hızlı İletişim</h3>
           <p>Proje bilgilerinizi ve görsellerinizi WhatsApp üzerinden paylaşabilirsiniz.</p>
@@ -259,7 +259,7 @@
       </div>
       <div class="egc-final__actions">
         <a class="egc-btn egc-btn--primary" href="tel:05318866090">Hemen Ara</a>
-        <a class="egc-btn egc-btn--light" href="https://wa.me/905318866090" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="egc-btn egc-btn--light" href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </section>
   </div>

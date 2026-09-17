@@ -118,6 +118,10 @@ class ControllerCommonHeader extends Controller {
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
 
+		// EGESER sabit iletisim bilgileri (kullanici tarafindan teyitli).
+		require_once(DIR_SYSTEM . 'library/egeser_contact.php');
+		$data['egeser_whatsapp'] = EgeserContact::WHATSAPP;
+
 		// Menu
 		$this->load->model('catalog/category');
 
