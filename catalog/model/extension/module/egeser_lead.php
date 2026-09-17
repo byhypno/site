@@ -1,36 +1,9 @@
 <?php
+require_once(DIR_SYSTEM . 'library/egeser_lead_schema.php');
+
 class ModelExtensionModuleEgeserLead extends Model {
     public function install() {
-        $this->db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "egeser_lead_log` (
-            `lead_id` INT(11) NOT NULL AUTO_INCREMENT,
-            `customer_type` VARCHAR(30) NOT NULL,
-            `company` VARCHAR(150) NOT NULL DEFAULT '',
-            `name` VARCHAR(80) NOT NULL,
-            `phone` VARCHAR(30) NOT NULL,
-            `email` VARCHAR(120) NOT NULL DEFAULT '',
-            `project_type` VARCHAR(100) NOT NULL DEFAULT '',
-            `location` VARCHAR(120) NOT NULL DEFAULT '',
-            `area` VARCHAR(40) NOT NULL DEFAULT '',
-            `product_id` INT(11) NOT NULL DEFAULT 0,
-            `product_name` VARCHAR(255) NOT NULL DEFAULT '',
-            `message` TEXT NOT NULL,
-            `source` VARCHAR(255) NOT NULL DEFAULT '',
-            `page_url` VARCHAR(700) NOT NULL DEFAULT '',
-            `utm_source` VARCHAR(100) NOT NULL DEFAULT '',
-            `utm_medium` VARCHAR(100) NOT NULL DEFAULT '',
-            `utm_campaign` VARCHAR(150) NOT NULL DEFAULT '',
-            `mail_status` VARCHAR(20) NOT NULL DEFAULT 'pending',
-            `mail_error` VARCHAR(500) NOT NULL DEFAULT '',
-            `consent` TINYINT(1) NOT NULL DEFAULT 0,
-            `date_added` DATETIME NOT NULL,
-            PRIMARY KEY (`lead_id`),
-            KEY `idx_date_added` (`date_added`),
-            KEY `idx_mail_status` (`mail_status`),
-            KEY `idx_customer_type` (`customer_type`),
-            KEY `idx_product_id` (`product_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
-
-        $this->ensureLeadColumns();
+        EgeserLeadSchema::install($this->db);
 
         $this->db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "egeser_lead_rate_limit` (
             `bucket_key` CHAR(64) NOT NULL,
@@ -40,27 +13,6 @@ class ModelExtensionModuleEgeserLead extends Model {
             PRIMARY KEY (`bucket_key`),
             KEY `idx_last_seen` (`last_seen`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
-    }
-
-
-    private function ensureLeadColumns() {
-        $columns = array(
-            'location' => "VARCHAR(120) NOT NULL DEFAULT ''",
-            'area' => "VARCHAR(40) NOT NULL DEFAULT ''",
-            'product_id' => "INT(11) NOT NULL DEFAULT 0",
-            'product_name' => "VARCHAR(255) NOT NULL DEFAULT ''",
-            'message' => "TEXT NOT NULL",
-            'page_url' => "VARCHAR(700) NOT NULL DEFAULT ''",
-            'utm_medium' => "VARCHAR(100) NOT NULL DEFAULT ''",
-            'utm_campaign' => "VARCHAR(150) NOT NULL DEFAULT ''"
-        );
-
-        foreach ($columns as $column => $definition) {
-            $q = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "egeser_lead_log` LIKE '" . $this->db->escape($column) . "'");
-            if (!$q->num_rows) {
-                $this->db->query("ALTER TABLE `" . DB_PREFIX . "egeser_lead_log` ADD `" . $column . "` " . $definition);
-            }
-        }
     }
 
     private function ipHash() {

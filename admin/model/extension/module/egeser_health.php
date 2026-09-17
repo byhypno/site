@@ -2,6 +2,7 @@
 require_once(DIR_SYSTEM . 'library/egeser_health_monitor.php');
 require_once(DIR_SYSTEM . 'library/egeser_performance_monitor.php');
 require_once(DIR_SYSTEM . 'library/egeser_security_monitor.php');
+require_once(DIR_SYSTEM . 'library/egeser_lead_schema.php');
 
 class ModelExtensionModuleEgeserHealth extends Model {
     private function monitor() {
@@ -27,34 +28,7 @@ class ModelExtensionModuleEgeserHealth extends Model {
     }
 
     public function install() {
-        $this->db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "egeser_lead_log` (
-            `lead_id` INT(11) NOT NULL AUTO_INCREMENT,
-            `customer_type` VARCHAR(30) NOT NULL,
-            `company` VARCHAR(150) NOT NULL DEFAULT '',
-            `name` VARCHAR(80) NOT NULL,
-            `phone` VARCHAR(30) NOT NULL,
-            `email` VARCHAR(120) NOT NULL DEFAULT '',
-            `project_type` VARCHAR(100) NOT NULL DEFAULT '',
-            `location` VARCHAR(120) NOT NULL DEFAULT '',
-            `area` VARCHAR(40) NOT NULL DEFAULT '',
-            `product_id` INT(11) NOT NULL DEFAULT 0,
-            `product_name` VARCHAR(255) NOT NULL DEFAULT '',
-            `message` TEXT NOT NULL,
-            `source` VARCHAR(255) NOT NULL DEFAULT '',
-            `page_url` VARCHAR(700) NOT NULL DEFAULT '',
-            `utm_source` VARCHAR(100) NOT NULL DEFAULT '',
-            `utm_medium` VARCHAR(100) NOT NULL DEFAULT '',
-            `utm_campaign` VARCHAR(150) NOT NULL DEFAULT '',
-            `mail_status` VARCHAR(20) NOT NULL DEFAULT 'pending',
-            `mail_error` VARCHAR(500) NOT NULL DEFAULT '',
-            `consent` TINYINT(1) NOT NULL DEFAULT 0,
-            `date_added` DATETIME NOT NULL,
-            PRIMARY KEY (`lead_id`),
-            KEY `idx_date_added` (`date_added`),
-            KEY `idx_mail_status` (`mail_status`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
-
-        $this->ensureLeadColumns();
+        EgeserLeadSchema::install($this->db);
 
         $this->db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "egeser_404_log` (
             `log_id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -72,29 +46,6 @@ class ModelExtensionModuleEgeserHealth extends Model {
         $performance->installTables();
         $security = new EgeserSecurityMonitor($this->registry);
         $security->installTables();
-    }
-
-
-    private function ensureLeadColumns() {
-        if (!$this->tableExists('egeser_lead_log')) return;
-
-        $columns = array(
-            'location' => "VARCHAR(120) NOT NULL DEFAULT ''",
-            'area' => "VARCHAR(40) NOT NULL DEFAULT ''",
-            'product_id' => "INT(11) NOT NULL DEFAULT 0",
-            'product_name' => "VARCHAR(255) NOT NULL DEFAULT ''",
-            'message' => "TEXT NOT NULL",
-            'page_url' => "VARCHAR(700) NOT NULL DEFAULT ''",
-            'utm_medium' => "VARCHAR(100) NOT NULL DEFAULT ''",
-            'utm_campaign' => "VARCHAR(150) NOT NULL DEFAULT ''"
-        );
-
-        foreach ($columns as $column => $definition) {
-            $q = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "egeser_lead_log` LIKE '" . $this->db->escape($column) . "'");
-            if (!$q->num_rows) {
-                $this->db->query("ALTER TABLE `" . DB_PREFIX . "egeser_lead_log` ADD `" . $column . "` " . $definition);
-            }
-        }
     }
 
     private function tableExists($table) {
