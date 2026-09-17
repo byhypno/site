@@ -23,8 +23,6 @@ class ModelExtensionModuleEgeserLead extends Model {
     }
 
     public function rateLimitAllowed($limit = 5, $window_seconds = 600) {
-        $this->install();
-
         $limit = max(2, min(50, (int)$limit));
         $window_seconds = max(60, min(86400, (int)$window_seconds));
         $bucket = hash('sha256', 'lead|' . $this->ipHash());
@@ -56,8 +54,6 @@ class ModelExtensionModuleEgeserLead extends Model {
     }
 
     public function addLead($data) {
-        $this->install();
-
         $this->db->query("INSERT INTO `" . DB_PREFIX . "egeser_lead_log`
             SET customer_type='" . $this->db->escape($data['customer_type']) . "',
                 company='" . $this->db->escape($data['company']) . "',
