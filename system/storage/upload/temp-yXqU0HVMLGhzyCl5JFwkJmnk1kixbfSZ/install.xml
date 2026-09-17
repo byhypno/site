@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>Egeser Referanslar Modülü Installer Bridge</name>
+  <code>egeser_references_module_installer_bridge</code>
+  <version>1.0.1</version>
+  <author>OpenAI - GPT-5.6 Sol</author>
+  <link>https://egeprefabrikyapi.xyz/</link>
+
+  <file path="admin/language/en-gb/extension/extension.php">
+    <operation error="skip">
+      <search><![CDATA[<?php]]></search>
+      <add position="after"><![CDATA[
+// Egeser Referanslar installer bridge - frontend/core davranışını değiştirmez.
+      ]]></add>
+    </operation>
+  </file>
+</modification>

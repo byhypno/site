@@ -1,0 +1,101 @@
+/* Egeser V2.1.1 - sadece admin ürün formu görünüm düzeltmesi */
+
+/* Ürün formunun viewport dışına taşmasını engelle */
+#form-product,
+#form-product .panel-body,
+#form-product .tab-content,
+#tab-attribute {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Teknik özellik rehberini ekrana sığdır */
+#egeser-spec-helper {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+#egeser-spec-helper .table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+#egeser-spec-helper table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  margin-bottom: 0 !important;
+}
+
+#egeser-spec-helper th,
+#egeser-spec-helper td {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
+  vertical-align: middle !important;
+}
+
+#egeser-spec-helper th:first-child,
+#egeser-spec-helper td:first-child {
+  width: 34% !important;
+}
+
+#egeser-spec-helper th:nth-child(2),
+#egeser-spec-helper td:nth-child(2) {
+  width: 66% !important;
+}
+
+/* Sekmeler taşarsa alt satıra geçsin */
+#form-product > .panel > .panel-body > .nav-tabs,
+#form-product .nav-tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#form-product .nav-tabs > li {
+  float: none !important;
+}
+
+/* Üst hızlı menü de dar ekranlarda taşmasın */
+#egeser-prefabrik-admin,
+.egeser-v21-panel {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.egeser-v21-shortcuts {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* OpenCart admin ana içerik alanında gereksiz yatay taşmayı kes */
+#content {
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 1200px) {
+  #egeser-spec-helper th:first-child,
+  #egeser-spec-helper td:first-child { width: 40% !important; }
+
+  #egeser-spec-helper th:nth-child(2),
+  #egeser-spec-helper td:nth-child(2) { width: 60% !important; }
+}
+
+@media (max-width: 767px) {
+  #egeser-spec-helper table {
+    min-width: 560px !important;
+  }
+
+  #egeser-spec-helper .table-responsive {
+    overflow-x: auto !important;
+  }
+}

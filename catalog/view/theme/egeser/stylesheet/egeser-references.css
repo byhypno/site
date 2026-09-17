@@ -1,0 +1,36 @@
+.egref{padding:88px 0;background:#f6f6f3;color:#171717}
+.egref *{box-sizing:border-box}
+.egref__container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.egref__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:56px;align-items:end;margin-bottom:34px}
+.egref__eyebrow{display:block;margin-bottom:10px;color:#e31d2b;font-size:11px;font-weight:900;letter-spacing:.14em}
+.egref h2{margin:0;font-size:clamp(32px,4vw,54px);line-height:1.03;letter-spacing:-.045em;font-weight:700}
+.egref__head>p{margin:0;color:#696969;font-size:14px;line-height:1.7}
+.egref__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.egref__card{overflow:hidden;border:1px solid #e6e6e0;border-radius:22px;background:#fff;transition:transform .25s ease,box-shadow .25s ease}
+.egref__card:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(0,0,0,.07)}
+.egref__media{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#ecece8}
+.egref__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.egref__card:hover .egref__media img{transform:scale(1.025)}
+.egref__placeholder{height:100%;display:grid;place-items:center;color:#8a8a86;font-size:12px}
+.egref__badge{position:absolute;left:14px;top:14px;display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(23,23,23,.9);color:#fff;font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.egref__body{padding:20px}
+.egref__body small{display:block;margin-bottom:8px;color:#e31d2b;font-size:10px;font-weight:900;letter-spacing:.11em}
+.egref__body h3{margin:0;font-size:21px;line-height:1.18;letter-spacing:-.025em}
+.egref__body h3 a{color:inherit;text-decoration:none}
+.egref__body p{margin:10px 0 0;color:#666;font-size:13px;line-height:1.65}
+.egref__meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.egref__meta span{padding:6px 9px;border:1px solid #e7e7e1;border-radius:999px;background:#fafaf8;color:#555;font-size:10px;font-weight:800}
+.egref__link{display:inline-flex;gap:7px;margin-top:17px;color:#171717;text-decoration:none;font-size:12px;font-weight:900}
+.egref__link span{transition:transform .2s ease}
+.egref__link:hover span{transform:translateX(3px)}
+@media(max-width:900px){
+  .egref{padding:64px 0}
+  .egref__head{grid-template-columns:1fr;gap:14px}
+  .egref__grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .egref{padding:48px 0}
+  .egref__container{width:min(100% - 24px,1180px)}
+  .egref__grid{grid-template-columns:1fr}
+  .egref__card{border-radius:18px}
+}

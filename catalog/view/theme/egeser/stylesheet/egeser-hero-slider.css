@@ -1,0 +1,97 @@
+.egeser-hero-slider-source{display:none!important}
+.egeser-hero-slider-host{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  background:#e9e9e7!important;
+}
+.egeser-hero-slider-host>.egeser-hero-slider-stage{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  border-radius:inherit;
+  background:#e9e9e7;
+}
+.egeser-hero-slider-host>.egeser-hero-slider-stage .egeser-hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity var(--egeser-hero-transition,900ms) ease;
+  pointer-events:none;
+}
+.egeser-hero-slider-host>.egeser-hero-slider-stage .egeser-hero-slide.is-active{
+  opacity:1;
+  pointer-events:auto;
+}
+.egeser-hero-slider-host>.egeser-hero-slider-stage img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+.egeser-hero-slider-host>*:not(.egeser-hero-slider-stage){
+  position:relative;
+  z-index:2;
+}
+.egeser-hero-slider-host:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.07));
+}
+@media (max-width: 767px){
+  .egeser-hero-slider-host>.egeser-hero-slider-stage img{
+    object-position:center center!important;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .egeser-hero-slider-host>.egeser-hero-slider-stage .egeser-hero-slide{
+    transition:none!important;
+  }
+}
+
+
+/* V17.3.4 mobile hard containment */
+@media (max-width: 600px){
+  .egeser-hero-slider-host{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  .egeser-hero-slider-host>.egeser-hero-slider-stage{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  .egeser-hero-slider-host>.egeser-hero-slider-stage .egeser-hero-slide{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .egeser-hero-slider-host>.egeser-hero-slider-stage img{
+    left:0!important;
+    right:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:100%!important;
+    min-height:0!important;
+    box-sizing:border-box!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+  }
+}
+

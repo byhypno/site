@@ -1,0 +1,146 @@
+2026-08-20 18:29:52 - PHP Notice:  Undefined variable: entry_directory in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 11
+2026-08-20 18:29:52 - PHP Notice:  Undefined variable: entry_status in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 12
+2026-08-20 18:29:52 - PHP Notice:  Undefined variable: entry_product_limit in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 13
+2026-08-20 18:29:52 - PHP Notice:  Undefined variable: entry_description_length in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 14
+2026-08-20 18:29:52 - PHP Notice:  Undefined variable: entry_image_sizes in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 15
+2026-08-20 18:32:59 - PHP Notice:  Undefined variable: entry_directory in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 11
+2026-08-20 18:32:59 - PHP Notice:  Undefined variable: entry_status in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 12
+2026-08-20 18:32:59 - PHP Notice:  Undefined variable: entry_product_limit in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 13
+2026-08-20 18:32:59 - PHP Notice:  Undefined variable: entry_description_length in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 14
+2026-08-20 18:32:59 - PHP Notice:  Undefined variable: entry_image_sizes in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/theme/egeser.tpl on line 15
+2026-08-20 18:42:10 - PHP Notice:  Undefined variable: entry_status in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/module/egeser_health.tpl on line 196
+2026-08-20 18:42:10 - PHP Notice:  Undefined variable: entry_whatsapp in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/module/egeser_health.tpl on line 200
+2026-08-20 18:42:10 - PHP Notice:  Undefined variable: entry_lead_recipient in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/module/egeser_health.tpl on line 204
+2026-08-20 18:42:10 - PHP Notice:  Undefined variable: entry_retention in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/module/egeser_health.tpl on line 208
+2026-08-20 18:42:10 - PHP Notice:  Undefined variable: help_retention in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/extension/module/egeser_health.tpl on line 210
+2026-08-20 18:54:29 - PHP Warning:  mail() has been disabled for security reasons in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/system/library/mail.php on line 158
+2026-08-20 18:54:45 - PHP Notice:  Undefined index: scheme in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/system/library/egeser_health_monitor.php on line 261
+2026-08-20 18:54:45 - PHP Notice:  Undefined index: host in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/system/library/egeser_health_monitor.php on line 261
+2026-08-20 18:57:32 - Egeser Test Mail Error: mail() has been disabled for security reasons
+2026-08-20 18:57:48 - Egeser Test Mail Error: mail() has been disabled for security reasons
+2026-08-21 11:17:31 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:31 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:31 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:17:31 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:31 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:31 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:17:31 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:31 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:31 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:17:37 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:37 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:37 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:17:37 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:37 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:37 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:17:37 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:17:37 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:17:37 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:11 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:11 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:11 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:11 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:11 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:11 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:11 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:11 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:11 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:13 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:13 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:13 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:13 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:13 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:13 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:13 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:13 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:13 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:15 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:15 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:15 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:15 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:15 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:15 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-21 11:18:15 - PHP Warning:  preg_match_all(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-08-21 11:18:15 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-08-21 11:18:15 - PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-08-24 15:25:34 - PHP Notice:  Undefined variable: home in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/footer.tpl on line 107
+2026-08-24 15:26:25 - PHP Notice:  Undefined variable: home in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/footer.tpl on line 107
+2026-08-25 13:04:19 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 13:04:19 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 13:19:22 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 13:19:22 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 13:54:01 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 13:54:01 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-08-25 14:15:36 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 320
+2026-08-25 14:15:36 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 322
+2026-08-25 14:15:36 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 333
+2026-08-25 14:15:36 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 334
+2026-08-25 14:15:36 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 336
+2026-08-25 14:16:48 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 320
+2026-08-25 14:16:48 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 322
+2026-08-25 14:16:48 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 333
+2026-08-25 14:16:48 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 334
+2026-08-25 14:16:48 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 336
+2026-08-25 14:16:50 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 320
+2026-08-25 14:16:50 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 322
+2026-08-25 14:16:50 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 333
+2026-08-25 14:16:50 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 334
+2026-08-25 14:16:50 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 336
+2026-08-25 14:16:55 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 320
+2026-08-25 14:16:55 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 322
+2026-08-25 14:16:55 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 333
+2026-08-25 14:16:55 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 334
+2026-08-25 14:16:55 - PHP Notice:  Undefined variable: base in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/common/home.tpl on line 336
+2026-09-07 16:04:33 - PHP Warning:  preg_match_all(): No ending delimiter '&gt;' found in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-09-07 16:04:33 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-09-07 16:04:33 - PHP Warning:  preg_replace(): No ending delimiter '&gt;' found in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-09-07 16:04:34 - PHP Warning:  preg_match_all(): No ending delimiter '&gt;' found in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 341
+2026-09-07 16:04:34 - PHP Notice:  Undefined offset: 0 in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 348
+2026-09-07 16:04:34 - PHP Warning:  preg_replace(): No ending delimiter '&gt;' found in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/controller/extension/modification.php on line 359
+2026-09-08 18:44:31 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:44:31 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:44:56 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:44:56 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:19 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:19 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:23 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:23 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:42 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:42 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:50 - PHP Notice:  Undefined property: Template\PHP::$session in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 18:45:50 - PHP Notice:  Trying to get property 'data' of non-object in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/admin/view/template/sale/egeser_lead_list.tpl on line 20
+2026-09-08 19:04:26 - EGESER CONTACT MAIL OK | to=mehmet.ozev@gmail.com | from=web@egeprefabrikyapi.xyz | reply-to=rahmitalebe@gmail.com
+2026-09-08 19:27:31 - EGESER CONTACT MAIL OK | trace=contact-20260908-192731-59c950d8 | to=mehmet.ozev@gmail.com | from=web@egeprefabrikyapi.xyz | reply-to=onyekuru@gmail.com | queue=not-detected | smtp-final=250 message sent ok
+2026-09-09 11:06:44 - EGESER CONTACT MAIL OK | trace=contact-20260909-110644-ba06699f | to=mehmet.ozev@gmail.com | from=web@egeprefabrikyapi.xyz | reply-to=cr7@gmail.com | queue=not-detected | smtp-final=250 message sent ok
+2026-09-09 11:38:17 - EGESER CONTACT MAIL OK | trace=contact-20260909-113816-b055b95f | to=mehmet.ozev@gmail.com | from=web@egeprefabrikyapi.xyz | reply-to=messi10@gmail.com | queue=not-detected | smtp-final=250 message sent ok
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: email_store in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 67
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: email_store in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 69
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: csrf_token in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 168
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: error_csrf in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 169
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: error_telephone in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 180
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 193
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 194
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 195
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 196
+2026-09-09 15:38:42 - PHP Notice:  Undefined variable: error_kvkk in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 217
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: email_store in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 67
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: email_store in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 69
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: csrf_token in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 168
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: error_csrf in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 169
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: error_telephone in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 180
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 193
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 194
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 195
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: project_type in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 196
+2026-09-09 15:38:46 - PHP Notice:  Undefined variable: error_kvkk in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 217
+2026-09-09 16:03:51 - EGESER CONTACT MAIL OK | to=mehmet.ozev@gmail.com | from=web@egeprefabrikyapi.xyz | reply-to=mehmetozev@egeserprefabrik.com.tr
+2026-09-10 10:58:41 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 278
+2026-09-10 10:58:57 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 278
+2026-09-10 10:59:11 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 278
+2026-09-10 11:00:50 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 278
+2026-09-10 11:05:42 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 271
+2026-09-10 11:06:02 - PHP Notice:  Undefined property: Template\PHP::$config in /var/www/vhosts/egeprefabrikyapi.xyz/httpdocs/catalog/view/theme/egeser/template/information/contact.tpl on line 271
+2026-09-16 11:26:57 - PHP Warning:  fsockopen(): unable to connect to ssl://mail.kurumsaleposta.com:465 (Connection refused) in /home2/egeserp1/public_html/system/library/mail.php on line 297
+2026-09-16 11:26:57 - Egeser Lead Mail Error #5: Error: Connection refused (111)
+2026-09-16 11:40:12 - Egeser Lead Mail Error #6: Error: DATA not accepted from server!
+2026-09-16 15:08:13 - EGESER CONTACT MAIL OK | to=web@egeserprefabrik.com.tr | from=web@egeserprefabrik.com.tr | reply-to=mehmet.ozev@gmail.com

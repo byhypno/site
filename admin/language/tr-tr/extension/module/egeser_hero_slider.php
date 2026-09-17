@@ -1,0 +1,22 @@
+<?php
+$_['heading_title'] = 'Egeser Ana Sayfa Hero Slider';
+$_['text_extension'] = 'Eklentiler';
+$_['text_success'] = 'Başarılı: Hero slider ayarları kaydedildi!';
+$_['text_edit'] = 'Hero Slider Düzenle';
+$_['text_enabled'] = 'Açık';
+$_['text_disabled'] = 'Kapalı';
+$_['text_yes'] = 'Evet';
+$_['text_no'] = 'Hayır';
+$_['text_home'] = 'Anasayfa';
+$_['entry_name'] = 'Modül Adı';
+$_['entry_status'] = 'Durumu';
+$_['entry_interval'] = 'Görsel Değişim Süresi (ms)';
+$_['entry_transition'] = 'Geçiş Süresi (ms)';
+$_['entry_pause_hover'] = 'Fare Üzerindeyken Durdur';
+$_['help_interval'] = 'Önerilen: 5000 (5 saniye). Minimum 2500.';
+$_['help_transition'] = 'Önerilen fade geçişi: 700–1000 ms.';
+$_['button_save'] = 'Kaydet';
+$_['button_cancel'] = 'İptal';
+$_['error_permission'] = 'Uyarı: Bu modülü değiştirme yetkiniz yok!';
+$_['error_name'] = 'Modül adı 3–64 karakter olmalıdır!';
+$_['error_slides'] = 'En az bir aktif görsel seçmelisiniz.';

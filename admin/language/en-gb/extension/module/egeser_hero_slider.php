@@ -1,0 +1,22 @@
+<?php
+$_['heading_title'] = 'Egeser Home Hero Slider';
+$_['text_extension'] = 'Extensions';
+$_['text_success'] = 'Success: Hero slider settings saved!';
+$_['text_edit'] = 'Edit Hero Slider';
+$_['text_enabled'] = 'Enabled';
+$_['text_disabled'] = 'Disabled';
+$_['text_yes'] = 'Yes';
+$_['text_no'] = 'No';
+$_['text_home'] = 'Home';
+$_['entry_name'] = 'Module Name';
+$_['entry_status'] = 'Status';
+$_['entry_interval'] = 'Slide Interval (ms)';
+$_['entry_transition'] = 'Fade Duration (ms)';
+$_['entry_pause_hover'] = 'Pause on Hover';
+$_['help_interval'] = 'Recommended: 5000 (5 seconds). Minimum 2500.';
+$_['help_transition'] = 'Recommended fade: 700–1000 ms.';
+$_['button_save'] = 'Save';
+$_['button_cancel'] = 'Cancel';
+$_['error_permission'] = 'Warning: You do not have permission to modify this module!';
+$_['error_name'] = 'Module name must be between 3 and 64 characters!';
+$_['error_slides'] = 'Select at least one active image.';

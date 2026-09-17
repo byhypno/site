@@ -1,0 +1,26 @@
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=CONNECT | reply=220 octopus-proxy-09.kurumsaleposta.com Dovecot ready. | host=ssl://mail.kurumsaleposta.com port=465
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=EHLO | reply=250-octopus-proxy-09.kurumsaleposta.com 250-8BITMIME 250-AUTH PLAIN LOGIN 250-BURL imap 250-CHUNKING 250-ENHANCEDSTATUSCODES 250-SIZE 250-PIPELINING 250 XCLIENT ADDR PORT PROTO HELO LOGIN TTL TIMEOUT SESSION FORWARD
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=AUTH_OK | reply=235 | username=web@egeprefabrikyapi.xyz
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=MAIL_FROM_OK | reply=250 Command MAIL OK | from=web@egeprefabrikyapi.xyz
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=RCPT_TO_OK | reply=250 remote recipient accepted | to=mehmet.ozev@gmail.com
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=DATA_READY | reply=354 Command DATA Start mail input; end with <CRLF>.<CRLF>
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=DATA_FINAL_OK | reply=250 message sent ok | queue_id=not-detected
+2026-09-08 19:27:31 | trace=contact-20260908-192731-59c950d8 | stage=QUIT_OK | reply=221 Command QUIT, disconnecting
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=MIME_COMPAT_V13 | message_id=<20260909110644.d8f0b0f59683539e@egeprefabrikyapi.xyz> content_type=multipart/alternative encoding=quoted-printable
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=CONNECT | reply=220 octopus-proxy-06.kurumsaleposta.com Dovecot ready. | host=ssl://mail.kurumsaleposta.com port=465
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=EHLO | reply=250-octopus-proxy-06.kurumsaleposta.com 250-8BITMIME 250-AUTH PLAIN LOGIN 250-BURL imap 250-CHUNKING 250-ENHANCEDSTATUSCODES 250-SIZE 250-PIPELINING 250 XCLIENT ADDR PORT PROTO HELO LOGIN TTL TIMEOUT SESSION FORWARD
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=AUTH_OK | reply=235 | username=web@egeprefabrikyapi.xyz
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=MAIL_FROM_OK | reply=250 Command MAIL OK | from=web@egeprefabrikyapi.xyz
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=RCPT_TO_OK | reply=250 remote recipient accepted | to=mehmet.ozev@gmail.com
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=DATA_READY | reply=354 Command DATA Start mail input; end with <CRLF>.<CRLF>
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=DATA_FINAL_OK | reply=250 message sent ok | queue_id=not-detected
+2026-09-09 11:06:44 | trace=contact-20260909-110644-ba06699f | stage=QUIT_OK | reply=221 Command QUIT, disconnecting
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=MIME_COMPAT_V13 | message_id=<20260909113816.c340581b3b76c20a@egeprefabrikyapi.xyz> content_type=multipart/alternative encoding=quoted-printable
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=CONNECT | reply=220 octopus-proxy-12.kurumsaleposta.com Dovecot ready. | host=ssl://mail.kurumsaleposta.com port=465
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=EHLO | reply=250-octopus-proxy-12.kurumsaleposta.com 250-8BITMIME 250-AUTH PLAIN LOGIN 250-BURL imap 250-CHUNKING 250-ENHANCEDSTATUSCODES 250-SIZE 250-PIPELINING 250 XCLIENT ADDR PORT PROTO HELO LOGIN TTL TIMEOUT SESSION FORWARD
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=AUTH_OK | reply=235 | username=web@egeprefabrikyapi.xyz
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=MAIL_FROM_OK | reply=250 Command MAIL OK | from=web@egeprefabrikyapi.xyz
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=RCPT_TO_OK | reply=250 remote recipient accepted | to=mehmet.ozev@gmail.com
+2026-09-09 11:38:16 | trace=contact-20260909-113816-b055b95f | stage=DATA_READY | reply=354 Command DATA Start mail input; end with <CRLF>.<CRLF>
+2026-09-09 11:38:17 | trace=contact-20260909-113816-b055b95f | stage=DATA_FINAL_OK | reply=250 message sent ok | queue_id=not-detected
+2026-09-09 11:38:17 | trace=contact-20260909-113816-b055b95f | stage=QUIT_OK | reply=221 Command QUIT, disconnecting

@@ -1,0 +1,96 @@
+/* V2.1.2 - OpenCart 2.3 admin sidebar / product form alignment fix */
+
+/* V2.1.1'de kullanılan content overflow kuralını nötrle */
+#content {
+  overflow-x: visible !important;
+}
+
+/* OpenCart 2.3 admin yapısında ana içerik sidebar'ın altına girmesin */
+@media (min-width: 768px) {
+  body:not(.navigation-open) #content,
+  #content {
+    margin-left: 235px !important;
+    width: calc(100% - 235px) !important;
+    max-width: calc(100% - 235px) !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Bazı admin temalarında sidebar 200px civarıdır */
+@media (min-width: 768px) and (max-width: 1200px) {
+  body:not(.navigation-open) #content,
+  #content {
+    margin-left: 200px !important;
+    width: calc(100% - 200px) !important;
+    max-width: calc(100% - 200px) !important;
+  }
+}
+
+/* Ürün formu kendi alanının dışına taşmasın */
+#form-product,
+#form-product .panel,
+#form-product .panel-body,
+#form-product .tab-content,
+#form-product .tab-pane {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Form label kolonlarının görünmesini garanti et */
+#form-product .form-group {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#form-product .control-label {
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* Sekmeler hem soldan başlayıp hem de taşmadan satır kırsın */
+#form-product .nav-tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+#form-product .nav-tabs > li {
+  float: none !important;
+}
+
+/* Teknik özellik tablosu sadece kendi alanında yatay kaydırılabilir */
+#egeser-spec-helper,
+#egeser-spec-helper .table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#egeser-spec-helper .table-responsive {
+  overflow-x: auto !important;
+}
+
+#egeser-spec-helper table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+
+/* Mobilde OpenCart'ın standart davranışına dön */
+@media (max-width: 767px) {
+  #content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  #egeser-spec-helper table {
+    min-width: 560px !important;
+  }
+}

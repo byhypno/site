@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>EGESER Canonical Redirect V1</name>
+  <code>egeser_canonical_redirect_v1</code>
+  <version>1.0.0</version>
+  <author>EGESER</author>
+  <link>https://egeprefabrikyapi.xyz</link>
+
+  <file path="catalog/controller/common/header.php">
+    <operation>
+      <search><![CDATA[public function index() {]]></search>
+      <add position="after"><![CDATA[
+        /* EGESER Canonical Redirect V1
+         * Amaç: Ürün ve kategori içeriklerinin birden fazla URL'den 200 dönmesini engellemek.
+         * Kapsam: Yalnız GET/HEAD + product/product veya product/category.
+         * Güvenlik: Ekstra işlevsel query parametresi varsa yönlendirme yapmaz.
+         */
+        $egeser_method = isset($this->request->server['REQUEST_METHOD']) ? strtoupper($this->request->server['REQUEST_METHOD']) : 'GET';
+
+        if ($this->config->get('config_seo_url') && ($egeser_method === 'GET' || $egeser_method === 'HEAD')) {
+            $egeser_route = isset($this->request->get['route']) ? (string)$this->request->get['route'] : '';
+
+            if ($egeser_route === 'product/product' || $egeser_route === 'product/category') {
+                // Sadece kimlik/route ve takip parametrelerine izin ver.
+                // sort, order, page, limit, filter, search vb. varsa güvenlik gereği dokunma.
+                $egeser_allowed_exact = array(
+                    'route', 'product_id', 'path', '_route_',
+                    'gclid', 'fbclid', 'msclkid'
+                );
+                $egeser_safe_request = true;
+                $egeser_tracking = array();
+
+                foreach ($this->request->get as $egeser_key => $egeser_value) {
+                    $egeser_is_utm = (strpos($egeser_key, 'utm_') === 0);
+                    $egeser_is_allowed = in_array($egeser_key, $egeser_allowed_exact, true) || $egeser_is_utm;
+
+                    if (!$egeser_is_allowed) {
+                        $egeser_safe_request = false;
+                        break;
+                    }
+
+                    if ($egeser_is_utm || in_array($egeser_key, array('gclid', 'fbclid', 'msclkid'), true)) {
+                        $egeser_tracking[$egeser_key] = $egeser_value;
+                    }
+                }
+
+                if ($egeser_safe_request) {
+                    $egeser_keyword = '';
+
+                    if ($egeser_route === 'product/product' && !empty($this->request->get['product_id'])) {
+                        $egeser_product_id = (int)$this->request->get['product_id'];
+                        $egeser_alias_query = $this->db->query("SELECT keyword FROM " . DB_PREFIX . "url_alias WHERE `query` = 'product_id=" . $egeser_product_id . "' AND keyword <> '' LIMIT 1");
+
+                        if ($egeser_alias_query->num_rows) {
+                            $egeser_keyword = trim($egeser_alias_query->row['keyword'], '/');
+                        }
+                    } elseif ($egeser_route === 'product/category' && !empty($this->request->get['path'])) {
+                        $egeser_path_parts = explode('_', (string)$this->request->get['path']);
+                        $egeser_category_id = (int)end($egeser_path_parts);
+
+                        if ($egeser_category_id > 0) {
+                            $egeser_alias_query = $this->db->query("SELECT keyword FROM " . DB_PREFIX . "url_alias WHERE `query` = 'category_id=" . $egeser_category_id . "' AND keyword <> '' LIMIT 1");
+
+                            if ($egeser_alias_query->num_rows) {
+                                $egeser_keyword = trim($egeser_alias_query->row['keyword'], '/');
+                            }
+                        }
+                    }
+
+                    if ($egeser_keyword !== '') {
+                        $egeser_https = !empty($this->request->server['HTTPS']) && strtolower((string)$this->request->server['HTTPS']) !== 'off';
+                        $egeser_base = $egeser_https ? $this->config->get('config_ssl') : $this->config->get('config_url');
+                        $egeser_base_parts = parse_url($egeser_base);
+
+                        if (is_array($egeser_base_parts) && !empty($egeser_base_parts['host'])) {
+                            $egeser_scheme = !empty($egeser_base_parts['scheme']) ? $egeser_base_parts['scheme'] : ($egeser_https ? 'https' : 'http');
+                            $egeser_host = $egeser_base_parts['host'];
+                            $egeser_port = !empty($egeser_base_parts['port']) ? ':' . (int)$egeser_base_parts['port'] : '';
+                            $egeser_base_path = !empty($egeser_base_parts['path']) ? rtrim($egeser_base_parts['path'], '/') : '';
+                            $egeser_target_path = $egeser_base_path . '/' . ltrim($egeser_keyword, '/');
+                            $egeser_target = $egeser_scheme . '://' . $egeser_host . $egeser_port . $egeser_target_path;
+
+                            if ($egeser_tracking) {
+                                $egeser_target .= '?' . http_build_query($egeser_tracking, '', '&');
+                            }
+
+                            $egeser_request_uri = isset($this->request->server['REQUEST_URI']) ? (string)$this->request->server['REQUEST_URI'] : '';
+                            $egeser_current_path = parse_url($egeser_request_uri, PHP_URL_PATH);
+
+                            if ($egeser_current_path === null || $egeser_current_path === false) {
+                                $egeser_current_path = '';
+                            }
+
+                            // Yalnız mevcut PATH canonical PATH'ten farklıysa yönlendir.
+                            // Böylece canonical URL'nin kendisinde loop oluşmaz.
+                            if ((string)$egeser_current_path !== (string)$egeser_target_path) {
+                                $this->response->redirect($egeser_target, 301);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      ]]></add>
+    </operation>
+  </file>
+</modification>

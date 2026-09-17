@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>EGESER Menü Kurumsal Hakkımızda V1.1</name>
+  <code>egeser_menu_kurumsal_hakkimizda_v1_1</code>
+  <version>1.1.0</version>
+  <author>EGESER</author>
+
+  <file path="catalog/view/theme/egeser/template/common/header.tpl">
+    <operation>
+      <search regex="true"><![CDATA[>([[:space:]]*)Kurumsal([[:space:]]*)<]]></search>
+      <add position="replace"><![CDATA[>$1Hakkımızda$2<]]></add>
+    </operation>
+  </file>
+</modification>

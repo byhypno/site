@@ -1,0 +1,4 @@
+2026-09-09 13:11:23 | METHOD=HEAD | URI=/index.php?route=product/product&amp;product_id=50 | QS=route=product/product&amp;product_id=50 | GET={"route":"product\/product","product_id":"50"} | SEO=1
+2026-09-09 13:14:47 | METHOD=HEAD | URI=/index.php?route=product/product&amp;product_id=50 | QS=route=product/product&amp;product_id=50 | GET={"route":"product\/product","product_id":"50"} | SEO=1
+2026-09-09 13:18:22 | METHOD=GET | URI=/prefabrik-yapilar/tek-katli-prefabrik-evler/85-m2-prefabrik-ev-2-1 | QS=_route_=prefabrik-yapilar/tek-katli-prefabrik-evler/85-m2-prefabrik-ev-2-1 | GET={"_route_":"prefabrik-yapilar\/tek-katli-prefabrik-evler\/85-m2-prefabrik-ev-2-1","path":"59_60","product_id":"50","route":"product\/product"} | SEO=1
+2026-09-09 13:18:22 | METHOD=GET | URI=/85-m2-prefabrik-ev-2-1 | QS=_route_=85-m2-prefabrik-ev-2-1 | GET={"_route_":"85-m2-prefabrik-ev-2-1","product_id":"50","route":"product\/product"} | SEO=1

@@ -1,0 +1,15 @@
+# Production credentials - never commit
+admin/config.php
+config.php
+
+# Runtime-generated / cache data (not source)
+system/storage/cache/*
+system/storage/logs/*.log
+system/storage/logs/*.json
+system/storage/session/*
+system/storage/download/*
+!system/storage/cache/index.html
+!system/storage/logs/index.html
+!system/storage/logs/.htaccess
+!system/storage/session/index.html
+!system/storage/download/index.html
