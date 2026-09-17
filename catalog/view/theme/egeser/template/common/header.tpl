@@ -92,8 +92,9 @@ fbq('track','PageView');
 
 <style id="egeser-shell-v17-2-3-mega-menu-layer-fix">
 :root{
-  --egs-red:#d71920;--egs-red2:#b80f16;--egs-ink:#151515;--egs-dark:#1d1d1d;
-  --egs-text:#2f3032;--egs-muted:#747477;--egs-line:#e8e8e4;--egs-soft:#f6f6f3;--egs-white:#fff;
+  --egs-red:#F21B22;--egs-red2:#D9151B;--egs-ink:#121212;--egs-dark:#1d1d1d;
+  --egs-text:#2f3032;--egs-muted:#747477;--egs-line:#E8E3DD;--egs-soft:#F7F5F2;--egs-white:#fff;
+  --egs-orange:#F4A126;--egs-orange-soft:#FFF6EA;
 }
 body{padding-top:0!important}
 .eg-shell-container{width:min(calc(100% - 42px),1240px);margin:0 auto}
@@ -225,16 +226,8 @@ body{padding-top:0!important}
 
 /* =========================================================
    V16 PREMIUM HEADER — EGESER 3-COLOR SYSTEM
+   (renk degiskenleri yukaridaki tek :root bloguna tasindi)
    ========================================================= */
-:root{
-  --egs-orange:#F4A126;
-  --egs-orange-soft:#FFF6EA;
-  --egs-red:#F21B22;
-  --egs-red2:#D9151B;
-  --egs-ink:#121212;
-  --egs-line:#E8E3DD;
-  --egs-soft:#F7F5F2;
-}
 .eg112-top{
   background:linear-gradient(90deg,#111,#171717 55%,#1d1711);
   border-bottom:1px solid rgba(244,161,38,.10);
@@ -639,12 +632,6 @@ html,body{
     right:14px!important;
     bottom:86px!important;
   }
-  .eg112-mobile-cta{
-    box-shadow:0 -12px 30px rgba(0,0,0,.12)!important;
-    border-top:1px solid rgba(255,255,255,.08)!important;
-    backdrop-filter:saturate(120%) blur(8px)!important;
-    -webkit-backdrop-filter:saturate(120%) blur(8px)!important;
-  }
 }
 
 
@@ -652,26 +639,6 @@ html,body{
    V17.3.2 MOBILE CTA / FOOTER ALIGN FIX SUPPORT
    ========================================================= */
 @media(max-width:600px){
-  .eg112-mobile-cta{
-    padding:8px 6px!important;
-    gap:4px!important;
-    align-items:center!important;
-  }
-  .eg112-mobile-cta a{
-    flex:1 1 0!important;
-    min-width:0!important;
-    padding:0 8px!important;
-    height:40px!important;
-    min-height:40px!important;
-    font-size:11px!important;
-    line-height:1!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-    text-overflow:ellipsis!important;
-    box-sizing:border-box!important;
-    letter-spacing:0!important;
-  }
-
   .eg112-footer__grid > :first-child{
     text-align:center!important;
   }
@@ -688,94 +655,11 @@ html,body{
   }
 }
 
-@media(max-width:390px){
-  .eg112-mobile-cta{
-    padding:7px 5px!important;
-    gap:3px!important;
-  }
-  .eg112-mobile-cta a{
-    font-size:10px!important;
-    padding:0 6px!important;
-  }
-}
-
-
-/* =========================================================
-   V17.3.3 MOBILE OVERFLOW + HERO CARD FIX SUPPORT
-   ========================================================= */
-@media(max-width:600px){
-  .eg112-mobile-cta{
-    display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:2px!important;
-    padding:6px 4px!important;
-  }
-  .eg112-mobile-cta a{
-    width:100%!important;
-    min-width:0!important;
-    padding:0 4px!important;
-    height:38px!important;
-    min-height:38px!important;
-    font-size:10px!important;
-    line-height:1!important;
-    letter-spacing:0!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-    text-overflow:ellipsis!important;
-  }
-}
-@media(max-width:390px){
-  .eg112-mobile-cta{
-    gap:2px!important;
-    padding:5px 3px!important;
-  }
-  .eg112-mobile-cta a{
-    font-size:9px!important;
-    padding:0 3px!important;
-    height:36px!important;
-    min-height:36px!important;
-  }
-}
-
 
 /* =========================================================
    V17.3.4 ACTUAL MOBILE BAR FIX
    ========================================================= */
 @media(max-width:600px){
-  .eg-mobilebar{
-    position:fixed!important;
-    left:0!important;
-    right:0!important;
-    bottom:0!important;
-    width:100vw!important;
-    max-width:100vw!important;
-    display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:2px!important;
-    padding:6px!important;
-    margin:0!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-    z-index:1200!important;
-    background:#111!important;
-  }
-  .eg-mobilebar a{
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
-    height:40px!important;
-    padding:0 5px!important;
-    margin:0!important;
-    box-sizing:border-box!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-    text-overflow:ellipsis!important;
-    font-size:10px!important;
-    line-height:1!important;
-  }
   body{padding-bottom:52px!important}
   .eg17-float-wa{
     right:12px!important;
@@ -783,12 +667,6 @@ html,body{
   }
 }
 @media(max-width:390px){
-  .eg-mobilebar{padding:5px!important}
-  .eg-mobilebar a{
-    height:38px!important;
-    font-size:9px!important;
-    padding:0 3px!important;
-  }
   body{padding-bottom:48px!important}
 }
 
