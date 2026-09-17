@@ -88,6 +88,17 @@ class ControllerInformationContact extends Controller {
 				// Token tek kullanımlık olsun.
 				unset($this->session->data['egeser_contact_csrf']);
 
+				// EGESER Ziyaretci & Lead Takip Merkezi - iletisim formu event'i.
+				try {
+					require_once(DIR_SYSTEM . 'library/egeser_visitor_tracker.php');
+					$egeser_tracker = new EgeserVisitorTracker($this->registry);
+					$egeser_tracker->trackClientEvent('contact_form_submit', array(
+						'page_url' => rtrim($this->config->get('config_url'), '/') . '/iletisim'
+					));
+				} catch (Exception $e) {
+					$this->log->write('Egeser Visitor Tracker (contact_form_submit) error: ' . $e->getMessage());
+				}
+
 				$this->response->redirect($this->url->link('information/contact/success'));
 				return;
 			} catch (Exception $e) {

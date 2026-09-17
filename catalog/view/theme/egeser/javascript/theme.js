@@ -34,9 +34,34 @@ document.addEventListener('keydown',function(event){
   if(megaToggle) megaToggle.setAttribute('aria-expanded','false');
 });
 
+var EGESER_FIRST_PARTY_EVENTS=['whatsapp_click','phone_click','map_click','brochure_click','quote_form_start'];
+
+function egeserSendBeacon(name, params){
+  try{
+    var body=new URLSearchParams();
+    body.set('event_type', name);
+    body.set('placement', (params && params.placement) || '');
+    body.set('page_url', window.location.href);
+    if(params && params.entity_type) body.set('entity_type', params.entity_type);
+    if(params && params.entity_id) body.set('entity_id', params.entity_id);
+
+    fetch('index.php?route=extension/module/egeser_track/event', {
+      method:'POST',
+      body:body,
+      credentials:'same-origin',
+      keepalive:true,
+      headers:{'X-Requested-With':'XMLHttpRequest'}
+    }).catch(function(){});
+  }catch(error){}
+}
+
 function track(name, params){
   params=params || {};
   try{
+    if(EGESER_FIRST_PARTY_EVENTS.indexOf(name)!==-1){
+      egeserSendBeacon(name, params);
+    }
+
     var cfg=window.EgeserTracking || {};
 
     if(typeof window.gtag==='function'){
@@ -102,6 +127,14 @@ function syncLeadCustomerType(form){
 function bindLeadForm(form){
   var status=q('.eg-form-status',form);
   var utm=marketingParams();
+  var startTracked=false;
+
+  form.addEventListener('focusin',function(){
+    if(startTracked) return;
+    startTracked=true;
+    var source=(q('input[name="source"]',form)||{}).value || '';
+    track('quote_form_start',{placement:source || 'unknown'});
+  });
 
   ['utm_source','utm_medium','utm_campaign'].forEach(function(key){
     var field=q('input[name="'+key+'"]',form);
@@ -193,13 +226,27 @@ Array.prototype.forEach.call(qa('[data-wa-message]'),function(link){
     var message=link.getAttribute('data-wa-message') || '';
     if(!phone) return;
     link.href='https://wa.me/'+phone+'?text='+encodeURIComponent(message);
-    track('whatsapp_click',{placement:link.getAttribute('data-placement') || 'unknown'});
+    track('whatsapp_click',{
+      placement:link.getAttribute('data-placement') || 'unknown',
+      entity_type:link.getAttribute('data-entity-type') || '',
+      entity_id:link.getAttribute('data-entity-id') || ''
+    });
   });
 });
 
 Array.prototype.forEach.call(qa('a[href^="tel:"]'),function(link){
   link.addEventListener('click',function(){
-    track('phone_click',{placement:link.getAttribute('data-placement') || 'unknown'});
+    track('phone_click',{
+      placement:link.getAttribute('data-placement') || 'unknown',
+      entity_type:link.getAttribute('data-entity-type') || '',
+      entity_id:link.getAttribute('data-entity-id') || ''
+    });
+  });
+});
+
+Array.prototype.forEach.call(qa('[data-eg-track]'),function(el){
+  el.addEventListener('click',function(){
+    track(el.getAttribute('data-eg-track'),{placement:el.getAttribute('data-placement') || 'unknown'});
   });
 });
 

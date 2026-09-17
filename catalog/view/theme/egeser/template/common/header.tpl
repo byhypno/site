@@ -758,7 +758,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
     <div class="eg112-top__right">
       <span class="eg112-top__pill">Bireysel & Kurumsal Prefabrik Çözümler</span>
       <a href="<?php echo $eg112_contact; ?>">Showroom</a>
-      <?php if (!empty($egeser_url_e_katalog)) { ?><a href="<?php echo htmlspecialchars($egeser_url_e_katalog, ENT_QUOTES, 'UTF-8'); ?>">E-Katalog</a><?php } ?>
+      <?php if (!empty($egeser_url_e_katalog)) { ?><a href="<?php echo htmlspecialchars($egeser_url_e_katalog, ENT_QUOTES, 'UTF-8'); ?>" data-eg-track="brochure_click" data-placement="header">E-Katalog</a><?php } ?>
     </div>
   </div>
 </div>

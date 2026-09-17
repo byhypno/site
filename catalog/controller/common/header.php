@@ -26,6 +26,17 @@ class ControllerCommonHeader extends Controller {
 
 		$data['title'] = $this->document->getTitle();
 
+		// EGESER Ziyaretci & Lead Takip Merkezi - sayfa goruntuleme kaydi.
+		// Takip sistemi cokerse ana site calismaya devam etmeli; bu yuzden
+		// tum cagri burada da ayrica try/catch ile sarilir.
+		try {
+			require_once(DIR_SYSTEM . 'library/egeser_visitor_tracker.php');
+			$egeser_tracker = new EgeserVisitorTracker($this->registry);
+			$egeser_tracker->trackPageView($data['title']);
+		} catch (Exception $e) {
+			$this->log->write('Egeser Visitor Tracker init error: ' . $e->getMessage());
+		}
+
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();

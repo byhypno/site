@@ -742,11 +742,11 @@ $eg_wa_href = $eg_wa_phone !== ''
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM7 8h10M7 12h7M7 16h5"></path></svg>
               Teklif Al
             </a>
-            <a class="eg11-btn eg11-btn--wa" href="<?php echo $eg_wa_href; ?>" target="_blank" rel="noopener noreferrer" data-wa-phone="<?php echo htmlspecialchars($eg_wa_phone, ENT_QUOTES, 'UTF-8'); ?>" data-placement="product-v11" data-wa-message="<?php echo htmlspecialchars($eg_wa_message, ENT_QUOTES, 'UTF-8'); ?>">
+            <a class="eg11-btn eg11-btn--wa" href="<?php echo $eg_wa_href; ?>" target="_blank" rel="noopener noreferrer" data-wa-phone="<?php echo htmlspecialchars($eg_wa_phone, ENT_QUOTES, 'UTF-8'); ?>" data-placement="product-v11" data-entity-type="product" data-entity-id="<?php echo (int)$egeser_product_id; ?>" data-wa-message="<?php echo htmlspecialchars($eg_wa_message, ENT_QUOTES, 'UTF-8'); ?>">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"></path></svg>
               WhatsApp
             </a>
-            <a class="eg11-btn eg11-btn--ghost" href="<?php echo $eg_tel_href; ?>" data-placement="product-v11">
+            <a class="eg11-btn eg11-btn--ghost" href="<?php echo $eg_tel_href; ?>" data-placement="product-v11" data-entity-type="product" data-entity-id="<?php echo (int)$egeser_product_id; ?>">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1z"></path></svg>
               Ara
             </a>
@@ -1001,8 +1001,8 @@ $eg_wa_href = $eg_wa_phone !== ''
   </div>
 
   <div class="eg11-mobile-bar" aria-label="Hızlı iletişim">
-    <a href="<?php echo $eg_tel_href; ?>" data-placement="product-mobile">Ara</a>
-    <a class="wa" href="<?php echo $eg_wa_href; ?>" target="_blank" rel="noopener noreferrer" data-wa-phone="<?php echo htmlspecialchars($eg_wa_phone, ENT_QUOTES, 'UTF-8'); ?>" data-placement="product-mobile" data-wa-message="<?php echo htmlspecialchars($eg_wa_message, ENT_QUOTES, 'UTF-8'); ?>">WhatsApp</a>
+    <a href="<?php echo $eg_tel_href; ?>" data-placement="product-mobile" data-entity-type="product" data-entity-id="<?php echo (int)$egeser_product_id; ?>">Ara</a>
+    <a class="wa" href="<?php echo $eg_wa_href; ?>" target="_blank" rel="noopener noreferrer" data-wa-phone="<?php echo htmlspecialchars($eg_wa_phone, ENT_QUOTES, 'UTF-8'); ?>" data-placement="product-mobile" data-entity-type="product" data-entity-id="<?php echo (int)$egeser_product_id; ?>" data-wa-message="<?php echo htmlspecialchars($eg_wa_message, ENT_QUOTES, 'UTF-8'); ?>">WhatsApp</a>
     <a class="quote" href="#eg-lead">Teklif Al</a>
   </div>
 </main>

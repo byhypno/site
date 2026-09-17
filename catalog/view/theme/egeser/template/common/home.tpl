@@ -1939,7 +1939,7 @@ echo json_encode(array(
         <div class="eh17-location__actions">
           <a class="eh12-btn eh12-btn--red" href="#eg-lead">Teklif Al</a>
           <a class="eh12-btn eh12-btn--ghost" href="<?php echo $eh12_phone_href; ?>">Telefonla Ara</a>
-          <a class="eh12-btn eh12-btn--ghost" href="<?php echo htmlspecialchars($eh17_maps_href, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">Haritada Aç</a>
+          <a class="eh12-btn eh12-btn--ghost" href="<?php echo htmlspecialchars($eh17_maps_href, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" data-eg-track="map_click" data-placement="home">Haritada Aç</a>
         </div>
       </div>
 

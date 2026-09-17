@@ -139,6 +139,21 @@ class ControllerExtensionModuleEgeserLead extends Controller {
             'consent'=>$consent
         ));
 
+        // EGESER Ziyaretci & Lead Takip Merkezi - lead kaydi basariyla
+        // olusturuldugunda birinci taraf event'i ve visitor/session eslestirmesi.
+        try {
+            require_once(DIR_SYSTEM . 'library/egeser_visitor_tracker.php');
+            $egeser_tracker = new EgeserVisitorTracker($this->registry);
+            $egeser_tracker->trackClientEvent('quote_form_submit', array(
+                'entity_type' => 'product',
+                'entity_id' => $product_id,
+                'page_url' => $page_url
+            ));
+            $egeser_tracker->attachLead($lead_id);
+        } catch (Exception $e) {
+            $this->log->write('Egeser Visitor Tracker (quote_form_submit) error: ' . $e->getMessage());
+        }
+
         $recipient = $this->config->get('egeser_health_lead_recipient') ? $this->config->get('egeser_health_lead_recipient') : $this->config->get('config_email');
         $subject_prefix = ($customer_type === 'Kurumsal') ? '[KURUMSAL TEKLİF]' : '[BİREYSEL TEKLİF]';
         $subject = $subject_prefix . ' ' . ($product_name ? $product_name : ($project_type ? $project_type : 'Web Sitesi'));

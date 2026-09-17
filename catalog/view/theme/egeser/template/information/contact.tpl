@@ -132,7 +132,7 @@
           </div>
           <?php } ?>
 
-          <a href="https://www.google.com/maps/search/?api=1&query=Kemalpaşa%20İzmir" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost">
+          <a href="https://www.google.com/maps/search/?api=1&query=Kemalpaşa%20İzmir" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
             Haritada Aç
           </a>
         </div>
