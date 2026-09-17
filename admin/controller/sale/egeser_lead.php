@@ -46,6 +46,28 @@ class ControllerSaleEgeserLead extends Controller {
         $data['success'] = isset($this->session->data['success']) ? $this->session->data['success'] : '';
         unset($this->session->data['success']);
 
+        // EGESER Ziyaretci & Lead Takip Merkezi - "Musteri Yolculugu" (minimal,
+        // salt-okunur entegrasyon; lead formunun kendi kayit akisi degismedi).
+        $data['egeser_journey'] = array();
+        if ($this->user->hasPermission('access', 'extension/module/egeser_visitor_report')) {
+            try {
+                $this->load->model('extension/module/egeser_visitor_report');
+                $session = $this->model_extension_module_egeser_visitor_report->getSessionByLeadId($lead_id);
+                if ($session) {
+                    $data['egeser_journey'] = array(
+                        'first_source' => $session['first_source'],
+                        'first_medium' => $session['first_medium'],
+                        'first_seen' => $session['first_seen'],
+                        'total_sessions' => $this->model_extension_module_egeser_visitor_report->getVisitorSessionCount($session['visitor_id']),
+                        'last_session' => $session['last_activity'],
+                        'detail_url' => $this->url->link('extension/module/egeser_visitor_report/journeyDetail', 'token=' . $this->session->data['token'] . '&session_id=' . $session['session_id'], true)
+                    );
+                }
+            } catch (Exception $e) {
+                $this->log->write('Egeser Lead Journey lookup error: ' . $e->getMessage());
+            }
+        }
+
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');

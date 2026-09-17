@@ -62,6 +62,19 @@
             </div>
           </div>
         </form>
+
+        <?php if ($egeser_journey) { ?>
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-road"></i> Müşteri Yolculuğu</h3></div>
+          <div class="panel-body">
+            <p><strong>İlk Kaynak:</strong> <?php echo htmlspecialchars(ucfirst($egeser_journey['first_source']), ENT_QUOTES, 'UTF-8'); ?> / <?php echo htmlspecialchars($egeser_journey['first_medium'], ENT_QUOTES, 'UTF-8'); ?></p>
+            <p><strong>İlk Ziyaret:</strong> <?php echo htmlspecialchars($egeser_journey['first_seen'], ENT_QUOTES, 'UTF-8'); ?></p>
+            <p><strong>Toplam Ziyaret:</strong> <?php echo (int)$egeser_journey['total_sessions']; ?></p>
+            <p><strong>Son Oturum:</strong> <?php echo htmlspecialchars($egeser_journey['last_session'], ENT_QUOTES, 'UTF-8'); ?></p>
+            <a href="<?php echo $egeser_journey['detail_url']; ?>" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Tam Yolculuğu Gör</a>
+          </div>
+        </div>
+        <?php } ?>
       </div>
     </div>
   </div>

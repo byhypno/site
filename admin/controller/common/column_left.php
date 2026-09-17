@@ -850,16 +850,39 @@ class ControllerCommonColumnLeft extends Controller {
 				);		
 			}
 			
-			if ($report) {	
+			if ($report) {
 				$data['menus'][] = array(
 					'id'       => 'menu-report',
-					'icon'	   => 'fa-bar-chart-o', 
+					'icon'	   => 'fa-bar-chart-o',
 					'name'	   => $this->language->get('text_reports'),
 					'href'     => '',
 					'children' => $report
-				);	
-			}		
-			
+				);
+			}
+
+			// EGESER - Ziyaretci & Lead Takip Merkezi
+			if ($this->user->hasPermission('access', 'extension/module/egeser_visitor_report')) {
+				$egeser_report = array();
+				$egeser_report[] = array('name' => 'Dashboard', 'href' => $this->url->link('extension/module/egeser_visitor_report/dashboard', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Canlı Ziyaretçiler', 'href' => $this->url->link('extension/module/egeser_visitor_report/live', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Günlük Rapor', 'href' => $this->url->link('extension/module/egeser_visitor_report/daily', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Ziyaretçi Yolculukları', 'href' => $this->url->link('extension/module/egeser_visitor_report/journeys', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Ürün Raporları', 'href' => $this->url->link('extension/module/egeser_visitor_report/products', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Trafik Kaynakları', 'href' => $this->url->link('extension/module/egeser_visitor_report/sources', 'token=' . $this->session->data['token'], true), 'children' => array());
+				$egeser_report[] = array('name' => 'Dönüşümler', 'href' => $this->url->link('extension/module/egeser_visitor_report/conversions', 'token=' . $this->session->data['token'], true), 'children' => array());
+				if ($this->user->hasPermission('modify', 'extension/module/egeser_visitor_report')) {
+					$egeser_report[] = array('name' => 'Ayarlar', 'href' => $this->url->link('extension/module/egeser_visitor_report/settings', 'token=' . $this->session->data['token'], true), 'children' => array());
+				}
+
+				$data['menus'][] = array(
+					'id'       => 'menu-egeser-visitor-report',
+					'icon'     => 'fa-users',
+					'name'     => 'EGESER RAPORLAR',
+					'href'     => '',
+					'children' => $egeser_report
+				);
+			}
+
 			// Stats
 			$data['text_complete_status'] = $this->language->get('text_complete_status');
 			$data['text_processing_status'] = $this->language->get('text_processing_status');
