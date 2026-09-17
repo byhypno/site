@@ -288,11 +288,13 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);	
 			}
-				$sale[] = array(
-    				'name'     => 'Teklif Talepleri',
-    				'href'     => $this->url->link('sale/egeser_lead', 'token=' . $this->session->data['token'], true),
-    				'children' => array()
-				);
+				if ($this->user->hasPermission('access', 'sale/egeser_lead')) {
+					$sale[] = array(
+						'name'     => 'Teklif Talepleri',
+						'href'     => $this->url->link('sale/egeser_lead', 'token=' . $this->session->data['token'], true),
+						'children' => array()
+					);
+				}
 			
 			if ($this->user->hasPermission('access', 'sale/recurring')) {	
 				$sale[] = array(
