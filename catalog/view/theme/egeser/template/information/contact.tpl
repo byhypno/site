@@ -132,13 +132,13 @@
           </div>
           <?php } ?>
 
-          <a href="https://www.google.com/maps/place/Egeser+Konteyner+Prefabrik+San.+Tic.+Ltd.+%C5%9Eti+-+Showroom/@38.4498686,27.4979686,17z/data=!3m1!4b1!4m6!3m5!1s0x14b97d1b49a89419:0x7a76ba9adfe86f6d!8m2!3d38.4498686!4d27.4979686!16s%2Fg%2F11zkr_6bby" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
+          <a href="https://www.google.com/maps?q=38.44988554328141,27.497831062110418" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
             Haritada Aç
           </a>
         </div>
 
         <div class="egc-mapvisual">
-          <iframe src="https://www.google.com/maps?q=Egeser+Konteyner+Prefabrik+Showroom,38.4498686,27.4979686&z=17&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Egeser Prefabrik Showroom - Kemalpaşa/İzmir konumu"></iframe>
+          <iframe src="https://www.google.com/maps?q=38.44988554328141,27.497831062110418&z=18&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Egeser Prefabrik Showroom - Kemalpaşa/İzmir konumu"></iframe>
         </div>
       </div>
     </section>
