@@ -282,7 +282,7 @@ if ($is_residential) {
       </div>
       <div class="eg-v18-choice__grid">
         <?php foreach ($eg_choices as $choice) { ?>
-        <article><span><?php echo $choice['tag']; ?></span><h3><?php echo $choice['title']; ?></h3><p><?php echo $choice['copy']; ?></p><a href="<?php echo $choice['link']; ?>">İncele / değerlendirelim →</a></article>
+        <article><span><?php echo $choice['tag']; ?></span><h3><?php echo $choice['title']; ?></h3><p><?php echo $choice['copy']; ?></p><a class="js-eg-category-offer-link" href="<?php echo $choice['link']; ?>">İncele / değerlendirelim →</a></article>
         <?php } ?>
       </div>
     </section>
