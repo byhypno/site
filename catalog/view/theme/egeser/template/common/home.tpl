@@ -1377,7 +1377,7 @@ $eh13_url_projeler = !empty($egeser_url_referanslar) ? $egeser_url_referanslar :
 $eh17_email = !empty($config_email) ? trim($config_email) : 'info@egeserprefabrik.com.tr';
 if (!preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]+$/', $eh17_email)) { $eh17_email = 'info@egeserprefabrik.com.tr'; }
 $eh17_email_href = 'mailto:' . $eh17_email;
-$eh17_maps_href = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('Çambel Mevkii Kemalpaşa İzmir');
+$eh17_maps_href = 'https://www.google.com/maps/place/Egeser+Konteyner+Prefabrik+San.+Tic.+Ltd.+%C5%9Eti+-+Showroom/@38.4498686,27.4979686,17z/data=!3m1!4b1!4m6!3m5!1s0x14b97d1b49a89419:0x7a76ba9adfe86f6d!8m2!3d38.4498686!4d27.4979686!16s%2Fg%2F11zkr_6bby';
 
 $eh16_tek_placeholder  = 'image/catalog/egeser/home/tek-katli-placeholder.jpg';
 $eh16_cift_placeholder = 'image/catalog/egeser/home/cift-katli-placeholder.jpg';
@@ -1946,7 +1946,7 @@ echo json_encode(array(
       <div class="eh17-map" aria-label="Egeser Prefabrik Kemalpaşa İzmir haritası">
         <iframe
           title="Egeser Prefabrik - Kemalpaşa İzmir konumu"
-          src="https://www.google.com/maps?q=%C3%87ambel%20Mevkii%20Kemalpa%C5%9Fa%20%C4%B0zmir&amp;output=embed"
+          src="https://www.google.com/maps?q=Egeser+Konteyner+Prefabrik+Showroom,38.4498686,27.4979686&amp;z=17&amp;output=embed"
           width="600"
           height="450"
           style="border:0"
