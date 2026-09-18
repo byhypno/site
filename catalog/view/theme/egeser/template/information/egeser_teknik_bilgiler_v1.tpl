@@ -20,7 +20,7 @@
 .et1-strip>div:last-child{border-right:0}
 .et1-strip strong{display:block;font-size:15px;margin-bottom:4px}
 .et1-strip span{font-size:12px;color:var(--muted)}
-.et1-section{margin:0 0 68px}
+.et1-section{margin:0 0 68px;scroll-margin-top:100px}
 .et1-sectionhead{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:34px;align-items:end;margin-bottom:26px}
 .et1-sectionhead h2{font-size:40px;line-height:1.08;font-weight:500;letter-spacing:-.025em;margin:0}
 .et1-sectionhead p{margin:0;color:var(--muted);line-height:1.6}
@@ -301,6 +301,20 @@
         item.classList.toggle('is-open');
       });
     })(items[i]);
+  }
+
+  // Teknik Basliklar cip menusu: ayni sayfadaki #id hedeflerine
+  // taraycidan bagimsiz olarak garantili kaydirma.
+  var chips=document.querySelectorAll('.et1-navchips a[href^="#"]');
+  for(var j=0;j<chips.length;j++){
+    chips[j].addEventListener('click',function(e){
+      var id=this.getAttribute('href').slice(1);
+      var target=document.getElementById(id);
+      if(!target)return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      if(history.pushState) history.pushState(null,'','#'+id);
+    });
   }
 })();
 </script>
