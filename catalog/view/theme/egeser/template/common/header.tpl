@@ -51,7 +51,7 @@
 <script src="<?php echo $script; ?>"></script>
 <?php } ?>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-<script src="catalog/view/theme/egeser/javascript/theme.js" defer></script>
+<script src="catalog/view/theme/egeser/javascript/theme.js?v=20260918b" defer></script>
 
 <?php if (!empty($analytics) && is_array($analytics)) { ?>
 <?php foreach ($analytics as $analytic) { echo $analytic; } ?>
