@@ -8,8 +8,8 @@ require_once(DIR_SYSTEM . 'library/egeser_security_monitor.php');
  * quote_form_submit gibi olaylari buraya POST eder. Sayfa goruntuleme
  * (page_view) burada degil, common/header controller'inda kaydedilir.
  */
-class ControllerExtensionModuleEgeserTrack extends Controller {
-    public function event() {
+class ControllerExtensionModuleEgeserPulse extends Controller {
+    public function save() {
         $this->response->addHeader('X-Robots-Tag: noindex, nofollow');
         $this->response->addHeader('X-Content-Type-Options: nosniff');
         $this->response->addHeader('Content-Type: application/json; charset=utf-8');
@@ -23,7 +23,7 @@ class ControllerExtensionModuleEgeserTrack extends Controller {
 
         try {
             $security = new EgeserSecurityMonitor($this->registry);
-            if (!$security->rateLimit('egeser_track_event', 60, 60)) {
+            if (!$security->rateLimit('egeser_pulse_save', 60, 60)) {
                 $this->response->addHeader('HTTP/1.1 429 Too Many Requests');
                 $this->response->setOutput(json_encode(array('success' => false)));
                 return;
@@ -45,7 +45,7 @@ class ControllerExtensionModuleEgeserTrack extends Controller {
 
             $this->response->setOutput(json_encode(array('success' => (bool)$ok)));
         } catch (Exception $e) {
-            $this->log->write('Egeser Track Event error: ' . $e->getMessage());
+            $this->log->write('Egeser Pulse Save error: ' . $e->getMessage());
             $this->response->setOutput(json_encode(array('success' => false)));
         }
     }
