@@ -124,9 +124,6 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 .eg-category-intent p{color:#c7c7c7!important}
 .eg-category-faq{margin:58px 0}
 .eg-category-faq h2{font-size:34px;letter-spacing:-.025em;margin:8px 0 20px}
-.eg-faq-item{border:1px solid var(--eg-line)!important;border-radius:13px!important;background:#fff;margin-bottom:8px;padding:0 16px}
-.eg-faq-item summary{padding:15px 0;font-weight:800;cursor:pointer}
-.eg-faq-item>div{padding:0 0 15px;color:#666;line-height:1.6}
 
 @media(max-width:991px){
   .eg-v18-hero{grid-template-columns:1fr;gap:24px;padding:28px}
@@ -350,15 +347,6 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
   max-width:100%!important;
 }
 
-/* 6) FAQ spacing / consistency */
-.eg-category-faq{
-  margin-top:64px!important;
-}
-.eg-faq-item summary{
-  min-height:52px!important;
-  display:flex!important;
-  align-items:center!important;
-}
 
 /* 7) Desktop vertical rhythm */
 .eg-v18-price-section,
@@ -668,76 +656,6 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 
 /* Ürün sayısı arttığında mevcut 3 kolon sistemi aynen devam eder */
 
-/* FAQ = ANA SAYFA STANDARDI */
-.eg-category-faq .eg-faq-list{
-  display:grid;
-  gap:10px;
-}
-.eg-category-faq .eg-faq-item{
-  overflow:hidden;
-  margin:0!important;
-  padding:0!important;
-  border:1px solid #e5e1da!important;
-  border-radius:15px!important;
-  background:#fff!important;
-  box-shadow:none!important;
-  transition:border-color .18s ease, background-color .18s ease;
-}
-.eg-category-faq .eg-faq-item:hover:not([open]){
-  border-color:#efc27e!important;
-}
-.eg-category-faq .eg-faq-item summary{
-  position:relative;
-  display:flex;
-  align-items:center;
-  min-height:58px;
-  padding:16px 58px 16px 20px!important;
-  list-style:none;
-  background:#fff;
-  color:#262626;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:800;
-  line-height:1.45;
-}
-.eg-category-faq .eg-faq-item summary::-webkit-details-marker{display:none}
-.eg-category-faq .eg-faq-item summary::marker{content:""}
-.eg-category-faq .eg-faq-item summary:after{
-  content:"+";
-  position:absolute;
-  right:20px;
-  top:50%;
-  transform:translateY(-50%);
-  color:#e89117;
-  font-size:25px;
-  font-weight:800;
-  line-height:1;
-}
-.eg-category-faq .eg-faq-item[open]{
-  border-color:#efb45c!important;
-  background:#fffaf4!important;
-}
-.eg-category-faq .eg-faq-item[open] summary:after{
-  content:"−";
-  color:#e51f27;
-}
-.eg-category-faq .eg-faq-item>div{
-  position:relative;
-  padding:0 20px 18px 20px!important;
-  background:#fffaf4;
-  color:#666;
-  font-size:13px;
-  line-height:1.72;
-}
-.eg-category-faq .eg-faq-item>div:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:#ef232a;
-}
 
 /* Teklif formu -> footer: gereksiz beyaz kuyruğu azalt */
 .eg-category-offer{
@@ -771,23 +689,6 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
   }
   .eg-products--listing.eg-products--single .eg-product-card{
     max-width:none;
-  }
-
-  .eg-category-faq .eg-faq-item{
-    border-radius:13px!important;
-  }
-  .eg-category-faq .eg-faq-item summary{
-    min-height:56px;
-    padding:14px 52px 14px 15px!important;
-    font-size:13px;
-  }
-  .eg-category-faq .eg-faq-item summary:after{
-    right:15px;
-    font-size:23px;
-  }
-  .eg-category-faq .eg-faq-item>div{
-    padding:0 15px 15px 15px!important;
-    font-size:12.5px;
   }
 
   .eg-category-offer{
@@ -1268,17 +1169,6 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 .eg-category-detail-panel__content h3{font-size:24px;margin:8px 0 10px}
 .eg-category-detail-panel__intro{color:#777;padding-bottom:14px;border-bottom:1px solid #e7ded0}
 .eg-category-detail-panel__richtext{color:#4f4f4f;line-height:1.7}
-
-/* FAQ = site standard */
-.eg-category-faq .eg-faq-list{display:grid;gap:10px}
-.eg-category-faq .eg-faq-item{overflow:hidden;margin:0!important;padding:0!important;border:1px solid #e5e1da!important;border-radius:15px!important;background:#fff!important}
-.eg-category-faq .eg-faq-item summary{position:relative;display:flex;align-items:center;min-height:58px;padding:16px 58px 16px 20px!important;list-style:none;background:#fff;color:#262626;cursor:pointer;font-size:14px;font-weight:800}
-.eg-category-faq .eg-faq-item summary::-webkit-details-marker{display:none}
-.eg-category-faq .eg-faq-item summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#e89117;font-size:25px;font-weight:800}
-.eg-category-faq .eg-faq-item[open]{border-color:#efb45c!important;background:#fffaf4!important}
-.eg-category-faq .eg-faq-item[open] summary:after{content:"−";color:#e51f27}
-.eg-category-faq .eg-faq-item>div{position:relative;padding:0 20px 18px 20px!important;background:#fffaf4;color:#666;line-height:1.72}
-.eg-category-faq .eg-faq-item>div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#ef232a}
 
 /* Lead form = product-detail layout */
 .eg-category-offer .eg-offer{
