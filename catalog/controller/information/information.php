@@ -66,6 +66,8 @@ class ControllerInformationInformation extends Controller {
 				$this->response->setOutput($this->load->view('information/egeser_projelerimiz_v1_1', $data));
 			} elseif ($information_id === 10) {
 				$this->response->setOutput($this->load->view('information/egeser_teknik_bilgiler_v1', $data));
+			} elseif ($information_id === 7) {
+				$this->response->setOutput($this->load->view('information/egeser_hakkimizda_v2', $data));
 			} else {
 				$this->response->setOutput($this->load->view('information/information', $data));
 			}
