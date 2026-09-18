@@ -109,14 +109,15 @@
 .egp1-region small{color:#e38b00;font-weight:900;letter-spacing:.1em}
 .egp1-region h3{font-size:21px;margin:12px 0 7px}
 .egp1-region p{font-size:13px;margin:0}
-.egp1-faq{display:grid;gap:10px}
-.egp1-faq details{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+.egp1-faq{display:grid;gap:9px}
+.egp1-faq details{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff;transition:.2s ease}
+.egp1-faq details:hover{border-color:rgba(244,161,38,.60)}
+.egp1-faq details[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 var(--red)}
 .egp1-faq summary{list-style:none;cursor:pointer;padding:19px 52px 19px 20px;font-weight:800;position:relative}
 .egp1-faq summary::-webkit-details-marker{display:none}
-.egp1-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:24px;color:#dc8500}
+.egp1-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#e8ab3c}
 .egp1-faq details[open] summary:after{content:"−";color:var(--red)}
-.egp1-faq details[open] summary{background:#fffaf5}
-.egp1-answer{padding:0 20px 18px;color:var(--muted);line-height:1.65}
+.egp1-answer{margin:0;padding:0 20px 20px;color:var(--muted);line-height:1.75}
 .egp1-cta{margin-top:74px;padding:34px 38px;border-radius:22px;background:linear-gradient(115deg,#191919,#392019);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:25px}
 .egp1-cta h2{font-size:28px;margin-top:7px;color:#fff}
 .egp1-cta p{color:#d1d1d1;margin:8px 0 0}
@@ -131,6 +132,7 @@
  .egp1-head h2{font-size:32px}.egp1-grid,.egp1-regions{grid-template-columns:1fr}.egp1-corp{grid-template-columns:1fr}
  .egp1-process{grid-template-columns:1fr}.egp1-step{display:grid;grid-template-columns:50px 1fr;column-gap:12px}.egp1-step h3{margin:3px 0}.egp1-step p{grid-column:2}
  .egp1-cta{align-items:flex-start;flex-direction:column;padding:28px 22px}.egp1-btn{width:100%}
+ .egp1-faq details{border-radius:12px}.egp1-faq summary{padding:16px 44px 16px 16px;font-size:13px}.egp1-answer{padding:0 16px 16px;font-size:12px}
 }
 </style>
 

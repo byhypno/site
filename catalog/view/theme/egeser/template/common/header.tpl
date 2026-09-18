@@ -45,7 +45,7 @@
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
 
-<link href="catalog/view/theme/egeser/stylesheet/theme.css" rel="stylesheet" />
+<link href="catalog/view/theme/egeser/stylesheet/theme.css?v=20260918d" rel="stylesheet" />
 
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>"></script>

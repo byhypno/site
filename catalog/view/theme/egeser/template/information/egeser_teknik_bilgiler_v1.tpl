@@ -68,12 +68,14 @@
 .et1-region p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
 .et1-region:first-child p{color:#ddd}
 .et1-faq{display:grid;gap:9px}
-.et1-faqitem{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
-.et1-faqbtn{width:100%;border:0;background:#fff;text-align:left;padding:17px 18px;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.et1-faqbtn:after{content:"+";font-size:22px;color:#df8b12}
-.et1-faqitem.is-open .et1-faqbtn:after{content:"−";color:var(--red)}
-.et1-faqanswer{display:none;padding:0 18px 18px;color:var(--muted);line-height:1.65}
-.et1-faqitem.is-open .et1-faqanswer{display:block}
+.et1-faqitem{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff;transition:.2s ease}
+.et1-faqitem:hover{border-color:rgba(244,161,38,.60)}
+.et1-faqitem[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 var(--red)}
+.et1-faqitem summary{position:relative;padding:19px 52px 19px 20px;list-style:none;cursor:pointer;font-weight:800}
+.et1-faqitem summary::-webkit-details-marker{display:none}
+.et1-faqitem summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:var(--amber)}
+.et1-faqitem[open] summary:after{content:"−";color:var(--red)}
+.et1-faqanswer{margin:0;padding:0 20px 20px;color:var(--muted);line-height:1.75}
 .et1-cta{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:linear-gradient(110deg,#191919 0%,#191919 62%,#3a2019 100%);color:#fff;border-radius:24px;padding:34px 36px;margin-top:68px}
 .et1-cta h2{font-size:31px;line-height:1.1;margin:5px 0 8px;color:#fff;font-weight:500}
 .et1-cta p{margin:0;color:#d5d5d5}
@@ -96,6 +98,9 @@
  .et1-sectionhead h2{font-size:31px}
  .et1-dark h2{font-size:31px}
  .et1-cta{align-items:start}
+ .et1-faqitem{border-radius:12px}
+ .et1-faqitem summary{padding:16px 44px 16px 16px;font-size:13px}
+ .et1-faqanswer{padding:0 16px 16px;font-size:12px}
 }
 </style>
 
@@ -269,11 +274,11 @@
         <p>Teklif ve proje aşamasında en sık karşılaşılan teknik sorular.</p>
       </div>
       <div class="et1-faq">
-        <div class="et1-faqitem"><button class="et1-faqbtn" type="button">Prefabrik yapıların duvar kalınlığı her projede aynı mıdır?</button><div class="et1-faqanswer">Hayır. Duvar sistemi; proje tipi, kullanım amacı, iklim koşulları ve teknik şartlara göre farklılaşabilir. Yalnızca kalınlık değil, katman yapısı ve uygulama detayları da değerlendirilmelidir.</div></div>
-        <div class="et1-faqitem"><button class="et1-faqbtn" type="button">Prefabrik yapıda yalıtım yeterli olur mu?</button><div class="et1-faqanswer">Doğru duvar ve çatı sistemi, uygun doğrama, doğru birleşim detayları ve kaliteli uygulama birlikte ele alındığında iyi bir ısı ve ses performansı hedeflenebilir. Gerekli seviye proje bölgesine ve kullanım amacına göre belirlenir.</div></div>
-        <div class="et1-faqitem"><button class="et1-faqbtn" type="button">Prefabrik yapı için beton zemin gerekli midir?</button><div class="et1-faqanswer">Temel ve zemin çözümü proje koşullarına göre belirlenir. Yapının oturacağı alanın düzgün, uygun kotta ve taşıma açısından yeterli olması önemlidir. Nihai çözüm saha ve proje değerlendirmesiyle netleştirilmelidir.</div></div>
-        <div class="et1-faqitem"><button class="et1-faqbtn" type="button">Elektrik ve su tesisatı yapı içinde hazırlanabilir mi?</button><div class="et1-faqanswer">Proje kapsamına göre elektrik ve sıhhi tesisat altyapısı yapı içinde planlanabilir. Saha tarafındaki ana enerji, temiz su ve atık su bağlantıları ayrıca değerlendirilmelidir.</div></div>
-        <div class="et1-faqitem"><button class="et1-faqbtn" type="button">Montaj süresi ne kadar sürer?</button><div class="et1-faqanswer">Süre; yapı büyüklüğü, proje tipi, saha erişimi, hava koşulları ve teknik kapsam gibi değişkenlere bağlıdır. Kesin süre proje planı üzerinden belirlenir.</div></div>
+        <details class="et1-faqitem"><summary>Prefabrik yapıların duvar kalınlığı her projede aynı mıdır?</summary><div class="et1-faqanswer">Hayır. Duvar sistemi; proje tipi, kullanım amacı, iklim koşulları ve teknik şartlara göre farklılaşabilir. Yalnızca kalınlık değil, katman yapısı ve uygulama detayları da değerlendirilmelidir.</div></details>
+        <details class="et1-faqitem"><summary>Prefabrik yapıda yalıtım yeterli olur mu?</summary><div class="et1-faqanswer">Doğru duvar ve çatı sistemi, uygun doğrama, doğru birleşim detayları ve kaliteli uygulama birlikte ele alındığında iyi bir ısı ve ses performansı hedeflenebilir. Gerekli seviye proje bölgesine ve kullanım amacına göre belirlenir.</div></details>
+        <details class="et1-faqitem"><summary>Prefabrik yapı için beton zemin gerekli midir?</summary><div class="et1-faqanswer">Temel ve zemin çözümü proje koşullarına göre belirlenir. Yapının oturacağı alanın düzgün, uygun kotta ve taşıma açısından yeterli olması önemlidir. Nihai çözüm saha ve proje değerlendirmesiyle netleştirilmelidir.</div></details>
+        <details class="et1-faqitem"><summary>Elektrik ve su tesisatı yapı içinde hazırlanabilir mi?</summary><div class="et1-faqanswer">Proje kapsamına göre elektrik ve sıhhi tesisat altyapısı yapı içinde planlanabilir. Saha tarafındaki ana enerji, temiz su ve atık su bağlantıları ayrıca değerlendirilmelidir.</div></details>
+        <details class="et1-faqitem"><summary>Montaj süresi ne kadar sürer?</summary><div class="et1-faqanswer">Süre; yapı büyüklüğü, proje tipi, saha erişimi, hava koşulları ve teknik kapsam gibi değişkenlere bağlıdır. Kesin süre proje planı üzerinden belirlenir.</div></details>
       </div>
     </section>
 
@@ -292,17 +297,6 @@
 
 <script>
 (function(){
-  var items=document.querySelectorAll('.et1-faqitem');
-  for(var i=0;i<items.length;i++){
-    (function(item){
-      var b=item.querySelector('.et1-faqbtn');
-      if(!b)return;
-      b.addEventListener('click',function(){
-        item.classList.toggle('is-open');
-      });
-    })(items[i]);
-  }
-
   // Teknik Basliklar cip menusu: ayni sayfadaki #id hedeflerine
   // taraycidan bagimsiz olarak garantili kaydirma.
   var chips=document.querySelectorAll('.et1-navchips a[href^="#"]');

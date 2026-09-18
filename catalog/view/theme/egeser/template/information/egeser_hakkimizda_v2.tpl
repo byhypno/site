@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css">
+<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css?v=20260918d">
 
 <div class="ega">
   <div class="container">

@@ -207,7 +207,7 @@ if ($is_residential) {
 }
 ?>
 
-<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-category-universal.css">
+<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-category-universal.css?v=20260918d">
 
 <main id="content" class="eg-page eg-category-page eg-category-page--<?php echo htmlspecialchars($eg_type, ENT_QUOTES, 'UTF-8'); ?>">
   <div class="eg-container">
