@@ -33,7 +33,11 @@
             <td style="max-width:220px;word-break:break-word;"><small><?php echo htmlspecialchars($v['landing_page'], ENT_QUOTES, 'UTF-8'); ?></small></td>
             <td><?php echo htmlspecialchars($v['current_page'] ?: $v['current_url'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($v['device_type'], ENT_QUOTES, 'UTF-8'); ?></td>
-            <td></td>
+            <?php
+            $eg_live_seconds = max(0, strtotime($v['last_activity']) - strtotime($v['started_at']));
+            $eg_live_duration = sprintf('%d:%02d', floor($eg_live_seconds / 60), $eg_live_seconds % 60);
+            ?>
+            <td><?php echo $eg_live_duration; ?></td>
             <td><?php echo (int)$v['pageviews']; ?></td>
             <td><?php echo !empty($v['whatsapp_clicked']) ? '<i class="fa fa-check text-success"></i>' : '-'; ?></td>
             <td><?php echo !empty($v['quote_started']) ? '<i class="fa fa-check text-success"></i>' : '-'; ?></td>
