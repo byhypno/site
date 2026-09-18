@@ -132,17 +132,13 @@
           </div>
           <?php } ?>
 
-          <a href="https://www.google.com/maps/search/?api=1&query=Kemalpaşa%20İzmir" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
+          <a href="https://www.google.com/maps/search/?api=1&query=%C3%87ambel%20Mevkii%20Kemalpa%C5%9Fa%20%C4%B0zmir" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
             Haritada Aç
           </a>
         </div>
 
         <div class="egc-mapvisual">
-          <div>
-            <span>EGESER PREFABRİK</span>
-            <strong>Kemalpaşa / İzmir</strong>
-            <small>Showroom • Üretim • Proje Ofisi</small>
-          </div>
+          <iframe src="https://www.google.com/maps?q=%C3%87ambel%20Mevkii%20Kemalpa%C5%9Fa%20%C4%B0zmir&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Egeser Prefabrik Kemalpaşa/İzmir konumu"></iframe>
         </div>
       </div>
     </section>
