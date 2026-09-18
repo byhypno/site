@@ -23,7 +23,7 @@
  */
 ?>
 <style id="egeser-projelerimiz-v1">
-.egp1{--ink:#191919;--red:#ef2329;--line:#eadfd5;--soft:#fbf8f4;--muted:#6f6f6f;max-width:1140px;margin:0 auto;padding:8px 15px 70px;color:var(--ink)}
+.egp1{--ink:#191919;--red:#ef2329;--line:#eadfd5;--soft:#fbf8f4;--muted:#6f6f6f;max-width:1240px;margin:0 auto;padding:8px 21px 70px;color:var(--ink)}
 .egp1 *{box-sizing:border-box}
 /* Projelerimiz breadcrumb: ürün/kategori sayfalarıyla aynı sade görünüm */
 .container > .breadcrumb{

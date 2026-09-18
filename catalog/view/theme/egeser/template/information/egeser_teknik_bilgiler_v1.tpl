@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 
 <style id="egeser-technical-v1">
-.et1{--red:#e72229;--ink:#191919;--muted:#6f6f6f;--line:#eadfd6;--soft:#fbf8f4;--amber:#f5a623;max-width:1180px;margin:0 auto;padding:0 18px 72px;color:var(--ink)}
+.et1{--red:#e72229;--ink:#191919;--muted:#6f6f6f;--line:#eadfd6;--soft:#fbf8f4;--amber:#f5a623;max-width:1240px;margin:0 auto;padding:0 21px 72px;color:var(--ink)}
 .et1 *{box-sizing:border-box}
 .et1 .breadcrumb{margin:14px 0 22px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
 .et1-eyebrow{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}

@@ -7,7 +7,7 @@
   --eg-muted:#f7f7f7;
   --eg-dark:#1f1f1f;
   --eg-radius:12px;
-  --eg-container:1180px;
+  --eg-container:1240px;
 }
 *{box-sizing:border-box}
 body{margin:0;color:var(--eg-text);font-family:Arial,Helvetica,sans-serif;background:#fff}

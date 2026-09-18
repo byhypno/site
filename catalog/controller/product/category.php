@@ -426,7 +426,13 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			// EGESER - "Hakkımızda" (category_id 99) uses the dedicated custom template
+			// instead of the generic category listing, matching Teknik Bilgiler / İletişim design.
+			if ((int)$category_id === 99) {
+				$this->response->setOutput($this->load->view('information/egeser_hakkimizda_v2', $data));
+			} else {
+				$this->response->setOutput($this->load->view('product/category', $data));
+			}
 		} else {
 			$url = '';
 

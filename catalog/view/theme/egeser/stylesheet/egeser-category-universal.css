@@ -29,7 +29,6 @@
    ========================================================= */
 
 .eg-category-page{--eg-red:#f51f29;--eg-orange:#f6a01a;--eg-ink:#171717;--eg-warm:#fbf7f1;--eg-line:#e8e2da}
-.eg-category-page .eg-container{max-width:1180px;margin:0 auto;padding:0 24px}
 
 .eg-v18-hero{display:grid;grid-template-columns:minmax(0,1fr) 46%;gap:48px;align-items:stretch;padding:34px;border:1px solid var(--eg-line);border-radius:28px;background:linear-gradient(135deg,#fff 0%,#fff 60%,#fff8ef 100%);overflow:hidden}
 .eg-v18-hero .eg-category-hero__content{padding:16px 0;align-self:center}
@@ -1223,7 +1222,7 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
    EGESER UNIVERSAL CATEGORY TEMPLATE V1
    Universal overrides
    ========================================================= */
-.eg-category-page .eg-container{max-width:1120px;margin:0 auto;padding:0 18px}
+.eg-category-page .eg-container{max-width:1240px;margin:0 auto;padding:0 21px}
 .eg-empty-category{
   margin:24px 0 50px;
   padding:26px;
