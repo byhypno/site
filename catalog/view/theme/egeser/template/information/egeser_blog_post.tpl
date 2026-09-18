@@ -30,8 +30,14 @@
 
       <?php if ($image) { ?><div class="eg-post__image"><img src="<?php echo $image; ?>" alt="<?php echo htmlspecialchars($heading_title, ENT_QUOTES, 'UTF-8'); ?>" width="1200" height="700"></div><?php } ?>
 
+      <?php
+      // EGESER - Yazı içeriğinin başındaki tekrar eden <h1> etiketini kaldırır.
+      // Sayfa zaten kendi <h1>'ini basıyor; içerikte ikinci bir <h1> olması
+      // arama motoru denetim araçlarında "çift H1" hatasına yol açıyordu.
+      $eg_post_body = preg_replace('#<h1[^>]*>.*?</h1>#is', '', $description, 1);
+      ?>
       <div class="eg-post__layout">
-        <div class="eg-post__content"><?php echo $description; ?></div>
+        <div class="eg-post__content"><?php echo $eg_post_body; ?></div>
         <aside class="eg-post__aside">
           <strong>Prefabrik projeniz için bilgi alın</strong>
           <p>İhtiyacınız olan metrekare, plan ve kurulum lokasyonunu paylaşın; uygun çözümü birlikte değerlendirelim.</p>
