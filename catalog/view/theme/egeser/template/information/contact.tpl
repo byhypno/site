@@ -111,19 +111,35 @@
       </div>
     </section>
 
-    <section class="egc-section">
-      <div class="egc-mapwrap">
-        <div class="egc-mapinfo">
-          <div class="egc-kicker">KONUM</div>
-          <h2>Kemalpaşa / İzmir</h2>
-          <p>
-            Egeser Prefabrik showroom ve üretim tesisimizi ziyaret etmek için
-            randevu oluşturabilirsiniz.
-          </p>
+    <section class="egc-section egc-location-section" id="konum">
+      <div class="egc-location">
+        <div class="egc-location__content">
+          <span class="egc-loc-label">KONUM &amp; SHOWROOM</span>
+          <h2>Egeser Prefabrik'e ulaşın.</h2>
+          <p>Egeser Prefabrik showroom ve üretim tesisimizi ziyaret etmek için randevu oluşturabilirsiniz.</p>
 
-          <?php if (!empty($address) && strip_tags($address) != 'Address 1') { ?>
-          <div class="egc-address"><?php echo $address; ?></div>
-          <?php } ?>
+          <div class="egc-location__details">
+            <article>
+              <small>ADRES / ÜRETİM</small>
+              <strong>Çambel Mevkii, Kemalpaşa / İzmir</strong>
+              <span>Showroom ve üretim lokasyonu</span>
+            </article>
+            <article>
+              <small>TELEFON</small>
+              <strong><a href="tel:05318866090">0531 886 60 90</a></strong>
+              <span>Satış ve proje danışmanlığı</span>
+            </article>
+            <article>
+              <small>WHATSAPP</small>
+              <strong><a href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">WhatsApp'tan yazın</a></strong>
+              <span>Hızlı bilgi ve teklif talebi</span>
+            </article>
+            <article>
+              <small>E-POSTA</small>
+              <strong><a href="mailto:<?php echo htmlspecialchars($email_store, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($email_store, ENT_QUOTES, 'UTF-8'); ?></a></strong>
+              <span>Kurumsal iletişim ve doküman paylaşımı</span>
+            </article>
+          </div>
 
           <?php if (!empty($open)) { ?>
           <div class="egc-open">
@@ -132,13 +148,27 @@
           </div>
           <?php } ?>
 
-          <a href="https://www.google.com/maps?q=38.44988554328141,27.497831062110418" target="_blank" rel="noopener" class="egc-btn egc-btn--ghost" data-eg-track="map_click" data-placement="contact">
-            Haritada Aç
-          </a>
+          <div class="egc-location__actions">
+            <a class="egc-btn egc-btn--primary" href="#iletisim-formu">Teklif Al</a>
+            <a class="egc-btn egc-btn--ghost" href="tel:05318866090">Telefonla Ara</a>
+            <a class="egc-btn egc-btn--ghost" href="https://www.google.com/maps?q=38.44988554328141,27.497831062110418" target="_blank" rel="noopener" data-eg-track="map_click" data-placement="contact">Haritada Aç</a>
+          </div>
         </div>
 
-        <div class="egc-mapvisual">
-          <iframe src="https://www.google.com/maps?q=38.44988554328141,27.497831062110418&z=18&output=embed" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Egeser Prefabrik Showroom - Kemalpaşa/İzmir konumu"></iframe>
+        <div class="egc-map" aria-label="Egeser Prefabrik Kemalpaşa İzmir haritası">
+          <iframe
+            title="Egeser Prefabrik Showroom - Kemalpaşa/İzmir konumu"
+            src="https://www.google.com/maps?q=38.44988554328141,27.497831062110418&amp;z=18&amp;output=embed"
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <div class="egc-map__caption">
+            <span>Kemalpaşa / İzmir</span>
+            <strong>Showroom &amp; Üretim</strong>
+          </div>
         </div>
       </div>
     </section>
