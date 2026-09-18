@@ -1405,10 +1405,12 @@ $eh13_schema = array(
             'telephone' => $eh12_phone,
             'address' => array(
                 '@type' => 'PostalAddress',
+                'streetAddress' => 'Çambel Mevkii',
                 'addressLocality' => 'Kemalpaşa',
                 'addressRegion' => 'İzmir',
                 'addressCountry' => 'TR'
-            )
+            ),
+            'sameAs' => array($eh17_maps_href)
         ),
         array(
             '@type' => 'WebSite',
@@ -1427,10 +1429,18 @@ $eh13_schema = array(
             'priceRange' => '₺₺',
             'address' => array(
                 '@type' => 'PostalAddress',
+                'streetAddress' => 'Çambel Mevkii',
                 'addressLocality' => 'Kemalpaşa',
                 'addressRegion' => 'İzmir',
                 'addressCountry' => 'TR'
             ),
+            'geo' => array(
+                '@type' => 'GeoCoordinates',
+                'latitude' => 38.44988554328141,
+                'longitude' => 27.497831062110418
+            ),
+            'hasMap' => $eh17_maps_href,
+            'sameAs' => array($eh17_maps_href),
             'areaServed' => array(
                 array('@type' => 'City', 'name' => 'İzmir'),
                 array('@type' => 'City', 'name' => 'Manisa')
