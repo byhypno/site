@@ -112,11 +112,11 @@
 .egp1-faq{display:grid;gap:9px}
 .egp1-faq details{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff;transition:.2s ease}
 .egp1-faq details:hover{border-color:rgba(244,161,38,.60)}
-.egp1-faq details[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 var(--red)}
+.egp1-faq details[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 #F21B22}
 .egp1-faq summary{list-style:none;cursor:pointer;padding:19px 52px 19px 20px;font-weight:800;position:relative}
 .egp1-faq summary::-webkit-details-marker{display:none}
-.egp1-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#e8ab3c}
-.egp1-faq details[open] summary:after{content:"−";color:var(--red)}
+.egp1-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#F4A126}
+.egp1-faq details[open] summary:after{content:"−";color:#F21B22}
 .egp1-answer{margin:0;padding:0 20px 20px;color:var(--muted);line-height:1.75}
 .egp1-cta{margin-top:74px;padding:34px 38px;border-radius:22px;background:linear-gradient(115deg,#191919,#392019);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:25px}
 .egp1-cta h2{font-size:28px;margin-top:7px;color:#fff}

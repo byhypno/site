@@ -42,11 +42,11 @@
 .egc-faq{display:grid;gap:9px}
 .egc-faq details{overflow:hidden;border:1px solid #eadfd5;border-radius:15px;background:#fff;transition:.2s ease}
 .egc-faq details:hover{border-color:rgba(244,161,38,.60)}
-.egc-faq details[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 #ef1f28}
+.egc-faq details[open]{background:linear-gradient(135deg,#fff,#fff6ea);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 #F21B22}
 .egc-faq summary{position:relative;padding:19px 52px 19px 20px;list-style:none;cursor:pointer;font-weight:800}
 .egc-faq summary::-webkit-details-marker{display:none}
-.egc-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#f3b546}
-.egc-faq details[open] summary:after{content:"−";color:#ef1f28}
+.egc-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#F4A126}
+.egc-faq details[open] summary:after{content:"−";color:#F21B22}
 .egc-faq p{margin:0;padding:0 20px 20px;color:#666;line-height:1.75}
 .egc-final{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:34px 38px;margin-bottom:70px;border-radius:22px;background:linear-gradient(135deg,#171717,#2b1b15);color:#fff}.egc-final h2{font-size:31px;margin:0 0 8px}.egc-final p{color:#ddd;margin:0}.egc-final__actions{display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:991px){.egc-hero,.egc-section__head,.egc-formwrap{grid-template-columns:1fr}.egc-contactcards{grid-template-columns:repeat(2,1fr)}.egc-location{grid-template-columns:1fr}.egc-map{min-height:360px}}

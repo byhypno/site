@@ -123,7 +123,7 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 .eg-category-intent{border-radius:20px!important;background:linear-gradient(110deg,#171717,#2b1a0e)!important;color:#fff!important;padding:26px 28px!important}
 .eg-category-intent p{color:#c7c7c7!important}
 .eg-category-faq{margin:58px 0}
-.eg-category-faq h2{font-size:34px;letter-spacing:-.025em;margin:8px 0 20px}
+.eg-category-faq h2{font-size:40px;font-weight:500;line-height:1.08;letter-spacing:-.025em;margin:8px 0 20px}
 
 @media(max-width:991px){
   .eg-v18-hero{grid-template-columns:1fr;gap:24px;padding:28px}
@@ -1262,11 +1262,11 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 .eg-category-faq .eg-faq-list{display:grid;gap:9px}
 .eg-category-faq .eg-faq-item{overflow:hidden;margin:0!important;padding:0!important;border:1px solid #eadfd5!important;border-radius:15px!important;background:#fff!important;transition:.2s ease}
 .eg-category-faq .eg-faq-item:hover{border-color:rgba(244,161,38,.60)!important}
-.eg-category-faq .eg-faq-item[open]{background:linear-gradient(135deg,#fff,#fff6ea)!important;border-color:rgba(244,161,38,.55)!important;box-shadow:inset 3px 0 0 #ef232a}
+.eg-category-faq .eg-faq-item[open]{background:linear-gradient(135deg,#fff,#fff6ea)!important;border-color:rgba(244,161,38,.55)!important;box-shadow:inset 3px 0 0 #F21B22}
 .eg-category-faq .eg-faq-item summary{position:relative;display:block;padding:19px 52px 19px 20px!important;list-style:none;background:#fff;color:#1d1d1d;cursor:pointer;font-weight:800}
 .eg-category-faq .eg-faq-item summary::-webkit-details-marker{display:none}
-.eg-category-faq .eg-faq-item summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;font-weight:400;color:#e89117}
-.eg-category-faq .eg-faq-item[open] summary:after{content:"−";color:#ef232a}
+.eg-category-faq .eg-faq-item summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;font-weight:400;color:#F4A126}
+.eg-category-faq .eg-faq-item[open] summary:after{content:"−";color:#F21B22}
 .eg-category-faq .eg-faq-item>div{margin:0;padding:0 20px 20px!important;background:transparent;color:#666;line-height:1.75}
 .eg-category-faq .eg-faq-item>div:before{display:none}
 @media(max-width:767px){
