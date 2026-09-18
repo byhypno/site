@@ -1441,6 +1441,12 @@ $eh13_schema = array(
             ),
             'hasMap' => $eh17_maps_href,
             'sameAs' => array($eh17_maps_href),
+            'openingHoursSpecification' => array(
+                '@type' => 'OpeningHoursSpecification',
+                'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+                'opens' => '08:30',
+                'closes' => '17:30'
+            ),
             'areaServed' => array(
                 array('@type' => 'City', 'name' => 'İzmir'),
                 array('@type' => 'City', 'name' => 'Manisa')
