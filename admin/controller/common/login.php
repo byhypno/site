@@ -93,14 +93,6 @@ class ControllerCommonLogin extends Controller {
 	}
 
 	protected function validate() {
-		require_once(DIR_SYSTEM . 'library/egeser_security_monitor.php');
-		$security = new EgeserSecurityMonitor($this->registry);
-
-		if (!$security->rateLimit('admin_login', 5, 300)) {
-			$this->error['warning'] = 'Çok fazla başarısız giriş denemesi yapıldı. Lütfen birkaç dakika sonra tekrar deneyin.';
-			return !$this->error;
-		}
-
 		if (!isset($this->request->post['username']) || !isset($this->request->post['password']) || !$this->user->login($this->request->post['username'], html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8'))) {
 			$this->error['warning'] = $this->language->get('error_login');
 		}

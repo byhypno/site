@@ -1,55 +1,23 @@
 <?php echo $header; ?>
 <style>
-.eg-post{padding:30px 0 70px;background:#fff}.eg-post__container{width:min(1050px,calc(100% - 32px));margin:auto}
-.eg-post__crumb{font-size:14px;margin-bottom:22px}.eg-post__crumb a{color:#555;text-decoration:none}.eg-post__header{max-width:900px;margin-bottom:26px}
-.eg-post__header h1{font-size:clamp(30px,5vw,48px);line-height:1.12;margin:0 0 12px}.eg-post__date{font-size:14px;color:#777}
-.eg-post__image{margin:26px 0;border-radius:18px;overflow:hidden;background:#f3f3f3}.eg-post__image img{display:block;width:100%;height:auto}
-.eg-post__layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:38px;align-items:start}.eg-post__content{font-size:17px;line-height:1.78;color:#2b2b2b}
-.eg-post__content h1{display:none}.eg-post__content h2{font-size:28px;line-height:1.25;margin:36px 0 14px}.eg-post__content h3{font-size:21px;margin:28px 0 10px}
-.eg-post__content img{max-width:100%;height:auto}.eg-post__content a{color:#b71c1c}.eg-post__content ul,.eg-post__content ol{padding-left:24px}
-.eg-post__aside{position:sticky;top:22px;border:1px solid #e7e7e7;border-radius:16px;padding:20px;background:#fafafa}.eg-post__aside strong{display:block;font-size:18px;margin-bottom:8px}
-.eg-post__aside p{font-size:14px;color:#555;line-height:1.55}.eg-post__aside a{display:block;text-align:center;text-decoration:none;border-radius:10px;padding:11px 12px;margin-top:9px;font-weight:700}
-.eg-post__aside .primary{background:#c62828;color:#fff}.eg-post__aside .secondary{border:1px solid #d0d0d0;color:#222;background:#fff}
-@media(max-width:860px){.eg-post__layout{grid-template-columns:1fr}.eg-post__aside{position:static}}
+.egp{--red:#ef1b23;--ink:#201715;--orange:#f1a323;--text:#3f3b39;--muted:#77716d;--soft:#f8f6f3;--line:#eaded4;background:#fff;color:var(--text);padding-bottom:24px}.egp *{box-sizing:border-box}.egp a{text-decoration:none}.egp-shell{width:min(1240px,calc(100% - 42px));margin:0 auto}.egp-crumb{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:18px 0;color:#777;font-size:13px}.egp-crumb a{color:#777}.egp-crumb a:hover{color:var(--red)}.egp-crumb i{font-style:normal;color:#bbb}
+.egp-hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:390px;overflow:hidden;border:1px solid var(--line);border-radius:27px;background:#fff}.egp-hero__copy{display:flex;flex-direction:column;justify-content:center;padding:46px 52px}.egp-label{display:flex;align-items:center;gap:10px;color:var(--red);font-size:11px;font-weight:900;letter-spacing:.15em}.egp-label:before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--red),var(--orange))}.egp h1{margin:15px 0 20px;color:#44413f;font-size:clamp(36px,3.7vw,52px);line-height:1.07;letter-spacing:-.04em}.egp-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#837d78;font-size:12px}.egp-meta i{width:4px;height:4px;border-radius:50%;background:var(--orange)}.egp-hero__media{display:flex;align-items:center;justify-content:center;min-width:0;padding:26px;background:linear-gradient(145deg,#191513,#281b17)}.egp-hero__media img{display:block;width:100%;height:100%;max-height:338px;object-fit:contain;border-radius:16px;background:#f0eeeb}.egp-hero__fallback{display:flex;flex-direction:column;justify-content:center;width:100%;height:100%;padding:28px;color:#fff}.egp-hero__fallback small{color:var(--orange);font-weight:900;letter-spacing:.14em}.egp-hero__fallback strong{max-width:380px;margin-top:13px;font-size:29px;line-height:1.16}
+.egp-layout{display:grid;grid-template-columns:minmax(0,820px) 300px;justify-content:space-between;gap:54px;align-items:start;padding:50px 0}.egp-content{min-width:0;color:#3f3b39;font-size:16px;line-height:1.78}.egp-content>:first-child{margin-top:0}.egp-content h1{display:none!important}.egp-content h2{position:relative;margin:40px 0 15px;padding-top:18px;border-top:1px solid var(--line);color:#3a3735;font-size:28px;line-height:1.22;letter-spacing:-.025em}.egp-content h2:before{content:"";position:absolute;left:0;top:-1px;width:56px;height:3px;background:linear-gradient(90deg,var(--red),var(--orange))}.egp-content h3{margin:27px 0 10px;color:#373331;font-size:20px;line-height:1.3}.egp-content p{margin:0 0 17px}.egp-content a{color:var(--red);font-weight:700}.egp-content ul,.egp-content ol{margin:0 0 22px;padding-left:23px}.egp-content li{margin:6px 0}.egp-content li p{margin:0}.egp-content hr{height:1px;margin:32px 0;border:0;background:var(--line)}.egp-content blockquote{margin:24px 0;padding:18px 20px;border-left:4px solid var(--orange);border-radius:0 11px 11px 0;background:#fff8ea}.egp-content img{display:block!important;width:100%!important;height:460px!important;max-width:100%!important;margin:20px auto 30px!important;padding:10px!important;border:1px solid var(--line)!important;border-radius:15px!important;background:#f3f0ec!important;object-fit:contain!important}.egp-content table{display:block;width:100%;max-width:100%;margin:23px 0;overflow-x:auto;border-collapse:collapse;font-size:13px}.egp-content th,.egp-content td{min-width:145px;padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}.egp-content th{background:var(--ink);color:#fff}.egp-content tr:nth-child(even) td{background:var(--soft)}
+.egp-side{position:sticky;top:105px;display:grid;gap:13px}.egp-box{padding:23px;border:1px solid var(--line);border-radius:18px;background:#fff}.egp-box--dark{border:0;background:linear-gradient(145deg,#191513,#281b17);color:#fff}.egp-box small{color:var(--orange);font-size:10px;font-weight:900;letter-spacing:.13em}.egp-box h2{margin:10px 0 9px;color:inherit;font-size:21px;line-height:1.22}.egp-box p{margin:0 0 16px;color:var(--muted);font-size:12.5px;line-height:1.62}.egp-box--dark p{color:#d4ccc8}.egp-btn{display:flex;align-items:center;justify-content:center;min-height:43px;margin-top:8px;padding:0 13px;border-radius:10px;font-size:12px;font-weight:900}.egp-btn--red{background:var(--red);color:#fff}.egp-btn--red:hover{background:#ce151c;color:#fff}.egp-btn--light{border:1px solid var(--line);background:#fff;color:var(--ink)}.egp-back{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#34302e;font-size:13px;font-weight:850}.egp-back b{color:var(--red)}
+.egp-end{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-bottom:56px;padding:29px 33px;border:1px solid var(--line);border-radius:21px;background:var(--soft)}.egp-end h2{margin:7px 0 5px;color:#3d3937;font-size:26px}.egp-end p{margin:0;color:var(--muted);font-size:13px}.egp-end__actions{display:flex;gap:8px;flex-shrink:0}
+@media(max-width:940px){.egp-hero{grid-template-columns:1fr}.egp-hero__media{min-height:340px}.egp-layout{grid-template-columns:1fr}.egp-side{position:static;grid-template-columns:1fr 1fr}.egp-end{align-items:flex-start;flex-direction:column}.egp-end__actions{width:100%}.egp-end__actions .egp-btn{flex:1}}
+@media(max-width:580px){.egp-shell{width:min(100% - 28px,1240px)}.egp-crumb{padding:14px 0;font-size:12px}.egp-hero{border-radius:20px}.egp-hero__copy{padding:30px 24px}.egp h1{font-size:34px}.egp-hero__media{min-height:0;padding:14px}.egp-hero__media img{height:auto;max-height:none}.egp-layout{gap:36px;padding:35px 0}.egp-content{font-size:15.5px;line-height:1.74}.egp-content h2{margin-top:34px;font-size:25px}.egp-content h3{font-size:19px}.egp-content img{height:285px!important;margin:16px auto 23px!important;padding:7px!important}.egp-side{grid-template-columns:1fr}.egp-end{margin-bottom:84px;padding:25px 22px}.egp-end__actions{flex-direction:column}.egp-end__actions .egp-btn{width:100%}}
 </style>
-<main class="eg-post">
-  <div class="eg-post__container">
-    <nav class="eg-post__crumb" aria-label="Breadcrumb">
-      <?php foreach ($breadcrumbs as $i => $breadcrumb) { ?>
-        <?php if ($i) { ?> / <?php } ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-      <?php } ?>
-    </nav>
-
-    <?php echo $content_top; ?>
-
-    <article>
-      <header class="eg-post__header">
-        <h1><?php echo $heading_title; ?></h1>
-        <?php if ($date) { ?><div class="eg-post__date">Yayın tarihi: <?php echo $date; ?></div><?php } ?>
-      </header>
-
-      <?php if ($image) { ?><div class="eg-post__image"><img src="<?php echo $image; ?>" alt="<?php echo htmlspecialchars($heading_title, ENT_QUOTES, 'UTF-8'); ?>" width="1200" height="700"></div><?php } ?>
-
-      <?php
-      // EGESER - Yazı içeriğinin başındaki tekrar eden <h1> etiketini kaldırır.
-      // Sayfa zaten kendi <h1>'ini basıyor; içerikte ikinci bir <h1> olması
-      // arama motoru denetim araçlarında "çift H1" hatasına yol açıyordu.
-      $eg_post_body = preg_replace('#<h1[^>]*>.*?</h1>#is', '', $description, 1);
-      ?>
-      <div class="eg-post__layout">
-        <div class="eg-post__content"><?php echo $eg_post_body; ?></div>
-        <aside class="eg-post__aside">
-          <strong>Prefabrik projeniz için bilgi alın</strong>
-          <p>İhtiyacınız olan metrekare, plan ve kurulum lokasyonunu paylaşın; uygun çözümü birlikte değerlendirelim.</p>
-          <a class="primary" href="/iletisim">Teklif / Bilgi Al</a>
-          <a class="secondary" href="/prefabrik-yapilar">Prefabrik Yapıları İncele</a>
-        </aside>
-      </div>
-    </article>
-
-    <?php echo $content_bottom; ?>
-  </div>
-</main>
+<main class="egp"><div class="egp-shell">
+  <nav class="egp-crumb" aria-label="Sayfa yolu"><?php foreach ($breadcrumbs as $i => $breadcrumb) { ?><?php if ($i) { ?><i>/</i><?php } ?><?php if ($i + 1 < count($breadcrumbs)) { ?><a href="<?php echo htmlspecialchars($breadcrumb['href'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($breadcrumb['text'], ENT_QUOTES, 'UTF-8'); ?></a><?php } else { ?><span aria-current="page"><?php echo htmlspecialchars($breadcrumb['text'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?><?php } ?></nav>
+  <?php echo $content_top; ?>
+  <article>
+    <header class="egp-hero"><div class="egp-hero__copy"><span class="egp-label">PREFABRİK YAPI REHBERİ</span><h1><?php echo htmlspecialchars($heading_title, ENT_QUOTES, 'UTF-8'); ?></h1><div class="egp-meta"><span>Egeser Bilgi Merkezi</span><?php if ($date) { ?><i></i><span><?php echo htmlspecialchars($date, ENT_QUOTES, 'UTF-8'); ?></span><?php } ?><i></i><span><?php echo (int)$reading_time; ?> dakika okuma</span></div></div><div class="egp-hero__media"><?php if ($image) { ?><img src="<?php echo htmlspecialchars($image, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($heading_title, ENT_QUOTES, 'UTF-8'); ?>" width="720" height="405"><?php } else { ?><div class="egp-hero__fallback"><small>EGESER PREFABRİK</small><strong>Teknik bilgiyi doğru proje kararına dönüştürün.</strong></div><?php } ?></div></header>
+    <div class="egp-layout"><div class="egp-content"><?php echo $description; ?></div><aside class="egp-side"><div class="egp-box egp-box--dark"><small>PROJENİZ İÇİN</small><h2>İhtiyacınızı birlikte değerlendirelim.</h2><p>Yaklaşık m², oda planı ve uygulama bölgesini paylaşmanız yeterli.</p><a class="egp-btn egp-btn--red" href="<?php echo htmlspecialchars($contact_url, ENT_QUOTES, 'UTF-8'); ?>">Teklif / Bilgi Al</a><a class="egp-btn egp-btn--light" href="<?php echo htmlspecialchars($whatsapp_url, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">WhatsApp’tan Yaz</a></div><div class="egp-box"><a class="egp-back" href="<?php echo htmlspecialchars($blog_url, ENT_QUOTES, 'UTF-8'); ?>">Tüm Rehberlere Dön <b>→</b></a><a class="egp-btn egp-btn--light" href="<?php echo htmlspecialchars($models_url, ENT_QUOTES, 'UTF-8'); ?>">Prefabrik Yapıları İncele</a></div></aside></div>
+  </article>
+  <?php echo $content_bottom; ?>
+  <section class="egp-end"><div><span class="egp-label">EGESER PREFABRİK</span><h2>Projeniz için ilk adımı atın.</h2><p>Teknik kapsam, saha ve teslim seçeneklerini birlikte değerlendirelim.</p></div><div class="egp-end__actions"><a class="egp-btn egp-btn--light" href="<?php echo htmlspecialchars($models_url, ENT_QUOTES, 'UTF-8'); ?>">Modelleri İncele</a><a class="egp-btn egp-btn--red" href="<?php echo htmlspecialchars($contact_url, ENT_QUOTES, 'UTF-8'); ?>">Teklif Al</a></div></section>
+</div></main>
 <script type="application/ld+json"><?php echo json_encode($schema, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT); ?></script>
 <script type="application/ld+json"><?php echo json_encode($breadcrumb_schema, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT); ?></script>
 <?php echo $footer; ?>

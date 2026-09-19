@@ -2,12 +2,6 @@
 require_once(DIR_SYSTEM . 'library/egeser_visitor_tracker.php');
 require_once(DIR_SYSTEM . 'library/egeser_security_monitor.php');
 
-/**
- * Egeser Ziyaretci & Lead Takip Merkezi - frontend beacon endpoint.
- * theme.js icindeki mevcut track() fonksiyonu, whatsapp_click/phone_click/
- * quote_form_submit gibi olaylari buraya POST eder. Sayfa goruntuleme
- * (page_view) burada degil, common/header controller'inda kaydedilir.
- */
 class ControllerExtensionModuleEgeserPulse extends Controller {
     public function save() {
         $this->response->addHeader('X-Robots-Tag: noindex, nofollow');

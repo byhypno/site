@@ -1,0 +1,22 @@
+<?php
+$_['heading_title'] = 'Egeser Cache Yönetimi';
+$_['text_home'] = 'Anasayfa';
+$_['text_tools'] = 'Araçlar';
+$_['text_dashboard'] = 'Cache / Bellek Yönetimi';
+$_['text_intro'] = 'Bu araç Egeser Prefabrik sitesinin gerçek dosya yapısına göre hazırlanmıştır. OpenCart cache dosyalarını güvenli desenle temizler, OCMOD yenilemeyi OpenCart çekirdeğine bırakır ve PHP OPcache durumunu gösterir.';
+$_['text_safety'] = 'Güvenlik: Yalnız system/storage/cache/cache.* dosyaları silinir. index.html, Excel dosyaları, görseller, upload, loglar, veritabanı ve config dosyalarına dokunulmaz.';
+$_['text_ocmod_note'] = 'OCMOD için kendi silme kodumuzu kullanmıyoruz. “OCMOD Yenile” butonu OpenCart 2.3.0.2’nin kendi Modification > Refresh işlemini çalıştırır.';
+$_['text_no_journal'] = 'Gönderilen site dosyalarında ayrı bir Journal / Journal 3 kurulum klasörü tespit edilmedi. Bu nedenle varsayımsal Journal cache klasörü silinmez.';
+$_['text_cache_cleared'] = 'OpenCart cache temizlendi: %s dosya, %s.';
+$_['text_all_safe_cleared'] = 'Güvenli cache temizliği tamamlandı: %s OpenCart cache dosyası, %s. PHP OPcache destekleniyorsa ayrıca sıfırlama denendi.';
+$_['text_opcache_reset'] = 'PHP OPcache başarıyla sıfırlandı.';
+$_['button_clear_cache'] = 'OpenCart Cache Temizle';
+$_['button_clear_all_safe'] = 'Tüm Güvenli Cache’i Temizle';
+$_['button_reset_opcache'] = 'PHP OPcache Sıfırla';
+$_['button_refresh_ocmod'] = 'OCMOD Yenile';
+$_['button_refresh'] = 'Durumu Yenile';
+$_['error_permission'] = 'Bu işlemi yapmak için Modification değiştirme yetkisi gerekiyor.';
+$_['error_cache_path'] = 'Cache klasörü güvenli olarak doğrulanamadı. İşlem yapılmadı.';
+$_['error_delete_file'] = '%s dosyası silinemedi. İşlem durduruldu.';
+$_['error_opcache_unavailable'] = 'PHP OPcache bu sunucuda kullanılamıyor veya web PHP sürecinde devre dışı.';
+$_['error_opcache_reset'] = 'PHP OPcache sıfırlanamadı.';

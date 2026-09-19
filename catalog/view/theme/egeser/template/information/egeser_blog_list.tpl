@@ -1,45 +1,22 @@
 <?php echo $header; ?>
 <style>
-.eg-blog{padding:34px 0 70px;background:#fff}.eg-blog__container{width:min(1180px,calc(100% - 32px));margin:auto}
-.eg-blog__crumb{font-size:14px;margin-bottom:22px}.eg-blog__crumb a{color:#555;text-decoration:none}.eg-blog__hero{padding:32px;border:1px solid #ececec;border-radius:18px;background:#fafafa;margin-bottom:28px}
-.eg-blog__hero h1{margin:0 0 12px;font-size:clamp(30px,5vw,48px);line-height:1.08}.eg-blog__hero p{margin:0;max-width:820px;font-size:17px;line-height:1.7;color:#555}
-.eg-blog__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.eg-blog-card{border:1px solid #e9e9e9;border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-.eg-blog-card__image{aspect-ratio:16/9;background:#f3f3f3;overflow:hidden}.eg-blog-card__image img{width:100%;height:100%;object-fit:cover}.eg-blog-card__body{padding:22px;display:flex;flex-direction:column;flex:1}
-.eg-blog-card__date{font-size:13px;color:#777;margin-bottom:8px}.eg-blog-card h2{font-size:22px;line-height:1.3;margin:0 0 12px}.eg-blog-card h2 a{color:#161616;text-decoration:none}
-.eg-blog-card p{color:#5b5b5b;line-height:1.65;margin:0 0 18px}.eg-blog-card__link{margin-top:auto;font-weight:700;color:#c62828;text-decoration:none}
-@media(max-width:760px){.eg-blog__grid{grid-template-columns:1fr}.eg-blog__hero{padding:24px}}
+.egb{--red:#ef1b23;--ink:#201715;--orange:#f1a323;--text:#4e4a48;--muted:#77716d;--soft:#f8f6f3;--line:#eaded4;background:#fff;color:var(--text);padding-bottom:24px}.egb *{box-sizing:border-box}.egb a{text-decoration:none}.egb-shell{width:min(1240px,calc(100% - 42px));margin:0 auto}.egb-crumb{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:18px 0;color:#777;font-size:13px}.egb-crumb a{color:#777}.egb-crumb a:hover{color:var(--red)}.egb-crumb i{font-style:normal;color:#bbb}
+.egb-hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:330px;overflow:hidden;border:1px solid var(--line);border-radius:27px;background:#fff}.egb-hero__copy{display:flex;flex-direction:column;justify-content:center;padding:48px 54px}.egb-label{display:flex;align-items:center;gap:10px;color:var(--red);font-size:11px;font-weight:900;letter-spacing:.15em}.egb-label:before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--red),var(--orange))}.egb-hero h1{margin:14px 0 14px;color:#454240;font-size:clamp(40px,4vw,57px);line-height:1.04;letter-spacing:-.04em}.egb-hero__copy p{max-width:650px;margin:0;color:#6b6764;font-size:16px;line-height:1.7}.egb-hero__dark{display:flex;flex-direction:column;justify-content:center;padding:46px 52px;background:linear-gradient(145deg,#191513,#281b17);color:#fff}.egb-hero__dark small{color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.14em}.egb-hero__dark h2{margin:13px 0 12px;color:#fff;font-size:29px;line-height:1.15}.egb-hero__dark p{margin:0;color:#d7d0cc;line-height:1.65}.egb-hero__stat{display:flex;align-items:center;gap:12px;margin-top:25px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}.egb-hero__stat strong{font-size:35px;color:#fff}.egb-hero__stat span{color:#bbb2ad;font-size:13px}
+.egb-section{padding:58px 0 66px}.egb-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:22px}.egb-head h2{margin:8px 0 0;color:#383533;font-size:32px;letter-spacing:-.03em}.egb-head p{max-width:430px;margin:0;color:var(--muted);font-size:13px;line-height:1.65}.egb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.egb-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#fff;transition:.2s}.egb-card:hover{transform:translateY(-3px);border-color:#ddcabe;box-shadow:0 14px 30px rgba(37,25,18,.07)}.egb-card__image{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;overflow:hidden;background:#f2efeb;border-bottom:1px solid var(--line)}.egb-card__image img{display:block;width:100%;height:100%;object-fit:cover}.egb-card__body{display:flex;flex:1;flex-direction:column;padding:18px}.egb-meta{display:flex;align-items:center;gap:7px;color:#8b837d;font-size:10.5px}.egb-meta i{width:4px;height:4px;border-radius:50%;background:var(--orange)}.egb-card h3{margin:10px 0 9px;font-size:18px;line-height:1.27;letter-spacing:-.015em}.egb-card h3 a{color:#2d2927}.egb-card p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;margin:0 0 16px;color:#77706c;font-size:12px;line-height:1.62}.egb-more{display:inline-flex;align-items:center;gap:7px;margin-top:auto;color:var(--red);font-size:11px;font-weight:900}.egb-more b{transition:.2s}.egb-more:hover b{transform:translateX(3px)}.egb-empty{padding:50px;border:1px solid var(--line);border-radius:18px;background:var(--soft);text-align:center}
+.egb-cta{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-bottom:56px;padding:30px 34px;border-radius:21px;background:var(--soft);border:1px solid var(--line)}.egb-cta h2{margin:7px 0 5px;color:#3c3937;font-size:27px}.egb-cta p{margin:0;color:var(--muted);font-size:13px}.egb-btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 20px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;font-weight:900;white-space:nowrap}.egb-btn:hover{background:#cf151c;color:#fff}
+@media(max-width:1040px){.egb-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:850px){.egb-hero{grid-template-columns:1fr}.egb-grid{grid-template-columns:repeat(2,1fr)}.egb-head{align-items:flex-start;flex-direction:column}.egb-cta{align-items:flex-start;flex-direction:column}}@media(max-width:580px){.egb-shell{width:min(100% - 28px,1240px)}.egb-crumb{padding:14px 0;font-size:12px}.egb-hero{border-radius:20px}.egb-hero__copy,.egb-hero__dark{padding:30px 24px}.egb-hero h1{font-size:37px}.egb-hero__dark h2{font-size:25px}.egb-section{padding:43px 0 52px}.egb-head h2{font-size:29px}.egb-grid{grid-template-columns:1fr}.egb-card{display:grid;grid-template-columns:124px 1fr}.egb-card__image{height:100%;min-height:150px;aspect-ratio:auto;border:0;border-right:1px solid var(--line)}.egb-card__body{padding:16px}.egb-card h3{font-size:16px}.egb-card p{display:none}.egb-cta{margin-bottom:83px;padding:25px 22px}.egb-btn{width:100%}}
 </style>
-<main class="eg-blog">
-  <div class="eg-blog__container">
-    <nav class="eg-blog__crumb" aria-label="Breadcrumb">
-      <?php foreach ($breadcrumbs as $i => $breadcrumb) { ?>
-        <?php if ($i) { ?> / <?php } ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-      <?php } ?>
-    </nav>
-
+<main class="egb">
+  <div class="egb-shell">
+    <nav class="egb-crumb" aria-label="Sayfa yolu"><?php foreach ($breadcrumbs as $i => $breadcrumb) { ?><?php if ($i) { ?><i>/</i><?php } ?><?php if ($i + 1 < count($breadcrumbs)) { ?><a href="<?php echo htmlspecialchars($breadcrumb['href'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($breadcrumb['text'], ENT_QUOTES, 'UTF-8'); ?></a><?php } else { ?><span aria-current="page"><?php echo htmlspecialchars($breadcrumb['text'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?><?php } ?></nav>
     <?php echo $content_top; ?>
-
-    <header class="eg-blog__hero">
-      <h1><?php echo $heading_title; ?></h1>
-      <p>Prefabrik ev seçimi, malzeme yapısı, kullanım alanları, deprem güvenliği ve farklı yapı sistemleri hakkında eski siteden korunan rehber içerikleri.</p>
-    </header>
-
-    <section class="eg-blog__grid" aria-label="Blog yazıları">
-      <?php foreach ($posts as $post) { ?>
-      <article class="eg-blog-card">
-        <?php if (!empty($post['image'])) { ?><a class="eg-blog-card__image" href="<?php echo $post['href']; ?>"><img src="<?php echo $post['image']; ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" width="640" height="420"></a><?php } ?>
-        <div class="eg-blog-card__body">
-          <?php if ($post['date']) { ?><div class="eg-blog-card__date"><?php echo $post['date']; ?></div><?php } ?>
-          <h2><a href="<?php echo $post['href']; ?>"><?php echo $post['title']; ?></a></h2>
-          <p><?php echo $post['excerpt']; ?></p>
-          <a class="eg-blog-card__link" href="<?php echo $post['href']; ?>">Yazıyı Oku →</a>
-        </div>
-      </article>
-      <?php } ?>
-    </section>
-
-    <?php echo $content_bottom; ?>
+    <header class="egb-hero"><div class="egb-hero__copy"><span class="egb-label">EGESER PREFABRİK</span><h1><?php echo htmlspecialchars($heading_title, ENT_QUOTES, 'UTF-8'); ?></h1><p>Prefabrik ev seçimi, malzeme sistemleri, güvenlik ve doğru proje kararları için sade ve anlaşılır içerikler.</p></div><div class="egb-hero__dark"><small>BİLGİ MERKEZİ</small><h2>Karar vermeden önce yapıyı doğru tanıyın.</h2><p>Teknik konuları gereksiz karmaşadan uzak, proje planlamanıza yardımcı olacak biçimde ele alıyoruz.</p><div class="egb-hero__stat"><strong><?php echo (int)$post_count; ?></strong><span>yayındaki prefabrik yapı rehberi</span></div></div></header>
   </div>
+  <section class="egb-section"><div class="egb-shell"><div class="egb-head"><div><span class="egb-label">GÜNCEL YAZILAR</span><h2>Prefabrik yapı rehberleri</h2></div><p>Malzeme, yapı sistemi ve güvenlik konularında temel bilgileri tek yerde inceleyin.</p></div>
+    <?php if (!empty($posts)) { ?><div class="egb-grid"><?php foreach ($posts as $post) { ?><article class="egb-card"><?php if (!empty($post['image'])) { ?><a class="egb-card__image" href="<?php echo htmlspecialchars($post['href'], ENT_QUOTES, 'UTF-8'); ?>"><img src="<?php echo htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" width="480" height="270"></a><?php } ?><div class="egb-card__body"><div class="egb-meta"><?php if ($post['date']) { ?><span><?php echo htmlspecialchars($post['date'], ENT_QUOTES, 'UTF-8'); ?></span><i></i><?php } ?><span><?php echo (int)$post['reading_time']; ?> dk</span></div><h3><a href="<?php echo htmlspecialchars($post['href'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?></a></h3><p><?php echo htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p><a class="egb-more" href="<?php echo htmlspecialchars($post['href'], ENT_QUOTES, 'UTF-8'); ?>">Yazıyı Oku <b>→</b></a></div></article><?php } ?></div><?php } else { ?><div class="egb-empty"><h2>Yeni rehberler hazırlanıyor.</h2></div><?php } ?>
+    <?php echo $content_bottom; ?>
+  </div></section>
+  <section class="egb-shell egb-cta"><div><span class="egb-label">PROJENİZİ KONUŞALIM</span><h2>Doğru yapı kapsamını birlikte belirleyelim.</h2><p>Yaklaşık m², kullanım amacı ve proje konumunu paylaşmanız yeterli.</p></div><a class="egb-btn" href="<?php echo htmlspecialchars($contact_url, ENT_QUOTES, 'UTF-8'); ?>">Projem İçin Teklif Al</a></section>
 </main>
 <script type="application/ld+json"><?php echo json_encode($schema, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT); ?></script>
 <script type="application/ld+json"><?php echo json_encode($breadcrumb_schema, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT); ?></script>

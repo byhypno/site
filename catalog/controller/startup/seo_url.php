@@ -199,6 +199,29 @@ class ControllerStartupSeoUrl extends Controller {
 				return;
 			}
 
+			// EGESER V7 - Şehir bazlı hizmet sayfaları.
+			// Veritabanı url_alias kaydına ihtiyaç duymadan temiz ve sabit URL üretir.
+			$egeser_city_routes = array(
+				'izmir-prefabrik-ev' => 'izmir',
+				'tr/izmir-prefabrik-ev' => 'izmir',
+				'manisa-prefabrik-ev' => 'manisa',
+				'tr/manisa-prefabrik-ev' => 'manisa',
+				'aydin-prefabrik-ev' => 'aydin',
+				'tr/aydin-prefabrik-ev' => 'aydin',
+				'usak-prefabrik-ev' => 'usak',
+				'tr/usak-prefabrik-ev' => 'usak',
+				'balikesir-prefabrik-ev' => 'balikesir',
+				'tr/balikesir-prefabrik-ev' => 'balikesir',
+				'mugla-prefabrik-ev' => 'mugla',
+				'tr/mugla-prefabrik-ev' => 'mugla'
+			);
+
+			if (isset($egeser_city_routes[$egeser_route])) {
+				$this->request->get['route'] = 'information/egeser_city';
+				$this->request->get['city'] = $egeser_city_routes[$egeser_route];
+				return;
+			}
+
 			// EGESER Paket 4A - Blog temiz URL'leri
 			// /blog -> blog listesi
 			// /blog/{slug} -> eski siteden korunan blog yazısı

@@ -1,0 +1,136 @@
+/* Egeser UI Audit V4 - 18.09.2026
+   Ortak sayfa genişliği, koyu kart kontrastı ve görsel bos durum standardi. */
+
+:root{
+  --eg-v4-red:#d71920;
+  --eg-v4-green:#137f45;
+  --eg-v4-gold-text:#9a5500;
+  --eg-v4-content-max:1240px;
+  --eg-v4-gutter:24px;
+}
+
+/* Tum ana sayfa kabuklari ayni dis genislik ve ic boslugu kullanir. */
+.eg-shell-container,
+.eh12-container,
+.eg-category-page .eg-container,
+.eg-blog__container,
+.eg-post__container,
+.eg-v11 .eg11-container,
+.container{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:var(--eg-v4-content-max)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+@media (min-width:1200px){
+  .eg-shell-container,
+  .eh12-container,
+  .eg-category-page .eg-container,
+  .eg-blog__container,
+  .eg-post__container,
+  .container{
+    padding-left:var(--eg-v4-gutter)!important;
+    padding-right:var(--eg-v4-gutter)!important;
+  }
+}
+
+/* Projelerimiz sayfasindaki koyu kartlarda miras kalan koyu baslik rengini ezer. */
+.egp1-corp-card:first-child h3,
+.egp1-region:first-child h3{
+  color:#fff!important;
+}
+
+.egp1-corp-card:first-child p,
+.egp1-region:first-child p{
+  color:#e2e2e2!important;
+}
+
+/* Kucuk CTA metinlerinde AA kontrastina uygun daha koyu kurumsal tonlar. */
+.eg112-actions__quote,
+.eh12-btn--red,
+.egc-btn--primary,
+.egp1-btn--red,
+.eg11-btn--red,
+.eg11-btn--primary{
+  background:var(--eg-v4-red)!important;
+  border-color:var(--eg-v4-red)!important;
+  color:#fff!important;
+}
+
+.egc-btn--whatsapp,
+.eg11-btn--wa{
+  background:var(--eg-v4-green)!important;
+  border-color:var(--eg-v4-green)!important;
+  color:#fff!important;
+}
+
+/* Acik zemindeki kucuk altin etiketlerin okunurlugunu artirir. */
+.eg-v18-hero__badge span,
+.eg-v18-price-note span,
+.egp1-corp-card .num,
+.egp1-region small,
+.et1-card .num,
+.et1-techcard .num{
+  color:var(--eg-v4-gold-text)!important;
+}
+
+.egp1-corp-card:first-child .num,
+.egp1-region:first-child small{
+  color:#ffc04d!important;
+}
+
+/* Urun resmi atanmamis kartlar kirik resim gibi degil, bilincli bos durum gibi gorunur. */
+.eg-product-card__image img[src*="placeholder-"],
+.eg-v18-product-card img[src*="placeholder-"]{
+  box-sizing:border-box;
+  object-fit:contain!important;
+  padding:54px!important;
+  background:linear-gradient(145deg,#f5f5f1 0%,#ecece7 100%)!important;
+  opacity:.78;
+}
+
+.eg-v11 .eg11-main-media__placeholder{
+  aspect-ratio:4/3;
+  min-height:0!important;
+  padding:32px;
+  border:1px solid #e5e5df;
+  background:linear-gradient(145deg,#f5f5f1 0%,#ecece7 100%)!important;
+  color:#666!important;
+  text-align:center;
+}
+
+.eg-v11 .eg11-main-media__placeholder strong,
+.eg-v11 .eg11-main-media__placeholder span{
+  color:#666!important;
+}
+
+@media (max-width:1199px){
+  .eg-shell-container,
+  .eh12-container,
+  .eg-category-page .eg-container,
+  .eg-blog__container,
+  .eg-post__container,
+  .container{
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+}
+
+@media (max-width:767px){
+  .eg-shell-container,
+  .eh12-container,
+  .eg-category-page .eg-container,
+  .eg-blog__container,
+  .eg-post__container,
+  .container{
+    padding-left:16px!important;
+    padding-right:16px!important;
+  }
+
+  .eg-product-card__image img[src*="placeholder-"],
+  .eg-v18-product-card img[src*="placeholder-"]{
+    padding:38px!important;
+  }
+}

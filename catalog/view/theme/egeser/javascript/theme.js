@@ -45,7 +45,7 @@ function egeserSendBeacon(name, params){
     if(params && params.entity_type) body.set('entity_type', params.entity_type);
     if(params && params.entity_id) body.set('entity_id', params.entity_id);
 
-    fetch('index.php?route=extension/module/egeser_pulse/save', {
+    fetch('index.php?route=extension/module/egeser_pulse/event', {
       method:'POST',
       body:body,
       credentials:'same-origin',

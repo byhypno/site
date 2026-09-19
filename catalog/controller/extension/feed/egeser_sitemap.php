@@ -97,6 +97,26 @@ class ControllerExtensionFeedEgeserSitemap extends Controller {
 			'0.6'
 		);
 
+		// V7 - Özgün içerikli şehir bazlı hizmet sayfaları
+		$city_slugs = array(
+			'izmir-prefabrik-ev',
+			'manisa-prefabrik-ev',
+			'aydin-prefabrik-ev',
+			'usak-prefabrik-ev',
+			'balikesir-prefabrik-ev',
+			'mugla-prefabrik-ev'
+		);
+
+		foreach ($city_slugs as $city_slug) {
+			$this->addUrl(
+				$urls,
+				rtrim($this->config->get('config_url'), '/') . '/' . $city_slug,
+				'',
+				'monthly',
+				'0.75'
+			);
+		}
+
 		// Paket 4A - Blog ana sayfası ve aktif blog yazıları
 		$blog_base = rtrim($this->config->get('config_url'), '/') . '/blog';
 		$this->addUrl($urls, $blog_base, '', 'weekly', '0.7');

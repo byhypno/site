@@ -1,0 +1,147 @@
+/* EGESER IMAGE FIT STANDARD V1 - 2026-09-18 */
+
+/* Tüm içerik görsellerinde taşmayı ve satır içi boşluğu engelle. */
+.eg-page img,
+.eg-v11 img,
+.eh12 img,
+.ega img,
+.eg-blog img,
+.eg-post img{
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+/* Ürün detay ana görseli: ürünün tamamı görünür, kırpma yapılmaz. */
+.eg-v11 .eg11-main-media{
+  display:grid!important;
+  place-items:center!important;
+  width:100%!important;
+  aspect-ratio:4/3!important;
+  overflow:hidden!important;
+  background:#f2f2ef!important;
+}
+.eg-v11 .eg11-main-media>img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+
+/* Ürün küçük galerisi: bütün kutular eşit ölçüde. */
+.eg-v11 .eg11-thumbs{align-items:stretch!important}
+.eg-v11 .eg11-thumb{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:4/3!important;
+}
+.eg-v11 .eg11-thumb>img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* Plan görselleri: çizimin tamamı görünür. */
+.eg-v11 .eg11-plan-media img,
+.eg-v11 .eg11-floorplan-item img,
+.eg-floorplans-v21__panel img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+
+/* Kart ve kapak görselleri: alan tamamen dolar, boş şerit oluşmaz. */
+.eg-v18-product-card .eg-product-card__image,
+.eg-product-card .eg-product-card__image,
+.eg11-related-card>a,
+.eh12 .eh12-product__media,
+.eh12 .eh12-project__media,
+.eg-project-card__image,
+.eg-project-archive-card__media,
+.eg-project-gallery__item,
+.egref__media,
+.eg-blog-card__image{
+  display:block!important;
+  width:100%!important;
+  overflow:hidden!important;
+}
+.eg-v18-product-card .eg-product-card__image>img,
+.eg-product-card .eg-product-card__image>img,
+.eg11-related-card>a>img,
+.eh12 .eh12-product__media img,
+.eh12 .eh12-project__media img,
+.eg-project-card__image img,
+.eg-project-archive-card__media img,
+.eg-project-gallery__item img,
+.egref__media img,
+.eg-blog-card__image img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* Kategori ve ana sayfa kapakları. */
+.eg-category-hero__media,
+.eg-v18-hero__media,
+.eh12 .eh12-hero-media{
+  overflow:hidden!important;
+}
+.eg-category-hero__media>img,
+.eg-v18-hero__media>img,
+.eh12 .eh12-hero-media>img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* Proje ve hakkımızda galerileri. */
+.eg-project-detail__media img,
+.ega-gallery img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* Blog detayındaki görsel doğal oranını korur. */
+.eg-post__image{overflow:hidden}
+.eg-post__image img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+}
+
+/* Eksik dosya kullanıcıya kırık resim ikonu göstermez. */
+.eg-image-missing>img{display:none!important}
+.eg-image-missing:not(.eg11-thumb)::after{
+  content:"Görsel hazırlanıyor";
+  display:grid;
+  place-items:center;
+  min-height:120px;
+  padding:20px;
+  color:#777;
+  background:linear-gradient(145deg,#f5f3ef,#ece9e3);
+  font-size:12px;
+  font-weight:700;
+  text-align:center;
+}
+
+@media(max-width:767px){
+  .eg-v11 .eg11-main-media{aspect-ratio:4/3!important;border-radius:20px!important}
+  .eg-v11 .eg11-thumb{aspect-ratio:1/1!important}
+}

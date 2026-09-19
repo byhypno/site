@@ -6,4 +6,5 @@
  */
 class EgeserContact {
     const WHATSAPP = '905318866090';
+    const EMAIL = 'web@egeserprefabrik.com.tr';
 }

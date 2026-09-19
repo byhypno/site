@@ -36,6 +36,9 @@
 $eg112_phone_footer = isset($eg112_phone) && $eg112_phone ? $eg112_phone : (!empty($telephone) ? $telephone : '0531 886 60 90');
 $eg112_phone_href_footer = 'tel:' . preg_replace('/[^0-9+]/', '', $eg112_phone_footer);
 $eg112_contact_footer = isset($eg112_contact) ? $eg112_contact : (!empty($egeser_url_iletisim) ? $egeser_url_iletisim : '/iletisim');
+$eg112_instagram_footer = !empty($egeser_social_instagram) ? $egeser_social_instagram : 'https://www.instagram.com/egeserprefabrik/';
+$eg112_facebook_footer = !empty($egeser_social_facebook) ? $egeser_social_facebook : 'https://www.facebook.com/egeserprefabrik';
+$eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefabrik-san-ve-tic-ltd-şti';
 ?>
 <footer class="eg112-footer eg112-footer--polished">
   <div class="eg-shell-container eg112-footer__top">
@@ -49,11 +52,16 @@ $eg112_contact_footer = isset($eg112_contact) ? $eg112_contact : (!empty($egeser
           <span>Kemalpaşa / İzmir</span>
           <a href="<?php echo $eg112_contact_footer; ?>">Showroom & İletişim</a>
         </div>
-        <div class="eg112-footer__social">
-          <?php if (!empty($egeser_social_instagram)) { ?><a href="<?php echo htmlspecialchars($egeser_social_instagram, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">Instagram</a><?php } ?>
-          <?php if (!empty($egeser_social_facebook)) { ?><a href="<?php echo htmlspecialchars($egeser_social_facebook, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">Facebook</a><?php } ?>
-          <?php if (!empty($egeser_social_tiktok)) { ?><a href="<?php echo htmlspecialchars($egeser_social_tiktok, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">TikTok</a><?php } ?>
-          <?php if (!empty($egeser_social_youtube)) { ?><a href="<?php echo htmlspecialchars($egeser_social_youtube, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">YouTube</a><?php } ?>
+        <div class="eg112-footer__social" aria-label="Sosyal medya hesaplarımız">
+          <a class="eg112-social-link eg112-social-link--instagram" href="<?php echo htmlspecialchars($eg112_instagram_footer, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" aria-label="Egeser Prefabrik Instagram" title="Instagram">
+            <i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span>
+          </a>
+          <a class="eg112-social-link eg112-social-link--facebook" href="<?php echo htmlspecialchars($eg112_facebook_footer, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" aria-label="Egeser Prefabrik Facebook" title="Facebook">
+            <i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span>
+          </a>
+          <a class="eg112-social-link eg112-social-link--linkedin" href="<?php echo htmlspecialchars($eg112_linkedin_footer, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" aria-label="Egeser Prefabrik LinkedIn" title="LinkedIn">
+            <i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
         </div>
       </div>
 
@@ -85,7 +93,7 @@ $eg112_contact_footer = isset($eg112_contact) ? $eg112_contact : (!empty($egeser
           <a href="<?php echo !empty($egeser_url_referanslar) ? $egeser_url_referanslar : '/projelerimiz'; ?>">Projelerimiz</a>
           <a href="<?php echo !empty($egeser_url_teknik) ? $egeser_url_teknik : '/teknik-bilgiler'; ?>">Teknik Bilgiler</a>
           <a href="<?php echo $eg112_contact_footer; ?>">İletişim</a>
-          <?php if (!empty($egeser_url_blog)) { ?><a href="<?php echo htmlspecialchars($egeser_url_blog, ENT_QUOTES, 'UTF-8'); ?>">Blog</a><?php } ?>
+          <a href="<?php echo !empty($egeser_url_blog) ? htmlspecialchars($egeser_url_blog, ENT_QUOTES, 'UTF-8') : '/blog'; ?>">Blog</a>
         </div>
 
         <div class="eg112-footer__cta">
@@ -148,6 +156,9 @@ $eg112_contact_footer = isset($eg112_contact) ? $eg112_contact : (!empty($egeser
   }
 })();
 </script>
+
+<!-- V5 tek grid dosyasi sayfa ici stillerden sonra yuklenir. -->
+<link href="catalog/view/theme/egeser/stylesheet/egeser-layout-v5.css?v=20260918-5" rel="stylesheet" />
 
 </body>
 </html>

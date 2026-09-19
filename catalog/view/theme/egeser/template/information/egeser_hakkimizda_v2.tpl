@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css?v=20260918d">
+<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css">
 
 <div class="ega">
   <div class="container">
@@ -18,8 +18,8 @@
           sevkiyat ve montaj süreçlerini tek merkezden yöneten bütüncül yapı çözümleri sunuyoruz.
         </p>
         <div class="ega-actions">
-          <a href="#biz-kimiz" class="ega-btn ega-btn--primary">Bizi Tanıyın</a>
-          <a href="#teklif" class="ega-btn ega-btn--ghost">Projenizi Konuşalım</a>
+          <a href="/projelerimiz" class="ega-btn ega-btn--primary">Bizi Tanıyın</a>
+          <a href="/iletisim" class="ega-btn ega-btn--ghost">Projenizi Konuşalım</a>
         </div>
         <div class="ega-trust">
           <span>✓ Projelendirme</span>

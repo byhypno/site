@@ -45,13 +45,16 @@
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
 
-<link href="catalog/view/theme/egeser/stylesheet/theme.css?v=20260918d" rel="stylesheet" />
+<link href="catalog/view/theme/egeser/stylesheet/theme.css" rel="stylesheet" />
+<link href="catalog/view/theme/egeser/stylesheet/egeser-image-fit-v1.css" rel="stylesheet" />
+<link href="catalog/view/theme/egeser/stylesheet/egeser-ui-audit-v4.css" rel="stylesheet" />
 
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>"></script>
 <?php } ?>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-<script src="catalog/view/theme/egeser/javascript/theme.js?v=20260918b" defer></script>
+<script src="catalog/view/theme/egeser/javascript/theme.js" defer></script>
+<script src="catalog/view/theme/egeser/javascript/egeser-image-fit-v1.js" defer></script>
 
 <?php if (!empty($analytics) && is_array($analytics)) { ?>
 <?php foreach ($analytics as $analytic) { echo $analytic; } ?>
@@ -121,11 +124,11 @@ body{padding-top:0!important}
 .eg112-brand__text strong{font-size:22px;letter-spacing:.02em;color:#171717}
 .eg112-brand__text span{margin-top:5px;font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--egs-red);text-transform:uppercase}
 
-.eg112-nav{display:flex;align-items:center;justify-content:center;gap:3px}
-.eg112-nav>a,.eg112-nav__toggle{display:inline-flex;align-items:center;gap:6px;padding:12px 11px;border:0;border-radius:9px;background:transparent;color:#262626;font-size:13px;font-weight:800;text-decoration:none;cursor:pointer}
+.eg112-nav{display:flex;align-items:center;justify-content:center;gap:3px;flex-wrap:nowrap;white-space:nowrap}
+.eg112-nav>a,.eg112-nav__toggle{display:inline-flex;align-items:center;gap:6px;padding:12px 11px;border:0;border-radius:9px;background:transparent;color:#262626;font-size:13px;font-weight:800;text-decoration:none;cursor:pointer;white-space:nowrap}
 .eg112-nav>a:hover,.eg112-nav__toggle:hover{background:#f3f3f0;color:#000}
 .eg112-nav__togglewrap{display:flex;align-items:center;border-radius:9px}
-.eg112-nav__mainlink{display:inline-flex;align-items:center;padding:12px 7px 12px 11px;border-radius:9px 0 0 9px;color:#262626;font-size:13px;font-weight:800;text-decoration:none}
+.eg112-nav__mainlink{display:inline-flex;align-items:center;padding:12px 7px 12px 11px;border-radius:9px 0 0 9px;color:#262626;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap}
 .eg112-nav__mainlink:hover{background:#f3f3f0;color:#000;text-decoration:none}
 .eg112-nav__toggle{padding:12px 8px 12px 5px;border-radius:0 9px 9px 0}
 .eg112-nav__toggle svg{width:12px;height:12px;transition:transform .2s ease}
@@ -740,6 +743,7 @@ $eg112_prefabrik = !empty($egeser_url_prefabrik_yapilar) ? $egeser_url_prefabrik
 $eg112_projeler = !empty($egeser_url_referanslar) ? $egeser_url_referanslar : '/projelerimiz';
 $eg112_teknik = !empty($egeser_url_teknik) ? $egeser_url_teknik : '/teknik-bilgiler';
 $eg112_kurumsal = '/hakkimizda';
+$eg112_blog = !empty($egeser_url_blog) ? $egeser_url_blog : '/blog';
 $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/image/logo.png') === false;
 ?>
 
@@ -819,6 +823,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
       <a data-eg-nav="projeler" href="<?php echo htmlspecialchars($eg112_projeler, ENT_QUOTES, 'UTF-8'); ?>">Projelerimiz</a>
       <a data-eg-nav="teknik" href="<?php echo htmlspecialchars($eg112_teknik, ENT_QUOTES, 'UTF-8'); ?>">Teknik Bilgiler</a>
       <a data-eg-nav="kurumsal" href="<?php echo htmlspecialchars($eg112_kurumsal, ENT_QUOTES, 'UTF-8'); ?>">Hakkımızda</a>
+      <a data-eg-nav="blog" href="<?php echo htmlspecialchars($eg112_blog, ENT_QUOTES, 'UTF-8'); ?>">Blog</a>
       <a data-eg-nav="iletisim" href="<?php echo htmlspecialchars($eg112_contact, ENT_QUOTES, 'UTF-8'); ?>">İletişim</a>
     </nav>
 
@@ -849,6 +854,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
       <a href="<?php echo htmlspecialchars($eg112_projeler, ENT_QUOTES, 'UTF-8'); ?>">Projelerimiz</a>
       <a href="<?php echo htmlspecialchars($eg112_teknik, ENT_QUOTES, 'UTF-8'); ?>">Teknik Bilgiler</a>
       <a href="<?php echo htmlspecialchars($eg112_kurumsal, ENT_QUOTES, 'UTF-8'); ?>">Hakkımızda</a>
+      <a href="<?php echo htmlspecialchars($eg112_blog, ENT_QUOTES, 'UTF-8'); ?>">Blog</a>
       <a href="<?php echo htmlspecialchars($eg112_contact, ENT_QUOTES, 'UTF-8'); ?>">İletişim</a>
     </div>
   </div>
@@ -917,6 +923,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
     if (path.indexOf('/projelerimiz') !== -1) key = 'projeler';
     if (path.indexOf('/teknik-bilgiler') !== -1) key = 'teknik';
     if (path.indexOf('/hakkimizda') !== -1) key = 'kurumsal';
+    if (path === '/blog' || path.indexOf('/blog/') === 0 || full.indexOf('route=information/egeser_blog') !== -1) key = 'blog';
     if (full.indexOf('route=information/contact') !== -1 || path.indexOf('/iletisim') !== -1) key = 'iletisim';
 
     if(key){

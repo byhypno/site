@@ -1,0 +1,304 @@
+/* Egeser Layout V5 - 18.09.2026
+   Tek sayfa grid'i, ortak breadcrumb hatti ve ic ice bosluk duzeltmeleri. */
+
+:root{
+  --eg-layout-max:1240px;
+  --eg-layout-gutter:24px;
+  --eg-layout-gutter-tablet:20px;
+  --eg-layout-gutter-mobile:16px;
+  --eg-layout-muted:#777;
+}
+
+/* Footer sosyal hesaplari: koyu temaya uyumlu, platform renkli hover. */
+.eg112-footer__social{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+  margin-top:20px!important;
+}
+
+.eg112-footer__social .eg112-social-link{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  min-height:36px;
+  padding:8px 11px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:10px!important;
+  background:rgba(255,255,255,.045)!important;
+  color:#e8e8e8!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  text-decoration:none!important;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease!important;
+}
+
+.eg112-footer__social .eg112-social-link i{
+  width:15px;
+  font-size:15px;
+  line-height:1;
+  text-align:center;
+}
+
+.eg112-footer__social .eg112-social-link:hover{
+  color:#fff!important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(0,0,0,.24);
+}
+
+.eg112-footer__social .eg112-social-link--instagram:hover{
+  border-color:#d62976!important;
+  background:linear-gradient(135deg,#833ab4,#d62976 55%,#f77737)!important;
+}
+
+.eg112-footer__social .eg112-social-link--facebook:hover{
+  border-color:#1877f2!important;
+  background:#1877f2!important;
+}
+
+.eg112-footer__social .eg112-social-link--linkedin:hover{
+  border-color:#0a66c2!important;
+  background:#0a66c2!important;
+}
+
+.eg112-footer__social .eg112-social-link:focus-visible{
+  outline:2px solid #fff!important;
+  outline-offset:3px;
+}
+
+/* 1348 px ekranda ortak icerik hatti x=78 / x=1270 olur. */
+.eh12 .eh12-container,
+.eg-category-page .eg-container,
+.eg-page > .eg-container,
+.eg-blog .eg-blog__container,
+.eg-post .eg-post__container,
+.eg-v11 .eg11-container,
+.container,
+body > main#content > .container,
+main#content > .container,
+#content > .container{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:var(--eg-layout-max)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:var(--eg-layout-gutter)!important;
+  padding-right:var(--eg-layout-gutter)!important;
+}
+
+/* Hakkimizda ve iletisim sablonlarindaki container varyantlari. */
+.ega > .container,
+.egc > .container,
+.ega-page > .container,
+.egc-page > .container{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:var(--eg-layout-max)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:var(--eg-layout-gutter)!important;
+  padding-right:var(--eg-layout-gutter)!important;
+}
+
+/* Projelerimiz: ikinci yatay boslugu kaldirir. */
+.egp1{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* Teknik Bilgiler govdesini breadcrumb ile ayni hatta getirir. */
+.et1{
+  box-sizing:border-box!important;
+  width:calc(100% - (var(--eg-layout-gutter) * 2))!important;
+  max-width:calc(var(--eg-layout-max) - (var(--eg-layout-gutter) * 2))!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* Ortak breadcrumb olculeri ve tipografisi. */
+.eg-breadcrumb,
+.eg11-breadcrumb,
+.ega-breadcrumb,
+.egc-breadcrumb,
+.eg-blog__crumb,
+.egp1-breadcrumb,
+.et1-breadcrumb,
+.container > .breadcrumb,
+#content .container .breadcrumb{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:18px;
+  margin:18px 0 20px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--eg-layout-muted)!important;
+  font-size:12px!important;
+  line-height:18px!important;
+}
+
+.eg-breadcrumb ol,
+.eg11-breadcrumb ol,
+.ega-breadcrumb ol,
+.egc-breadcrumb ol{
+  margin:0!important;
+  padding:0!important;
+}
+
+.eg-breadcrumb a,
+.eg11-breadcrumb a,
+.ega-breadcrumb a,
+.egc-breadcrumb a,
+.eg-blog__crumb a,
+.container > .breadcrumb a,
+#content .container .breadcrumb a{
+  color:var(--eg-layout-muted)!important;
+  font-size:12px!important;
+  line-height:18px!important;
+  text-decoration:none!important;
+}
+
+/* Kategori girisi, arac cubugu ve kartlar ayni hizada kalir. */
+.eg-category-page .eg-v18-hero,
+.eg-category-page .eg-v18-toolbar,
+.eg-category-page .eg-v18-products,
+.eg-category-page .eg-products,
+.eg-category-page .eg-pagination{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+@media (max-width:1199px){
+  .eh12 .eh12-container,
+  .eg-category-page .eg-container,
+  .eg-page > .eg-container,
+  .eg-blog .eg-blog__container,
+  .eg-post .eg-post__container,
+  .eg-v11 .eg11-container,
+  .container,
+  body > main#content > .container,
+  main#content > .container,
+  #content > .container,
+  .ega > .container,
+  .egc > .container,
+  .ega-page > .container,
+  .egc-page > .container{
+    padding-left:var(--eg-layout-gutter-tablet)!important;
+    padding-right:var(--eg-layout-gutter-tablet)!important;
+  }
+
+  .et1{
+    width:auto!important;
+    max-width:none!important;
+    margin-left:var(--eg-layout-gutter-tablet)!important;
+    margin-right:var(--eg-layout-gutter-tablet)!important;
+  }
+}
+
+@media (max-width:767px){
+  .eh12 .eh12-container,
+  .eg-category-page .eg-container,
+  .eg-page > .eg-container,
+  .eg-blog .eg-blog__container,
+  .eg-post .eg-post__container,
+  .eg-v11 .eg11-container,
+  .container,
+  body > main#content > .container,
+  main#content > .container,
+  #content > .container,
+  .ega > .container,
+  .egc > .container,
+  .ega-page > .container,
+  .egc-page > .container{
+    padding-left:var(--eg-layout-gutter-mobile)!important;
+    padding-right:var(--eg-layout-gutter-mobile)!important;
+  }
+
+  .et1{
+    margin-left:var(--eg-layout-gutter-mobile)!important;
+    margin-right:var(--eg-layout-gutter-mobile)!important;
+  }
+
+  .eg-breadcrumb,
+  .eg11-breadcrumb,
+  .ega-breadcrumb,
+  .egc-breadcrumb,
+  .eg-blog__crumb,
+  .egp1-breadcrumb,
+  .et1-breadcrumb,
+  .container > .breadcrumb,
+  #content .container .breadcrumb{
+    margin-top:14px!important;
+    margin-bottom:16px!important;
+  }
+
+  /* Ana sayfa mobil hero: yalnizca tam gorsel; tekrar eden koyu CTA gizlidir. */
+  .eh12 .eh12-hero-media{
+    position:relative!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    aspect-ratio:4/3!important;
+    padding:0!important;
+    overflow:hidden!important;
+  }
+
+  .eh12 .eh12-hero-media img{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    max-width:none!important;
+    height:100%!important;
+    min-height:0!important;
+    max-height:none!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+  }
+
+  .eh12 .eh12-hero-card{
+    display:none!important;
+  }
+
+  .eh12 .eh12-hero-card small{
+    font-size:8px!important;
+    line-height:1.2!important;
+    letter-spacing:.1em!important;
+  }
+
+  .eh12 .eh12-hero-card strong{
+    margin-top:4px!important;
+    font-size:16px!important;
+    line-height:1.18!important;
+    letter-spacing:-.015em!important;
+  }
+
+  .eh12 .eh12-hero-card span{
+    margin-top:4px!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+  }
+
+  .eh12 .eh12-hero-card a{
+    margin-top:7px!important;
+    font-size:10.5px!important;
+    line-height:1.2!important;
+  }
+}
+
+@media (max-width:390px){
+  .eh12 .eh12-hero-media{aspect-ratio:4/3!important}
+}

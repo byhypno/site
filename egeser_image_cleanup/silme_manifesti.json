@@ -1,0 +1,938 @@
+{
+  "project": "egeserprefabrik.com.tr",
+  "created_at": "2026-09-18",
+  "expected_count": 155,
+  "expected_bytes": 16453981,
+  "files": [
+    {
+      "path": "catalog/cache/catalog/cart-100x100.png",
+      "size_bytes": 2571,
+      "sha256": "ce248b7b201a4794fc06ac5f3cd0091638237d49285a28935bf6d023b6bf58f2",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/apple_cinema_30-100x100.jpg",
+      "size_bytes": 3138,
+      "sha256": "14d47a1ba8fe12388269c96e86a1784b35dc09d73266f7d924260131555a993a",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/apple_cinema_30-200x200.jpg",
+      "size_bytes": 7165,
+      "sha256": "27263992bf2dbbfee5598189081890c6ad40e6c2cf1d17b4c0bb7e6a6aa6e671",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/apple_cinema_30-40x40.jpg",
+      "size_bytes": 1375,
+      "sha256": "e480958f727adb0c7b3be04d7ce25a98269929725b727727fe7bdf07f72520bc",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/apple_cinema_30-480x360.jpg",
+      "size_bytes": 24244,
+      "sha256": "3b16af3d80a27a301117e7323a4623a7db2b75a716f7f0cd5c6bd0ce7dbd66a4",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/banners/MacBookAir-1140x380.jpg",
+      "size_bytes": 138348,
+      "sha256": "db5bfbca9ddbd271b4efc4040b94f440adc99c1de2b3f0aca3d5d10b943456e1",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/banners/iPhone6-1140x380.jpg",
+      "size_bytes": 34865,
+      "sha256": "ca779c68d23a9245e4cae3ed743b1f3198a959821b69d023226123ce10a47a9f",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_eos_5d_1-100x100.jpg",
+      "size_bytes": 3589,
+      "sha256": "bccd9bceb3d1a726c0e905f643d2a13c0c11e473c8c0140e8e5d22203ea65598",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_eos_5d_1-200x200.jpg",
+      "size_bytes": 9597,
+      "sha256": "80613300feb1fb00171c2f40fcfa74f21152e13a7a6597b54ce1252f9107d5d8",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_eos_5d_1-40x40.jpg",
+      "size_bytes": 1414,
+      "sha256": "7b58b372347a9db049b7002e2fc24a172102d93fcb82d8e120304c22bbaa8bd1",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_eos_5d_1-480x360.jpg",
+      "size_bytes": 38592,
+      "sha256": "09fb6357d15b56f2a0618c4c95d263bf2233000198ef7046a0e15e5b73b6fc77",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_eos_5d_2-100x100.jpg",
+      "size_bytes": 4071,
+      "sha256": "d1ea9955d71944d4bb6a20837b628e875c72587ea959ae2ccc39a0aaaf57939d",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/canon_logo-100x100.jpg",
+      "size_bytes": 2611,
+      "sha256": "ec233bfe1531532eef964de1b5a41ad3329c0b421fd2ff49f4e8fcbbefb2635e",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/compaq_presario-100x100.jpg",
+      "size_bytes": 2811,
+      "sha256": "de4b55fef2049f40f545478f734e77eff6bd9eb1b8eee0cff562c81aa1912b13",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/compaq_presario-182x182.jpg",
+      "size_bytes": 5406,
+      "sha256": "e2a1c564eeabe61433685134dc66665c4d0d5d30a771d1984e31fd191fe5deda",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/compaq_presario-760x500.jpg",
+      "size_bytes": 35750,
+      "sha256": "87ab74d1a9dbc01d747e9dbaaaa961939b90eca0ce3c966d91b635329d56b64b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/hp_1-100x100.jpg",
+      "size_bytes": 3164,
+      "sha256": "8d0aac8d58f858b6f7fe4fad25a57a3f1713af32030a5d1be2f3d85aee3fc13d",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/hp_1-40x40.jpg",
+      "size_bytes": 1382,
+      "sha256": "a8a0f5023bf4fde66094234092c5b2e747237e1dfc37a189d3e54a86f3f6cb01",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/hp_1-480x360.jpg",
+      "size_bytes": 22267,
+      "sha256": "bc9000943f88a8755a87156092b18e7cd51301e0adf2137d68757ec062270838",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/htc_touch_hd_1-40x40.jpg",
+      "size_bytes": 1332,
+      "sha256": "5e8eeba33ac93f95976a44ee1b305e548b3d038d613e2045ba4f228481300a56",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/htc_touch_hd_1-480x360.jpg",
+      "size_bytes": 18976,
+      "sha256": "ad5aeb5c72a38d298b2b61a20f989b45a04041d0e1dbf5316b59700c9f238876",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/imac_1-40x40.jpg",
+      "size_bytes": 1117,
+      "sha256": "b0e775222106061a9af2b6ec939da3faef474af87e0071f53069ac37403e308d",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/iphone_1-200x200.jpg",
+      "size_bytes": 8552,
+      "sha256": "8c763dc60094dd57fad11fa52b1586014b31b9470a1a20c2c1f3594355f7478c",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/iphone_1-40x40.jpg",
+      "size_bytes": 1317,
+      "sha256": "88fa9c33ab5257e3564addb9e796ee092b5ecd617271bd5c8476d4bd56a15dee",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/iphone_1-480x360.jpg",
+      "size_bytes": 20038,
+      "sha256": "20bb1e44580ef2510f094b63df41c7d374621eadf0aabe88d10bc15a2bed6bef",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/ipod_classic_1-40x40.jpg",
+      "size_bytes": 1314,
+      "sha256": "5e6a508bfd31b1b18858587fca2f47a5c48811aab2b15c67dab9b14d84304a9b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/ipod_classic_1-480x360.jpg",
+      "size_bytes": 17510,
+      "sha256": "6b03eff97e41b70551fb19ebc276aa64eb52b8da4f709839997ccd767c098b45",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/ipod_nano_1-40x40.jpg",
+      "size_bytes": 1364,
+      "sha256": "28e061612701bd8b2f71a19d7317f9f4d2e08b7f2a17e75058f2cc76c2160497",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/ipod_shuffle_1-40x40.jpg",
+      "size_bytes": 1039,
+      "sha256": "032eb5b0185b96455c016d5d860264add4a82105db1381a0bc38a43846c2ddf9",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/ipod_touch_1-40x40.jpg",
+      "size_bytes": 1313,
+      "sha256": "6cdf35e2583ee8d0a06b97422b78e526d58f067273772323558f14a4b632a2f0",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_1-200x200.jpg",
+      "size_bytes": 5456,
+      "sha256": "e0da837607b8be8c720b67df6acfa18f8f27148a10c519ff9a72bad7c471a31b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_1-40x40.jpg",
+      "size_bytes": 1121,
+      "sha256": "1abba5ae4bc5fc1d7f8a03f5de9158757e63d03db97053754053fa6b92600340",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_1-480x360.jpg",
+      "size_bytes": 18222,
+      "sha256": "6884ef939b41113693e85fd3051dd238fd79d75cd8d9059fe6185165aac24e55",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_air_1-40x40.jpg",
+      "size_bytes": 1201,
+      "sha256": "8006437ae41fead2b0b6bdac0d39d8c8d5f13edf5cd899fe1492ed8577070c68",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_air_1-480x360.jpg",
+      "size_bytes": 21485,
+      "sha256": "bfcf7138583523c1f2a71aa369ed09551bb438e346bb5591653ce31646286324",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/macbook_pro_1-40x40.jpg",
+      "size_bytes": 1365,
+      "sha256": "d8d12209e8984b31a2f07bae7c48091c977a0f2d9929810b249e0a5c0d7560c1",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/burgerking-130x100.png",
+      "size_bytes": 15755,
+      "sha256": "b59e58e656cd78fd0c976434d12e1141189fad9a003add5d12a5d6c5dd70199c",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/canon-130x100.png",
+      "size_bytes": 3841,
+      "sha256": "fd32204228c3371d89150bdeba048f0052c2958d2fe83c68589a46e98ff41fdd",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/cocacola-130x100.png",
+      "size_bytes": 10671,
+      "sha256": "b09877304db2d7f2f568d97c17480f32610e92df3cded141f0f542da95ebc7ee",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/dell-130x100.png",
+      "size_bytes": 4694,
+      "sha256": "bc6215b207c79f85f82bc72cd9c7da0761fe9a8b3d7060f5988200380ae0f48b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/disney-130x100.png",
+      "size_bytes": 4001,
+      "sha256": "a101f1627828228afae9014f61402ca62ee11b54c03c2b6ba315d8170307c593",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/harley-130x100.png",
+      "size_bytes": 13270,
+      "sha256": "e40d92cf78372cf4f8f3be8a606de89705f39507e078b91baab1eee0b47c2052",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/nfl-130x100.png",
+      "size_bytes": 9473,
+      "sha256": "375181edf5dc0b75580416d4a9f3a3d93257a72b19395a8759cc3fb7fa8a37aa",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/nintendo-130x100.png",
+      "size_bytes": 4439,
+      "sha256": "8c1f32b682febd03683f0c972170925776e1cdad9aefc16defa7b1289fee66c9",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/redbull-130x100.png",
+      "size_bytes": 6120,
+      "sha256": "1c0729719aaeae5b9f171d16e9c1b7b456a2f6c8c433f64e0ef45625ef84829f",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/sony-130x100.png",
+      "size_bytes": 2791,
+      "sha256": "77a189048c9863d101ed9fc74a4e40619ae2b5a6c49571b1a34f237de03da5b5",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/manufacturer/starbucks-130x100.png",
+      "size_bytes": 16116,
+      "sha256": "21bcd99eb0ef373ba611bc86cfa6b835768dbff1daaf81440bc2c5e6cbab8c3f",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/nikon_d300_1-40x40.jpg",
+      "size_bytes": 1549,
+      "sha256": "54ac7d347aacaa95548dd02890e480205c239cb5f561d9a75f26f238b4a4fbda",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/palm_treo_pro_1-40x40.jpg",
+      "size_bytes": 1321,
+      "sha256": "2997f415fc6c9c92285d0af0fc2faa966f08e3a8928d6773b7a51756c39e7416",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/palm_treo_pro_1-480x360.jpg",
+      "size_bytes": 23975,
+      "sha256": "f642453a490ebd4876377428e92efaada4ae5d41be57bb9f3859453e76c30a71",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/samsung_syncmaster_941bw-40x40.jpg",
+      "size_bytes": 1368,
+      "sha256": "28476524ff271f619cecede5da91ebd623e68453210639a199819dda0111f813",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/samsung_syncmaster_941bw-480x360.jpg",
+      "size_bytes": 32547,
+      "sha256": "ca8c30638d33d8a6cc08c15c499394298dff23262b48cef1b20ba21f2ed232f9",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/samsung_tab_1-40x40.jpg",
+      "size_bytes": 1279,
+      "sha256": "5190bc9fd03f5bd741d59cb0538304e306a2796703cbc1cc14e15e8d1dd45102",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/sony_vaio_1-40x40.jpg",
+      "size_bytes": 1243,
+      "sha256": "f9d0d04edfd83460653d8349030fccfe36aee607736e7b79258c77f24f850bb1",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/demo/sony_vaio_1-480x360.jpg",
+      "size_bytes": 23203,
+      "sha256": "5e0eb4c029e55c5cfd699e0e8d26cbba41ffe87640354e54d5f1abb04d01d1a2",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/android-chrome-192x192-100x100.png",
+      "size_bytes": 5008,
+      "sha256": "49b5a9d1c721e7be0914474288d4d4167bd889de2a80d348c14a2a6ea754f34a",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/android-chrome-512x512-100x100.png",
+      "size_bytes": 4294,
+      "sha256": "b7feb366dc31acefab6a2805f7d871a676c7203a21ea873ee4157bbbb14c7a86",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/apple-touch-icon-100x100.png",
+      "size_bytes": 5114,
+      "sha256": "06413de3de77f5eb18f0a18391a5b032dc06d4a44f49bdf1bb2edf9fe7d0d194",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/favicon-16x16-100x100.png",
+      "size_bytes": 1919,
+      "sha256": "ead4bacf49dd659a37677c48fb0da066353ab1f81f081927103084671723ab83",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/favicon-32x32-100x100.png",
+      "size_bytes": 3647,
+      "sha256": "8673b37cba8cf7cb75b57aa6db5a018302e97d598868dc28c18e70143176f870",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/favicon-48x48-100x100.png",
+      "size_bytes": 5619,
+      "sha256": "d5723f8255dab8471cdeae6b18548baf0a7b37df9f38f4be65f93fa345e2ea0e",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/favicon/favicon-96x96-100x100.png",
+      "size_bytes": 5766,
+      "sha256": "05016026e940f61ff3726d1402fb58e8e971a6834bc20f8232ae7040ea779290",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/logo/logo-copy-100x100.png",
+      "size_bytes": 3346,
+      "sha256": "a43479c6321e794b25ea53867efb2914f3d01a40288221ffcf6cbc08b8622e3e",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/logo/logo-copy-320x120.png",
+      "size_bytes": 9105,
+      "sha256": "5cd90326a3a588548d1bcca386a5ebfd2787168081f2da53f30dc44180b8a2ba",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/logo-100x100.png",
+      "size_bytes": 3277,
+      "sha256": "c950174c1af46aa7f2bfe2d9227267fea091cc072f1cb2914b3a7498ea666761",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/50-m2-pref-100x100.png",
+      "size_bytes": 20470,
+      "sha256": "4e9f4dd6e7b15813247a001bf5a7bf2aca6de82a4976c84c2ee619279e935d57",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/50-m2-pref-1400x1050.png",
+      "size_bytes": 1625782,
+      "sha256": "68950af4761db9825bd12c2891c0cf5a8fc9f63bb0673a05e21ee19fae2d6276",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.19-100x100.jpeg",
+      "size_bytes": 4676,
+      "sha256": "05066f9c344e0f9b701c42c0c319ab153f463344cc7c6ae4f152f275d649a4ea",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.41 (1)-100x100.jpeg",
+      "size_bytes": 4585,
+      "sha256": "bab29243dfd20576132937379a5510510c99e348e7516980a2ba2ea2a34189bd",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.41 (1)-1400x1050.jpeg",
+      "size_bytes": 305132,
+      "sha256": "73faa622ed38f935f48d0993096c18bca4a8e5551b4d1fb95d3d5fa3022767ab",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.41 (1)-220x150.jpeg",
+      "size_bytes": 8735,
+      "sha256": "1d52c57dbd024ab06b1160b17d9a0d6c98e5ca4c99bbaabad0e631469daaf023",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.41 (1)-240x160.jpeg",
+      "size_bytes": 9567,
+      "sha256": "a234a579443f0cc47d4b4f56bb19d8c8c517034b5b566713f67f5768c445c080",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/WhatsApp Image 2026-05-22 at 13.50.41 (1)-760x570.jpeg",
+      "size_bytes": 96267,
+      "sha256": "5e9e2078770bbd4cad6611f27ec5012cbe57c662c8b68ac0fd0c6f4cb85f3da8",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/tek-katli-prefabrik-ev-100x100.jpg",
+      "size_bytes": 4673,
+      "sha256": "69812e6944f6b0fd3232449ba5617c254c1087d9cf8cbd12523dfc015073a013",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/tek-katli-prefabrik-ev-1400x1050.jpg",
+      "size_bytes": 403110,
+      "sha256": "507505a16b33fb721f9f6b456c9bcd0c879edf692af349165533b17594642a4e",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/referens-gorsel/tek-katli-prefabrik-ev-240x160.jpg",
+      "size_bytes": 17528,
+      "sha256": "7695baa57e501c647d8d4dd30c242fc1758ca90f1f03f9b3c5a907b4495569ab",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-1-100x100.jpg",
+      "size_bytes": 4643,
+      "sha256": "6a8e6c72482cfe1d12c4bebc0d4e9f40917b96186562428929d10772934aa168",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-1-1600x1200.jpg",
+      "size_bytes": 561490,
+      "sha256": "bed04c34c89ba6c678620656cb714bf576cf6e9df2d3f4f380d8a913333a14d8",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-1-40x40.jpg",
+      "size_bytes": 1514,
+      "sha256": "5db5290e07e3ce3bfc712a0b80bdf51100a99b9170a15755279a3b31f21bea65",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-1-480x360.jpg",
+      "size_bytes": 63811,
+      "sha256": "80ccdb7f0c2da3769bb50379e8178f13dc2113eb7565d5eea3d6605ca59898e3",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-1-900x675.jpg",
+      "size_bytes": 195783,
+      "sha256": "f2c436ac3a7d3aaeaf551220a05e2b07ba3c31755da5c23d934d05849987b727",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-2-100x100.jpg",
+      "size_bytes": 4781,
+      "sha256": "13709758f1226214c1bed037df5d233afe0e713334d868a64788cef6d05d819c",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-2-1600x1200.jpg",
+      "size_bytes": 540852,
+      "sha256": "df9e320ec1b8db4c3c013971fe6db9678f1a7a16529f934b20095e267230543f",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-2-160x120.jpg",
+      "size_bytes": 8924,
+      "sha256": "b3611cfe45fba631f4db1b1d3f9a7ee70bac8e85990c139f1d5b37c82cf5780b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-3-100x100.jpg",
+      "size_bytes": 4585,
+      "sha256": "769c89e390821b36e5755d95d9ef92bc066f66f846ec38f2fc5e187f1a84d8d6",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-3-1600x1200.jpg",
+      "size_bytes": 520967,
+      "sha256": "15e833f2d6696b4a8c56ae4a7fcc15fde87f7c635ec07a8cbd183f901b3a583b",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-3-160x120.jpg",
+      "size_bytes": 8556,
+      "sha256": "1f696c343ed5cccef03b249b8256665410a7c7953f9c46f60fabde82f087abfc",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-100x100.jpg",
+      "size_bytes": 3850,
+      "sha256": "90af1addadd49cfe366fde6604e2027d2c55a46aed1e3156201ccb5a3c497924",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-1200x900.jpg",
+      "size_bytes": 147634,
+      "sha256": "c1079e546c20c1c8e0dd217eb46adf969aa394404ffe9b8ba833432afaa81ba6",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-120x90.jpg",
+      "size_bytes": 4807,
+      "sha256": "3d1ea90b346e1d2137ad360ba0bfd71590941a41e860f96892a80cfca0ad9ecc",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-1600x1200.jpg",
+      "size_bytes": 217295,
+      "sha256": "f9df6040c9be15ead7cc107605c61a6ba0c760b5647a5a16795305a8371aae84",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-160x120.jpg",
+      "size_bytes": 7034,
+      "sha256": "ac3168cb0c09945b228e38eb955c9f6a169340c578cf4df40c29ba5584a0b86d",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/85-m2-prefabrik-ev-gorsel-plan-1800x1350.jpg",
+      "size_bytes": 281607,
+      "sha256": "faa33b5860d7b457c6d22a116d1623d1df40e5a570857f3d81684bc805b66574",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/kat-plani-85m2-100x100.jpg",
+      "size_bytes": 3850,
+      "sha256": "90af1addadd49cfe366fde6604e2027d2c55a46aed1e3156201ccb5a3c497924",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/kat-plani-85m2-1600x1200.jpg",
+      "size_bytes": 217295,
+      "sha256": "f9df6040c9be15ead7cc107605c61a6ba0c760b5647a5a16795305a8371aae84",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/catalog/tek-katli-prefabrik-evler/deneme/kat-plani-85m2-160x120.jpg",
+      "size_bytes": 7034,
+      "sha256": "ac3168cb0c09945b228e38eb955c9f6a169340c578cf4df40c29ba5584a0b86d",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/no_image-100x100.png",
+      "size_bytes": 3628,
+      "sha256": "6c87613cf87382d5dc9e9d93df2fced9021f36a7003a676f036a01c79a33897c",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/no_image-120x90.png",
+      "size_bytes": 4750,
+      "sha256": "b4fb84ad922efccdcc60d162bf817c7d5120b4809f8eec3bbd455191547841e0",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/no_image-220x150.png",
+      "size_bytes": 10192,
+      "sha256": "53c2407261e8643a048643cc82ffda0287a1702b2adf83d05994b39bd424e9ea",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/no_image-240x160.png",
+      "size_bytes": 11063,
+      "sha256": "1b1dadbddb63771aa17c95a172ff30e7f9f49a9b014dacf011a6a2a7662ffc16",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/no_image-40x40.png",
+      "size_bytes": 1119,
+      "sha256": "fb0d7b90d999b2f484eeabc397f8b25a038d7c8dac8dda2bfcdbfad6e63d94eb",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/cache/placeholder-480x360.png",
+      "size_bytes": 21110,
+      "sha256": "0729c72abfb78c14d4ed2c2025e0e40ea824cf014952e2bf1039d05a37241177",
+      "reason": "Yeniden üretilebilir önbellek türevi"
+    },
+    {
+      "path": "catalog/prefabrik/dubleks/ege-200/80-m2-iki-katli-prefabrik-ev-1-kat.jpg",
+      "size_bytes": 95748,
+      "sha256": "408cf401a46b5c8ce8f2a8640d8b56dd4c9e5733953d21f4394d7fac7588232a",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/248/80-m-dubleks-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/dubleks/ege-200/80-m2-iki-katli-prefabrik-ev-2-kat.jpg",
+      "size_bytes": 91959,
+      "sha256": "43617ede5e4bf19d5ef1f2bd9b1a539c6a19a506f7910f476488666baf5efc82",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/248/80-m-dubleks-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/dubleks/ege-200/80-m2-iki-katli-prefabrik-ev-merkez.jpg",
+      "size_bytes": 160085,
+      "sha256": "7d84c263b5b1bccd453b5b4d973418750921969c03a8c968f6ab50d64a057538",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/248/80-m-dubleks-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/dubleks/ege-200/80-m2-iki-katli-prefabrik-ev-sağ.jpg",
+      "size_bytes": 166915,
+      "sha256": "6a61c0fac22911611514a5c26a310613376f37666837d44753931e9ffe61f369",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/248/80-m-dubleks-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/dubleks/ege-200/80-m2-iki-katli-prefabrik-ev-sol.jpg",
+      "size_bytes": 160905,
+      "sha256": "a2387c757ca3fcb042fd98ad0483cd3284d95f3ee3d05dd639504e67a8fe1259",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/248/80-m-dubleks-prefabrik-ev-5.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/32 m2/1.jpg",
+      "size_bytes": 234875,
+      "sha256": "b6f3ccc346a2b2c527b05d8a409cb518bfe1a97defdc8f829c45efa11d7a9311",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/101/32-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/32 m2/2.jpg",
+      "size_bytes": 134421,
+      "sha256": "edf069d0b057b5bf35750ee52e515720f510550e1d0078053e3d2a6daa2fa7d6",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/101/32-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/32 m2/3.jpg",
+      "size_bytes": 247684,
+      "sha256": "232a72c6bf99e00c75486ce2d891b783761a38cd8f796ed87f872cbab94cdbec",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/101/32-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/32 m2/4.jpg",
+      "size_bytes": 249498,
+      "sha256": "12fcd4921aaa4c6a5c3087f56b8fd7f8e40b5ff8070091e99c49a5992b824c29",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/101/32-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/40 m2/1.jpg",
+      "size_bytes": 259395,
+      "sha256": "e5456052372688f32d0877f739049e61da9341cc892197d7c1fbf9dab8fe7e9c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/107/40-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/40 m2/2.jpg",
+      "size_bytes": 134331,
+      "sha256": "d501d250c13ba64e9cf5f8b7ec55e41ecfabd7eb18380b25d4b1c9e1f6fe0a01",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/107/40-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/40 m2/3.jpg",
+      "size_bytes": 241555,
+      "sha256": "ba9f46876a8b26f552444dd4b34d2f0a51f04102830bee0d9b3176c451c56dcb",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/107/40-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/40 m2/4.jpg",
+      "size_bytes": 256041,
+      "sha256": "cc0a572992232c33e4c6f64839c40317e8ba9314e3144d78cf7a0cea917a6c0e",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/107/40-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/46 m2/46-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 235980,
+      "sha256": "c6902011b510cfce948bc653a4de27c741daab273ed2802aab1cd14b4961f0d6",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/98/46-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/46 m2/46-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 127597,
+      "sha256": "c05d544b93825a96c750ee8b2ae752f8d2a0e41df5229664f1b5361e59aee08f",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/98/46-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/46 m2/46-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 263013,
+      "sha256": "cc0755c5eaaae8a53dc21670736e1b3e8d92b478ee67c5978463be9ec98d1d4f",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/98/46-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/46 m2/46-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 248710,
+      "sha256": "04babc67e72e29c5eccf5ba80a3e5071cb22c4951a6fdf658f303a59ed49ba2b",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/98/46-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/52 m2/52-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 252293,
+      "sha256": "d206628eb2ddacfd18434eb7af34b5d998dea50ed447f16551cc8161cf3e5156",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/110/52-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/52 m2/52-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 137445,
+      "sha256": "7fa22b77225b306783b6a3c685312dbc9f9e74865bcc13f69df4e4dfcc2b402c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/110/52-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/52 m2/52-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 255696,
+      "sha256": "57f756ceccaa7db3abd290d91db838b70fd6263de371720d7d4d5f2bcb74cfaf",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/110/52-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/52 m2/52-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 264527,
+      "sha256": "c0ec4aef64178daa5984f76c931e952770a7f189c6014f4bc0b323b64e0c17b5",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/110/52-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/59 m2/59-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 241966,
+      "sha256": "eec8764d3670ae347b181755261d299a10b2812c880b41d1c6489f158b5a25ad",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/81/59-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/59 m2/59-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 123418,
+      "sha256": "b57c4436f28f8a3ed6a390a105b5760275b8995540d4cffd1f069bf47f8044ca",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/81/59-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/59 m2/59-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 253264,
+      "sha256": "40f32a5c5eab7c23e8b8c36423be69e54a0846b5a229852a1479d0e70e75d0c3",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/81/59-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/59 m2/ege-107-prefabrik-4.jpg",
+      "size_bytes": 244949,
+      "sha256": "cd78958be30215cc358f6ce447ce98ed9eaaef8e300695e05d6c6ae093419bee",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/81/59-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/60 m2/60-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 241796,
+      "sha256": "d9100754ea15611d7c04e8e5b5d35c175e5ae843733b62d77d7c4c20a5f40e22",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/61/60-m-tek-katl-prefabrik-ev-geni-verandal-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/60 m2/60-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 108645,
+      "sha256": "f0afbaafaa16103d31bd1e805bbbb07123c47cd8a6a7ff14cb761091594fecb6",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/61/60-m-tek-katl-prefabrik-ev-geni-verandal-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/60 m2/60-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 231288,
+      "sha256": "520a71f30d280ff8f61ec9d4f97dbe0e8fe4678ff87ccdba3b3f2d53ae703be9",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/61/60-m-tek-katl-prefabrik-ev-geni-verandal-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/60 m2/60-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 231414,
+      "sha256": "dc09595d24c6b4904a495b83758f242b867dde77f794c0e6c17066235e860756",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/61/60-m-tek-katl-prefabrik-ev-geni-verandal-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/64 m2/64-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 146054,
+      "sha256": "0208c0506b8cbcd425b0e91673868484e5685e137dc76417bf00970f31f80cdc",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/82/64-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/64 m2/64-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 80165,
+      "sha256": "7004605ca1142432a2792a6365168961d9e58f8a055ec65240d8fed2f4fcb103",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/82/64-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/64 m2/64-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 150910,
+      "sha256": "27fc9dda0cf5c3d11185085cd0f4802281e0bec519242fc3b632510a91c4782c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/82/64-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/64 m2/64-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 143088,
+      "sha256": "fdb3537f7aabee0067d84d3c042f05132c41becde73ec39f10392b31fbe3ba06",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/82/64-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/69 m2/69-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 246576,
+      "sha256": "395a7c4ca69d0c924da5619211de0c5e835cbee3b8ca5681f4111b22c2f27fda",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/85/69-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/69 m2/69-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 71920,
+      "sha256": "80207aa795d56dd21642b7206852cbb2ad6c8f2b9d277b5cd5680ae2d9d0de3f",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/85/69-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/69 m2/69-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 250302,
+      "sha256": "2ccc06a9fd8b2e1163a6cfacc8e992af29da7a029c1faaabcdc5ff1f90139f2c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/85/69-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/69 m2/69-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 253334,
+      "sha256": "dd583a32d2a546dc64d42a32e357649c670ab26d1a8edcbd2e324064058126aa",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/85/69-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/74 m2/74-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 247362,
+      "sha256": "90c3b6170efcdb187bfb0ecc041a13763585260e9ea9c4067fef46de6704d19c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/86/74-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/74 m2/74-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 72841,
+      "sha256": "c6ee5e00bf1831fed79b342a8e70759e537de0fd4dcd28c4046385f100cce261",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/86/74-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/74 m2/74-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 246311,
+      "sha256": "414e26e93dfdf9e23b0ca642e0d2f714fcab9526fa12a14074fe89ef64474eab",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/86/74-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/74 m2/74-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 249784,
+      "sha256": "403c87035e4c951352244aca9ed02d001f4ef0937b43b3a5a762fc645a72bddd",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/86/74-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/78 m2/78-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 230032,
+      "sha256": "93c0ea6e1001c8215a69b720d69f9a65abacf6b8fb65d395a49825d4566a6114",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/113/78-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/78 m2/78-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 92883,
+      "sha256": "8b866007ffceca8a6a6de4c5dc154afcf84c6ef978fb02722384cb11d892008f",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/113/78-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/78 m2/78-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 239422,
+      "sha256": "949405da992cb963d28972b740f4fe47e4cc805287c069741261cdd0879ef843",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/113/78-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/78 m2/78-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 231279,
+      "sha256": "c6f4c8d0e56614c848e288f13e93a89c3887e55a3bb2b30aa441ad5d701e1fe5",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/113/78-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/80 m2/80-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 247733,
+      "sha256": "6823909893126ba5dff3741fbca434f8b80007359a2cd8997cf8e77fea649851",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/156/80-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/80 m2/80-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 76117,
+      "sha256": "db74a24289afc57809e5c829e0d6e48915c3643ebcf551944e71d1eab9ef5df0",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/156/80-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/80 m2/80-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 243501,
+      "sha256": "64905dc5e9b21f0f0400e497503f556f54d1101d65593798290f2e32dbf43ab9",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/156/80-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/80 m2/80-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 234892,
+      "sha256": "97a97fc8c52375a2fd3d89d0c322924acf11f4cb89e5fedac6a6c45b9e7e88dd",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/156/80-m-tek-katl-prefabrik-ev-4.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/96 m2/92-m2-prefabrik-ev-1.jpg",
+      "size_bytes": 243387,
+      "sha256": "baeeaec9353920d4f72e3391b3d8897777feae780d95053469074eb8fbd8732b",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/65/91-m-tek-katl-prefabrik-ev-1.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/96 m2/92-m2-prefabrik-ev-2.jpg",
+      "size_bytes": 77411,
+      "sha256": "c22aaa9a64ae8eb2dcd60c08b10a674a97190b217953cdff6c1cf574451ec6c5",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/65/91-m-tek-katl-prefabrik-ev-2.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/96 m2/92-m2-prefabrik-ev-3.jpg",
+      "size_bytes": 221054,
+      "sha256": "a04cb84dcb9daf49153e45d1c0cf7b2b3208758edf3f8da3a4b0758e039103a9",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/65/91-m-tek-katl-prefabrik-ev-3.jpg"
+    },
+    {
+      "path": "catalog/prefabrik/tek-katli/96 m2/92-m2-prefabrik-ev-4.jpg",
+      "size_bytes": 213678,
+      "sha256": "7517a6f88b15d062959624cb0d94f1c22acab99a2c288d7a8f9592ef4dd1ff3c",
+      "reason": "Korunan dosyanın birebir kopyası: catalog/urunler/65/91-m-tek-katl-prefabrik-ev-4.jpg"
+    }
+  ]
+}

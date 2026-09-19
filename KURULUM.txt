@@ -1,0 +1,27 @@
+EGESER PREFABRİK — 26 ÜRÜN AÇIKLAMA PAKETİ V1
+
+AMAÇ
+Veritabanındaki 26 aktif Türkçe ürünün boş description alanını, ürüne özel ve H1 içermeyen zengin HTML açıklamalarla doldurur.
+
+GÜVENLİ KURULUM
+1. cPanel > phpMyAdmin bölümünü açın.
+2. Sol taraftan egeserprefabrik sitesinin veritabanını seçin.
+3. İçe Aktar bölümünden 01_URUN_ACIKLAMALARINI_YUKLE.sql dosyasını yükleyin.
+4. İşlem sonunda sonuç tablosunda updated_active_products değeri 26 olmalıdır.
+5. OpenCart yönetim panelinde önbelleği, Journal tema önbelleğini ve tarayıcı önbelleğini temizleyin.
+6. En az üç ürün sayfasını masaüstü ve mobilde kontrol edin.
+
+GÜVENLİK
+- SQL önce oc_egeser_product_description_backup_20260919 adlı yedek tablo oluşturur.
+- Yalnızca language_id=2 olan 26 ürünün description alanını günceller.
+- Ürün adı, fiyat, görsel, kategori, özellik, SEO URL ve stok alanlarına dokunmaz.
+- Geri almak gerekirse 02_GERI_AL.sql dosyasını içe aktarın.
+
+DOSYALAR
+- 01_URUN_ACIKLAMALARINI_YUKLE.sql: Kurulum dosyası
+- 02_GERI_AL.sql: Eski içerikleri geri yükleme dosyası
+- 03_URUN_ACIKLAMALARI_KONTROL_LISTESI.csv: Tüm ürünlerin metin kontrol listesi
+- 04_URUN_ACIKLAMALARI_ONIZLEME.html: Tarayıcıda okunabilir önizleme
+
+NOT
+Metinlerde doğrulanmamış fiyat, üretim süresi, garanti süresi veya kesin teknik malzeme iddiası kullanılmamıştır. Teknik kapsamın projeye ve seçilen pakete göre belirlendiği açıkça belirtilmiştir.

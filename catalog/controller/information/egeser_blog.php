@@ -31,16 +31,19 @@ class ControllerInformationEgeserBlog extends Controller {
                 $image = $this->model_tool_image->resize(ltrim($post['image'], '/'), 640, 420);
             }
 
-            $plain = trim(preg_replace('/\s+/u', ' ', strip_tags(html_entity_decode($post['description'], ENT_QUOTES, 'UTF-8'))));
+            $plain = $this->plainText($post['description']);
 
             $data['posts'][] = array(
                 'title' => $post['title'],
                 'href' => $base . '/blog/' . $post['slug'],
                 'image' => $image,
-                'excerpt' => utf8_substr($plain, 0, 240) . (utf8_strlen($plain) > 240 ? '…' : ''),
-                'date' => !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : ''
+                'excerpt' => utf8_substr($plain, 0, 190) . (utf8_strlen($plain) > 190 ? '…' : ''),
+                'date' => !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : '',
+                'reading_time' => $this->readingTime($plain)
             );
         }
+
+        $data['post_count'] = count($data['posts']);
 
         $data['schema'] = array(
             '@context' => 'https://schema.org',
@@ -78,9 +81,10 @@ class ControllerInformationEgeserBlog extends Controller {
         );
 
         $data['heading_title'] = $post['title'];
-        $data['description'] = html_entity_decode($post['description'], ENT_QUOTES, 'UTF-8');
+        $data['description'] = $this->sanitizePostContent($post['description'], $post['title']);
         $data['canonical'] = $canonical;
         $data['date'] = !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : '';
+        $data['reading_time'] = $this->readingTime($this->plainText($post['description']));
         $data['image'] = '';
 
         if (!empty($post['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($post['image'], '/'))) {
@@ -118,6 +122,42 @@ class ControllerInformationEgeserBlog extends Controller {
         $this->response->setOutput($this->load->view('information/egeser_blog_post', $data));
     }
 
+    /**
+     * Blog şablonu sayfa başlığını zaten tek H1 olarak basar. Editörden gelen
+     * içerikteki aynı başlığı kaldırır, diğer H1'leri H2'ye dönüştürür.
+     * Böylece mevcut ve gelecekte eklenen yazılar birden fazla H1 üretmez.
+     */
+    private function sanitizePostContent($description, $title) {
+        $content = html_entity_decode($description, ENT_QUOTES, 'UTF-8');
+        // Eski içerik aktarımından kalan görünür \n / \r / \t dizilerini temizle.
+        $content = str_replace(array('\\n', '\\r', '\\t'), ' ', $content);
+        $title_text = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($title), ENT_QUOTES, 'UTF-8')));
+
+        $content = preg_replace_callback('/<h1\b[^>]*>(.*?)<\/h1>/is', function($matches) use ($title_text) {
+            $heading_text = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($matches[1]), ENT_QUOTES, 'UTF-8')));
+
+            if ($heading_text === $title_text) {
+                return '';
+            }
+
+            return '<h2>' . $matches[1] . '</h2>';
+        }, $content);
+
+        return $content;
+    }
+
+    private function plainText($html) {
+        $html = html_entity_decode((string)$html, ENT_QUOTES, 'UTF-8');
+        $html = str_replace(array('\\n', '\\r', '\\t'), ' ', $html);
+        $html = preg_replace('/<\/(p|div|h[1-6]|li|tr|blockquote)>/iu', ' ', $html);
+        return trim(preg_replace('/\s+/u', ' ', strip_tags($html)));
+    }
+
+    private function readingTime($plain) {
+        $words = preg_split('/\s+/u', trim((string)$plain), -1, PREG_SPLIT_NO_EMPTY);
+        return max(1, (int)ceil(count($words) / 200));
+    }
+
     private function notFound() {
         $this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
         $this->document->setTitle('Sayfa Bulunamadı');
@@ -136,6 +176,12 @@ class ControllerInformationEgeserBlog extends Controller {
     }
 
     private function common(&$data) {
+        $base = rtrim($this->config->get('config_url'), '/');
+        $data['site_base'] = $base;
+        $data['blog_url'] = $base . '/blog';
+        $data['contact_url'] = $base . '/iletisim';
+        $data['models_url'] = $base . '/prefabrik-yapilar';
+        $data['whatsapp_url'] = 'https://wa.me/905318866090?text=' . rawurlencode('Merhaba, prefabrik yapı projem için bilgi ve teklif almak istiyorum.');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['column_right'] = $this->load->controller('common/column_right');
         $data['content_top'] = $this->load->controller('common/content_top');

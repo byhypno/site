@@ -4,6 +4,7 @@ class ControllerInformationContact extends Controller {
 
 	public function index() {
 		$this->load->language('information/contact');
+		require_once(DIR_SYSTEM . 'library/egeser_contact.php');
 
 		$this->document->setTitle('İletişim | Egeser Prefabrik İzmir');
 		$this->document->setDescription('İzmir Kemalpaşa’daki Egeser Prefabrik ile prefabrik ev, kurumsal yapı, proje, üretim, sevkiyat ve montaj talepleriniz için iletişime geçin.');
@@ -23,7 +24,7 @@ class ControllerInformationContact extends Controller {
 			$project_type = isset($this->request->post['project_type']) ? trim((string)$this->request->post['project_type']) : '';
 			$enquiry      = trim((string)$this->request->post['enquiry']);
 
-			$to = trim((string)$this->config->get('config_email'));
+			$to = EgeserContact::EMAIL;
 			$from = trim((string)$this->config->get('config_mail_smtp_username'));
 
 			if (!filter_var($from, FILTER_VALIDATE_EMAIL)) {
@@ -108,7 +109,6 @@ class ControllerInformationContact extends Controller {
 		}
 
 		// EGESER sabit iletisim bilgileri (kullanici tarafindan teyitli).
-		require_once(DIR_SYSTEM . 'library/egeser_contact.php');
 		$data['egeser_whatsapp'] = EgeserContact::WHATSAPP;
 
 		$data['breadcrumbs'] = array();
@@ -176,7 +176,7 @@ class ControllerInformationContact extends Controller {
 		$data['geocode_hl'] = $this->config->get('config_language');
 
 		// Store email is shown in the contact card.
-		$data['email_store'] = trim((string)$this->config->get('config_email'));
+		$data['email_store'] = EgeserContact::EMAIL;
 
 		// Form values: store phone must NOT prefill the visitor phone field.
 		$data['name'] = isset($this->request->post['name'])

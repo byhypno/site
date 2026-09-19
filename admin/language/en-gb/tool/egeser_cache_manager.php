@@ -1,0 +1,22 @@
+<?php
+$_['heading_title'] = 'Egeser Cache Manager';
+$_['text_home'] = 'Home';
+$_['text_tools'] = 'Tools';
+$_['text_dashboard'] = 'Cache / Memory Management';
+$_['text_intro'] = 'This tool is tailored to the actual Egeser Prefabrik file structure. It safely clears OpenCart cache files, delegates OCMOD refresh to OpenCart core and reports PHP OPcache status.';
+$_['text_safety'] = 'Safety: only system/storage/cache/cache.* files are deleted. index.html, spreadsheets, images, uploads, logs, database and config files are never touched.';
+$_['text_ocmod_note'] = 'OCMOD files are not deleted by custom code. The OCMOD Refresh button uses OpenCart 2.3.0.2 core Modification > Refresh.';
+$_['text_no_journal'] = 'No separate Journal / Journal 3 installation directory was detected in the supplied site files, so no guessed Journal cache path is touched.';
+$_['text_cache_cleared'] = 'OpenCart cache cleared: %s files, %s.';
+$_['text_all_safe_cleared'] = 'Safe cache cleanup completed: %s OpenCart cache files, %s. PHP OPcache reset was also attempted if supported.';
+$_['text_opcache_reset'] = 'PHP OPcache reset successfully.';
+$_['button_clear_cache'] = 'Clear OpenCart Cache';
+$_['button_clear_all_safe'] = 'Clear All Safe Cache';
+$_['button_reset_opcache'] = 'Reset PHP OPcache';
+$_['button_refresh_ocmod'] = 'Refresh OCMOD';
+$_['button_refresh'] = 'Refresh Status';
+$_['error_permission'] = 'Modification modify permission is required.';
+$_['error_cache_path'] = 'The cache directory could not be safely validated. No action was taken.';
+$_['error_delete_file'] = 'Could not delete %s. Operation stopped.';
+$_['error_opcache_unavailable'] = 'PHP OPcache is unavailable or disabled in the web PHP process.';
+$_['error_opcache_reset'] = 'PHP OPcache could not be reset.';

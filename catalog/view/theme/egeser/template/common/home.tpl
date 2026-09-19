@@ -1374,8 +1374,7 @@ $eh13_url_ozel = '/ozel-proje-prefabrik-yapilar';
 $eh13_url_teknik = !empty($egeser_url_teknik) ? $egeser_url_teknik : 'teknik-bilgiler';
 $eh13_url_projeler = !empty($egeser_url_referanslar) ? $egeser_url_referanslar : 'projelerimiz';
 
-$eh17_email = !empty($config_email) ? trim($config_email) : 'info@egeserprefabrik.com.tr';
-if (!preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]+$/', $eh17_email)) { $eh17_email = 'info@egeserprefabrik.com.tr'; }
+$eh17_email = 'web@egeserprefabrik.com.tr';
 $eh17_email_href = 'mailto:' . $eh17_email;
 $eh17_maps_href = 'https://www.google.com/maps?q=38.44988554328141,27.497831062110418';
 
@@ -1393,6 +1392,13 @@ if (defined('HTTPS_SERVER') && HTTPS_SERVER) {
 } else {
     $eh13_base = '/';
 }
+$eh17_city_base = rtrim($eh13_base, '/') . '/';
+
+$eh13_same_as = array(
+    'https://www.facebook.com/egeserprefabrik',
+    'https://www.instagram.com/egeserprefabrik/',
+    'https://tr.linkedin.com/company/egeser-konteyner-prefabrik-san-ve-tic-ltd-şti'
+);
 
 $eh13_schema = array(
     '@context' => 'https://schema.org',
@@ -1403,14 +1409,15 @@ $eh13_schema = array(
             'name' => 'Egeser Prefabrik',
             'url' => $eh13_base,
             'telephone' => $eh12_phone,
+            'email' => 'web@egeserprefabrik.com.tr',
+            'sameAs' => $eh13_same_as,
             'address' => array(
                 '@type' => 'PostalAddress',
-                'streetAddress' => 'Çambel Mevkii',
+                'streetAddress' => 'Çambel Mahallesi, 1558. Sokak No: 28 Daire: 1',
                 'addressLocality' => 'Kemalpaşa',
                 'addressRegion' => 'İzmir',
                 'addressCountry' => 'TR'
-            ),
-            'sameAs' => array($eh17_maps_href)
+            )
         ),
         array(
             '@type' => 'WebSite',
@@ -1426,26 +1433,36 @@ $eh13_schema = array(
             'name' => 'Egeser Prefabrik',
             'url' => $eh13_base,
             'telephone' => $eh12_phone,
+            'email' => 'web@egeserprefabrik.com.tr',
             'priceRange' => '₺₺',
+            'sameAs' => $eh13_same_as,
             'address' => array(
                 '@type' => 'PostalAddress',
-                'streetAddress' => 'Çambel Mevkii',
+                'streetAddress' => 'Çambel Mahallesi, 1558. Sokak No: 28 Daire: 1',
                 'addressLocality' => 'Kemalpaşa',
                 'addressRegion' => 'İzmir',
                 'addressCountry' => 'TR'
             ),
             'geo' => array(
                 '@type' => 'GeoCoordinates',
-                'latitude' => 38.44988554328141,
-                'longitude' => 27.497831062110418
+                'latitude' => 38.4498855,
+                'longitude' => 27.4978310
             ),
             'hasMap' => $eh17_maps_href,
-            'sameAs' => array($eh17_maps_href),
             'openingHoursSpecification' => array(
-                '@type' => 'OpeningHoursSpecification',
-                'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
-                'opens' => '08:30',
-                'closes' => '17:30'
+                array(
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => array(
+                        'https://schema.org/Monday',
+                        'https://schema.org/Tuesday',
+                        'https://schema.org/Wednesday',
+                        'https://schema.org/Thursday',
+                        'https://schema.org/Friday',
+                        'https://schema.org/Saturday'
+                    ),
+                    'opens' => '08:30',
+                    'closes' => '17:30'
+                )
             ),
             'areaServed' => array(
                 array('@type' => 'City', 'name' => 'İzmir'),
@@ -1802,42 +1819,42 @@ $eh13_schema = array(
         <div class="eh17-city-card__top"><span>01</span><small>MERKEZ BÖLGE</small></div>
         <h3>İzmir Prefabrik Yapı Çözümleri</h3>
         <p>Prefabrik ev ve kurumsal yapı projelerinde saha erişimi, zemin hazırlığı, sevkiyat ve montaj planlamasını Kemalpaşa merkezli değerlendiriyoruz.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="İzmir">İzmir için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'izmir-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">İzmir sayfasını incele <b>→</b></a>
       </article>
 
       <article class="eh17-city-card">
         <div class="eh17-city-card__top"><span>02</span><small>EGE BÖLGESİ</small></div>
         <h3>Manisa Prefabrik Yapı Çözümleri</h3>
         <p>Manisa ve ilçelerindeki projelerde yapı tipi, saha koşulları ve lojistik gereksinimler proje başlangıcında birlikte değerlendirilir.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="Manisa">Manisa için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'manisa-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">Manisa sayfasını incele <b>→</b></a>
       </article>
 
       <article class="eh17-city-card">
         <div class="eh17-city-card__top"><span>03</span><small>EGE BÖLGESİ</small></div>
         <h3>Aydın Prefabrik Yapı Çözümleri</h3>
         <p>Aydın bölgesindeki bireysel ve kurumsal prefabrik projelerde sevkiyat, montaj alanı ve uygulama koşulları proje bazında planlanır.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="Aydın">Aydın için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'aydin-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">Aydın sayfasını incele <b>→</b></a>
       </article>
 
       <article class="eh17-city-card">
         <div class="eh17-city-card__top"><span>04</span><small>EGE BÖLGESİ</small></div>
         <h3>Uşak Prefabrik Yapı Çözümleri</h3>
         <p>Uşak projelerinde yapı büyüklüğü, sevkiyat güzergâhı, saha erişimi ve montaj şartları teknik kapsamla birlikte ele alınır.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="Uşak">Uşak için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'usak-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">Uşak sayfasını incele <b>→</b></a>
       </article>
 
       <article class="eh17-city-card">
         <div class="eh17-city-card__top"><span>05</span><small>EGE / MARMARA GEÇİŞİ</small></div>
         <h3>Balıkesir Prefabrik Yapı Çözümleri</h3>
         <p>Balıkesir bölgesindeki projelerde teslim kapsamı; proje türü, mesafe, saha şartları ve montaj organizasyonuna göre netleştirilir.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="Balıkesir">Balıkesir için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'balikesir-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">Balıkesir sayfasını incele <b>→</b></a>
       </article>
 
       <article class="eh17-city-card">
         <div class="eh17-city-card__top"><span>06</span><small>GÜNEY EGE</small></div>
         <h3>Muğla Prefabrik Yapı Çözümleri</h3>
         <p>Muğla ve çevresindeki projelerde saha erişimi ve lojistik koşullar dikkate alınarak üretim, sevkiyat ve montaj kapsamı planlanır.</p>
-        <button type="button" class="eh17-city-action" data-eg-city="Muğla">Muğla için teklif al <b>→</b></button>
+        <a class="eh17-city-action" href="<?php echo htmlspecialchars($eh17_city_base . 'mugla-prefabrik-ev', ENT_QUOTES, 'UTF-8'); ?>">Muğla sayfasını incele <b>→</b></a>
       </article>
     </div>
 
@@ -1978,37 +1995,6 @@ echo json_encode(array(
   </div>
 </section>
 
-
-<script>
-(function(){
-  'use strict';
-  var buttons = document.querySelectorAll('.eh17-city-action[data-eg-city]');
-  if(!buttons.length) return;
-
-  Array.prototype.forEach.call(buttons,function(btn){
-    btn.addEventListener('click',function(){
-      var city = btn.getAttribute('data-eg-city') || '';
-      var formSection = document.getElementById('eg-lead');
-      var locationInput = formSection ? formSection.querySelector('input[name="location"]') : null;
-
-      if(locationInput && city){
-        locationInput.value = city;
-        try {
-          locationInput.dispatchEvent(new Event('input', {bubbles:true}));
-          locationInput.dispatchEvent(new Event('change', {bubbles:true}));
-        } catch(e){}
-      }
-
-      if(formSection){
-        formSection.scrollIntoView({behavior:'smooth',block:'start'});
-        window.setTimeout(function(){
-          if(locationInput) locationInput.focus();
-        },650);
-      }
-    });
-  });
-})();
-</script>
 
 </main>
 <?php echo $footer; ?>
