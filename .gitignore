@@ -22,3 +22,10 @@ system/storage/upload/*
 
 # Leftover Turkish language pack installer archive (not live app code)
 /turkce-icin-degistirilen/
+
+# Stale misplaced language-pack snapshot (correct location is admin/language/tr-tr/)
+/admin/tr-tr/
+
+# One-off security-sensitive cleanup tool (contains a hardcoded access token; delete from the
+# live server after use, never keep it deployed or in source control)
+/egeser_image_cleanup/
