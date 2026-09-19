@@ -55,17 +55,13 @@ class ControllerInformationInformation extends Controller {
 
 			$data['continue'] = '/';
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
-
 			if ($information_id === 9) {
 				// EGESER - Gercek proje fotograflari ve kurumsal is ortagi logolari
 				// admin > Extensions > Modules > "Egeser Referanslari" uzerinden eklendiginde
 				// bu blok otomatik gorunur; hicbir sey eklenmemisse bos doner.
+				// NOT: bu cagri common/header render edilmeden ONCE yapilmali, cunku
+				// modul kendi CSS dosyasini $this->document->addStyle() ile ekliyor ve
+				// header, o ana kadar eklenmis stilleri <head> icine yazip kapaniyor.
 				$data['egeser_references_html'] = '';
 
 				$reference_query = $this->db->query("SELECT `setting` FROM `" . DB_PREFIX . "module` WHERE `code` = 'egeser_references' ORDER BY `module_id` ASC LIMIT 1");
@@ -77,7 +73,16 @@ class ControllerInformationInformation extends Controller {
 						$data['egeser_references_html'] = $this->load->controller('extension/module/egeser_references', $reference_setting);
 					}
 				}
+			}
 
+			$data['column_left'] = $this->load->controller('common/column_left');
+			$data['column_right'] = $this->load->controller('common/column_right');
+			$data['content_top'] = $this->load->controller('common/content_top');
+			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['footer'] = $this->load->controller('common/footer');
+			$data['header'] = $this->load->controller('common/header');
+
+			if ($information_id === 9) {
 				$this->response->setOutput($this->load->view('information/egeser_projelerimiz_v1_1', $data));
 			} elseif ($information_id === 10) {
 				$this->response->setOutput($this->load->view('information/egeser_teknik_bilgiler_v1', $data));
