@@ -63,6 +63,21 @@ class ControllerInformationInformation extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if ($information_id === 9) {
+				// EGESER - Gercek proje fotograflari ve kurumsal is ortagi logolari
+				// admin > Extensions > Modules > "Egeser Referanslari" uzerinden eklendiginde
+				// bu blok otomatik gorunur; hicbir sey eklenmemisse bos doner.
+				$data['egeser_references_html'] = '';
+
+				$reference_query = $this->db->query("SELECT `setting` FROM `" . DB_PREFIX . "module` WHERE `code` = 'egeser_references' ORDER BY `module_id` ASC LIMIT 1");
+
+				if ($reference_query->num_rows) {
+					$reference_setting = json_decode($reference_query->row['setting'], true);
+
+					if (is_array($reference_setting)) {
+						$data['egeser_references_html'] = $this->load->controller('extension/module/egeser_references', $reference_setting);
+					}
+				}
+
 				$this->response->setOutput($this->load->view('information/egeser_projelerimiz_v1_1', $data));
 			} elseif ($information_id === 10) {
 				$this->response->setOutput($this->load->view('information/egeser_teknik_bilgiler_v1', $data));

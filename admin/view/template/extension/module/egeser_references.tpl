@@ -101,6 +101,39 @@
             </div>
           </div>
           <?php } ?>
+
+          <h3 style="margin:30px 0 10px">Kurumsal İş Ortakları</h3>
+          <p class="text-muted">Birlikte çalıştığınız kurumsal markaların logolarını ekleyin. Boş bıraktığınız kartlar sitede görünmez.</p>
+
+          <div class="row">
+            <?php foreach ($partners as $i => $partner) { ?>
+            <div class="col-sm-3" style="margin-bottom:20px">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong>Marka <?php echo $i + 1; ?></strong>
+                  <label class="pull-right" style="font-weight:normal">
+                    <input type="checkbox" name="partners[<?php echo $i; ?>][enabled]" value="1" <?php echo !empty($partner['enabled']) ? 'checked="checked"' : ''; ?>> Aktif
+                  </label>
+                </div>
+                <div class="panel-body">
+                  <a href="" id="thumb-partner-<?php echo $i; ?>" data-toggle="image" class="img-thumbnail" style="display:block">
+                    <img src="<?php echo $partner['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder_partner; ?>" style="max-width:100%">
+                  </a>
+                  <input type="hidden" name="partners[<?php echo $i; ?>][image]" value="<?php echo htmlspecialchars($partner['image'], ENT_QUOTES, 'UTF-8'); ?>" id="input-partner-<?php echo $i; ?>">
+
+                  <div class="form-group" style="margin-top:10px">
+                    <label>Marka Adı</label>
+                    <input type="text" name="partners[<?php echo $i; ?>][name]" value="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" class="form-control" placeholder="Marka Adı">
+                  </div>
+                  <div class="form-group">
+                    <label>Bağlantı (opsiyonel)</label>
+                    <input type="text" name="partners[<?php echo $i; ?>][link]" value="<?php echo htmlspecialchars($partner['link'], ENT_QUOTES, 'UTF-8'); ?>" class="form-control" placeholder="https://...">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+          </div>
         </form>
       </div>
     </div>

@@ -50,7 +50,35 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
             }
         }
 
-        if (!$projects) {
+        $partners = array();
+
+        if (!empty($setting['partners']) && is_array($setting['partners'])) {
+            $this->load->model('tool/image');
+
+            foreach ($setting['partners'] as $partner) {
+                if (empty($partner['enabled']) || empty($partner['image']) || !is_file(DIR_IMAGE . $partner['image'])) {
+                    continue;
+                }
+
+                $link = isset($partner['link']) ? trim($partner['link']) : '';
+
+                if ($link !== '' && !preg_match('#^https?://#i', $link) && strpos($link, '/') !== 0) {
+                    $link = '';
+                }
+
+                $partners[] = array(
+                    'image' => $this->model_tool_image->resize($partner['image'], 180, 90),
+                    'name' => isset($partner['name']) ? $partner['name'] : '',
+                    'link' => $link
+                );
+
+                if (count($partners) >= 8) {
+                    break;
+                }
+            }
+        }
+
+        if (!$projects && !$partners) {
             return '';
         }
 
@@ -63,6 +91,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
             : '';
 
         $data['projects'] = $projects;
+        $data['partners'] = $partners;
 
         $this->document->addStyle('catalog/view/theme/egeser/stylesheet/egeser-references.css');
 

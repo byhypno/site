@@ -141,7 +141,35 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
             $data['projects'][$i] = $project;
         }
 
+        $partners = isset($this->request->post['partners'])
+            ? $this->request->post['partners']
+            : (isset($module_info['partners']) && is_array($module_info['partners']) ? $module_info['partners'] : array());
+
+        $partner_defaults = array(
+            'enabled' => 1,
+            'image' => '',
+            'name' => '',
+            'link' => ''
+        );
+
+        $data['partners'] = array();
+
+        for ($i = 0; $i < 8; $i++) {
+            $partner = isset($partners[$i]) && is_array($partners[$i])
+                ? array_merge($partner_defaults, $partners[$i])
+                : $partner_defaults;
+
+            if (!empty($partner['image']) && is_file(DIR_IMAGE . $partner['image'])) {
+                $partner['thumb'] = $this->model_tool_image->resize($partner['image'], 180, 90);
+            } else {
+                $partner['thumb'] = $this->model_tool_image->resize('no_image.png', 180, 90);
+            }
+
+            $data['partners'][$i] = $partner;
+        }
+
         $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 220, 150);
+        $data['placeholder_partner'] = $this->model_tool_image->resize('no_image.png', 180, 90);
         $data['token'] = $this->session->data['token'];
 
         $data['header'] = $this->load->controller('common/header');
@@ -190,6 +218,19 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                 'description' => isset($row['description']) ? trim(strip_tags($row['description'])) : '',
                 'location' => isset($row['location']) ? trim(strip_tags($row['location'])) : '',
                 'size' => isset($row['size']) ? trim(strip_tags($row['size'])) : '',
+                'link' => isset($row['link']) ? trim($row['link']) : ''
+            );
+        }
+
+        $output['partners'] = array();
+
+        for ($i = 0; $i < 8; $i++) {
+            $row = isset($input['partners'][$i]) && is_array($input['partners'][$i]) ? $input['partners'][$i] : array();
+
+            $output['partners'][$i] = array(
+                'enabled' => !empty($row['enabled']) ? 1 : 0,
+                'image' => isset($row['image']) ? trim($row['image']) : '',
+                'name' => isset($row['name']) ? trim(strip_tags($row['name'])) : '',
                 'link' => isset($row['link']) ? trim($row['link']) : ''
             );
         }

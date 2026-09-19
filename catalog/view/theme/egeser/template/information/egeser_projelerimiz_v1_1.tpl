@@ -174,6 +174,10 @@
     <div><strong>Sevkiyat & Montaj</strong><span>Saha koşullarına göre organizasyon</span></div>
   </div>
 
+  <?php if (!empty($egeser_references_html)) { ?>
+  <?php echo $egeser_references_html; ?>
+  <?php } ?>
+
   <section class="egp1-section" id="egp1-bireysel">
     <div class="egp1-head">
       <div><div class="egp1-eyebrow">BİREYSEL REFERANSLAR</div><h2>Prefabrik ev projelerimizden seçmeler.</h2></div>

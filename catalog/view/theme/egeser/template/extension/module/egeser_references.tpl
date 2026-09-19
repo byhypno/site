@@ -1,5 +1,6 @@
 <section class="egref" aria-labelledby="egref-title">
   <div class="egref__container">
+    <?php if ($projects) { ?>
     <div class="egref__head">
       <div>
         <span class="egref__eyebrow">PROJELER / REFERANSLAR</span>
@@ -62,5 +63,24 @@
       </article>
       <?php } ?>
     </div>
+    <?php } ?>
+
+    <?php if ($partners) { ?>
+    <div class="egref__partners">
+      <span class="egref__eyebrow">KURUMSAL İŞ ORTAKLARI</span>
+      <h3>Birlikte çalıştığımız kurumsal markalar.</h3>
+      <div class="egref__partners-grid">
+        <?php foreach ($partners as $partner) { ?>
+        <?php if ($partner['link']) { ?>
+        <a class="egref__partner" href="<?php echo htmlspecialchars($partner['link'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>">
+        <?php } else { ?>
+        <div class="egref__partner">
+        <?php } ?>
+          <img src="<?php echo htmlspecialchars($partner['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" decoding="async">
+        <?php if ($partner['link']) { ?></a><?php } else { ?></div><?php } ?>
+        <?php } ?>
+      </div>
+    </div>
+    <?php } ?>
   </div>
 </section>
