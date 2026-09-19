@@ -78,6 +78,7 @@
         <?php } ?>
           <span class="egref__partner-logo"><img src="<?php echo htmlspecialchars($partner['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" decoding="async"></span>
           <?php if ($partner['name']) { ?><span class="egref__partner-name"><?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
+          <?php if ($partner['description']) { ?><span class="egref__partner-desc"><?php echo htmlspecialchars($partner['description'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
         <?php if ($partner['link']) { ?></a><?php } else { ?></div><?php } ?>
         <?php } ?>
       </div>

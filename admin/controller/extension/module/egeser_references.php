@@ -149,6 +149,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
             'enabled' => 1,
             'image' => '',
             'name' => '',
+            'description' => '',
             'link' => ''
         );
 
@@ -231,6 +232,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                 'enabled' => !empty($row['enabled']) ? 1 : 0,
                 'image' => isset($row['image']) ? trim($row['image']) : '',
                 'name' => isset($row['name']) ? trim(strip_tags($row['name'])) : '',
+                'description' => isset($row['description']) ? trim(strip_tags($row['description'])) : '',
                 'link' => isset($row['link']) ? trim($row['link']) : ''
             );
         }

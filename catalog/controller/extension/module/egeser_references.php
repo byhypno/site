@@ -69,6 +69,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                 $partners[] = array(
                     'image' => $this->model_tool_image->resize($partner['image'], 180, 90),
                     'name' => isset($partner['name']) ? $partner['name'] : '',
+                    'description' => isset($partner['description']) ? $partner['description'] : '',
                     'link' => $link
                 );
 

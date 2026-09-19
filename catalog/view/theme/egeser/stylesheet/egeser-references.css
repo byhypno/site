@@ -25,13 +25,14 @@
 .egref__partners{margin-top:60px;padding-top:44px;border-top:1px solid var(--line)}
 .egref__partners h3{margin:0 0 26px;font-size:26px;letter-spacing:-.02em}
 .egref__partners-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.egref__partner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:130px;padding:18px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
+.egref__partner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:150px;padding:18px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
 .egref__partner:hover{border-color:var(--red);box-shadow:0 6px 18px rgba(239,35,41,.1)}
 .egref__partner-logo{display:flex;align-items:center;justify-content:center;height:64px;width:100%}
 .egref__partner-logo img{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .15s ease,opacity .15s ease}
 .egref__partner:hover .egref__partner-logo img{filter:grayscale(0);opacity:1}
 .egref__partner-name{font-size:12.5px;font-weight:700;color:var(--muted);text-align:center;line-height:1.3}
 .egref__partner:hover .egref__partner-name{color:var(--ink)}
+.egref__partner-desc{margin-top:-4px;font-size:11px;color:#9c9490;text-align:center;line-height:1.3}
 
 @media(max-width:991px){
   .egref__head{grid-template-columns:1fr}

@@ -126,6 +126,10 @@
                     <input type="text" name="partners[<?php echo $i; ?>][name]" value="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" class="form-control" placeholder="Marka Adı">
                   </div>
                   <div class="form-group">
+                    <label>Ne İş Yaptık (opsiyonel)</label>
+                    <input type="text" name="partners[<?php echo $i; ?>][description]" value="<?php echo htmlspecialchars($partner['description'], ENT_QUOTES, 'UTF-8'); ?>" class="form-control" placeholder="Adliye Ek Hizmet Binası">
+                  </div>
+                  <div class="form-group">
                     <label>Bağlantı (opsiyonel)</label>
                     <input type="text" name="partners[<?php echo $i; ?>][link]" value="<?php echo htmlspecialchars($partner['link'], ENT_QUOTES, 'UTF-8'); ?>" class="form-control" placeholder="https://...">
                   </div>
