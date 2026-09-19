@@ -72,11 +72,12 @@
       <div class="egref__partners-grid">
         <?php foreach ($partners as $partner) { ?>
         <?php if ($partner['link']) { ?>
-        <a class="egref__partner" href="<?php echo htmlspecialchars($partner['link'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>">
+        <a class="egref__partner" href="<?php echo htmlspecialchars($partner['link'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">
         <?php } else { ?>
         <div class="egref__partner">
         <?php } ?>
-          <img src="<?php echo htmlspecialchars($partner['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" decoding="async">
+          <span class="egref__partner-logo"><img src="<?php echo htmlspecialchars($partner['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" decoding="async"></span>
+          <?php if ($partner['name']) { ?><span class="egref__partner-name"><?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
         <?php if ($partner['link']) { ?></a><?php } else { ?></div><?php } ?>
         <?php } ?>
       </div>
