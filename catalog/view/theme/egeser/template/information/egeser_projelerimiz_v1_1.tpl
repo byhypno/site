@@ -103,7 +103,8 @@
 .egp1-step h3{font-size:15px;margin:18px 0 7px;letter-spacing:0}
 .egp1-step p{font-size:12px;line-height:1.55;margin:0}
 .egp1-regions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.egp1-region{padding:23px;border:1px solid var(--line);border-radius:18px;background:#fff;min-height:165px}
+.egp1-region{display:block;padding:23px;border:1px solid var(--line);border-radius:18px;background:#fff;min-height:165px;transition:border-color .15s ease,box-shadow .15s ease}
+.egp1-region:hover{border-color:var(--red);box-shadow:0 6px 18px rgba(239,35,41,.1)}
 .egp1-region:first-child{background:linear-gradient(145deg,#1a1a1a,#352015);color:#fff;border-color:#1a1a1a}
 .egp1-region:first-child p{color:#d5d5d5}
 .egp1-region small{color:#e38b00;font-weight:900;letter-spacing:.1em}
@@ -236,12 +237,12 @@
       <p>Kemalpaşa / İzmir merkezli üretim altyapısıyla proje lokasyonu; sevkiyat, montaj ve saha erişimi açısından değerlendirilir.</p>
     </div>
     <div class="egp1-regions">
-      <article class="egp1-region"><small>MERKEZ BÖLGE</small><h3>İzmir Prefabrik Projeleri</h3><p>İzmir ve ilçelerinde bireysel ve kurumsal prefabrik yapı projeleri.</p></article>
-      <article class="egp1-region"><small>EGE</small><h3>Manisa Prefabrik Projeleri</h3><p>Manisa ve ilçelerinde planlama, üretim, sevkiyat ve montaj organizasyonu.</p></article>
-      <article class="egp1-region"><small>EGE</small><h3>Aydın Prefabrik Projeleri</h3><p>Proje kapsamına göre saha ve lojistik değerlendirmesi.</p></article>
-      <article class="egp1-region"><small>EGE / MARMARA</small><h3>Balıkesir Prefabrik Projeleri</h3><p>Lokasyon ve saha koşullarına göre proje organizasyonu.</p></article>
-      <article class="egp1-region"><small>EGE</small><h3>Uşak Prefabrik Projeleri</h3><p>Üretim ve sevkiyat planı saha ve erişim koşullarına göre hazırlanır.</p></article>
-      <article class="egp1-region"><small>GÜNEY EGE</small><h3>Muğla Prefabrik Projeleri</h3><p>Proje lokasyonu, saha erişimi ve montaj koşulları birlikte değerlendirilir.</p></article>
+      <a class="egp1-region" href="/izmir-prefabrik-ev"><small>MERKEZ BÖLGE</small><h3>İzmir Prefabrik Projeleri</h3><p>İzmir ve ilçelerinde bireysel ve kurumsal prefabrik yapı projeleri.</p></a>
+      <a class="egp1-region" href="/manisa-prefabrik-ev"><small>EGE</small><h3>Manisa Prefabrik Projeleri</h3><p>Manisa ve ilçelerinde planlama, üretim, sevkiyat ve montaj organizasyonu.</p></a>
+      <a class="egp1-region" href="/aydin-prefabrik-ev"><small>EGE</small><h3>Aydın Prefabrik Projeleri</h3><p>Proje kapsamına göre saha ve lojistik değerlendirmesi.</p></a>
+      <a class="egp1-region" href="/balikesir-prefabrik-ev"><small>EGE / MARMARA</small><h3>Balıkesir Prefabrik Projeleri</h3><p>Lokasyon ve saha koşullarına göre proje organizasyonu.</p></a>
+      <a class="egp1-region" href="/usak-prefabrik-ev"><small>EGE</small><h3>Uşak Prefabrik Projeleri</h3><p>Üretim ve sevkiyat planı saha ve erişim koşullarına göre hazırlanır.</p></a>
+      <a class="egp1-region" href="/mugla-prefabrik-ev"><small>GÜNEY EGE</small><h3>Muğla Prefabrik Projeleri</h3><p>Proje lokasyonu, saha erişimi ve montaj koşulları birlikte değerlendirilir.</p></a>
     </div>
   </section>
 

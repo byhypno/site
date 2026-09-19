@@ -61,7 +61,8 @@
 .et1-step strong{display:block;margin-bottom:6px;font-size:14px}
 .et1-step span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
 .et1-regions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.et1-region{border:1px solid var(--line);border-radius:18px;padding:23px;background:#fff}
+.et1-region{display:block;border:1px solid var(--line);border-radius:18px;padding:23px;background:#fff;transition:border-color .15s ease,box-shadow .15s ease}
+.et1-region:hover{border-color:#ef9c18;box-shadow:0 6px 18px rgba(239,156,24,.12)}
 .et1-region:first-child{background:linear-gradient(135deg,#171717,#2e1b14);color:#fff;border-color:#1c1c1c}
 .et1-region small{display:block;font-weight:800;letter-spacing:.1em;color:#ef9c18;text-transform:uppercase;margin-bottom:10px}
 .et1-region h3{font-size:21px;font-weight:500;margin:0 0 8px}
@@ -259,12 +260,12 @@
         <p>Kemalpaşa / İzmir merkezli üretim altyapımızla proje lokasyonunu sevkiyat, montaj, saha erişimi ve teknik gereksinimler açısından değerlendiriyoruz.</p>
       </div>
       <div class="et1-regions">
-        <article class="et1-region"><small>Merkez Bölge</small><h3>İzmir Prefabrik Yapı</h3><p>İzmir ve ilçelerinde prefabrik yapı projelerinde teknik kapsam, üretim, sevkiyat ve montaj koşulları proje bazında değerlendirilir.</p></article>
-        <article class="et1-region"><small>Ege</small><h3>Manisa Prefabrik Yapı</h3><p>Manisa ve çevresinde saha koşulları, kullanım amacı ve teknik sistem gereksinimleri birlikte planlanır.</p></article>
-        <article class="et1-region"><small>Ege</small><h3>Aydın Prefabrik Yapı</h3><p>Aydın projelerinde zemin, erişim, sevkiyat, montaj ve kullanım senaryosu teknik açıdan birlikte ele alınır.</p></article>
-        <article class="et1-region"><small>Ege</small><h3>Uşak Prefabrik Yapı</h3><p>Uşak ve çevresinde prefabrik yapı teknik kapsamı saha erişimi ve kullanım koşullarına göre belirlenir.</p></article>
-        <article class="et1-region"><small>Ege / Marmara</small><h3>Balıkesir Prefabrik Yapı</h3><p>Balıkesir projelerinde iklim, lokasyon, sevkiyat ve saha gereksinimleri proje bazında değerlendirilir.</p></article>
-        <article class="et1-region"><small>Güney Ege</small><h3>Muğla Prefabrik Yapı</h3><p>Muğla ve çevresinde prefabrik yapı uygulamaları saha erişimi, zemin ve montaj şartlarına göre planlanır.</p></article>
+        <a class="et1-region" href="/izmir-prefabrik-ev"><small>Merkez Bölge</small><h3>İzmir Prefabrik Yapı</h3><p>İzmir ve ilçelerinde prefabrik yapı projelerinde teknik kapsam, üretim, sevkiyat ve montaj koşulları proje bazında değerlendirilir.</p></a>
+        <a class="et1-region" href="/manisa-prefabrik-ev"><small>Ege</small><h3>Manisa Prefabrik Yapı</h3><p>Manisa ve çevresinde saha koşulları, kullanım amacı ve teknik sistem gereksinimleri birlikte planlanır.</p></a>
+        <a class="et1-region" href="/aydin-prefabrik-ev"><small>Ege</small><h3>Aydın Prefabrik Yapı</h3><p>Aydın projelerinde zemin, erişim, sevkiyat, montaj ve kullanım senaryosu teknik açıdan birlikte ele alınır.</p></a>
+        <a class="et1-region" href="/usak-prefabrik-ev"><small>Ege</small><h3>Uşak Prefabrik Yapı</h3><p>Uşak ve çevresinde prefabrik yapı teknik kapsamı saha erişimi ve kullanım koşullarına göre belirlenir.</p></a>
+        <a class="et1-region" href="/balikesir-prefabrik-ev"><small>Ege / Marmara</small><h3>Balıkesir Prefabrik Yapı</h3><p>Balıkesir projelerinde iklim, lokasyon, sevkiyat ve saha gereksinimleri proje bazında değerlendirilir.</p></a>
+        <a class="et1-region" href="/mugla-prefabrik-ev"><small>Güney Ege</small><h3>Muğla Prefabrik Yapı</h3><p>Muğla ve çevresinde prefabrik yapı uygulamaları saha erişimi, zemin ve montaj şartlarına göre planlanır.</p></a>
       </div>
     </section>
 
