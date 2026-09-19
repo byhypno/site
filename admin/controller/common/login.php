@@ -11,7 +11,7 @@ class ControllerCommonLogin extends Controller {
 			$this->response->redirect($this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true));
 		}
 
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->isRateLimited() && $this->validate()) {
 			$this->session->data['token'] = token(32);
 			
 			if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], HTTP_SERVER) === 0 || strpos($this->request->post['redirect'], HTTPS_SERVER) === 0)) {
@@ -90,6 +90,20 @@ class ControllerCommonLogin extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('common/login', $data));
+	}
+
+	protected function isRateLimited() {
+		require_once(DIR_SYSTEM . 'library/egeser_security_monitor.php');
+
+		$security = new EgeserSecurityMonitor($this->registry);
+
+		if (!$security->rateLimit('admin_login', 5, 300)) {
+			$this->error['warning'] = $this->language->get('error_rate_limit');
+
+			return true;
+		}
+
+		return false;
 	}
 
 	protected function validate() {
