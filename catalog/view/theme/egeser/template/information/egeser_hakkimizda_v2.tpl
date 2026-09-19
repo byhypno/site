@@ -258,12 +258,12 @@
       </div>
 
       <div class="ega-grid ega-grid--3">
-        <div class="ega-region ega-region--dark"><small>MERKEZ BÖLGE</small><h3>İzmir Prefabrik Ev ve Yapılar</h3><p>İzmir ve ilçelerinde bireysel ve kurumsal prefabrik yapı projeleri.</p></div>
-        <div class="ega-region"><small>EGE</small><h3>Manisa Prefabrik Ev ve Yapılar</h3><p>Manisa ve çevresinde prefabrik ev ve kurumsal yapı çözümleri.</p></div>
-        <div class="ega-region"><small>EGE</small><h3>Aydın Prefabrik Ev ve Yapılar</h3><p>Proje lokasyonu ve saha koşullarına göre planlama ve uygulama.</p></div>
-        <div class="ega-region"><small>EGE</small><h3>Uşak Prefabrik Ev ve Yapılar</h3><p>Sevkiyat ve montaj koşullarına göre proje bazlı değerlendirme.</p></div>
-        <div class="ega-region"><small>EGE / MARMARA</small><h3>Balıkesir Prefabrik Ev ve Yapılar</h3><p>Bireysel ve kurumsal kullanım için planlı prefabrik çözümler.</p></div>
-        <div class="ega-region"><small>GÜNEY EGE</small><h3>Muğla Prefabrik Ev ve Yapılar</h3><p>Saha erişimi, sevkiyat ve montaj koşullarına göre uygulama.</p></div>
+        <a class="ega-region ega-region--dark" href="/izmir-prefabrik-ev"><small>MERKEZ BÖLGE</small><h3>İzmir Prefabrik Ev ve Yapılar</h3><p>İzmir ve ilçelerinde bireysel ve kurumsal prefabrik yapı projeleri.</p></a>
+        <a class="ega-region" href="/manisa-prefabrik-ev"><small>EGE</small><h3>Manisa Prefabrik Ev ve Yapılar</h3><p>Manisa ve çevresinde prefabrik ev ve kurumsal yapı çözümleri.</p></a>
+        <a class="ega-region" href="/aydin-prefabrik-ev"><small>EGE</small><h3>Aydın Prefabrik Ev ve Yapılar</h3><p>Proje lokasyonu ve saha koşullarına göre planlama ve uygulama.</p></a>
+        <a class="ega-region" href="/usak-prefabrik-ev"><small>EGE</small><h3>Uşak Prefabrik Ev ve Yapılar</h3><p>Sevkiyat ve montaj koşullarına göre proje bazlı değerlendirme.</p></a>
+        <a class="ega-region" href="/balikesir-prefabrik-ev"><small>EGE / MARMARA</small><h3>Balıkesir Prefabrik Ev ve Yapılar</h3><p>Bireysel ve kurumsal kullanım için planlı prefabrik çözümler.</p></a>
+        <a class="ega-region" href="/mugla-prefabrik-ev"><small>GÜNEY EGE</small><h3>Muğla Prefabrik Ev ve Yapılar</h3><p>Saha erişimi, sevkiyat ve montaj koşullarına göre uygulama.</p></a>
       </div>
     </section>
 
