@@ -140,22 +140,57 @@ body{padding-top:0!important}
 .eg112-actions__quote{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:11px;background:var(--egs-red);color:#fff;font-size:13px;font-weight:900;text-decoration:none}
 .eg112-actions__quote:hover{background:var(--egs-red2);color:#fff}
 
-/* MEGA MENU */
+/* MEGA MENU — V19 */
 .eg112-mega{position:relative}
-.eg112-mega-panel{position:absolute;right:0;top:calc(100% + 18px);transform:translateY(-6px);width:min(820px,calc(100vw - 60px));padding:24px;border:1px solid var(--egs-line);border-radius:22px;background:#fff;box-shadow:0 28px 70px rgba(0,0,0,.13);opacity:0;visibility:hidden;pointer-events:none;transition:.18s ease}
+.eg112-mega-panel{
+  position:absolute;right:0;top:calc(100% + 16px);
+  width:840px;max-width:calc(100vw - 60px);
+  padding:20px;
+  border:1px solid var(--egs-line);
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 30px 70px rgba(18,18,18,.16);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(-8px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s;
+}
 .eg112-mega.is-open .eg112-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-.eg112-mega-panel:before{content:"";position:absolute;top:-9px;right:36px;width:18px;height:18px;background:#fff;border-left:1px solid var(--egs-line);border-top:1px solid var(--egs-line);transform:rotate(45deg)}
-.eg112-mega-grid{position:relative;display:grid;grid-template-columns:.6fr 1.05fr 1.15fr;gap:24px}
-.eg112-mega-intro{padding:22px;border-radius:17px;background:#181818;color:#fff}
-.eg112-mega-intro small{display:block;color:#ff6e73;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-.eg112-mega-intro strong{display:block;margin-top:8px;font-size:21px;line-height:1.18}
-.eg112-mega-intro p{margin:10px 0 18px;color:#bdbdbd;font-size:12px;line-height:1.65}
-.eg112-mega-intro a{display:inline-flex;padding:9px 12px;border-radius:9px;background:var(--egs-red);color:#fff;font-size:12px;font-weight:900;text-decoration:none}
-.eg112-mega-col{padding:8px}
-.eg112-mega-col h3{margin:0 0 8px;padding:0 8px;color:#8a8a8a;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.eg112-mega-col a{display:block;padding:11px 10px;border-radius:10px;color:#252525;text-decoration:none}
-.eg112-mega-col a:hover{background:#f5f5f2}
+.eg112-mega-panel:before{content:"";position:absolute;top:-9px;right:36px;width:16px;height:16px;background:#fff;border-left:1px solid var(--egs-line);border-top:1px solid var(--egs-line);transform:rotate(45deg)}
+
+.eg112-mega-grid{display:flex;gap:18px;align-items:stretch}
+
+.eg112-mega-intro{
+  flex:0 0 214px;
+  display:flex;flex-direction:column;
+  padding:20px;
+  border-radius:16px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 100% 100%,rgba(244,161,38,.16),transparent 32%),
+    radial-gradient(circle at 0% 0%,rgba(242,27,34,.12),transparent 28%),
+    #171717;
+}
+.eg112-mega-intro small{display:block;color:var(--egs-orange);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.eg112-mega-intro strong{display:block;margin-top:9px;font-size:19px;line-height:1.22}
+.eg112-mega-intro p{margin:9px 0 16px;color:#c7c7c7;font-size:11.5px;line-height:1.6}
+.eg112-mega-cta{display:inline-flex;align-items:center;gap:6px;width:fit-content;padding:9px 12px;border-radius:9px;background:var(--egs-red);color:#fff!important;font-size:12px;font-weight:900;text-decoration:none!important}
+.eg112-mega-cta:hover{background:var(--egs-red2)}
+.eg112-mega-intro-trust{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:7px}
+.eg112-mega-intro-trust span{display:flex;align-items:center;gap:7px;font-size:11px;color:#dcdcdc;font-weight:600}
+.eg112-mega-intro-trust svg{flex:0 0 auto;width:13px;height:13px;color:var(--egs-orange)}
+
+.eg112-mega-col{flex:1 1 0;min-width:0;padding:2px}
+.eg112-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:0 8px}
+.eg112-mega-col-icon{width:26px;height:26px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--egs-orange-soft);color:var(--egs-red)}
+.eg112-mega-col-icon svg{width:14px;height:14px}
+.eg112-mega-col-head h3{margin:0;color:#171717;font-size:12px;font-weight:900;letter-spacing:.03em}
+.eg112-mega-col a{display:flex;align-items:flex-start;gap:10px;padding:10px 8px;border-radius:10px;color:#252525;text-decoration:none;transition:background .15s ease,transform .15s ease}
+.eg112-mega-col a:hover{background:var(--egs-orange-soft);transform:translateX(2px)}
+.eg112-mega-col a .eg112-mega-dot{flex:0 0 auto;margin-top:6px;width:6px;height:6px;border-radius:50%;background:var(--egs-line);transition:background .15s ease}
+.eg112-mega-col a:hover .eg112-mega-dot{background:var(--egs-red)}
+.eg112-mega-col a>div{min-width:0}
 .eg112-mega-col a strong{display:block;font-size:13px;line-height:1.35}
+.eg112-mega-col a:hover strong{color:var(--egs-red)}
 .eg112-mega-col a span{display:block;margin-top:3px;color:#858585;font-size:10.5px;line-height:1.5}
 
 /* MOBILE MENU */
@@ -305,40 +340,6 @@ body{padding-top:0!important}
 }
 .eg112-actions__quote:hover:after{left:115%}
 .eg112-actions__quote:hover{background:var(--egs-red2)}
-
-.eg112-mega-panel{
-  border-color:rgba(244,161,38,.22);
-  box-shadow:0 32px 80px rgba(18,18,18,.14);
-}
-.eg112-mega-panel:before{
-  border-left-color:rgba(244,161,38,.22);
-  border-top-color:rgba(244,161,38,.22);
-}
-.eg112-mega-intro{
-  background:
-    radial-gradient(circle at 100% 100%,rgba(244,161,38,.14),transparent 32%),
-    radial-gradient(circle at 0% 0%,rgba(242,27,34,.10),transparent 28%),
-    #151515;
-}
-.eg112-mega-intro small{color:var(--egs-orange)}
-.eg112-mega-intro a{background:var(--egs-red)}
-.eg112-mega-col h3{
-  color:var(--egs-red);
-}
-.eg112-mega-col h3:after{
-  content:"";display:inline-block;width:20px;height:2px;margin-left:7px;
-  background:var(--egs-orange);vertical-align:middle;
-}
-.eg112-mega-col a{
-  border:1px solid transparent;
-  transition:.18s ease;
-}
-.eg112-mega-col a:hover{
-  background:var(--egs-orange-soft);
-  border-color:rgba(244,161,38,.22);
-  transform:translateX(2px);
-}
-.eg112-mega-col a:hover strong{color:var(--egs-red)}
 
 .eg112-toggle:hover{border-color:var(--egs-orange);background:var(--egs-orange-soft)}
 .eg112-toggle span{transition:.2s ease}
@@ -866,24 +867,35 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
               <small>PREFABRİK YAPILAR</small>
               <strong>İhtiyacınıza uygun yapıyı birlikte planlayalım.</strong>
               <p>Bireysel yaşam alanlarından kurumsal prefabrik projelere kadar tüm çözümleri tek çatı altında inceleyin.</p>
-              <a href="/prefabrik-ev-modelleri">Tüm Modeller →</a>
+              <a class="eg112-mega-cta" href="/prefabrik-ev-modelleri">Tüm Modeller <span aria-hidden="true">→</span></a>
+              <div class="eg112-mega-intro-trust">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Kendi Üretim Tesisimiz</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Profesyonel Montaj</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Satış Sonrası İletişim</span>
+              </div>
             </div>
 
             <div class="eg112-mega-col">
-              <h3>Bireysel</h3>
-              <a href="<?php echo !empty($egeser_url_tek_katli) ? $egeser_url_tek_katli : '/tek-katli-prefabrik-evler'; ?>"><strong>Tek Katlı Prefabrik Evler</strong><span>Fonksiyonel tek katlı yaşam modelleri</span></a>
-              <a href="<?php echo !empty($egeser_url_cift_katli) ? $egeser_url_cift_katli : '/cift-katli-prefabrik-evler'; ?>"><strong>Çift Katlı Prefabrik Evler</strong><span>Dubleks ve geniş aile çözümleri</span></a>
-              <a href="/prefabrik-ev-modelleri"><strong>Tüm Prefabrik Ev Modelleri</strong><span>Tüm bireysel model seçenekleri</span></a>
+              <div class="eg112-mega-col-head">
+                <span class="eg112-mega-col-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg></span>
+                <h3>Bireysel</h3>
+              </div>
+              <a href="<?php echo !empty($egeser_url_tek_katli) ? $egeser_url_tek_katli : '/tek-katli-prefabrik-evler'; ?>"><span class="eg112-mega-dot"></span><div><strong>Tek Katlı Prefabrik Evler</strong><span>Fonksiyonel tek katlı yaşam modelleri</span></div></a>
+              <a href="<?php echo !empty($egeser_url_cift_katli) ? $egeser_url_cift_katli : '/cift-katli-prefabrik-evler'; ?>"><span class="eg112-mega-dot"></span><div><strong>Çift Katlı Prefabrik Evler</strong><span>Dubleks ve geniş aile çözümleri</span></div></a>
+              <a href="/prefabrik-ev-modelleri"><span class="eg112-mega-dot"></span><div><strong>Tüm Prefabrik Ev Modelleri</strong><span>Tüm bireysel model seçenekleri</span></div></a>
             </div>
 
             <div class="eg112-mega-col">
-              <h3>Kurumsal</h3>
-              <a href="<?php echo !empty($egeser_url_ofis_yonetim) ? $egeser_url_ofis_yonetim : '/prefabrik-ofis-ve-yonetim-binalari'; ?>"><strong>Ofis & Yönetim Binaları</strong><span>İdari ve ticari kullanım</span></a>
-              <a href="<?php echo !empty($egeser_url_yatakhane) ? $egeser_url_yatakhane : '/prefabrik-yatakhane-binalari'; ?>"><strong>Yatakhane Binaları</strong><span>Personel konaklama çözümleri</span></a>
-              <a href="<?php echo !empty($egeser_url_yemekhane) ? $egeser_url_yemekhane : '/prefabrik-yemekhane-binalari'; ?>"><strong>Yemekhane Binaları</strong><span>Toplu kullanım alanları</span></a>
-              <a href="<?php echo !empty($egeser_url_santiye) ? $egeser_url_santiye : '/prefabrik-santiye-yapilari'; ?>"><strong>Şantiye Yapıları</strong><span>Saha ve proje yapıları</span></a>
-              <a href="<?php echo !empty($egeser_url_sosyal_tesis) ? $egeser_url_sosyal_tesis : '/prefabrik-sosyal-tesis-yapilari'; ?>"><strong>Sosyal Tesis Yapıları</strong><span>Çok amaçlı kurumsal alanlar</span></a>
-              <a href="<?php echo !empty($egeser_url_ozel_proje) ? $egeser_url_ozel_proje : '/ozel-proje-prefabrik-yapilar'; ?>"><strong>Özel Proje Prefabrik Yapılar</strong><span>İhtiyaca göre özel projelendirme</span></a>
+              <div class="eg112-mega-col-head">
+                <span class="eg112-mega-col-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></span>
+                <h3>Kurumsal</h3>
+              </div>
+              <a href="<?php echo !empty($egeser_url_ofis_yonetim) ? $egeser_url_ofis_yonetim : '/prefabrik-ofis-ve-yonetim-binalari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Ofis & Yönetim Binaları</strong><span>İdari ve ticari kullanım</span></div></a>
+              <a href="<?php echo !empty($egeser_url_yatakhane) ? $egeser_url_yatakhane : '/prefabrik-yatakhane-binalari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Yatakhane Binaları</strong><span>Personel konaklama çözümleri</span></div></a>
+              <a href="<?php echo !empty($egeser_url_yemekhane) ? $egeser_url_yemekhane : '/prefabrik-yemekhane-binalari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Yemekhane Binaları</strong><span>Toplu kullanım alanları</span></div></a>
+              <a href="<?php echo !empty($egeser_url_santiye) ? $egeser_url_santiye : '/prefabrik-santiye-yapilari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Şantiye Yapıları</strong><span>Saha ve proje yapıları</span></div></a>
+              <a href="<?php echo !empty($egeser_url_sosyal_tesis) ? $egeser_url_sosyal_tesis : '/prefabrik-sosyal-tesis-yapilari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Sosyal Tesis Yapıları</strong><span>Çok amaçlı kurumsal alanlar</span></div></a>
+              <a href="<?php echo !empty($egeser_url_ozel_proje) ? $egeser_url_ozel_proje : '/ozel-proje-prefabrik-yapilar'; ?>"><span class="eg112-mega-dot"></span><div><strong>Özel Proje Prefabrik Yapılar</strong><span>İhtiyaca göre özel projelendirme</span></div></a>
             </div>
           </div>
         </div>
