@@ -174,38 +174,11 @@
     <div><strong>Sevkiyat & Montaj</strong><span>Saha koşullarına göre organizasyon</span></div>
   </div>
 
+  <div id="egp1-bireysel">
   <?php if (!empty($egeser_references_html)) { ?>
   <?php echo $egeser_references_html; ?>
   <?php } ?>
-
-  <section class="egp1-section" id="egp1-bireysel">
-    <div class="egp1-head">
-      <div><div class="egp1-eyebrow">BİREYSEL REFERANSLAR</div><h2>Prefabrik ev projelerimizden seçmeler.</h2></div>
-      <p>Proje kartları, referans modülü devreye alındığında gerçek proje fotoğrafları ve ayrıntılarıyla dinamik hale getirilebilir.</p>
-    </div>
-    <div class="egp1-grid">
-      <article class="egp1-project egp1-project--dark">
-        <div class="egp1-project-top"><span class="egp1-project-loc">Manisa / Karaoğlanlı</span><span class="egp1-project-area">85 m²</span></div>
-        <h3>85 m² Prefabrik Ev</h3><p>2 oda 1 salon planlaması; kullanım senaryosu, zemin hazırlığı ve saha erişimi birlikte değerlendirilir.</p>
-        <div class="egp1-tags"><span class="egp1-tag">2+1</span><span class="egp1-tag">Prefabrik Ev</span><span class="egp1-tag">Bireysel</span></div>
-      </article>
-      <article class="egp1-project">
-        <div class="egp1-project-top"><span class="egp1-project-loc">Manisa / Gördes</span><span class="egp1-project-area">52 m²</span></div>
-        <h3>52 m² Prefabrik Ev</h3><p>Kompakt yaşam ihtiyacına yönelik planlanan, kullanım alanı ve dolaşım verimliliğini öne çıkaran proje.</p>
-        <div class="egp1-tags"><span class="egp1-tag">Prefabrik Ev</span><span class="egp1-tag">Kompakt Plan</span></div>
-      </article>
-      <article class="egp1-project">
-        <div class="egp1-project-top"><span class="egp1-project-loc">Manisa / Demirci</span><span class="egp1-project-area">63 m²</span></div>
-        <h3>63 m² Prefabrik Ev</h3><p>Aile kullanımına yönelik planlanan; oda, salon ve ortak kullanım alanları birlikte değerlendirilen proje.</p>
-        <div class="egp1-tags"><span class="egp1-tag">Aile Kullanımı</span><span class="egp1-tag">Prefabrik Ev</span></div>
-      </article>
-      <article class="egp1-project">
-        <div class="egp1-project-top"><span class="egp1-project-loc">Manisa / Paşaköy</span><span class="egp1-project-area">74 m²</span></div>
-        <h3>74 m² Prefabrik Ev</h3><p>Yaşam alanlarının dengeli dağılımına odaklanan orta ölçekli prefabrik ev uygulaması.</p>
-        <div class="egp1-tags"><span class="egp1-tag">Prefabrik Ev</span><span class="egp1-tag">Yaşam Alanı</span></div>
-      </article>
-    </div>
-  </section>
+  </div>
 
   <section class="egp1-section">
     <div class="egp1-head">
