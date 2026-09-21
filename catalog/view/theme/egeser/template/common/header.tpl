@@ -243,8 +243,7 @@ body{padding-top:0!important}
 .eg112-top__right>a:hover{color:var(--egs-orange)}
 
 .eg112-header{
-  background:rgba(255,255,255,.97);
-  backdrop-filter:saturate(1.2) blur(12px);
+  background:#fff;
 }
 .eg112-header.is-sticky{
   box-shadow:0 14px 34px rgba(18,18,18,.08);
