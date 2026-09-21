@@ -145,7 +145,7 @@ body{padding-top:0!important}
 .eg112-mega-panel{position:absolute;right:0;top:calc(100% + 18px);transform:translateY(-6px);width:min(820px,calc(100vw - 60px));padding:24px;border:1px solid var(--egs-line);border-radius:22px;background:#fff;box-shadow:0 28px 70px rgba(0,0,0,.13);opacity:0;visibility:hidden;pointer-events:none;transition:.18s ease}
 .eg112-mega.is-open .eg112-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 .eg112-mega-panel:before{content:"";position:absolute;top:-9px;right:36px;width:18px;height:18px;background:#fff;border-left:1px solid var(--egs-line);border-top:1px solid var(--egs-line);transform:rotate(45deg)}
-.eg112-mega-grid{position:relative;display:grid;grid-template-columns:.82fr 1fr 1.04fr;gap:24px}
+.eg112-mega-grid{position:relative;display:grid;grid-template-columns:.6fr 1.05fr 1.15fr;gap:24px}
 .eg112-mega-intro{padding:22px;border-radius:17px;background:#181818;color:#fff}
 .eg112-mega-intro small{display:block;color:#ff6e73;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
 .eg112-mega-intro strong{display:block;margin-top:8px;font-size:21px;line-height:1.18}
