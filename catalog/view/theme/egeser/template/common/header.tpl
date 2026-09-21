@@ -391,12 +391,19 @@ body{padding-top:0!important}
 
 /* =========================================================
    V17 FLOATING WHATSAPP
+   V18 FLOATING CONTACT STACK (WhatsApp + Telefon + E-posta)
    ========================================================= */
-.eg17-float-wa{
+.eg17-float-stack{
   position:fixed;
   right:24px;
   bottom:24px;
   z-index:9995;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:14px;
+}
+.eg17-float-wa{
   display:flex;
   align-items:center;
   gap:9px;
@@ -427,7 +434,11 @@ body{padding-top:0!important}
   box-shadow:0 0 0 1px rgba(18,18,18,.06);
   transition:transform .2s ease,box-shadow .2s ease;
 }
+.eg17-float-wa--call .eg17-float-wa__icon{background:var(--egs-red)}
+.eg17-float-wa--mail .eg17-float-wa__icon{background:var(--egs-orange)}
 .eg17-float-wa__icon svg{width:28px;height:28px;fill:#fff}
+.eg17-float-wa--call .eg17-float-wa__icon svg,
+.eg17-float-wa--mail .eg17-float-wa__icon svg{fill:none;stroke:#fff}
 .eg17-float-wa:hover .eg17-float-wa__label{
   opacity:1;
   transform:translateX(0);
@@ -436,18 +447,65 @@ body{padding-top:0!important}
   transform:translateY(-2px) scale(1.04);
   box-shadow:0 12px 28px rgba(37,211,102,.28);
 }
+.eg17-float-wa--call:hover .eg17-float-wa__icon{box-shadow:0 12px 28px rgba(242,27,34,.28)}
+.eg17-float-wa--mail:hover .eg17-float-wa__icon{box-shadow:0 12px 28px rgba(244,161,38,.28)}
+
+/* Sol alt: "Bize Ulaşın" */
+.eg17-float-contact{
+  position:fixed;
+  left:24px;
+  bottom:24px;
+  z-index:9995;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:12px 18px 12px 12px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--egs-red),var(--egs-orange));
+  color:#fff!important;
+  text-decoration:none!important;
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  filter:drop-shadow(0 12px 24px rgba(18,18,18,.18));
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.eg17-float-contact:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(242,27,34,.28);
+}
+.eg17-float-contact__icon{
+  width:32px;height:32px;
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.22);
+}
+.eg17-float-contact__icon svg{width:18px;height:18px}
+
 @media(max-width:920px){
-  .eg17-float-wa{
+  .eg17-float-stack{
     right:14px;
     bottom:76px;
   }
   .eg17-float-wa__label{display:none}
   .eg17-float-wa__icon{width:52px;height:52px}
+  .eg17-float-contact{
+    left:14px;
+    bottom:76px;
+    width:52px;height:52px;
+    padding:0;
+    justify-content:center;
+    border-radius:50%;
+  }
+  .eg17-float-contact__label{display:none}
+  .eg17-float-contact__icon{width:100%;height:100%;background:transparent}
 }
 @media(max-width:390px){
-  .eg17-float-wa{right:11px;bottom:72px}
+  .eg17-float-stack{right:11px;bottom:72px}
   .eg17-float-wa__icon{width:49px;height:49px}
   .eg17-float-wa__icon svg{width:25px;height:25px}
+  .eg17-float-contact{left:11px;bottom:72px;width:49px;height:49px}
 }
 
 
@@ -613,8 +671,12 @@ html,body{
   }
 
   /* Floating WhatsApp stays above fixed mobile CTA */
-  .eg17-float-wa{
+  .eg17-float-stack{
     right:12px!important;
+    bottom:72px!important;
+  }
+  .eg17-float-contact{
+    left:12px!important;
     bottom:72px!important;
   }
 }
@@ -631,8 +693,12 @@ html,body{
    V17.3.1 MOBILE POLISH SUPPORT
    ========================================================= */
 @media(max-width:600px){
-  .eg17-float-wa{
+  .eg17-float-stack{
     right:14px!important;
+    bottom:86px!important;
+  }
+  .eg17-float-contact{
+    left:14px!important;
     bottom:86px!important;
   }
 }
@@ -664,8 +730,12 @@ html,body{
    ========================================================= */
 @media(max-width:600px){
   body{padding-bottom:52px!important}
-  .eg17-float-wa{
+  .eg17-float-stack{
     right:12px!important;
+    bottom:64px!important;
+  }
+  .eg17-float-contact{
+    left:12px!important;
     bottom:64px!important;
   }
 }
@@ -860,18 +930,51 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
   </div>
 </header>
 
-<a class="eg17-float-wa"
-   href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>"
-   target="_blank"
-   rel="noopener"
-   aria-label="WhatsApp üzerinden prefabrik yapı teklifi alın">
-  <span class="eg17-float-wa__label">WhatsApp'tan Teklif Al</span>
-  <span class="eg17-float-wa__icon" aria-hidden="true">
-    <svg viewBox="0 0 32 32">
-      <path d="M19.11 17.38c-.26-.13-1.54-.76-1.78-.85-.24-.09-.42-.13-.59.13-.17.26-.68.85-.83 1.02-.15.17-.31.2-.57.07-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.31.39-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.02-.46-.07-.13-.59-1.43-.81-1.96-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.55 1.07 2.72.13.17 1.85 2.83 4.49 3.97.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3z"/>
-      <path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.55-1.72A12.76 12.76 0 0 0 16.02 28.8c7.06 0 12.8-5.74 12.8-12.8S23.08 3.2 16.02 3.2zm0 23.44c-2.08 0-4.11-.61-5.84-1.77l-.42-.25-3.89 1.02 1.04-3.79-.27-.44A10.59 10.59 0 0 1 5.38 16c0-5.87 4.77-10.64 10.64-10.64S26.66 10.13 26.66 16 21.89 26.64 16.02 26.64z"/>
+<?php
+$eg17_email = !empty($egeser_email) ? trim($egeser_email) : '';
+?>
+<div class="eg17-float-stack" role="group" aria-label="Hızlı iletişim seçenekleri">
+  <?php if ($eg17_email) { ?>
+  <a class="eg17-float-wa eg17-float-wa--mail" href="mailto:<?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>" aria-label="E-posta gönderin: <?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>">
+    <span class="eg17-float-wa__label">E-posta Gönder</span>
+    <span class="eg17-float-wa__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"></path>
+        <path d="m22 6-10 7L2 6"></path>
+      </svg>
+    </span>
+  </a>
+  <?php } ?>
+  <a class="eg17-float-wa eg17-float-wa--call" href="<?php echo $eg112_phone_href; ?>" aria-label="Hemen arayın: <?php echo htmlspecialchars($eg112_phone, ENT_QUOTES, 'UTF-8'); ?>">
+    <span class="eg17-float-wa__label"><?php echo htmlspecialchars($eg112_phone, ENT_QUOTES, 'UTF-8'); ?></span>
+    <span class="eg17-float-wa__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"></path>
+      </svg>
+    </span>
+  </a>
+  <a class="eg17-float-wa eg17-float-wa--wa"
+     href="https://wa.me/<?php echo htmlspecialchars($egeser_whatsapp, ENT_QUOTES, 'UTF-8'); ?>?text=<?php echo rawurlencode('Merhaba, prefabrik yapı modelleriniz hakkında bilgi ve teklif almak istiyorum.'); ?>"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp üzerinden prefabrik yapı teklifi alın">
+    <span class="eg17-float-wa__label">WhatsApp'tan Teklif Al</span>
+    <span class="eg17-float-wa__icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32">
+        <path d="M19.11 17.38c-.26-.13-1.54-.76-1.78-.85-.24-.09-.42-.13-.59.13-.17.26-.68.85-.83 1.02-.15.17-.31.2-.57.07-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.31.39-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.02-.46-.07-.13-.59-1.43-.81-1.96-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.55 1.07 2.72.13.17 1.85 2.83 4.49 3.97.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3z"/>
+        <path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.55-1.72A12.76 12.76 0 0 0 16.02 28.8c7.06 0 12.8-5.74 12.8-12.8S23.08 3.2 16.02 3.2zm0 23.44c-2.08 0-4.11-.61-5.84-1.77l-.42-.25-3.89 1.02 1.04-3.79-.27-.44A10.59 10.59 0 0 1 5.38 16c0-5.87 4.77-10.64 10.64-10.64S26.66 10.13 26.66 16 21.89 26.64 16.02 26.64z"/>
+      </svg>
+    </span>
+  </a>
+</div>
+
+<a class="eg17-float-contact" href="<?php echo htmlspecialchars($eg112_contact, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Bize ulaşın">
+  <span class="eg17-float-contact__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
     </svg>
   </span>
+  <span class="eg17-float-contact__label">Bize Ulaşın</span>
 </a>
 
 <script>
