@@ -60,10 +60,14 @@
             </div>
           </div>
 
+          <p class="text-muted"><i class="fa fa-arrows"></i> Kartların sırasını değiştirmek için başlıktaki tutamaçtan sürükleyip bırakın. Sitede projeler bu sırayla görünür.</p>
+
+          <div id="egref-sortable">
           <?php foreach ($projects as $i => $project) { ?>
-          <div class="panel panel-default" style="margin-top:20px">
+          <div class="panel panel-default egref-project-panel" style="margin-top:20px">
             <div class="panel-heading">
-              <strong>Referans Kartı <?php echo $i + 1; ?></strong>
+              <span class="egref-drag-handle" style="cursor:move;margin-right:8px" title="Sürükle"><i class="fa fa-arrows"></i></span>
+              <strong class="egref-panel-label">Referans Kartı <?php echo $i + 1; ?></strong>
               <label class="pull-right" style="font-weight:normal">
                 <input type="checkbox" name="projects[<?php echo $i; ?>][enabled]" value="1" <?php echo !empty($project['enabled']) ? 'checked="checked"' : ''; ?>> Aktif
               </label>
@@ -101,6 +105,7 @@
             </div>
           </div>
           <?php } ?>
+          </div>
 
           <h3 style="margin:30px 0 10px">Kurumsal İş Ortakları</h3>
           <p class="text-muted">Birlikte çalıştığınız kurumsal markaların logolarını ekleyin. Boş bıraktığınız kartlar sitede görünmez.</p>
@@ -143,4 +148,28 @@
     </div>
   </div>
 </div>
+<script src="view/javascript/jquery/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    function renumberProjects() {
+        $('#egref-sortable > .egref-project-panel').each(function(index) {
+            $(this).find('.egref-panel-label').text('Referans Kartı ' + (index + 1));
+
+            $(this).find('[name^="projects["]').each(function() {
+                var name = $(this).attr('name');
+                var updated = name.replace(/^projects\[\d+\]/, 'projects[' + index + ']');
+                $(this).attr('name', updated);
+            });
+        });
+    }
+
+    $('#egref-sortable').sortable({
+        handle: '.egref-drag-handle',
+        axis: 'y',
+        update: renumberProjects
+    });
+});
+</script>
 <?php echo $footer; ?>
