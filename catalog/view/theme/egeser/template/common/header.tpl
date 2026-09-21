@@ -153,6 +153,7 @@ body{padding-top:0!important}
   opacity:0;visibility:hidden;pointer-events:none;
   transform:translateY(-8px);
   transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  white-space:normal;
 }
 .eg112-mega.is-open .eg112-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 .eg112-mega-panel:before{content:"";position:absolute;top:-9px;right:36px;width:16px;height:16px;background:#fff;border-left:1px solid var(--egs-line);border-top:1px solid var(--egs-line);transform:rotate(45deg)}
