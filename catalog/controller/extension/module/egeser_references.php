@@ -97,7 +97,9 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
         $data['projects'] = $projects;
         $data['partners'] = $partners;
 
-        $this->document->addStyle('catalog/view/theme/egeser/stylesheet/egeser-references.css');
+        $reference_css_path = DIR_TEMPLATE . 'egeser/stylesheet/egeser-references.css';
+        $reference_css_version = is_file($reference_css_path) ? filemtime($reference_css_path) : time();
+        $this->document->addStyle('catalog/view/theme/egeser/stylesheet/egeser-references.css?v=' . $reference_css_version);
 
         return $this->load->view('extension/module/egeser_references.tpl', $data);
     }
