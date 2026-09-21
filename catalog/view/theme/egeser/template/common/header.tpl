@@ -171,6 +171,7 @@ body{padding-top:0!important}
     radial-gradient(circle at 0% 0%,rgba(242,27,34,.12),transparent 28%),
     #171717;
 }
+.eg112-mega-intro>*{min-width:0}
 .eg112-mega-intro small{display:block;color:var(--egs-orange);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
 .eg112-mega-intro strong{display:block;margin-top:9px;font-size:19px;line-height:1.22}
 .eg112-mega-intro p{margin:9px 0 16px;color:#c7c7c7;font-size:11.5px;line-height:1.6}
