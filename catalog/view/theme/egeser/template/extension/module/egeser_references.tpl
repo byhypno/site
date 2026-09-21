@@ -18,7 +18,7 @@
           <?php if ($project['image']) { ?>
             <img src="<?php echo htmlspecialchars($project['image'], ENT_QUOTES, 'UTF-8'); ?>"
                  alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>"
-                 width="640" height="480" loading="lazy" decoding="async">
+                 width="640" height="640" loading="lazy" decoding="async">
           <?php } else { ?>
             <div class="egref__placeholder">Proje görseli eklenecek</div>
           <?php } ?>

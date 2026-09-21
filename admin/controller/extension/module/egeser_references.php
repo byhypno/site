@@ -133,9 +133,9 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                 : $defaults;
 
             if (!empty($project['image']) && is_file(DIR_IMAGE . $project['image'])) {
-                $project['thumb'] = $this->model_tool_image->resize($project['image'], 220, 150);
+                $project['thumb'] = $this->model_tool_image->resize($project['image'], 220, 220);
             } else {
-                $project['thumb'] = $this->model_tool_image->resize('no_image.png', 220, 150);
+                $project['thumb'] = $this->model_tool_image->resize('no_image.png', 220, 220);
             }
 
             $data['projects'][$i] = $project;
@@ -169,7 +169,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
             $data['partners'][$i] = $partner;
         }
 
-        $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 220, 150);
+        $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 220, 220);
         $data['placeholder_partner'] = $this->model_tool_image->resize('no_image.png', 180, 90);
         $data['token'] = $this->session->data['token'];
 
