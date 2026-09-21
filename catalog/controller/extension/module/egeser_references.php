@@ -47,7 +47,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                     'link' => $link
                 );
 
-                if (count($projects) >= 24) {
+                if (count($projects) >= 60) {
                     break;
                 }
             }

@@ -127,7 +127,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
 
         $data['projects'] = array();
 
-        for ($i = 0; $i < 24; $i++) {
+        for ($i = 0; $i < 60; $i++) {
             $project = isset($projects[$i]) && is_array($projects[$i])
                 ? array_merge($defaults, $projects[$i])
                 : $defaults;
@@ -207,7 +207,7 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
         $output['subtitle'] = isset($input['subtitle']) ? trim(strip_tags($input['subtitle'])) : '';
         $output['projects'] = array();
 
-        for ($i = 0; $i < 24; $i++) {
+        for ($i = 0; $i < 60; $i++) {
             $row = isset($input['projects'][$i]) && is_array($input['projects'][$i]) ? $input['projects'][$i] : array();
 
             $output['projects'][$i] = array(
