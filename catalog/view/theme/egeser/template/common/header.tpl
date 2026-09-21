@@ -161,6 +161,7 @@ body{padding-top:0!important}
 
 .eg112-mega-intro{
   flex:0 0 214px;
+  min-width:0;
   display:flex;flex-direction:column;
   padding:20px;
   border-radius:16px;
@@ -175,16 +176,16 @@ body{padding-top:0!important}
 .eg112-mega-intro p{margin:9px 0 16px;color:#c7c7c7;font-size:11.5px;line-height:1.6}
 .eg112-mega-cta{display:inline-flex;align-items:center;gap:6px;width:fit-content;padding:9px 12px;border-radius:9px;background:var(--egs-red);color:#fff!important;font-size:12px;font-weight:900;text-decoration:none!important}
 .eg112-mega-cta:hover{background:var(--egs-red2)}
-.eg112-mega-intro-trust{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:7px}
-.eg112-mega-intro-trust span{display:flex;align-items:center;gap:7px;font-size:11px;color:#dcdcdc;font-weight:600}
+.eg112-mega-intro-trust{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:7px;min-width:0}
+.eg112-mega-intro-trust span{display:flex;align-items:center;gap:7px;font-size:11px;color:#dcdcdc;font-weight:600;min-width:0}
 .eg112-mega-intro-trust svg{flex:0 0 auto;width:13px;height:13px;color:var(--egs-orange)}
 
 .eg112-mega-col{flex:1 1 0;min-width:0;padding:2px}
-.eg112-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:0 8px}
+.eg112-mega-col-head{display:flex;align-items:center;gap:8px;min-width:0;margin:0 0 8px;padding:0 8px}
 .eg112-mega-col-icon{width:26px;height:26px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--egs-orange-soft);color:var(--egs-red)}
 .eg112-mega-col-icon svg{width:14px;height:14px}
 .eg112-mega-col-head h3{margin:0;color:#171717;font-size:12px;font-weight:900;letter-spacing:.03em}
-.eg112-mega-col a{display:flex;align-items:flex-start;gap:10px;padding:10px 8px;border-radius:10px;color:#252525;text-decoration:none;transition:background .15s ease,transform .15s ease}
+.eg112-mega-col a{display:flex;align-items:flex-start;gap:10px;min-width:0;padding:10px 8px;border-radius:10px;color:#252525;text-decoration:none;transition:background .15s ease,transform .15s ease}
 .eg112-mega-col a:hover{background:var(--egs-orange-soft);transform:translateX(2px)}
 .eg112-mega-col a .eg112-mega-dot{flex:0 0 auto;margin-top:6px;width:6px;height:6px;border-radius:50%;background:var(--egs-line);transition:background .15s ease}
 .eg112-mega-col a:hover .eg112-mega-dot{background:var(--egs-red)}
