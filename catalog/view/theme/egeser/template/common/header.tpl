@@ -698,7 +698,7 @@ html,body{
     position:relative!important;
     z-index:99990!important;
     overflow:visible!important;
-    isolation:auto!important;
+    isolation:isolate!important;
   }
   .eg112-header__inner,
   .eg112-nav,
