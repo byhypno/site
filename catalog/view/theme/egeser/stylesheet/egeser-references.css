@@ -24,6 +24,7 @@
 .egref__meta span{font-size:10.5px;padding:4px 9px;border-radius:999px;background:var(--soft);color:#555;font-weight:700}
 .egref__link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--red);font-weight:800;font-size:13px;text-decoration:none}
 .egref__link:hover{text-decoration:underline}
+.egref__sr-desc{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .egref__partners{margin-top:60px;padding-top:44px;border-top:1px solid var(--line)}
 .egref__partners h3{margin:0 0 26px;font-size:26px;letter-spacing:-.02em}

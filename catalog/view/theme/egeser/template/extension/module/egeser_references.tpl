@@ -46,6 +46,10 @@
             <?php if ($project['size']) { ?><span><?php echo htmlspecialchars($project['size'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
           </div>
           <?php } ?>
+
+          <?php if ($project['description']) { ?>
+            <p class="egref__sr-desc"><?php echo htmlspecialchars($project['description'], ENT_QUOTES, 'UTF-8'); ?></p>
+          <?php } ?>
         </div>
       </article>
       <?php } ?>
