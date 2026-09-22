@@ -28,7 +28,7 @@ class ControllerInformationEgeserBlog extends Controller {
             $image = '';
 
             if (!empty($post['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($post['image'], '/'))) {
-                $image = $this->model_tool_image->resize(ltrim($post['image'], '/'), 640, 420);
+                $image = $this->model_tool_image->resize(ltrim($post['image'], '/'), 640, 640);
             }
 
             $plain = $this->plainText($post['description']);
@@ -39,7 +39,7 @@ class ControllerInformationEgeserBlog extends Controller {
                 'image' => $image,
                 'excerpt' => utf8_substr($plain, 0, 190) . (utf8_strlen($plain) > 190 ? '…' : ''),
                 'date' => !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : '',
-                'reading_time' => $this->readingTime($plain)
+                'views' => isset($post['views']) ? (int)$post['views'] : 0
             );
         }
 
@@ -84,8 +84,10 @@ class ControllerInformationEgeserBlog extends Controller {
         $data['description'] = $this->sanitizePostContent($post['description'], $post['title']);
         $data['canonical'] = $canonical;
         $data['date'] = !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : '';
-        $data['reading_time'] = $this->readingTime($this->plainText($post['description']));
+        $data['views'] = (isset($post['views']) ? (int)$post['views'] : 0) + 1;
         $data['image'] = '';
+
+        $this->model_catalog_egeser_blog->incrementViews($blog_id);
 
         if (!empty($post['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($post['image'], '/'))) {
             $data['image'] = $this->model_tool_image->resize(ltrim($post['image'], '/'), 1200, 700);
@@ -151,11 +153,6 @@ class ControllerInformationEgeserBlog extends Controller {
         $html = str_replace(array('\\n', '\\r', '\\t'), ' ', $html);
         $html = preg_replace('/<\/(p|div|h[1-6]|li|tr|blockquote)>/iu', ' ', $html);
         return trim(preg_replace('/\s+/u', ' ', strip_tags($html)));
-    }
-
-    private function readingTime($plain) {
-        $words = preg_split('/\s+/u', trim((string)$plain), -1, PREG_SPLIT_NO_EMPTY);
-        return max(1, (int)ceil(count($words) / 200));
     }
 
     private function notFound() {
