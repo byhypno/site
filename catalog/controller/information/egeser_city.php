@@ -48,8 +48,58 @@ class ControllerInformationEgeserCity extends Controller {
         $data['schema'] = $this->schema($city, $canonical, $base);
         $data['breadcrumb_schema'] = $this->breadcrumbSchema($data['breadcrumbs']);
 
+        $data['city_references_html'] = $this->cityReferencesHtml($city);
+
         $this->common($data);
         $this->response->setOutput($this->load->view('information/egeser_city', $data));
+    }
+
+    private function cityReferencesHtml($city) {
+        $query = $this->db->query("SELECT `setting` FROM `" . DB_PREFIX . "module` WHERE `code` = 'egeser_references' ORDER BY `module_id` ASC LIMIT 1");
+
+        if (!$query->num_rows) {
+            return '';
+        }
+
+        $setting = json_decode($query->row['setting'], true);
+
+        if (!is_array($setting) || empty($setting['projects']) || !is_array($setting['projects'])) {
+            return '';
+        }
+
+        $needles = array($city['name']);
+        if (!empty($city['districts']) && is_array($city['districts'])) {
+            $needles = array_merge($needles, $city['districts']);
+        }
+        $needles = array_map(function ($n) { return mb_strtolower($n, 'UTF-8'); }, $needles);
+
+        $matched = array();
+        foreach ($setting['projects'] as $project) {
+            if (empty($project['enabled']) || empty($project['location'])) {
+                continue;
+            }
+
+            $location = mb_strtolower($project['location'], 'UTF-8');
+
+            foreach ($needles as $needle) {
+                if ($needle !== '' && mb_strpos($location, $needle) !== false) {
+                    $matched[] = $project;
+                    break;
+                }
+            }
+        }
+
+        if (!$matched) {
+            return '';
+        }
+
+        $filtered_setting = $setting;
+        $filtered_setting['projects'] = $matched;
+        $filtered_setting['partners'] = array();
+        $filtered_setting['title'] = $city['name'] . '\'de tamamladığımız projeler.';
+        $filtered_setting['subtitle'] = $city['name'] . ' ve çevresinde daha önce uyguladığımız bireysel ve kurumsal prefabrik yapı projelerinden seçmeler.';
+
+        return $this->load->controller('extension/module/egeser_references', $filtered_setting);
     }
 
     private function getCities() {
@@ -63,7 +113,7 @@ class ControllerInformationEgeserCity extends Controller {
                 'headline' => 'İzmir prefabrik ev projelerini sahaya göre planlıyoruz.',
                 'lead' => 'Kemalpaşa’daki üretim merkezimizden İzmir’in farklı ilçelerine yönelik bireysel ve kurumsal prefabrik yapı ihtiyaçlarını; kullanım amacı, arazi erişimi ve teknik kapsamla birlikte değerlendiriyoruz.',
                 'local_text' => 'İzmir’de kıyı ve iç kesimler arasında rüzgâr, nem, yaz sıcaklığı ve saha koşulları değişebilir. Bu nedenle tek bir standart çözüm yerine, projenin bulunduğu parsel ve kullanım biçimi üzerinden teknik kapsam oluşturulur.',
-                'districts' => array('Kemalpaşa', 'Bornova', 'Torbalı', 'Menderes', 'Menemen', 'Seferihisar', 'Urla', 'Bergama'),
+                'districts' => array('Kemalpaşa', 'Bornova', 'Torbalı', 'Menderes', 'Menemen', 'Seferihisar', 'Urla', 'Bergama', 'Çiğli', 'Foça', 'Aliağa', 'Güzelbahçe', 'Tire'),
                 'factors' => array(
                     array('title' => 'Yakın üretim merkezi', 'text' => 'Kemalpaşa merkezli planlama; proje görüşmesi, sevkiyat güzergâhı ve saha koordinasyonunun birlikte ele alınmasını sağlar.'),
                     array('title' => 'Kıyı ve iç kesim farkı', 'text' => 'Nem, rüzgâr ve sıcaklık etkileri ilçeye göre değiştiği için yalıtım ve dış kabuk tercihleri proje özelinde değerlendirilir.'),

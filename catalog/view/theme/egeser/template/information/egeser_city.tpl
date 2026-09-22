@@ -105,6 +105,10 @@
     </div>
   </section>
 
+  <?php if (!empty($city_references_html)) { ?>
+  <?php echo $city_references_html; ?>
+  <?php } ?>
+
   <section class="ecity-section">
     <div class="ecity-wrap">
       <div class="ecity-heading">
