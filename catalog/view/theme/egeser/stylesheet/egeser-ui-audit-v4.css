@@ -7,6 +7,59 @@
   --eg-v4-gold-text:#9a5500;
   --eg-v4-content-max:1240px;
   --eg-v4-gutter:24px;
+  --eg-v4-orange:#f4a126;
+}
+
+/* Hizmet Bolgeleri (bolge/sehir) kartlari: anasayfada, Hakkimizda, Projelerimiz,
+   Teknik Bilgiler ve kategori sayfalarinda ayri ayri yazilmis kart bileşenleri
+   farkli hover renkleri ve animasyon kullaniyordu. Hepsini anasayfadaki en
+   olgun tasarima (kalkis animasyonu + turuncu kenarlik) esitliyoruz. */
+.ega-region,
+.egp1-region,
+.et1-region,
+.eg-v18-regions__grid a{
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+}
+
+.ega-region:hover,
+.egp1-region:hover,
+.et1-region:hover,
+.eg-v18-regions__grid a:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(244,161,38,.55)!important;
+  box-shadow:0 20px 46px rgba(18,18,18,.07)!important;
+}
+
+.ega-region:first-child,
+.ega-region--dark,
+.egp1-region:first-child,
+.et1-region:first-child,
+.eg-v18-regions__grid a:first-child{
+  background:linear-gradient(145deg,#151515,#201b17)!important;
+  border-color:#1e1e1e!important;
+}
+
+.ega-region:first-child:hover,
+.ega-region--dark:hover,
+.egp1-region:first-child:hover,
+.et1-region:first-child:hover,
+.eg-v18-regions__grid a:first-child:hover{
+  border-color:rgba(244,161,38,.55)!important;
+}
+
+.ega-region small,
+.egp1-region small,
+.et1-region small,
+.eg-v18-regions__grid a>span{
+  color:var(--eg-v4-gold-text)!important;
+}
+
+.ega-region:first-child small,
+.ega-region--dark small,
+.egp1-region:first-child small,
+.et1-region:first-child small,
+.eg-v18-regions__grid a:first-child>span{
+  color:var(--eg-v4-orange)!important;
 }
 
 /* Tum ana sayfa kabuklari ayni dis genislik ve ic boslugu kullanir. */

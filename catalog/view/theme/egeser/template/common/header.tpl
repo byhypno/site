@@ -47,7 +47,7 @@
 
 <link href="catalog/view/theme/egeser/stylesheet/theme.css" rel="stylesheet" />
 <link href="catalog/view/theme/egeser/stylesheet/egeser-image-fit-v1.css" rel="stylesheet" />
-<link href="catalog/view/theme/egeser/stylesheet/egeser-ui-audit-v4.css" rel="stylesheet" />
+<link href="catalog/view/theme/egeser/stylesheet/egeser-ui-audit-v4.css?v=<?php echo is_file(DIR_TEMPLATE . 'egeser/stylesheet/egeser-ui-audit-v4.css') ? filemtime(DIR_TEMPLATE . 'egeser/stylesheet/egeser-ui-audit-v4.css') : time(); ?>" rel="stylesheet" />
 
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>"></script>
