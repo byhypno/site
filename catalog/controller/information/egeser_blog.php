@@ -90,7 +90,7 @@ class ControllerInformationEgeserBlog extends Controller {
         $this->model_catalog_egeser_blog->incrementViews($blog_id);
 
         if (!empty($post['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($post['image'], '/'))) {
-            $data['image'] = $this->model_tool_image->resize(ltrim($post['image'], '/'), 1200, 700);
+            $data['image'] = $this->model_tool_image->resize(ltrim($post['image'], '/'), 1080, 1080);
         }
 
         $schema = array(
