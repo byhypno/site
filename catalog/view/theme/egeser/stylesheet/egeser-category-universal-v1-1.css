@@ -106,9 +106,10 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 
 .eg-v18-regions{margin:72px 0}
 .eg-v18-regions__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.eg-v18-regions__grid article{padding:22px;min-height:165px;border:1px solid var(--eg-line);border-radius:18px;background:#fff}
-.eg-v18-regions__grid article.is-primary{background:linear-gradient(145deg,#171717,#27180c);color:#fff}
-.eg-v18-regions__grid article>span{font-size:8px;letter-spacing:.13em;font-weight:900;color:var(--eg-orange)}
+.eg-v18-regions__grid a{display:block;padding:22px;min-height:165px;border:1px solid var(--eg-line);border-radius:18px;background:#fff;text-decoration:none;color:inherit;transition:border-color .15s ease,box-shadow .15s ease}
+.eg-v18-regions__grid a:hover{border-color:var(--eg-red,#ef2329);box-shadow:0 10px 26px rgba(18,18,18,.08)}
+.eg-v18-regions__grid a.is-primary{background:linear-gradient(145deg,#171717,#27180c);color:#fff}
+.eg-v18-regions__grid a>span{font-size:8px;letter-spacing:.13em;font-weight:900;color:var(--eg-orange)}
 .eg-v18-regions__grid h3{font-size:22px;margin:12px 0 8px}
 .eg-v18-regions__grid p{font-size:12px;line-height:1.55;color:#666}
 .eg-v18-regions__grid .is-primary p{color:#c7c7c7}
@@ -247,12 +248,12 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 }
 
 /* 4) Service region primary card contrast */
-.eg-v18-regions__grid article.is-primary,
-.eg-v18-regions__grid article.is-primary h3,
-.eg-v18-regions__grid article.is-primary strong{
+.eg-v18-regions__grid a.is-primary,
+.eg-v18-regions__grid a.is-primary h3,
+.eg-v18-regions__grid a.is-primary strong{
   color:#fff!important;
 }
-.eg-v18-regions__grid article.is-primary p{
+.eg-v18-regions__grid a.is-primary p{
   color:#d0d0d0!important;
 }
 

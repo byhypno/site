@@ -411,21 +411,21 @@ if ($is_residential) {
       <div class="eg-v18-regions__grid">
         <?php
         $eg_regions = array(
-          array('label'=>'MERKEZ BÖLGE','city'=>'İzmir','primary'=>true),
-          array('label'=>'EGE','city'=>'Manisa','primary'=>false),
-          array('label'=>'EGE','city'=>'Aydın','primary'=>false),
-          array('label'=>'EGE','city'=>'Uşak','primary'=>false),
-          array('label'=>'EGE / MARMARA','city'=>'Balıkesir','primary'=>false),
-          array('label'=>'GÜNEY EGE','city'=>'Muğla','primary'=>false)
+          array('label'=>'MERKEZ BÖLGE','city'=>'İzmir','slug'=>'izmir-prefabrik-ev','primary'=>true),
+          array('label'=>'EGE','city'=>'Manisa','slug'=>'manisa-prefabrik-ev','primary'=>false),
+          array('label'=>'EGE','city'=>'Aydın','slug'=>'aydin-prefabrik-ev','primary'=>false),
+          array('label'=>'EGE','city'=>'Uşak','slug'=>'usak-prefabrik-ev','primary'=>false),
+          array('label'=>'EGE / MARMARA','city'=>'Balıkesir','slug'=>'balikesir-prefabrik-ev','primary'=>false),
+          array('label'=>'GÜNEY EGE','city'=>'Muğla','slug'=>'mugla-prefabrik-ev','primary'=>false)
         );
         foreach ($eg_regions as $r) {
           $region_title = $r['city'] . ' ' . $eg_cfg['region_keyword'];
         ?>
-        <article<?php echo $r['primary'] ? ' class="is-primary"' : ''; ?>>
+        <a href="/<?php echo $r['slug']; ?>"<?php echo $r['primary'] ? ' class="is-primary"' : ''; ?>>
           <span><?php echo $r['label']; ?></span>
           <h3><?php echo $region_title; ?></h3>
           <p><?php echo $r['city']; ?> ve çevresinde <?php echo mb_strtolower($eg_cfg['region_keyword'], 'UTF-8'); ?> projelerinde planlama, üretim, sevkiyat ve montaj koşulları proje bazında değerlendirilir.</p>
-        </article>
+        </a>
         <?php } ?>
       </div>
     </section>
