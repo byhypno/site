@@ -394,8 +394,9 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-editorial__title h2{margin:0;color:var(--eg11-ink);font-size:clamp(31px,3vw,44px);line-height:1.08;letter-spacing:-.035em}
 .eg-v11 .eg11-rich{color:#4f5052;font-size:16px;line-height:1.9}
 .eg-v11 .eg11-rich>:first-child{margin-top:0}
-.eg-v11 .eg11-rich h2{position:relative;margin:34px 0 14px;padding-top:16px;border-top:1px solid var(--eg11-line);color:var(--eg11-ink);font-size:26px;line-height:1.22;letter-spacing:-.02em}
-.eg-v11 .eg11-rich h2:before{content:"";position:absolute;left:0;top:-1px;width:52px;height:3px;background:linear-gradient(90deg,var(--eg11-red),#f4a126)}
+.eg-v11 .eg11-rich h2{position:relative;margin:40px 0 16px;padding-top:24px;color:var(--eg11-ink);font-size:27px;font-weight:800;line-height:1.22;letter-spacing:-.02em}
+.eg-v11 .eg11-rich h2:before{content:"";position:absolute;left:0;top:0;width:54px;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--eg11-red),#f4a126)}
+.eg-v11 .eg11-rich>h2:first-child{margin-top:0}
 .eg-v11 .eg11-rich h3{margin:22px 0 9px;color:var(--eg11-ink);font-size:19px;line-height:1.3}
 .eg-v11 .eg11-rich p{margin:0 0 15px}
 .eg-v11 .eg11-rich strong{color:var(--eg11-ink);font-weight:800}
