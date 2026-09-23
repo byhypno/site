@@ -66,11 +66,11 @@
 .eh12 .eh12-hero-media__placeholder div{text-align:center;color:#777}
 .eh12 .eh12-hero-media__placeholder strong{display:block;font-size:24px;color:#444}
 .eh12 .eh12-hero-media__badge{position:absolute;left:20px;top:20px;padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.93);font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
-.eh12 .eh12-hero-card{position:absolute;right:18px;bottom:18px;width:min(340px,calc(100% - 36px));padding:18px;border-radius:18px;background:rgba(24,24,24,.93);backdrop-filter:blur(10px);color:#fff}
-.eh12 .eh12-hero-card small{display:block;color:#ff7c80;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.eh12 .eh12-hero-card strong{display:block;margin-top:5px;font-size:20px;line-height:1.2}
-.eh12 .eh12-hero-card span{display:block;margin-top:5px;color:#c8c8c8;font-size:11px;line-height:1.5}
-.eh12 .eh12-hero-card a{display:inline-flex;margin-top:12px;color:#fff;font-size:12px;font-weight:800}
+.eh12 .eh12-hero-card{position:absolute;right:16px;bottom:16px;width:min(272px,calc(100% - 32px));padding:14px;border-radius:15px;background:rgba(24,24,24,.90);backdrop-filter:blur(10px);color:#fff}
+.eh12 .eh12-hero-card small{display:block;color:#ff7c80;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.eh12 .eh12-hero-card strong{display:block;margin-top:4px;font-size:15px;line-height:1.22}
+.eh12 .eh12-hero-card span{display:block;margin-top:4px;color:#c8c8c8;font-size:10px;line-height:1.45}
+.eh12 .eh12-hero-card a{display:inline-flex;margin-top:9px;color:#fff;font-size:11px;font-weight:800}
 
 /* TRUST STRIP */
 .eh12 .eh12-trust{border-top:1px solid var(--eh12-line);border-bottom:1px solid var(--eh12-line);background:#fff}
@@ -777,7 +777,7 @@
   .eh12 .eh12-hero-media img{min-height:360px}
   .eh12 .eh12-hero-card{
     left:14px;right:14px;bottom:14px;
-    width:auto;padding:17px;border-radius:16px;
+    width:auto;padding:13px;border-radius:14px;
   }
   .eh12 .eh12-hero-card h3{font-size:18px}
   .eh12 .eh12-hero-media__badge{top:14px;left:14px;font-size:9px}

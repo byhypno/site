@@ -89,14 +89,22 @@
   }
 }
 
-/* Projelerimiz sayfasindaki koyu kartlarda miras kalan koyu baslik rengini ezer. */
+/* Koyu bolge/kart kutularinda miras kalan koyu baslik rengini ezer. */
 .egp1-corp-card:first-child h3,
-.egp1-region:first-child h3{
+.egp1-region:first-child h3,
+.ega-region:first-child h3,
+.ega-region--dark h3,
+.et1-region:first-child h3,
+.eg-v18-regions__grid a:first-child h3{
   color:#fff!important;
 }
 
 .egp1-corp-card:first-child p,
-.egp1-region:first-child p{
+.egp1-region:first-child p,
+.ega-region:first-child p,
+.ega-region--dark p,
+.et1-region:first-child p,
+.eg-v18-regions__grid a:first-child p{
   color:#e2e2e2!important;
 }
 
