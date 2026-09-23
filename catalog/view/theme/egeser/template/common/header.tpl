@@ -257,9 +257,8 @@ body{padding-top:0!important}
  .eg112-actions__quote{padding:0 13px;font-size:12px}
  .eg112-footer{margin-top:58px}
  .eg112-footer__grid{grid-template-columns:1fr}
- .eg112-footer__bottom{padding-bottom:64px}
  .eg112-footer__bottom-inner{align-items:flex-start;flex-direction:column;justify-content:center;padding:14px 0}
- .eg112-mobilebar{position:fixed;left:0;right:0;bottom:0;z-index:9997;display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:1px;padding:7px;background:#161616;box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+ .eg112-mobilebar{display:none}
  .eg112-mobilebar a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:8px;color:#fff;text-decoration:none;font-size:12px;font-weight:900}
  .eg112-mobilebar .wa{background:#176f64}
  .eg112-mobilebar .quote{background:var(--egs-red)}
@@ -946,10 +945,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
 
 <?php
 $eg17_email = !empty($egeser_email) ? trim($egeser_email) : '';
-$eg17_request_uri = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '';
-$eg17_is_contact_page = (strpos($eg17_request_uri, 'route=information/contact') !== false) || (strpos($eg17_request_uri, '/iletisim') !== false);
 ?>
-<?php if (!$eg17_is_contact_page) { ?>
 <div class="eg17-float-stack" role="group" aria-label="Hızlı iletişim seçenekleri">
   <?php if ($eg17_email) { ?>
   <a class="eg17-float-wa eg17-float-wa--mail" href="mailto:<?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>" aria-label="E-posta gönderin: <?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>">
@@ -993,7 +989,6 @@ $eg17_is_contact_page = (strpos($eg17_request_uri, 'route=information/contact') 
   </span>
   <span class="eg17-float-contact__label">Bize Ulaşın</span>
 </a>
-<?php } ?>
 
 <script>
 (function(){
