@@ -207,7 +207,11 @@ if ($is_residential) {
 }
 ?>
 
-<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-category-universal-v1-1.css">
+<?php
+$eg_cat_css_path = DIR_TEMPLATE . 'egeser/stylesheet/egeser-category-universal-v1-1.css';
+$eg_cat_css_version = is_file($eg_cat_css_path) ? filemtime($eg_cat_css_path) : time();
+?>
+<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-category-universal-v1-1.css?v=<?php echo $eg_cat_css_version; ?>">
 
 <main id="content" class="eg-page eg-category-page eg-category-page--<?php echo htmlspecialchars($eg_type, ENT_QUOTES, 'UTF-8'); ?>">
   <div class="eg-container">

@@ -1,5 +1,9 @@
 <?php echo $header; ?>
-<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css">
+<?php
+$ega_css_path = DIR_TEMPLATE . 'egeser/stylesheet/egeser-hakkimizda-v2-1.css';
+$ega_css_version = is_file($ega_css_path) ? filemtime($ega_css_path) : time();
+?>
+<link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-hakkimizda-v2-1.css?v=<?php echo $ega_css_version; ?>">
 
 <div class="ega">
   <div class="container">
