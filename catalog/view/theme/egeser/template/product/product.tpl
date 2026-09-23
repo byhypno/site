@@ -65,8 +65,16 @@ $eg_pricing_title = $eg_is_corporate
     ? 'Projenize özel maliyeti birlikte netleştirelim.'
     : 'Bu evin size özel maliyetini birlikte netleştirelim.';
 $eg_region_title = $eg_is_corporate
-    ? 'İzmir ve Manisa için proje ve saha odaklı planlama.'
-    : 'İzmir ve Manisa için saha odaklı planlama.';
+    ? 'Ege Bölgesi genelinde proje ve saha odaklı planlama.'
+    : 'Ege Bölgesi genelinde saha odaklı planlama.';
+$eg_region_links = array(
+    array('name' => 'İzmir', 'href' => '/izmir-prefabrik-ev'),
+    array('name' => 'Manisa', 'href' => '/manisa-prefabrik-ev'),
+    array('name' => 'Aydın', 'href' => '/aydin-prefabrik-ev'),
+    array('name' => 'Uşak', 'href' => '/usak-prefabrik-ev'),
+    array('name' => 'Balıkesir', 'href' => '/balikesir-prefabrik-ev'),
+    array('name' => 'Muğla', 'href' => '/mugla-prefabrik-ev')
+);
 $eg_form_default_customer_type = $eg_is_corporate ? 'Kurumsal' : 'Bireysel';
 $eg_clean_desc = trim(preg_replace('/\s+/', ' ', html_entity_decode(strip_tags($description), ENT_QUOTES, 'UTF-8')));
 $eg_short_desc = 'Proje kapsamı, teknik özellikler, üretim, sevkiyat ve montaj seçenekleri ihtiyaca göre birlikte değerlendirilir.';
@@ -441,6 +449,9 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-regional-box div{padding:17px;border:1px solid var(--eg11-line);border-radius:14px;background:#fff}
 .eg-v11 .eg11-regional-box strong{display:block;font-size:15px}
 .eg-v11 .eg11-regional-box span{display:block;margin-top:2px;color:#888;font-size:11px}
+.eg-v11 .eg11-regional-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.eg-v11 .eg11-regional-links a{padding:8px 14px;border:1px solid var(--eg11-line);border-radius:999px;background:#fff;color:var(--eg11-ink);font-size:12px;font-weight:800;text-decoration:none;transition:.15s}
+.eg-v11 .eg11-regional-links a:hover{border-color:var(--eg11-red);color:var(--eg11-red)}
 
 /* FAQ */
 .eg-v11 .eg11-faq{display:grid;gap:9px;max-width:980px}
@@ -924,6 +935,11 @@ $eg_wa_href = $eg_wa_phone !== ''
           <span class="eg11-label">BÖLGESEL UYGULAMA</span>
           <h2><?php echo htmlspecialchars($eg_region_title, ENT_QUOTES, 'UTF-8'); ?></h2>
           <p>Kurulum bölgesinin saha erişimi, zemin durumu, sevkiyat güzergâhı ve montaj alanı proje başlangıcında değerlendirilir. Aynı model farklı sahalarda farklı uygulama koşulları gerektirebilir.</p>
+          <div class="eg11-regional-links">
+            <?php foreach ($eg_region_links as $eg_region_link) { ?>
+            <a href="<?php echo htmlspecialchars($eg_region_link['href'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($eg_region_link['name'], ENT_QUOTES, 'UTF-8'); ?></a>
+            <?php } ?>
+          </div>
         </div>
         <div class="eg11-regional-box">
           <div><strong>Saha Erişimi</strong><span>Vinç, sevkiyat ve montaj erişimi</span></div>
