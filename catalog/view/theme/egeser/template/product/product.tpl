@@ -389,9 +389,7 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-highlight strong{display:block;color:#222;font-size:18px;line-height:1.35}
 
 /* EDITORIAL */
-.eg-v11 .eg11-editorial{display:grid;grid-template-columns:minmax(260px,.35fr) minmax(0,.65fr);gap:70px;align-items:start}
-.eg-v11 .eg11-editorial__title{position:sticky;top:150px}
-.eg-v11 .eg11-editorial__title h2{margin:0;color:var(--eg11-ink);font-size:clamp(31px,3vw,44px);line-height:1.08;letter-spacing:-.035em}
+.eg-v11 .eg11-rich-card{border:1px solid var(--eg11-line);border-radius:20px;background:#fff;padding:40px 44px}
 .eg-v11 .eg11-rich{color:#4f5052;font-size:16px;line-height:1.9}
 .eg-v11 .eg11-rich>:first-child{margin-top:0}
 .eg-v11 .eg11-rich h2{position:relative;margin:40px 0 16px;padding-top:24px;color:var(--eg11-ink);font-size:27px;font-weight:800;line-height:1.22;letter-spacing:-.02em}
@@ -618,8 +616,7 @@ $eg_wa_href = $eg_wa_phone !== ''
  .eg-v11 .eg11-actions{grid-template-columns:1fr}
  .eg-v11 .eg11-section{padding:52px 0}
  .eg-v11 .eg11-section-head{grid-template-columns:1fr;gap:12px}
- .eg-v11 .eg11-editorial{grid-template-columns:1fr;gap:24px}
- .eg-v11 .eg11-editorial__title{position:static}
+ .eg-v11 .eg11-rich-card{padding:26px 22px}
  .eg-v11 .eg11-rich h2{font-size:22px}
  .eg-v11 .eg11-rich h3{font-size:17px}
  .eg-v11 .eg11-spec-grid{grid-template-columns:1fr}
@@ -853,11 +850,11 @@ $eg_wa_href = $eg_wa_phone !== ''
     <?php } ?>
 
     <section class="eg11-section">
-      <div class="eg11-editorial">
-        <div class="eg11-editorial__title">
-          <span class="eg11-label">MODEL DETAYI</span>
-          <h2><?php echo $heading_title; ?> hakkında</h2>
-        </div>
+      <div class="eg11-section-head">
+        <div><span class="eg11-label">MODEL DETAYI</span><h2><?php echo $heading_title; ?> hakkında</h2></div>
+        <p>Mimari kullanım özeti, teknik kapsam ve uygulama detaylarını aşağıda inceleyebilirsiniz.</p>
+      </div>
+      <div class="eg11-rich-card">
         <div class="eg11-rich"><?php echo $description; ?></div>
       </div>
     </section>
