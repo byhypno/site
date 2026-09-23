@@ -15,7 +15,6 @@ $ega_css_version = is_file($ega_css_path) ? filemtime($ega_css_path) : time();
 
     <section class="ega-hero">
       <div class="ega-hero__content">
-        <div class="ega-badge"><span class="ega-badge__dot"></span>İZMİR / KEMALPAŞA ÜRETİM TESİSİ VE SHOWROOM</div>
         <h1>Hakkımızda<br><span>Egeser Prefabrik</span></h1>
         <p class="ega-lead">
           Bireysel prefabrik evlerden kurumsal yapılara kadar; projelendirme, üretim,
