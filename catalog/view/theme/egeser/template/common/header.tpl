@@ -946,7 +946,10 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
 
 <?php
 $eg17_email = !empty($egeser_email) ? trim($egeser_email) : '';
+$eg17_request_uri = isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '';
+$eg17_is_contact_page = (strpos($eg17_request_uri, 'route=information/contact') !== false) || (strpos($eg17_request_uri, '/iletisim') !== false);
 ?>
+<?php if (!$eg17_is_contact_page) { ?>
 <div class="eg17-float-stack" role="group" aria-label="Hızlı iletişim seçenekleri">
   <?php if ($eg17_email) { ?>
   <a class="eg17-float-wa eg17-float-wa--mail" href="mailto:<?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>" aria-label="E-posta gönderin: <?php echo htmlspecialchars($eg17_email, ENT_QUOTES, 'UTF-8'); ?>">
@@ -990,6 +993,7 @@ $eg17_email = !empty($egeser_email) ? trim($egeser_email) : '';
   </span>
   <span class="eg17-float-contact__label">Bize Ulaşın</span>
 </a>
+<?php } ?>
 
 <script>
 (function(){
