@@ -77,6 +77,13 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-tags"><?php echo $entry_tags; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="tags" value="<?php echo $tags; ?>" placeholder="<?php echo $entry_tags; ?>" id="input-tags" class="form-control" />
+              <p class="help-block"><?php echo $text_tags_help; ?></p>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-date-published"><?php echo $entry_date_published; ?></label>
             <div class="col-sm-10">
               <div class="input-group date">

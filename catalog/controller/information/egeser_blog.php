@@ -82,8 +82,24 @@ class ControllerInformationEgeserBlog extends Controller {
 
         $data['heading_title'] = $post['title'];
         $data['description'] = $this->sanitizePostContent($post['description'], $post['title']);
+
+        $enhanced = $this->enhanceContent($data['description'], $base);
+        $data['description'] = $enhanced['content'];
+        $data['toc'] = $enhanced['toc'];
+
         $data['canonical'] = $canonical;
         $data['date'] = !empty($post['date_published']) ? date('d.m.Y', strtotime($post['date_published'])) : '';
+        $data['date_modified'] = '';
+
+        if (!empty($post['date_modified']) && !empty($post['date_published'])) {
+            $published_day = date('Y-m-d', strtotime($post['date_published']));
+            $modified_day = date('Y-m-d', strtotime($post['date_modified']));
+
+            if ($modified_day !== $published_day) {
+                $data['date_modified'] = date('d.m.Y', strtotime($post['date_modified']));
+            }
+        }
+
         $data['views'] = (isset($post['views']) ? (int)$post['views'] : 0) + 1;
         $data['image'] = '';
 
@@ -123,7 +139,9 @@ class ControllerInformationEgeserBlog extends Controller {
 
         $data['related_posts'] = array();
 
-        foreach ($this->model_catalog_egeser_blog->getRelatedPosts($blog_id, 3) as $related) {
+        $related_tags = isset($post['tags']) ? $post['tags'] : '';
+
+        foreach ($this->model_catalog_egeser_blog->getRelatedPosts($blog_id, $related_tags, 3) as $related) {
             $related_image = '';
 
             if (!empty($related['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($related['image'], '/'))) {
@@ -164,6 +182,129 @@ class ControllerInformationEgeserBlog extends Controller {
         }, $content);
 
         return $content;
+    }
+
+    /**
+     * H2 başlıklarına atlama linki için id ekler ve içindekiler listesini
+     * üretir; ayrıca metin içinde geçen şehir/sayfa adlarının ilk geçtiği
+     * yeri ilgili sayfaya bağlar (başlıklara, linklere ve script/style
+     * içine dokunmadan).
+     */
+    private function enhanceContent($content, $base) {
+        $content = trim((string)$content);
+
+        if ($content === '') {
+            return array('content' => $content, 'toc' => array());
+        }
+
+        $keywords = array(
+            'İzmir' => $base . '/izmir-prefabrik-ev',
+            'Manisa' => $base . '/manisa-prefabrik-ev',
+            'Aydın' => $base . '/aydin-prefabrik-ev',
+            'Uşak' => $base . '/usak-prefabrik-ev',
+            'Balıkesir' => $base . '/balikesir-prefabrik-ev',
+            'Muğla' => $base . '/mugla-prefabrik-ev',
+            'Projelerimiz' => $base . '/projelerimiz',
+            'prefabrik yapılar' => $base . '/prefabrik-yapilar'
+        );
+
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="UTF-8"><div id="egeser-root">' . $content . '</div>', LIBXML_NOERROR | LIBXML_NOWARNING);
+        libxml_clear_errors();
+
+        $root = $dom->getElementById('egeser-root');
+
+        if (!$root) {
+            return array('content' => $content, 'toc' => array());
+        }
+
+        $toc = array();
+        $used_ids = array();
+
+        foreach (iterator_to_array($dom->getElementsByTagName('h2')) as $heading) {
+            $text = trim($heading->textContent);
+
+            if ($text === '') {
+                continue;
+            }
+
+            $id = $this->slugifyHeading($text);
+
+            if ($id === '') {
+                $id = 'bolum';
+            }
+
+            $unique_id = $id;
+            $suffix = 2;
+
+            while (in_array($unique_id, $used_ids, true)) {
+                $unique_id = $id . '-' . $suffix;
+                $suffix++;
+            }
+
+            $used_ids[] = $unique_id;
+            $heading->setAttribute('id', $unique_id);
+
+            $toc[] = array('id' => $unique_id, 'text' => $text);
+        }
+
+        $xpath = new DOMXPath($dom);
+        $linked = array();
+
+        foreach ($keywords as $keyword => $url) {
+            if (isset($linked[$url])) {
+                continue;
+            }
+
+            $text_nodes = $xpath->query('//text()[not(ancestor::a) and not(ancestor::h1) and not(ancestor::h2) and not(ancestor::h3) and not(ancestor::h4) and not(ancestor::h5) and not(ancestor::h6) and not(ancestor::script) and not(ancestor::style)]');
+
+            foreach ($text_nodes as $node) {
+                $pos = mb_stripos($node->nodeValue, $keyword, 0, 'UTF-8');
+
+                if ($pos === false) {
+                    continue;
+                }
+
+                $matched = mb_substr($node->nodeValue, $pos, mb_strlen($keyword, 'UTF-8'), 'UTF-8');
+                $before = mb_substr($node->nodeValue, 0, $pos, 'UTF-8');
+                $after = mb_substr($node->nodeValue, $pos + mb_strlen($keyword, 'UTF-8'), null, 'UTF-8');
+
+                $anchor = $dom->createElement('a');
+                $anchor->setAttribute('href', $url);
+                $anchor->appendChild($dom->createTextNode($matched));
+
+                $parent = $node->parentNode;
+                $parent->insertBefore($dom->createTextNode($before), $node);
+                $parent->insertBefore($anchor, $node);
+                $parent->insertBefore($dom->createTextNode($after), $node);
+                $parent->removeChild($node);
+
+                $linked[$url] = true;
+                break;
+            }
+        }
+
+        $html = '';
+
+        foreach ($root->childNodes as $child) {
+            $html .= $dom->saveHTML($child);
+        }
+
+        return array('content' => $html, 'toc' => $toc);
+    }
+
+    private function slugifyHeading($text) {
+        $map = array(
+            'ç' => 'c', 'Ç' => 'c', 'ğ' => 'g', 'Ğ' => 'g', 'ı' => 'i', 'I' => 'i',
+            'İ' => 'i', 'ö' => 'o', 'Ö' => 'o', 'ş' => 's', 'Ş' => 's', 'ü' => 'u', 'Ü' => 'u'
+        );
+
+        $text = strtr($text, $map);
+        $text = mb_strtolower($text, 'UTF-8');
+        $text = preg_replace('/[^a-z0-9]+/u', '-', $text);
+
+        return trim($text, '-');
     }
 
     private function plainText($html) {

@@ -221,6 +221,8 @@ class ControllerExtensionModuleEgeserBlogManager extends Controller {
         $data['entry_meta_title'] = $this->language->get('entry_meta_title');
         $data['entry_meta_description'] = $this->language->get('entry_meta_description');
         $data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
+        $data['entry_tags'] = $this->language->get('entry_tags');
+        $data['text_tags_help'] = $this->language->get('text_tags_help');
         $data['entry_status'] = $this->language->get('entry_status');
         $data['entry_sort_order'] = $this->language->get('entry_sort_order');
         $data['entry_date_published'] = $this->language->get('entry_date_published');
@@ -261,7 +263,7 @@ class ControllerExtensionModuleEgeserBlogManager extends Controller {
 
         $data['token'] = $this->session->data['token'];
 
-        $fields = array('title', 'slug', 'description', 'meta_title', 'meta_description', 'meta_keyword', 'sort_order');
+        $fields = array('title', 'slug', 'description', 'meta_title', 'meta_description', 'meta_keyword', 'tags', 'sort_order');
 
         foreach ($fields as $field) {
             if (isset($this->request->post[$field])) {

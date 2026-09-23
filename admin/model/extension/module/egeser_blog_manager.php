@@ -1,6 +1,24 @@
 <?php
 class ModelExtensionModuleEgeserBlogManager extends Model {
+    private function ensureTagsColumn() {
+        static $checked = false;
+
+        if ($checked) {
+            return;
+        }
+
+        $checked = true;
+
+        $query = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "egeser_blog_post` LIKE 'tags'");
+
+        if (!$query->num_rows) {
+            $this->db->query("ALTER TABLE `" . DB_PREFIX . "egeser_blog_post` ADD COLUMN `tags` VARCHAR(255) NOT NULL DEFAULT ''");
+        }
+    }
+
     public function addBlog($data) {
+        $this->ensureTagsColumn();
+
         $this->db->query("INSERT INTO `" . DB_PREFIX . "egeser_blog_post` SET
             `slug` = '" . $this->db->escape($data['slug']) . "',
             `title` = '" . $this->db->escape($data['title']) . "',
@@ -8,6 +26,7 @@ class ModelExtensionModuleEgeserBlogManager extends Model {
             `meta_title` = '" . $this->db->escape($data['meta_title']) . "',
             `meta_description` = '" . $this->db->escape($data['meta_description']) . "',
             `meta_keyword` = '" . $this->db->escape($data['meta_keyword']) . "',
+            `tags` = '" . $this->db->escape(isset($data['tags']) ? $data['tags'] : '') . "',
             `image` = '" . $this->db->escape($data['image']) . "',
             `status` = '" . (int)$data['status'] . "',
             `sort_order` = '" . (int)$data['sort_order'] . "',
@@ -18,6 +37,8 @@ class ModelExtensionModuleEgeserBlogManager extends Model {
     }
 
     public function editBlog($blog_id, $data) {
+        $this->ensureTagsColumn();
+
         $this->db->query("UPDATE `" . DB_PREFIX . "egeser_blog_post` SET
             `slug` = '" . $this->db->escape($data['slug']) . "',
             `title` = '" . $this->db->escape($data['title']) . "',
@@ -25,6 +46,7 @@ class ModelExtensionModuleEgeserBlogManager extends Model {
             `meta_title` = '" . $this->db->escape($data['meta_title']) . "',
             `meta_description` = '" . $this->db->escape($data['meta_description']) . "',
             `meta_keyword` = '" . $this->db->escape($data['meta_keyword']) . "',
+            `tags` = '" . $this->db->escape(isset($data['tags']) ? $data['tags'] : '') . "',
             `image` = '" . $this->db->escape($data['image']) . "',
             `status` = '" . (int)$data['status'] . "',
             `sort_order` = '" . (int)$data['sort_order'] . "',
