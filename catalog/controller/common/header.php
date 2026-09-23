@@ -71,7 +71,16 @@ class ControllerCommonHeader extends Controller {
 		$data['egeser_og_title'] = $data['title'];
 		$data['egeser_og_description'] = $data['description'];
 		$data['egeser_og_url'] = $egeser_social_url;
-		$data['egeser_og_type'] = (isset($this->request->get['route']) && $this->request->get['route'] === 'product/product') ? 'product' : 'website';
+
+		$egeser_route = isset($this->request->get['route']) ? $this->request->get['route'] : '';
+
+		if ($egeser_route === 'product/product') {
+			$data['egeser_og_type'] = 'product';
+		} elseif ($egeser_route === 'information/egeser_blog' && isset($this->request->get['blog_id'])) {
+			$data['egeser_og_type'] = 'article';
+		} else {
+			$data['egeser_og_type'] = 'website';
+		}
 		$data['styles'] = $this->document->getStyles();
 		$data['scripts'] = $this->document->getScripts();
 		$data['lang'] = $this->language->get('code');
@@ -85,7 +94,8 @@ class ControllerCommonHeader extends Controller {
 			$data['logo'] = '';
 		}
 
-		$data['egeser_og_image'] = $data['logo'];
+		$egeser_custom_image = $this->document->getImage();
+		$data['egeser_og_image'] = !empty($egeser_custom_image) ? $egeser_custom_image : $data['logo'];
 
 		$this->load->language('common/header');
 

@@ -91,6 +91,7 @@ class ControllerInformationEgeserBlog extends Controller {
 
         if (!empty($post['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($post['image'], '/'))) {
             $data['image'] = $this->model_tool_image->resize(ltrim($post['image'], '/'), 1080, 1080);
+            $this->document->setImage($data['image']);
         }
 
         $schema = array(
