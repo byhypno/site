@@ -76,8 +76,8 @@
       var img = document.createElement('img');
       img.src = span.getAttribute('data-image');
       img.alt = span.getAttribute('data-alt') || 'Egeser Prefabrik proje görseli';
-      img.width = 1400;
-      img.height = 1050;
+      img.width = 1080;
+      img.height = 1080;
       img.decoding = 'async';
       img.loading = idx === 0 ? 'eager' : 'lazy';
 

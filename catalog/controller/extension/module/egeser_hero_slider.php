@@ -9,7 +9,7 @@ class ControllerExtensionModuleEgeserHeroSlider extends Controller {
             $link = isset($row['link']) ? trim($row['link']) : '';
             if ($link !== '' && strpos($link, '/') !== 0 && strpos($link, 'index.php?route=') !== 0 && !preg_match('#^https?://#i', $link)) $link = '';
             $slides[] = array(
-                'image' => $this->model_tool_image->resize($row['image'], 1400, 1050),
+                'image' => $this->model_tool_image->resize($row['image'], 1080, 1080),
                 'alt' => isset($row['alt']) && trim($row['alt']) !== '' ? trim($row['alt']) : 'Egeser Prefabrik proje görseli',
                 'link' => $link,
                 'sort_order' => isset($row['sort_order']) ? (int)$row['sort_order'] : 0
