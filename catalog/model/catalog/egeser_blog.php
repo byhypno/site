@@ -62,4 +62,17 @@ class ModelCatalogEgeserBlog extends Model {
 
         $this->db->query("UPDATE `" . DB_PREFIX . "egeser_blog_post` SET views = views + 1 WHERE blog_id = '" . (int)$blog_id . "'");
     }
+
+    public function getRelatedPosts($exclude_blog_id, $limit = 3) {
+        $query = $this->db->query("
+            SELECT *
+            FROM " . DB_PREFIX . "egeser_blog_post
+            WHERE status = '1'
+              AND blog_id != '" . (int)$exclude_blog_id . "'
+            ORDER BY date_published DESC, sort_order ASC, blog_id DESC
+            LIMIT " . (int)$limit . "
+        ");
+
+        return $query->rows;
+    }
 }

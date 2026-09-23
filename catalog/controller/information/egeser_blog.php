@@ -121,6 +121,23 @@ class ControllerInformationEgeserBlog extends Controller {
         $data['schema'] = $schema;
         $data['breadcrumb_schema'] = $this->breadcrumbSchema($data['breadcrumbs']);
 
+        $data['related_posts'] = array();
+
+        foreach ($this->model_catalog_egeser_blog->getRelatedPosts($blog_id, 3) as $related) {
+            $related_image = '';
+
+            if (!empty($related['image']) && defined('DIR_IMAGE') && is_file(DIR_IMAGE . ltrim($related['image'], '/'))) {
+                $related_image = $this->model_tool_image->resize(ltrim($related['image'], '/'), 640, 640);
+            }
+
+            $data['related_posts'][] = array(
+                'title' => $related['title'],
+                'href' => $base . '/blog/' . $related['slug'],
+                'image' => $related_image,
+                'date' => !empty($related['date_published']) ? date('d.m.Y', strtotime($related['date_published'])) : ''
+            );
+        }
+
         $this->common($data);
         $this->response->setOutput($this->load->view('information/egeser_blog_post', $data));
     }
