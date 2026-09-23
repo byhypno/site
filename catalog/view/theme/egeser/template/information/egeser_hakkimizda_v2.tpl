@@ -30,15 +30,22 @@
       </div>
 
       <aside class="ega-hero__panel">
-        <div class="ega-kicker ega-kicker--gold">YAPI YAKLAŞIMIMIZ</div>
-        <h2>İhtiyaca göre planlanan, sahaya uygun çözümler.</h2>
-        <p>
-          Her projeyi kullanım amacı, yaklaşık m², saha koşulları, teknik kapsam
-          ve uygulama bölgesiyle birlikte değerlendiriyoruz.
-        </p>
-        <div class="ega-chips">
-          <span>Bireysel</span><span>Kurumsal</span><span>Tek Katlı</span>
-          <span>Çift Katlı</span><span>Ofis</span><span>Şantiye</span>
+        <?php if (defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/showroom.jpg')) { ?>
+        <div class="ega-hero__panel-media">
+          <img src="image/catalog/egeser/hakkimizda/showroom.jpg" alt="Egeser Prefabrik Showroom" loading="lazy">
+        </div>
+        <?php } ?>
+        <div class="ega-hero__panel-body">
+          <div class="ega-kicker ega-kicker--gold">YAPI YAKLAŞIMIMIZ</div>
+          <h2>İhtiyaca göre planlanan, sahaya uygun çözümler.</h2>
+          <p>
+            Her projeyi kullanım amacı, yaklaşık m², saha koşulları, teknik kapsam
+            ve uygulama bölgesiyle birlikte değerlendiriyoruz.
+          </p>
+          <div class="ega-chips">
+            <span>Bireysel</span><span>Kurumsal</span><span>Tek Katlı</span>
+            <span>Çift Katlı</span><span>Ofis</span><span>Şantiye</span>
+          </div>
         </div>
       </aside>
     </section>
