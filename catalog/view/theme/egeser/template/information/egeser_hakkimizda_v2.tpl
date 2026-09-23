@@ -64,20 +64,119 @@
 
       <div class="ega-about">
         <div class="ega-about__text">
-          <h3>Kuruluş Hikâyemiz</h3>
           <p>
-            Egeser Prefabrik, <strong>2019</strong> yılında; kalite, güven
-            ve uygulanabilirlik odağıyla prefabrik yapı çözümleri sunmak amacıyla kurulmuştur.
+            <strong>Egeser Prefabrik</strong>, lojistik sektöründe 20 yılı aşkın deneyime sahip
+            <strong>Selçuk AÇAN</strong> ile prefabrik ve yapı sektöründe 25 yılı aşkın saha,
+            üretim ve uygulama tecrübesine sahip <strong>Ferdi AKBULUT</strong>'un bilgi ve
+            deneyimlerini bir araya getirmesiyle kurulmuştur.
           </p>
           <p>
-            Kurulduğu günden bu yana bireysel prefabrik evlerden ofis, yatakhane,
-            yemekhane, şantiye, sosyal tesis ve özel proje yapılarına kadar farklı
-            ihtiyaçlara yönelik çözümler geliştirmektedir.
+            Farklı sektörlerde edinilen uzun yıllara dayanan tecrübenin ortak bir vizyonda
+            buluşmasıyla ortaya çıkan Egeser Prefabrik; planlama, üretim, lojistik ve uygulama
+            süreçlerini bütüncül bir anlayışla ele alan bir yapı markası olarak faaliyet göstermektedir.
+          </p>
+
+          <h3>Kuruluş Hikayemiz</h3>
+          <p>
+            Egeser Prefabrik'in temelleri, iki farklı uzmanlık alanının birbirini tamamlayan
+            güçlü yönleri üzerine kurulmuştur.
           </p>
           <p>
-            Hazır bir modeli herkese uygulamak yerine; kullanım amacı, plan,
-            teknik kapsam, saha erişimi, sevkiyat ve montaj koşullarını proje
-            başlangıcında birlikte değerlendirerek daha kontrollü bir süreç yürütmeyi hedefliyoruz.
+            Lojistik sektöründe 20 yılı aşkın süre boyunca operasyon, planlama, sevkiyat ve
+            organizasyon alanlarında deneyim kazanan <strong>Selçuk AÇAN</strong>; bu birikimini
+            prefabrik yapı sektöründeki üretim süreçlerine taşımıştır.
+          </p>
+          <p>
+            <strong>Ferdi AKBULUT</strong> ise prefabrik sektöründeki 25 yılı aşkın tecrübesiyle;
+            üretimden malzeme seçimine, saha uygulamasından montaja kadar sektörün farklı
+            aşamalarında edindiği bilgi birikimini Egeser Prefabrik çatısı altında bir araya getirmiştir.
+          </p>
+          <p>
+            Bu ortaklık sayesinde lojistik disiplininin getirdiği doğru planlama ve zaman yönetimi;
+            prefabrik sektörünün gerektirdiği teknik bilgi, üretim tecrübesi ve saha deneyimiyle
+            birleşmiştir.
+          </p>
+          <p>
+            Egeser Prefabrik'in bugün benimsediği çalışma anlayışının temelinde de bu birliktelik yer alır:
+            <strong>doğru planlama, kaliteli üretim, kontrollü uygulama ve zamanında teslimat.</strong>
+          </p>
+
+          <h3>Ne Yapıyoruz?</h3>
+          <p>
+            Egeser Prefabrik olarak farklı kullanım ihtiyaçlarına yönelik
+            <strong>prefabrik evler, çelik yapılar ve özel proje çözümleri</strong> üretiyoruz.
+            Her projeyi yalnızca metrekare üzerinden değil; kullanım amacı, yerleşim planı,
+            malzeme tercihleri ve uzun vadeli kullanım beklentileri doğrultusunda değerlendiriyoruz.
+          </p>
+          <p>
+            Yaşam alanlarından ticari yapılara, sosyal alanlardan özel projelere kadar farklı
+            ihtiyaçlara uygun yapı çözümleri geliştiriyor; projelendirme, üretim ve uygulama
+            süreçlerini bir bütün olarak ele alıyoruz.
+          </p>
+
+          <h3>Üretim Anlayışımız</h3>
+          <p>
+            Prefabrik bir yapının kalitesinin yalnızca dış görünüşüyle ölçülemeyeceğine inanıyoruz.
+            Bir yapının uzun yıllar güvenle kullanılabilmesi; taşıyıcı sisteminden duvar panellerine,
+            çatı uygulamasından elektrik ve sıhhi tesisatına kadar tüm detayların doğru şekilde
+            planlanmasına bağlıdır.
+          </p>
+          <p>
+            Bu nedenle üretim süreçlerimizde malzeme seçimi, işçilik kalitesi ve uygulama detaylarını
+            birlikte değerlendiriyoruz. Amacımız yalnızca kısa sürede yapı üretmek değil;
+            <strong>kullanıcısına uzun vadede değer sağlayan yapılar</strong> ortaya çıkarmaktır.
+          </p>
+
+          <h3>Her Projeye Aynı Gözle Bakmıyoruz</h3>
+          <p>
+            Her müşterinin ihtiyacının ve her projenin koşullarının farklı olduğunun farkındayız.
+            Bu nedenle standart bir ürünü herkese sunmak yerine, mümkün olan projelerde ihtiyaçlara
+            göre planlama ve özelleştirme yapıyoruz.
+          </p>
+          <p>
+            Oda yerleşimleri, cephe seçenekleri, veranda uygulamaları, panel tercihleri,
+            iç mekan çözümleri ve farklı kullanım senaryoları proje özelliklerine göre değerlendirilebilir.
+          </p>
+
+          <h3>Neden Egeser Prefabrik?</h3>
+          <ul>
+            <li>Prefabrik sektöründe 25 yılı aşan teknik ve saha tecrübesi</li>
+            <li>Lojistik ve operasyon alanında 20 yılı aşan deneyim</li>
+            <li>Üretimden teslimata kadar planlı süreç yönetimi</li>
+            <li>İhtiyaca göre geliştirilebilen proje çözümleri</li>
+            <li>Malzeme ve uygulama detaylarına önem veren üretim anlayışı</li>
+            <li>Satış öncesi ve satış sonrası iletişime önem veren yaklaşım</li>
+            <li>Prefabrik ve çelik yapı alanında farklı kullanım amaçlarına yönelik çözümler</li>
+          </ul>
+
+          <h3>Üretimden Teslimata Aynı Sorumluluk</h3>
+          <p>
+            Bir yapının teslim edilmesi bizim için sürecin yalnızca son aşamasıdır.
+            İlk görüşmeden proje planlamasına, üretimden sevkiyata ve saha uygulamasına kadar
+            bütün aşamaların birbiriyle uyum içerisinde ilerlemesi gerektiğine inanıyoruz.
+          </p>
+          <p>
+            Lojistik alanındaki tecrübemizin en önemli katkılarından biri de burada ortaya çıkar.
+            Üretilen yapının doğru planlanması kadar, doğru zamanda ve doğru şekilde sahaya
+            ulaştırılması da proje yönetiminin önemli bir parçasıdır.
+          </p>
+
+          <h3>Kalıcı Yapılar, Uzun Süreli Güven</h3>
+          <p>
+            Egeser Prefabrik olarak hedefimiz sadece daha fazla yapı üretmek değildir.
+            Müşterilerimizin ihtiyaçlarını doğru anlayarak güvenilir, fonksiyonel ve uzun ömürlü
+            yaşam alanları oluşturmayı amaçlıyoruz.
+          </p>
+          <p>
+            Bugün sahip olduğumuz sektör tecrübesini modern üretim yöntemleriyle bir araya getirirken,
+            sürekli gelişen yapı teknolojilerini ve müşteri beklentilerini de yakından takip ediyoruz.
+          </p>
+          <p>
+            <strong>
+              20+ yıllık lojistik tecrübesi ile 25+ yıllık prefabrik sektör deneyiminin
+              birleşiminden doğan Egeser Prefabrik; tecrübeyi üretime, üretimi güvene dönüştürmeye
+              devam ediyor.
+            </strong>
           </p>
         </div>
 
@@ -94,15 +193,6 @@
     // Böylece eksik showroom/üretim/ofis görselleri kırık <img> üretmez;
     // dosyalar daha sonra ilgili klasöre yüklendiğinde bölüm otomatik görünür.
     $ega_gallery_items = array(
-      array(
-        'file' => 'catalog/egeser/hakkimizda/showroom.jpg',
-        'url' => 'image/catalog/egeser/hakkimizda/showroom.jpg',
-        'alt' => 'Egeser Prefabrik Showroom',
-        'class' => 'ega-gallery__item ega-gallery__item--large',
-        'label' => 'SHOWROOM',
-        'title' => 'Ürünleri yakından inceleyin',
-        'text' => 'Prefabrik yapı çözümlerimizi showroom alanımızda daha yakından değerlendirebilirsiniz.'
-      ),
       array(
         'file' => 'catalog/egeser/hakkimizda/uretim.jpg',
         'url' => 'image/catalog/egeser/hakkimizda/uretim.jpg',
