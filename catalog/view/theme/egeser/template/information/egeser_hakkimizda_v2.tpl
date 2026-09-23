@@ -15,43 +15,58 @@ $ega_css_version = is_file($ega_css_path) ? filemtime($ega_css_path) : time();
 
     <section class="ega-hero">
       <div class="ega-hero__content">
-        <div class="ega-kicker">EGESER PREFABRİK</div>
-        <h1>Hakkımızda</h1>
+        <div class="ega-badge"><span class="ega-badge__dot"></span>İZMİR / KEMALPAŞA ÜRETİM TESİSİ VE SHOWROOM</div>
+        <h1>Hakkımızda<br><span>Egeser Prefabrik</span></h1>
         <p class="ega-lead">
           Bireysel prefabrik evlerden kurumsal yapılara kadar; projelendirme, üretim,
           sevkiyat ve montaj süreçlerini tek merkezden yöneten bütüncül yapı çözümleri sunuyoruz.
         </p>
-        <div class="ega-actions">
-          <a href="/projelerimiz" class="ega-btn ega-btn--primary">Bizi Tanıyın</a>
-          <a href="/iletisim" class="ega-btn ega-btn--ghost">Projenizi Konuşalım</a>
+        <div class="ega-pills">
+          <span>İzmir'de üretim</span><span>Özel ölçü imalat</span><span>Sevkiyat &amp; montaj</span>
         </div>
-        <div class="ega-trust">
-          <span>✓ Projelendirme</span>
-          <span>✓ Kontrollü Üretim</span>
-          <span>✓ Sevkiyat</span>
-          <span>✓ Montaj</span>
+        <div class="ega-actions">
+          <a href="/projelerimiz" class="ega-btn ega-btn--dark">Modelleri İncele</a>
+          <a href="/iletisim" class="ega-btn-link">Projenizi bizimle konuşun →</a>
+        </div>
+        <div class="ega-feats">
+          <div><h4>Projeye Uygun Üretim</h4><p>Kullanım amacı ve saha koşullarına göre planlanan üretim.</p></div>
+          <div><h4>Kurumsal Yaklaşım</h4><p>Ofis, yatakhane, yemekhane ve şantiye yapılarında kurumsal çözüm.</p></div>
+          <div><h4>Planlı Sevkiyat</h4><p>Üretimden sahaya kontrollü sevkiyat ve montaj süreci.</p></div>
         </div>
       </div>
 
-      <aside class="ega-hero__panel">
-        <?php if (defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/showroom.jpg')) { ?>
-        <div class="ega-hero__panel-media">
+      <?php
+      $ega_hero_showroom = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/showroom.jpg');
+      $ega_hero_satisofisi = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/satis-ofisi.jpg');
+      $ega_hero_tesis = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/tesis.jpg');
+      ?>
+      <?php if ($ega_hero_showroom) { ?>
+      <div class="ega-hero__media">
+        <figure class="ega-hero__media-main">
           <img src="image/catalog/egeser/hakkimizda/showroom.jpg" alt="Egeser Prefabrik Showroom" loading="lazy">
+          <figcaption>
+            <span>İZMİR'İN SHOWROOM ALANI</span>
+            <p>Üretim gücümüzü ve model seçeneklerimizi yerinde inceleyebilirsiniz.</p>
+          </figcaption>
+        </figure>
+        <?php if ($ega_hero_satisofisi || $ega_hero_tesis) { ?>
+        <div class="ega-hero__media-row">
+          <?php if ($ega_hero_satisofisi) { ?>
+          <figure>
+            <img src="image/catalog/egeser/hakkimizda/satis-ofisi.jpg" alt="Egeser Prefabrik Satış Ofisi" loading="lazy">
+            <figcaption>SATIŞ OFİSİMİZ</figcaption>
+          </figure>
+          <?php } ?>
+          <?php if ($ega_hero_tesis) { ?>
+          <figure>
+            <img src="image/catalog/egeser/hakkimizda/tesis.jpg" alt="Egeser Prefabrik Üretim Tesisi" loading="lazy">
+            <figcaption>ÜRETİM TESİSİMİZ</figcaption>
+          </figure>
+          <?php } ?>
         </div>
         <?php } ?>
-        <div class="ega-hero__panel-body">
-          <div class="ega-kicker ega-kicker--gold">YAPI YAKLAŞIMIMIZ</div>
-          <h2>İhtiyaca göre planlanan, sahaya uygun çözümler.</h2>
-          <p>
-            Her projeyi kullanım amacı, yaklaşık m², saha koşulları, teknik kapsam
-            ve uygulama bölgesiyle birlikte değerlendiriyoruz.
-          </p>
-          <div class="ega-chips">
-            <span>Bireysel</span><span>Kurumsal</span><span>Tek Katlı</span>
-            <span>Çift Katlı</span><span>Ofis</span><span>Şantiye</span>
-          </div>
-        </div>
-      </aside>
+      </div>
+      <?php } ?>
     </section>
 
     <section class="ega-section" id="biz-kimiz">

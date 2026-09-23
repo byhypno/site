@@ -2,15 +2,30 @@
 .ega{color:#1d1d1d}.ega .container{max-width:1240px}.ega-breadcrumb{margin:18px 0 20px;padding:0;background:transparent}
 .ega-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;color:#ef1f28;margin-bottom:10px}.ega-kicker--gold{color:#f3b546}
 .ega-hero{display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid #eadfd5;border-radius:26px;overflow:hidden;margin-bottom:66px;background:#fff}
-.ega-hero__content{padding:52px 54px 42px}.ega-hero__content h1{font-size:58px;line-height:1;margin:0 0 20px;font-weight:500;letter-spacing:-.035em}
-.ega-lead{font-size:18px;line-height:1.7;color:#666;max-width:700px}.ega-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}
+.ega-hero__content{padding:52px 54px 42px}.ega-hero__content h1{font-size:52px;line-height:1.05;margin:0 0 20px;font-weight:500;letter-spacing:-.035em}.ega-hero__content h1 span{color:#ef1f28}
+.ega-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid #f6d7d2;border-radius:999px;background:#fdf1ef;color:#ef1f28;font-size:11px;font-weight:800;letter-spacing:.09em;margin-bottom:18px}
+.ega-badge__dot{width:7px;height:7px;border-radius:50%;background:#ef1f28;flex:0 0 auto}
+.ega-lead{font-size:18px;line-height:1.7;color:#666;max-width:640px}.ega-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:26px 0 30px}
 .ega-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:10px;font-weight:800;text-decoration:none;border:1px solid #ef1f28}
 .ega-btn--primary{background:#ef1f28;color:#fff}.ega-btn--ghost{background:#fff;color:#ef1f28}
-.ega-trust{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;font-weight:700;color:#555}
-.ega-hero__panel{display:flex;flex-direction:column;background:linear-gradient(135deg,#171717,#2b1b15);color:#fff;padding:0}.ega-hero__panel h2{font-size:26px;line-height:1.16;margin:0 0 14px}.ega-hero__panel p{color:#ddd;line-height:1.7}
-.ega-hero__panel-media{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:26px 26px 0 0;background:#0f0f0f}.ega-hero__panel-media img{display:block;width:100%;height:100%;object-fit:cover}
-.ega-hero__panel-body{flex:1;padding:28px 40px 40px}
-.ega-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}.ega-chips span{padding:8px 11px;border:1px solid #4c4541;border-radius:999px;font-size:12px;font-weight:700}
+.ega-btn--dark{background:#181818;color:#fff;border-color:#181818}
+.ega-btn-link{font-weight:800;font-size:14px;color:#181818;text-decoration:none;border-bottom:2px solid #ef1f28;padding-bottom:2px}
+.ega-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.ega-pills span{padding:9px 16px;border:1px solid #eadfd5;border-radius:999px;font-size:12.5px;font-weight:700;color:#3d3d3d;background:#faf7f4}
+.ega-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ega-feats>div{padding:16px 15px;border:1px solid #eadfd5;border-radius:14px}
+.ega-feats h4{margin:0 0 6px;font-size:14px;font-weight:800;color:#1d1d1d}
+.ega-feats p{margin:0;font-size:12.5px;line-height:1.5;color:#767676}
+.ega-hero__media{background:#f4efe9;padding:16px;display:flex;flex-direction:column;gap:12px}
+.ega-hero__media-main{position:relative;margin:0;border-radius:18px;overflow:hidden;aspect-ratio:16/11;background:#0f0f0f;flex:1}
+.ega-hero__media-main img{width:100%;height:100%;object-fit:cover;display:block}
+.ega-hero__media-main figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 24px 20px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
+.ega-hero__media-main figcaption span{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#ffc05d;margin-bottom:5px}
+.ega-hero__media-main figcaption p{margin:0;font-size:13px;line-height:1.5;color:#eee}
+.ega-hero__media-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ega-hero__media-row figure{position:relative;margin:0;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#0f0f0f}
+.ega-hero__media-row img{width:100%;height:100%;object-fit:cover;display:block}
+.ega-hero__media-row figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.03em}
 .ega-section{margin:0 0 72px}.ega-section__head{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;margin-bottom:26px}.ega-section__head h2{font-size:40px;line-height:1.08;margin:0;font-weight:500;letter-spacing:-.03em}.ega-section__head>p{color:#666;line-height:1.65}
 .ega-about{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}.ega-about__text{padding:30px;border:1px solid #eadfd5;border-radius:20px;background:#f8f5f1}.ega-about__text h3{font-size:27px;margin:34px 0 15px}.ega-about__text h3:first-child{margin-top:0}.ega-about__text p{color:#5e5e5e;line-height:1.8;margin:0 0 14px}.ega-about__text p:last-child{margin-bottom:0}.ega-about__text ul{margin:0 0 14px;padding-left:20px;color:#5e5e5e;line-height:1.8}.ega-about__text li{margin:0 0 8px}
 .ega-about__text--wide{max-width:860px;padding:36px 40px}
@@ -23,7 +38,7 @@
 .ega-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0}.ega-steps>div{position:relative;padding:42px 12px 0 8px;border-top:1px solid #eadfd5}.ega-steps span{position:absolute;top:-17px;left:8px;width:34px;height:34px;border:1px solid #ef1f28;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#ef1f28;font-size:11px;font-weight:800}.ega-steps b{display:block;margin-bottom:6px}.ega-steps small{color:#777;line-height:1.5}
 .ega-cta{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:72px;padding:34px 38px;border-radius:22px;background:linear-gradient(135deg,#171717,#2b1b15);color:#fff}.ega-cta h2{font-size:30px;margin:0 0 8px}.ega-cta p{max-width:760px;margin:0;color:#ddd;line-height:1.6}
 @media(max-width:991px){.ega-hero,.ega-section__head,.ega-about,.ega-mv,.ega-dual{grid-template-columns:1fr}.ega-about__facts{position:static}.ega-grid--4{grid-template-columns:repeat(2,1fr)}.ega-grid--3{grid-template-columns:repeat(2,1fr)}.ega-steps{grid-template-columns:repeat(3,1fr);row-gap:34px}}
-@media(max-width:767px){.ega .container{padding-left:16px;padding-right:16px}.ega-hero__content,.ega-hero__panel-body{padding:26px 22px}.ega-hero__content h1{font-size:42px}.ega-lead{font-size:16px}.ega-section{margin-bottom:52px}.ega-section__head h2{font-size:32px}.ega-gallery{grid-template-columns:1fr}.ega-gallery__item{min-height:260px}.ega-grid--4,.ega-grid--3{grid-template-columns:1fr}.ega-steps{grid-template-columns:1fr 1fr}.ega-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:767px){.ega .container{padding-left:16px;padding-right:16px}.ega-hero__content{padding:26px 22px}.ega-hero__media{padding:12px}.ega-hero__content h1{font-size:36px}.ega-lead{font-size:16px}.ega-feats{grid-template-columns:1fr}.ega-section{margin-bottom:52px}.ega-section__head h2{font-size:32px}.ega-gallery{grid-template-columns:1fr}.ega-gallery__item{min-height:260px}.ega-grid--4,.ega-grid--3{grid-template-columns:1fr}.ega-steps{grid-template-columns:1fr 1fr}.ega-cta{align-items:flex-start;flex-direction:column}}
 @media(max-width:430px){.ega-steps{grid-template-columns:1fr}.ega-actions .ega-btn{width:100%}}
 
 /* =========================================================
@@ -31,7 +46,6 @@
    Yazar: EGESER
    Koyu kartlarda global baslik stillerinin renk ezmesini engeller.
    ========================================================= */
-.ega .ega-hero__panel h2,
 .ega .ega-mv__card--dark h2,
 .ega .ega-solution--dark h3,
 .ega .ega-region--dark h3,
@@ -39,16 +53,11 @@
   color:#fff !important;
 }
 
-.ega .ega-hero__panel p,
 .ega .ega-mv__card--dark p,
 .ega .ega-solution--dark p,
 .ega .ega-region--dark p,
 .ega .ega-cta p{
   color:#e3e3e3 !important;
-}
-
-.ega .ega-hero__panel .ega-chips span{
-  color:#fff !important;
 }
 
 /* Kucuk kirmizi kicker koyu zeminde AA kontrastinin altina dusuyordu. */
