@@ -60,7 +60,7 @@
 .eh12 .eh12-hero__meta span{display:inline-flex;align-items:center;gap:6px}
 .eh12 .eh12-hero__meta i{width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:#edf7f4;color:#0f8f7f;font-style:normal;font-size:10px}
 .eh12 .eh12-hero-media{position:relative;overflow:hidden;min-height:520px;border-radius:28px;background:#efefec;box-shadow:0 28px 80px rgba(20,20,20,.10)}
-.eh12 .eh12-hero-media img{display:block;width:100%;height:100%;min-height:520px;object-fit:cover}
+.eh12 .eh12-hero-media img{position:absolute;inset:0;display:block;width:100%;height:100%;min-height:520px;object-fit:cover}
 .eh12 .eh12-hero-media__placeholder{min-height:560px;display:grid;place-items:center;background:
  linear-gradient(135deg,rgba(255,255,255,.1),rgba(0,0,0,.04)),#ececea}
 .eh12 .eh12-hero-media__placeholder div{text-align:center;color:#777}
