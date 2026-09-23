@@ -654,7 +654,7 @@ $eg_wa_href = $eg_wa_phone !== ''
  .eg-v11 .eg11-lead h2{font-size:30px}
  .eg-v11 .eg-form-grid{grid-template-columns:1fr!important}
  .eg-v11 .eg-field--full{grid-column:auto!important}
- .eg-v11 .eg11-mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:1px;padding:7px;background:#171717;box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+ .eg-v11 .eg11-mobile-bar{display:none}
  .eg-v11 .eg11-mobile-bar a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:8px;color:#fff;font-size:12px;font-weight:900}
  .eg-v11 .eg11-mobile-bar .wa{background:#225b53}
  .eg-v11 .eg11-mobile-bar .quote{background:var(--eg11-red)}
