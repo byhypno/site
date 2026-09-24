@@ -6,11 +6,7 @@
     <?php echo $content_top; ?>
     <article class="eg-content-page eg-authority-article">
       <header class="eg-authority-article__header">
-        <?php if ($heading_title === 'Kurumsal') { ?>
-          <span class="eg-section__eyebrow">KURUMSAL PREFABRİK ÇÖZÜMLER</span>
-          <h1>Kurumsal Prefabrik Yapılar</h1>
-          <p class="eg-authority-article__intro">Ofis, yatakhane, yemekhane, şantiye, sosyal tesis ve özel proje ihtiyaçlarına yönelik planlı prefabrik yapı çözümleri.</p>
-        <?php } elseif ($heading_title === 'KVKK Aydınlatma Metni' || $heading_title === 'Gizlilik Politikası' || $heading_title === 'Çerez Politikası') { ?>
+        <?php if ($heading_title === 'KVKK Aydınlatma Metni' || $heading_title === 'Gizlilik Politikası' || $heading_title === 'Çerez Politikası') { ?>
           <span class="eg-section__eyebrow">YASAL BİLGİLENDİRME</span>
           <h1><?php echo $heading_title; ?></h1>
           <p class="eg-authority-article__intro">Kişisel verilerinizin işlenmesi ve web sitemizin kullanımına ilişkin bilgilendirme metni.</p>
