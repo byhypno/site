@@ -1980,6 +1980,7 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
       <details><summary>Kurumsal projeler özel ölçüde hazırlanabilir mi?</summary><p>Ofis, yatakhane, yemekhane, şantiye ve sosyal tesis yapılarında kullanım amacı, kapasite ve saha ihtiyaçlarına göre özel proje çalışması yapılabilir.</p></details>
       <details><summary>Sevkiyat ve montaj hizmeti veriliyor mu?</summary><p>Projenin kapsamı ve kurulum bölgesine göre üretim, sevkiyat ve montaj süreçleri birlikte planlanabilir.</p></details>
     </div>
+    <p style="margin:18px 0 0"><a href="/sss" style="font-weight:800;font-size:13px;color:#181818;text-decoration:none;border-bottom:2px solid var(--eh12-red);padding-bottom:2px">Tüm soruları görüntüleyin →</a></p>
   </div>
 </section>
 

@@ -94,6 +94,7 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
           <a href="<?php echo !empty($egeser_url_teknik) ? $egeser_url_teknik : '/teknik-bilgiler'; ?>">Teknik Bilgiler</a>
           <a href="<?php echo $eg112_contact_footer; ?>">İletişim</a>
           <a href="<?php echo !empty($egeser_url_blog) ? htmlspecialchars($egeser_url_blog, ENT_QUOTES, 'UTF-8') : '/blog'; ?>">Blog</a>
+          <a href="<?php echo !empty($egeser_url_sss) ? $egeser_url_sss : '/sss'; ?>">Sık Sorulan Sorular</a>
         </div>
 
         <div class="eg112-footer__cta">

@@ -281,6 +281,7 @@
         <details class="et1-faqitem"><summary>Elektrik ve su tesisatı yapı içinde hazırlanabilir mi?</summary><div class="et1-faqanswer">Proje kapsamına göre elektrik ve sıhhi tesisat altyapısı yapı içinde planlanabilir. Saha tarafındaki ana enerji, temiz su ve atık su bağlantıları ayrıca değerlendirilmelidir.</div></details>
         <details class="et1-faqitem"><summary>Montaj süresi ne kadar sürer?</summary><div class="et1-faqanswer">Süre; yapı büyüklüğü, proje tipi, saha erişimi, hava koşulları ve teknik kapsam gibi değişkenlere bağlıdır. Kesin süre proje planı üzerinden belirlenir.</div></details>
       </div>
+      <p style="margin:18px 0 0"><a href="/sss" style="font-weight:800;font-size:13px;color:#181818;text-decoration:none;border-bottom:2px solid #F21B22;padding-bottom:2px">Tüm soruları görüntüleyin →</a></p>
     </section>
 
     <section class="et1-cta">

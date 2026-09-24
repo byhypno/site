@@ -179,6 +179,7 @@ $ega_css_version = is_file($ega_css_path) ? filemtime($ega_css_path) : time();
         varsa teknik şartname veya plan bilgileri ön değerlendirmeyi hızlandırır.</p>
         <p><strong>Sevkiyat ve montaj süreci proje kapsamına dahil edilebilir mi?</strong><br>
         Sevkiyat ve montaj kapsamı proje detaylarına, lokasyona ve sözleşme şartlarına göre netleştirilir.</p>
+        <p><a href="/sss" class="ega-btn-link">Tüm soruları görüntüleyin →</a></p>
       </div>
     </section>
 

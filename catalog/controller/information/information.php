@@ -90,6 +90,8 @@ class ControllerInformationInformation extends Controller {
 				$this->response->setOutput($this->load->view('information/egeser_hakkimizda_v2', $data));
 			} elseif ($information_info['title'] === 'Kurumsal') {
 				$this->response->setOutput($this->load->view('information/egeser_kurumsal_v1', $data));
+			} elseif ($information_info['title'] === 'Sıkça Sorulan Sorular') {
+				$this->response->setOutput($this->load->view('information/egeser_sss_v1', $data));
 			} else {
 				$this->response->setOutput($this->load->view('information/information', $data));
 			}

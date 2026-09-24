@@ -275,6 +275,7 @@
           <p>Evet. Proje lokasyonu, sevkiyat ve montaj koşullarına göre Ege Bölgesi ve çevre illerde uygulama değerlendirilebilir.</p>
         </details>
       </div>
+      <p style="margin:18px 0 0"><a href="/sss" style="font-weight:800;font-size:13px;color:#181818;text-decoration:none;border-bottom:2px solid #ef1f28;padding-bottom:2px">Tüm soruları görüntüleyin →</a></p>
     </section>
 
     <section class="egc-final">
