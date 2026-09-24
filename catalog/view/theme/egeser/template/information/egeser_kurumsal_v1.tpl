@@ -26,7 +26,7 @@ $ega_css_version = is_file($ega_css_path) ? filemtime($ega_css_path) : time();
         </div>
         <div class="ega-actions">
           <a href="/iletisim" class="ega-btn ega-btn--dark">Kurumsal Teklif Al</a>
-          <a href="#kurumsal-yapi-turleri" class="ega-btn-link">Yapı türlerini inceleyin →</a>
+          <a href="/kurumsal#kurumsal-yapi-turleri" class="ega-btn-link">Yapı türlerini inceleyin →</a>
         </div>
         <div class="ega-feats">
           <div><h4>Kapasite Odaklı Planlama</h4><p>Kullanıcı sayısı ve fonksiyon ihtiyacına göre yerleşim planı.</p></div>

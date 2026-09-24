@@ -23,11 +23,11 @@ $esq_css_version = is_file($esq_css_path) ? filemtime($esq_css_path) : time();
     </div>
 
     <nav class="esq-nav" aria-label="SSS kategorileri">
-      <a href="#genel">Genel &amp; Fiyatlandırma</a>
-      <a href="#kurumsal">Kurumsal Projeler</a>
-      <a href="#teknik">Teknik Detaylar</a>
-      <a href="#odeme">Ödeme</a>
-      <a href="#iletisim">Sevkiyat, Montaj &amp; İletişim</a>
+      <a href="/sss#genel">Genel &amp; Fiyatlandırma</a>
+      <a href="/sss#kurumsal">Kurumsal Projeler</a>
+      <a href="/sss#teknik">Teknik Detaylar</a>
+      <a href="/sss#odeme">Ödeme</a>
+      <a href="/sss#iletisim">Sevkiyat, Montaj &amp; İletişim</a>
     </nav>
 
     <?php
