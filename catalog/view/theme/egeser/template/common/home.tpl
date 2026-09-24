@@ -1488,7 +1488,11 @@ $eh13_schema = array(
             ),
             'areaServed' => array(
                 array('@type' => 'City', 'name' => 'İzmir'),
-                array('@type' => 'City', 'name' => 'Manisa')
+                array('@type' => 'City', 'name' => 'Manisa'),
+                array('@type' => 'City', 'name' => 'Aydın'),
+                array('@type' => 'City', 'name' => 'Uşak'),
+                array('@type' => 'City', 'name' => 'Balıkesir'),
+                array('@type' => 'City', 'name' => 'Muğla')
             ),
             'parentOrganization' => array(
                 '@id' => rtrim($eh13_base, '/') . '/#organization'
