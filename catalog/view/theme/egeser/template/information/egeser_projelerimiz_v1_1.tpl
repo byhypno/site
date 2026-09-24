@@ -145,7 +145,7 @@
       <p>Bireysel prefabrik evlerden kurumsal yapılara kadar farklı kullanım senaryolarına göre tamamlanan seçili proje örneklerini, proje yaklaşımımızla birlikte inceleyin.</p>
       <div class="egp1-actions">
         <a class="egp1-btn egp1-btn--red" href="/iletisim">Proje Teklifi Al</a>
-        <a class="egp1-btn egp1-btn--ghost" href="#egp1-bireysel">Referansları İncele</a>
+        <a class="egp1-btn egp1-btn--ghost" href="/projelerimiz#egp1-bireysel">Referansları İncele</a>
       </div>
     </div>
     <div class="egp1-hero-panel">

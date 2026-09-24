@@ -149,7 +149,7 @@
           <?php } ?>
 
           <div class="egc-location__actions">
-            <a class="egc-btn egc-btn--primary" href="#iletisim-formu">Teklif Al</a>
+            <a class="egc-btn egc-btn--primary" href="/iletisim#iletisim-formu">Teklif Al</a>
             <a class="egc-btn egc-btn--ghost" href="tel:05318866090">Telefonla Ara</a>
             <a class="egc-btn egc-btn--ghost" href="https://www.google.com/maps?q=38.44988554328141,27.497831062110418" target="_blank" rel="noopener" data-eg-track="map_click" data-placement="contact">Haritada Aç</a>
           </div>
