@@ -76,7 +76,7 @@
 
 /* TRUST STRIP */
 .eh12 .eh12-trust{border-top:1px solid var(--eh12-line);border-bottom:1px solid var(--eh12-line);background:#fff}
-.eh12 .eh12-trust__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.eh12 .eh12-trust__grid{display:grid;grid-template-columns:repeat(5,1fr)}
 .eh12 .eh12-trust article{padding:22px 24px;text-align:center;border-right:1px solid var(--eh12-line)}
 .eh12 .eh12-trust article:last-child{border-right:0}
 .eh12 .eh12-trust strong{display:block;color:#222;font-size:13px}
@@ -1542,6 +1542,7 @@ $eh13_schema = array(
     <article><strong>Kendi Üretim Tesisimiz</strong><span>Kemalpaşa / İzmir üretim altyapısı</span></article>
     <article><strong>Bireysel &amp; Kurumsal Proje</strong><span>Farklı kullanım ihtiyaçlarına çözüm</span></article>
     <article><strong>Sevkiyat &amp; Montaj Planı</strong><span>Saha koşullarına göre organizasyon</span></article>
+    <article><strong>Kredi Kartına 12 Taksit</strong><span>Tüm banka kartlarında geçerlidir</span></article>
     <article><strong>Satış Sonrası İletişim</strong><span>Teslim sonrası ulaşılabilir destek</span></article>
   </div>
 </section>
