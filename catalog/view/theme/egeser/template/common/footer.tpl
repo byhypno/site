@@ -10,7 +10,7 @@
   .eg112-footer--polished .eg112-footer__logo-img{width:185px;max-height:70px}
 }
 .eg112-footer--polished .eg112-footer__about{font-size:13px;line-height:1.8;color:#b3b3b3}
-.eg112-footer--polished h4{margin-bottom:16px;color:#f1f1f1;font-size:11px}
+.eg112-footer--polished h3{margin-bottom:16px;color:#f1f1f1;font-size:11px}
 .eg112-footer--polished .eg112-footer__links{gap:10px}
 .eg112-footer--polished .eg112-footer__links a{font-size:12.5px;line-height:1.45}
 .eg112-footer--polished .eg112-footer__contact{gap:10px}
@@ -66,7 +66,7 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
       </div>
 
       <div>
-        <h4>Bireysel</h4>
+        <h3>Bireysel</h3>
         <div class="eg112-footer__links">
           <a href="<?php echo !empty($egeser_url_tek_katli) ? $egeser_url_tek_katli : '/tek-katli-prefabrik-evler'; ?>">Tek Katlı Prefabrik Evler</a>
           <a href="<?php echo !empty($egeser_url_cift_katli) ? $egeser_url_cift_katli : '/cift-katli-prefabrik-evler'; ?>">Çift Katlı Prefabrik Evler</a>
@@ -75,7 +75,7 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
       </div>
 
       <div>
-        <h4>Kurumsal Yapılar</h4>
+        <h3>Kurumsal Yapılar</h3>
         <div class="eg112-footer__links">
           <a href="<?php echo !empty($egeser_url_ofis_yonetim) ? $egeser_url_ofis_yonetim : '/prefabrik-ofis-ve-yonetim-binalari'; ?>">Ofis & Yönetim Binaları</a>
           <a href="<?php echo !empty($egeser_url_yatakhane) ? $egeser_url_yatakhane : '/prefabrik-yatakhane-binalari'; ?>">Yatakhane Binaları</a>
@@ -87,7 +87,7 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
       </div>
 
       <div>
-        <h4>Kurumsal</h4>
+        <h3>Kurumsal</h3>
         <div class="eg112-footer__links">
           <a href="<?php echo !empty($egeser_url_hakkimizda) ? $egeser_url_hakkimizda : '/hakkimizda'; ?>">Hakkımızda</a>
           <a href="<?php echo !empty($egeser_url_referanslar) ? $egeser_url_referanslar : '/projelerimiz'; ?>">Projelerimiz</a>
