@@ -82,24 +82,23 @@
 .eh12 .eh12-trust strong{display:block;color:#222;font-size:13px}
 .eh12 .eh12-trust span{display:block;margin-top:3px;color:var(--eg-muted);font-size:11px}
 
-.eh12 .eh12-bestsellers{padding:20px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
-.eh12 .eh12-bestsellers__inner{display:flex;align-items:center;gap:26px}
-.eh12 .eh12-bestsellers__label{flex:0 0 auto;padding-right:26px;border-right:1px solid var(--eh12-line)}
-.eh12 .eh12-bestsellers__label .eh12-label{margin-bottom:0;white-space:nowrap}
-.eh12 .eh12-bestsellers__track-wrap{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.eh12 .eh12-bestsellers__track{display:flex;gap:14px;width:max-content;animation:eh12-marquee 26s linear infinite}
+.eh12 .eh12-bestsellers{padding:26px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
+.eh12 .eh12-bestsellers__head{margin-bottom:16px}
+.eh12 .eh12-bestsellers__head .eh12-label{margin-bottom:0}
+.eh12 .eh12-bestsellers__track-wrap{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.eh12 .eh12-bestsellers__track{display:flex;gap:16px;width:max-content;animation:eh12-marquee 32s linear infinite}
 .eh12 .eh12-bestsellers__track-wrap:hover .eh12-bestsellers__track{animation-play-state:paused}
-.eh12 .eh12-bestsellers__item{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;width:92px;text-decoration:none}
-.eh12 .eh12-bestsellers__item img{width:92px;height:92px;border-radius:14px;object-fit:cover;display:block;border:1px solid var(--eh12-line)}
-.eh12 .eh12-bestsellers__item span{font-size:10px;font-weight:700;color:var(--eg-muted);text-align:center;line-height:1.3;max-width:92px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eh12 .eh12-bestsellers__item{position:relative;flex:0 0 auto;display:block;width:150px;height:190px;border-radius:16px;overflow:hidden;text-decoration:none;background:#eee}
+.eh12 .eh12-bestsellers__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.eh12 .eh12-bestsellers__item:hover img{transform:scale(1.06)}
+.eh12 .eh12-bestsellers__badge{position:absolute;left:10px;top:10px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.94);color:#171717;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.eh12 .eh12-bestsellers__cap{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff}
+.eh12 .eh12-bestsellers__cap b{display:block;font-size:12px;font-weight:800;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eh12 .eh12-bestsellers__cap small{display:block;margin-top:2px;font-size:10px;color:#e2e2e2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @keyframes eh12-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.eh12 .eh12-bestsellers__track{animation:none}}
 @media(max-width:640px){
-  .eh12 .eh12-bestsellers__inner{flex-direction:column;align-items:flex-start;gap:12px}
-  .eh12 .eh12-bestsellers__label{padding-right:0;border-right:0}
-  .eh12 .eh12-bestsellers__track-wrap{width:100%}
-  .eh12 .eh12-bestsellers__item,.eh12 .eh12-bestsellers__item img{width:72px;height:72px}
-  .eh12 .eh12-bestsellers__item span{max-width:72px}
+  .eh12 .eh12-bestsellers__item{width:120px;height:155px}
 }
 
 /* AUDIENCE */
@@ -1569,7 +1568,9 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
           $eh12_bs_items[] = array(
             'image' => 'image/' . $eh12_bs_p['image'],
             'title' => isset($eh12_bs_p['title']) ? $eh12_bs_p['title'] : '',
-            'link' => isset($eh12_bs_p['link']) ? $eh12_bs_p['link'] : ''
+            'type' => isset($eh12_bs_p['type']) ? $eh12_bs_p['type'] : (isset($eh12_bs_p['eyebrow']) ? $eh12_bs_p['eyebrow'] : ''),
+            'location' => isset($eh12_bs_p['location']) ? $eh12_bs_p['location'] : '',
+            'link' => !empty($eh12_bs_p['link']) ? $eh12_bs_p['link'] : '/projelerimiz'
           );
           if (count($eh12_bs_items) >= 16) {
             break;
@@ -1583,21 +1584,23 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
 ?>
 <?php if ($eh12_bs_items) { ?>
 <section class="eh12-bestsellers">
-  <div class="eh12-container eh12-bestsellers__inner">
-    <div class="eh12-bestsellers__label">
+  <div class="eh12-container">
+    <div class="eh12-bestsellers__head">
       <span class="eh12-label">EN ÇOK TERCİH EDİLEN PROJELER</span>
     </div>
     <div class="eh12-bestsellers__track-wrap">
       <div class="eh12-bestsellers__track">
         <?php foreach (array_merge($eh12_bs_items, $eh12_bs_items) as $eh12_bs_item) { ?>
-        <?php if (!empty($eh12_bs_item['link'])) { ?>
         <a class="eh12-bestsellers__item" href="<?php echo htmlspecialchars($eh12_bs_item['link'], ENT_QUOTES, 'UTF-8'); ?>">
-        <?php } else { ?>
-        <div class="eh12-bestsellers__item">
-        <?php } ?>
-          <img src="<?php echo htmlspecialchars($eh12_bs_item['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?>" width="92" height="92" loading="lazy" decoding="async">
-          <?php if (!empty($eh12_bs_item['title'])) { ?><span><?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
-        <?php if (!empty($eh12_bs_item['link'])) { ?></a><?php } else { ?></div><?php } ?>
+          <img src="<?php echo htmlspecialchars($eh12_bs_item['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?>" width="150" height="190" loading="lazy" decoding="async">
+          <?php if (!empty($eh12_bs_item['type'])) { ?><span class="eh12-bestsellers__badge"><?php echo htmlspecialchars($eh12_bs_item['type'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
+          <?php if (!empty($eh12_bs_item['title']) || !empty($eh12_bs_item['location'])) { ?>
+          <span class="eh12-bestsellers__cap">
+            <?php if (!empty($eh12_bs_item['title'])) { ?><b><?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?></b><?php } ?>
+            <?php if (!empty($eh12_bs_item['location'])) { ?><small><?php echo htmlspecialchars($eh12_bs_item['location'], ENT_QUOTES, 'UTF-8'); ?></small><?php } ?>
+          </span>
+          <?php } ?>
+        </a>
         <?php } ?>
       </div>
     </div>
