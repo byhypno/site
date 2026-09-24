@@ -1416,6 +1416,13 @@ if (defined('HTTPS_SERVER') && HTTPS_SERVER) {
 }
 $eh17_city_base = rtrim($eh13_base, '/') . '/';
 
+$eh13_logo_url = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/logo/logo-copy.png')
+    ? rtrim($eh13_base, '/') . '/image/catalog/logo/logo-copy.png'
+    : '';
+$eh13_showroom_url = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/showroom.jpg')
+    ? rtrim($eh13_base, '/') . '/image/catalog/egeser/hakkimizda/showroom.jpg'
+    : '';
+
 $eh13_same_as = array(
     'https://www.facebook.com/egeserprefabrik',
     'https://www.instagram.com/egeserprefabrik/',
@@ -1432,6 +1439,8 @@ $eh13_schema = array(
             'url' => $eh13_base,
             'telephone' => $eh12_phone,
             'email' => 'web@egeserprefabrik.com.tr',
+            'logo' => $eh13_logo_url,
+            'image' => $eh13_logo_url,
             'sameAs' => $eh13_same_as,
             'address' => array(
                 '@type' => 'PostalAddress',
@@ -1457,6 +1466,7 @@ $eh13_schema = array(
             'telephone' => $eh12_phone,
             'email' => 'web@egeserprefabrik.com.tr',
             'priceRange' => '₺₺',
+            'image' => !empty($eh13_showroom_url) ? $eh13_showroom_url : $eh13_logo_url,
             'sameAs' => $eh13_same_as,
             'address' => array(
                 '@type' => 'PostalAddress',
@@ -1500,6 +1510,15 @@ $eh13_schema = array(
         )
     )
 );
+
+foreach ($eh13_schema['@graph'] as &$eh13_graph_item) {
+    foreach (array('logo', 'image') as $eh13_img_key) {
+        if (isset($eh13_graph_item[$eh13_img_key]) && $eh13_graph_item[$eh13_img_key] === '') {
+            unset($eh13_graph_item[$eh13_img_key]);
+        }
+    }
+}
+unset($eh13_graph_item);
 ?>
 <script type="application/ld+json"><?php echo json_encode($eh13_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 
