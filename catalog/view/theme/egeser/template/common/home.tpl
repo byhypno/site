@@ -1549,11 +1549,35 @@ $eh13_schema = array(
 
 <?php
 $eh12_bs_items = array();
-if (!empty($egeser_home_projects) && is_array($egeser_home_projects)) {
-  foreach ($egeser_home_projects as $eh12_bs_p) {
-    if (!empty($eh12_bs_p['image'])) {
-      $eh12_bs_items[] = $eh12_bs_p;
+if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') && defined('DB_DATABASE')) {
+  $eh12_bs_conn = @mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE, defined('DB_PORT') ? (int)DB_PORT : 3306);
+  if ($eh12_bs_conn) {
+    @mysqli_set_charset($eh12_bs_conn, 'utf8');
+    $eh12_bs_prefix = defined('DB_PREFIX') ? DB_PREFIX : 'oc_';
+    $eh12_bs_res = @mysqli_query($eh12_bs_conn, "SELECT `setting` FROM `" . $eh12_bs_prefix . "module` WHERE `code` = 'egeser_references' ORDER BY `module_id` ASC LIMIT 1");
+    if ($eh12_bs_res && mysqli_num_rows($eh12_bs_res)) {
+      $eh12_bs_row = mysqli_fetch_assoc($eh12_bs_res);
+      $eh12_bs_setting = json_decode($eh12_bs_row['setting'], true);
+      if (is_array($eh12_bs_setting) && !empty($eh12_bs_setting['projects']) && is_array($eh12_bs_setting['projects'])) {
+        foreach ($eh12_bs_setting['projects'] as $eh12_bs_p) {
+          if (empty($eh12_bs_p['enabled']) || empty($eh12_bs_p['image'])) {
+            continue;
+          }
+          if (!defined('DIR_IMAGE') || !is_file(DIR_IMAGE . $eh12_bs_p['image'])) {
+            continue;
+          }
+          $eh12_bs_items[] = array(
+            'image' => 'image/' . $eh12_bs_p['image'],
+            'title' => isset($eh12_bs_p['title']) ? $eh12_bs_p['title'] : '',
+            'link' => isset($eh12_bs_p['link']) ? $eh12_bs_p['link'] : ''
+          );
+          if (count($eh12_bs_items) >= 16) {
+            break;
+          }
+        }
+      }
     }
+    mysqli_close($eh12_bs_conn);
   }
 }
 ?>
