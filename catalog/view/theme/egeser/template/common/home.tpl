@@ -82,23 +82,23 @@
 .eh12 .eh12-trust strong{display:block;color:#222;font-size:13px}
 .eh12 .eh12-trust span{display:block;margin-top:3px;color:var(--eg-muted);font-size:11px}
 
-.eh12 .eh12-bestsellers{padding:26px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
-.eh12 .eh12-bestsellers__head{margin-bottom:16px}
+.eh12 .eh12-bestsellers{padding:34px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
+.eh12 .eh12-bestsellers__head{margin-bottom:18px}
 .eh12 .eh12-bestsellers__head .eh12-label{margin-bottom:0}
 .eh12 .eh12-bestsellers__track-wrap{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
-.eh12 .eh12-bestsellers__track{display:flex;gap:16px;width:max-content;animation:eh12-marquee 32s linear infinite}
+.eh12 .eh12-bestsellers__track{display:flex;gap:26px;width:max-content;animation:eh12-marquee 44s linear infinite}
 .eh12 .eh12-bestsellers__track-wrap:hover .eh12-bestsellers__track{animation-play-state:paused}
-.eh12 .eh12-bestsellers__item{position:relative;flex:0 0 auto;display:block;width:150px;height:190px;border-radius:16px;overflow:hidden;text-decoration:none;background:#eee}
-.eh12 .eh12-bestsellers__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
-.eh12 .eh12-bestsellers__item:hover img{transform:scale(1.06)}
-.eh12 .eh12-bestsellers__badge{position:absolute;left:10px;top:10px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.94);color:#171717;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.eh12 .eh12-bestsellers__cap{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff}
-.eh12 .eh12-bestsellers__cap b{display:block;font-size:12px;font-weight:800;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.eh12 .eh12-bestsellers__cap small{display:block;margin-top:2px;font-size:10px;color:#e2e2e2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eh12 .eh12-bestsellers__item{position:relative;flex:0 0 auto;display:block;width:142px;height:178px;border-radius:14px;overflow:hidden;text-decoration:none;background:#eee;box-shadow:0 6px 18px rgba(20,20,20,.06)}
+.eh12 .eh12-bestsellers__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.eh12 .eh12-bestsellers__item:hover img{transform:scale(1.04)}
+.eh12 .eh12-bestsellers__cap{position:absolute;left:0;right:0;bottom:0;padding:22px 11px 9px;background:linear-gradient(transparent,rgba(10,10,10,.62));color:#fff}
+.eh12 .eh12-bestsellers__cap b{display:block;font-size:11px;font-weight:700;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eh12 .eh12-bestsellers__cap small{display:block;margin-top:1px;font-size:9.5px;font-weight:400;color:rgba(255,255,255,.82);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @keyframes eh12-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.eh12 .eh12-bestsellers__track{animation:none}}
 @media(max-width:640px){
-  .eh12 .eh12-bestsellers__item{width:120px;height:155px}
+  .eh12 .eh12-bestsellers__item{width:112px;height:144px}
+  .eh12 .eh12-bestsellers__track{gap:16px}
 }
 
 /* AUDIENCE */
@@ -1594,7 +1594,6 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
         <?php foreach (array_merge($eh12_bs_items, $eh12_bs_items) as $eh12_bs_item) { ?>
         <a class="eh12-bestsellers__item" href="<?php echo htmlspecialchars($eh12_bs_item['link'], ENT_QUOTES, 'UTF-8'); ?>">
           <img src="<?php echo htmlspecialchars($eh12_bs_item['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?>" width="150" height="190" loading="lazy" decoding="async">
-          <?php if (!empty($eh12_bs_item['type'])) { ?><span class="eh12-bestsellers__badge"><?php echo htmlspecialchars($eh12_bs_item['type'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
           <?php if (!empty($eh12_bs_item['title']) || !empty($eh12_bs_item['location'])) { ?>
           <span class="eh12-bestsellers__cap">
             <?php if (!empty($eh12_bs_item['title'])) { ?><b><?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?></b><?php } ?>
