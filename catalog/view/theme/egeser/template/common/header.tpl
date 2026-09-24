@@ -898,6 +898,7 @@ $eg112_logo_ok = !empty($logo) && stripos($logo, 'catalog/view/theme/default/ima
               <a href="<?php echo !empty($egeser_url_santiye) ? $egeser_url_santiye : '/prefabrik-santiye-yapilari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Şantiye Yapıları</strong><span>Saha ve proje yapıları</span></div></a>
               <a href="<?php echo !empty($egeser_url_sosyal_tesis) ? $egeser_url_sosyal_tesis : '/prefabrik-sosyal-tesis-yapilari'; ?>"><span class="eg112-mega-dot"></span><div><strong>Sosyal Tesis Yapıları</strong><span>Çok amaçlı kurumsal alanlar</span></div></a>
               <a href="<?php echo !empty($egeser_url_ozel_proje) ? $egeser_url_ozel_proje : '/ozel-proje-prefabrik-yapilar'; ?>"><span class="eg112-mega-dot"></span><div><strong>Özel Proje Prefabrik Yapılar</strong><span>İhtiyaca göre özel projelendirme</span></div></a>
+              <a href="<?php echo !empty($egeser_url_kurumsal) ? $egeser_url_kurumsal : '/kurumsal'; ?>"><span class="eg112-mega-dot"></span><div><strong>Tüm Kurumsal Çözümler</strong><span>Tüm kurumsal yapı seçenekleri</span></div></a>
             </div>
           </div>
         </div>
