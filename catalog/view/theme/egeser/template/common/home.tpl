@@ -82,6 +82,26 @@
 .eh12 .eh12-trust strong{display:block;color:#222;font-size:13px}
 .eh12 .eh12-trust span{display:block;margin-top:3px;color:var(--eg-muted);font-size:11px}
 
+.eh12 .eh12-bestsellers{padding:20px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
+.eh12 .eh12-bestsellers__inner{display:flex;align-items:center;gap:26px}
+.eh12 .eh12-bestsellers__label{flex:0 0 auto;padding-right:26px;border-right:1px solid var(--eh12-line)}
+.eh12 .eh12-bestsellers__label .eh12-label{margin-bottom:0;white-space:nowrap}
+.eh12 .eh12-bestsellers__track-wrap{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.eh12 .eh12-bestsellers__track{display:flex;gap:14px;width:max-content;animation:eh12-marquee 26s linear infinite}
+.eh12 .eh12-bestsellers__track-wrap:hover .eh12-bestsellers__track{animation-play-state:paused}
+.eh12 .eh12-bestsellers__item{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;width:92px;text-decoration:none}
+.eh12 .eh12-bestsellers__item img{width:92px;height:92px;border-radius:14px;object-fit:cover;display:block;border:1px solid var(--eh12-line)}
+.eh12 .eh12-bestsellers__item span{font-size:10px;font-weight:700;color:var(--eg-muted);text-align:center;line-height:1.3;max-width:92px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@keyframes eh12-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.eh12 .eh12-bestsellers__track{animation:none}}
+@media(max-width:640px){
+  .eh12 .eh12-bestsellers__inner{flex-direction:column;align-items:flex-start;gap:12px}
+  .eh12 .eh12-bestsellers__label{padding-right:0;border-right:0}
+  .eh12 .eh12-bestsellers__track-wrap{width:100%}
+  .eh12 .eh12-bestsellers__item,.eh12 .eh12-bestsellers__item img{width:72px;height:72px}
+  .eh12 .eh12-bestsellers__item span{max-width:72px}
+}
+
 /* AUDIENCE */
 .eh12 .eh12-audience{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .eh12 .eh12-audience-card{position:relative;overflow:hidden;min-height:370px;padding:32px;border-radius:26px;background:#f1f1ee;border:1px solid var(--eh12-line)}
@@ -1527,6 +1547,39 @@ $eh13_schema = array(
   </div>
 </section>
 
+<?php
+$eh12_bs_items = array();
+if (!empty($egeser_home_projects) && is_array($egeser_home_projects)) {
+  foreach ($egeser_home_projects as $eh12_bs_p) {
+    if (!empty($eh12_bs_p['image'])) {
+      $eh12_bs_items[] = $eh12_bs_p;
+    }
+  }
+}
+?>
+<?php if ($eh12_bs_items) { ?>
+<section class="eh12-bestsellers">
+  <div class="eh12-container eh12-bestsellers__inner">
+    <div class="eh12-bestsellers__label">
+      <span class="eh12-label">EN ÇOK TERCİH EDİLEN PROJELER</span>
+    </div>
+    <div class="eh12-bestsellers__track-wrap">
+      <div class="eh12-bestsellers__track">
+        <?php foreach (array_merge($eh12_bs_items, $eh12_bs_items) as $eh12_bs_item) { ?>
+        <?php if (!empty($eh12_bs_item['link'])) { ?>
+        <a class="eh12-bestsellers__item" href="<?php echo htmlspecialchars($eh12_bs_item['link'], ENT_QUOTES, 'UTF-8'); ?>">
+        <?php } else { ?>
+        <div class="eh12-bestsellers__item">
+        <?php } ?>
+          <img src="<?php echo htmlspecialchars($eh12_bs_item['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?>" width="92" height="92" loading="lazy" decoding="async">
+          <?php if (!empty($eh12_bs_item['title'])) { ?><span><?php echo htmlspecialchars($eh12_bs_item['title'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?>
+        <?php if (!empty($eh12_bs_item['link'])) { ?></a><?php } else { ?></div><?php } ?>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+</section>
+<?php } ?>
 
 <section class="eh12-section" id="eh13-models">
   <div class="eh12-container">
