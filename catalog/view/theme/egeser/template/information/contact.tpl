@@ -239,7 +239,7 @@
 
           <label class="egc-check">
             <input type="checkbox" name="kvkk" value="1" <?php echo !empty($kvkk) ? 'checked' : ''; ?> required>
-            <span>İletişim bilgilerimin talebimin yanıtlanması amacıyla işlenmesini kabul ediyorum. *</span>
+            <span>İletişim bilgilerimin talebimin yanıtlanması amacıyla işlenmesini <a href="/kvkk-aydinlatma-metni" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a> kapsamında kabul ediyorum. *</span>
           </label>
           <?php if ($error_kvkk) { ?><span class="egc-error egc-error--block"><?php echo $error_kvkk; ?></span><?php } ?>
 

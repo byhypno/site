@@ -109,7 +109,9 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
     <div class="eg-shell-container eg112-footer__bottom-inner">
       <span>© <?php echo date('Y'); ?> Egeser Prefabrik. Tüm hakları saklıdır.</span>
       <div class="eg112-footer__legal">
-        <span>KVKK</span><span>Gizlilik</span><span>Çerez Politikası</span>
+        <a href="<?php echo !empty($egeser_url_kvkk) ? $egeser_url_kvkk : '/kvkk-aydinlatma-metni'; ?>">KVKK</a>
+        <a href="<?php echo !empty($egeser_url_gizlilik) ? $egeser_url_gizlilik : '/gizlilik-politikasi'; ?>">Gizlilik</a>
+        <a href="<?php echo !empty($egeser_url_cerez) ? $egeser_url_cerez : '/cerez-politikasi'; ?>">Çerez Politikası</a>
       </div>
     </div>
   </div>
