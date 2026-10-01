@@ -82,6 +82,7 @@
 .egref__lightbox-info h3{margin:0 0 10px;color:var(--ink);font-size:22px;line-height:1.25}
 .egref__lightbox-info p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.65}
 .egref__lightbox-info .egref__meta{margin-bottom:6px}
+.egref__lightbox-info .egref__meta span{font-size:13.5px;padding:7px 13px;color:var(--ink);background:var(--soft);border:1px solid var(--line);font-weight:800}
 
 @media(max-width:640px){
   .egref__lightbox{padding:14px}
