@@ -16,11 +16,9 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
                 }
 
                 $image = '';
-                $image_large = '';
 
                 if (!empty($project['image']) && is_file(DIR_IMAGE . $project['image'])) {
                     $image = $this->model_tool_image->resize($project['image'], 640, 640);
-                    $image_large = $this->model_tool_image->resize($project['image'], 1400, 1400);
                 }
 
                 $link = isset($project['link']) ? trim($project['link']) : '';
@@ -37,7 +35,6 @@ class ControllerExtensionModuleEgeserReferences extends Controller {
 
                 $projects[] = array(
                     'image' => $image,
-                    'image_large' => $image_large,
                     'eyebrow' => isset($project['eyebrow']) ? $project['eyebrow'] : '',
                     'type' => isset($project['type']) ? $project['type'] : '',
                     'title' => isset($project['title']) ? $project['title'] : '',
