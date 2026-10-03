@@ -1,6 +1,8 @@
 <?php echo $header; ?>
 <link rel="stylesheet" href="catalog/view/theme/egeser/stylesheet/egeser-contact-v1-1.css">
 
+<?php $egc_showroom_img = defined('DIR_IMAGE') && is_file(DIR_IMAGE . 'catalog/egeser/hakkimizda/showroom.jpg') ? 'image/catalog/egeser/hakkimizda/showroom.jpg' : ''; ?>
+
 <div class="egc">
   <div class="container">
     <ul class="breadcrumb egc-breadcrumb">
@@ -30,7 +32,7 @@
         </div>
       </div>
 
-      <aside class="egc-hero__side">
+      <aside class="egc-hero__side<?php echo $egc_showroom_img ? ' has-image' : ''; ?>"<?php if ($egc_showroom_img) { ?> style="background-image:url('<?php echo htmlspecialchars($egc_showroom_img, ENT_QUOTES, 'UTF-8'); ?>')"<?php } ?>>
         <div class="egc-kicker egc-kicker--gold">SHOWROOM & İLETİŞİM</div>
         <h2>Kemalpaşa / İzmir</h2>
         <p>
