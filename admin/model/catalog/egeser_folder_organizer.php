@@ -288,7 +288,7 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
         foreach ($moved as $m) { $old_folders[dirname($image_dir . $m['old_image'])] = true; }
         foreach (array_keys($old_folders) as $dir) {
             if (is_dir($dir)) {
-                $remaining = array_diff(scandir($dir), array('.', '..'));
+                $remaining = array_diff(@scandir($dir) ?: array(), array('.', '..'));
                 if (!$remaining) { @rmdir($dir); }
             }
         }
@@ -337,7 +337,7 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
         if (!empty($moved[0]['new_image'])) {
             $new_dir = dirname($image_dir . $moved[0]['new_image']);
             if (is_dir($new_dir)) {
-                $remaining = array_diff(scandir($new_dir), array('.', '..'));
+                $remaining = array_diff(@scandir($new_dir) ?: array(), array('.', '..'));
                 if (!$remaining) { @rmdir($new_dir); }
             }
         }

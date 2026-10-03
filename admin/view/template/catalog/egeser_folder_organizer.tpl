@@ -131,8 +131,8 @@ $('#button-apply').on('click', function() {
       renderResults(json, 'uygulandı');
       if (json.success) { setTimeout(function() { location.reload(); }, 1500); }
     },
-    error: function() {
-      $('#eg-alert-area').html('<div class="alert alert-danger">Sunucuya ulaşılamadı.</div>');
+    error: function(xhr) {
+      showAjaxError(xhr);
     }
   });
 });
@@ -150,11 +150,20 @@ $('#button-revert').on('click', function() {
       renderResults(json, 'geri alındı');
       if (json.success) { setTimeout(function() { location.reload(); }, 1500); }
     },
-    error: function() {
-      $('#eg-alert-area').html('<div class="alert alert-danger">Sunucuya ulaşılamadı.</div>');
+    error: function(xhr) {
+      showAjaxError(xhr);
     }
   });
 });
+
+function showAjaxError(xhr) {
+  var raw = xhr && xhr.responseText ? xhr.responseText : '';
+  var detail = raw ? $('<div/>').text(raw.substring(0, 4000)).html() : '';
+  var html = '<div class="alert alert-danger">Sunucuya ulaşılamadı (HTTP ' + (xhr ? xhr.status : '?') + ').';
+  if (detail) { html += '<br /><pre style="white-space:pre-wrap; max-height:400px; overflow:auto;">' + detail + '</pre>'; }
+  html += '</div>';
+  $('#eg-alert-area').html(html);
+}
 
 function renderResults(json, verb) {
   var html = '';
