@@ -833,7 +833,7 @@ $eg_wa_href = $eg_wa_phone !== ''
     <div class="eg11-nav-wrap">
       <nav class="eg11-nav" aria-label="Ürün detay bölümleri">
         <a href="#eg-plan">Kat Planı</a>
-        <?php if (!empty($eg_highlights)) { ?><a href="#eg-highlights">Öne Çıkanlar</a><?php } ?>
+        <?php if ($eg_is_corporate && !empty($eg_highlights)) { ?><a href="#eg-highlights">Öne Çıkanlar</a><?php } ?>
         <?php if (!empty($eg_spec_buckets)) { ?><a href="#eg-tech">Teknik Özellikler</a><?php } ?>
         <a href="#eg-process">Proje Süreci</a>
         <a href="#eg-faq">SSS</a>
@@ -895,7 +895,7 @@ $eg_wa_href = $eg_wa_phone !== ''
       </div>
     </section>
 
-    <?php if (!empty($eg_highlights)) { ?>
+    <?php if ($eg_is_corporate && !empty($eg_highlights)) { ?>
     <section class="eg11-section" id="eg-highlights">
       <div class="eg11-section-head">
         <div><span class="eg11-label">BU MODELDE NELER VAR?</span><h2>Yaşam kalitesini belirleyen detaylar.</h2></div>
