@@ -910,7 +910,7 @@ $eg_wa_href = $eg_wa_phone !== ''
                     <a href="<?php echo $eg_floor_plan['popup']; ?>" title="<?php echo htmlspecialchars($eg_floor_plan['eg_plan_label'], ENT_QUOTES, 'UTF-8'); ?>">
                   <?php } ?>
                       <img
-                        src="<?php echo !empty($eg_floor_plan['thumb']) ? $eg_floor_plan['thumb'] : $eg_floor_plan['popup']; ?>"
+                        src="<?php echo !empty($eg_floor_plan['popup']) ? $eg_floor_plan['popup'] : $eg_floor_plan['thumb']; ?>"
                         alt="<?php echo htmlspecialchars(strip_tags($heading_title) . ' - ' . $eg_floor_plan['eg_plan_label'], ENT_QUOTES, 'UTF-8'); ?>"
                         loading="<?php echo $eg_floor_index === 0 ? 'eager' : 'lazy'; ?>"
                         decoding="async">
