@@ -82,6 +82,20 @@
 .eh12 .eh12-trust strong{display:block;color:#222;font-size:13px}
 .eh12 .eh12-trust span{display:block;margin-top:3px;color:var(--eg-muted);font-size:11px}
 
+/* STATS COUNTER */
+.eh12 .eh12-stats{padding:54px 0;background:var(--eh12-ink)}
+.eh12 .eh12-stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.eh12 .eh12-stats__item{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.eh12 .eh12-stats__item:last-child{border-right:0}
+.eh12 .eh12-stats__num{display:block;color:#fff;font-size:clamp(32px,3.6vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.eh12 .eh12-stats__num span{color:var(--eh12-red)}
+.eh12 .eh12-stats__label{display:block;margin-top:10px;color:rgba(255,255,255,.62);font-size:11.5px;font-weight:700;letter-spacing:.04em;line-height:1.4}
+@media(max-width:767px){
+  .eh12 .eh12-stats__grid{grid-template-columns:repeat(2,1fr);row-gap:30px}
+  .eh12 .eh12-stats__item:nth-child(2){border-right:0}
+  .eh12 .eh12-stats__item:nth-child(1),.eh12 .eh12-stats__item:nth-child(2){border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:24px}
+}
+
 .eh12 .eh12-bestsellers{padding:34px 0;background:#fff;border-bottom:1px solid var(--eh12-line)}
 .eh12 .eh12-bestsellers__head{margin-bottom:18px}
 .eh12 .eh12-bestsellers__head .eh12-label{margin-bottom:0}
@@ -1571,6 +1585,53 @@ unset($eh13_graph_item);
     <article><strong>Satış Sonrası İletişim</strong><span>Teslim sonrası ulaşılabilir destek</span></article>
   </div>
 </section>
+
+<section class="eh12-stats">
+  <div class="eh12-container eh12-stats__grid">
+    <div class="eh12-stats__item"><span class="eh12-stats__num" data-eh12-count="8" data-eh12-suffix="+">0</span><span class="eh12-stats__label">Yıllık Tecrübe<br>(2018'den beri)</span></div>
+    <div class="eh12-stats__item"><span class="eh12-stats__num" data-eh12-count="42" data-eh12-suffix=" M²">0</span><span class="eh12-stats__label">Ortalama Günlük<br>Modüler Yapı Üretimi</span></div>
+    <div class="eh12-stats__item"><span class="eh12-stats__num" data-eh12-count="4" data-eh12-suffix="+">0</span><span class="eh12-stats__label">Aylık Prefabrik Ev<br>Kurulumu (min. 80 m²)</span></div>
+    <div class="eh12-stats__item"><span class="eh12-stats__num" data-eh12-count="233" data-eh12-suffix="+">0</span><span class="eh12-stats__label">Google<br>Değerlendirmesi</span></div>
+  </div>
+</section>
+<script>
+(function(){
+  'use strict';
+  var nums = document.querySelectorAll('.eh12-stats__num[data-eh12-count]');
+  if (!nums.length) { return; }
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animate(el){
+    var target = parseInt(el.getAttribute('data-eh12-count'), 10) || 0;
+    var suffix = el.getAttribute('data-eh12-suffix') || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    var duration = 1200;
+    var start = null;
+    function step(ts){
+      if (start === null) { start = ts; }
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) { requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.4});
+    nums.forEach(function(el){ observer.observe(el); });
+  } else {
+    nums.forEach(function(el){ animate(el); });
+  }
+})();
+</script>
 
 <?php
 $eh12_bs_items = array();
