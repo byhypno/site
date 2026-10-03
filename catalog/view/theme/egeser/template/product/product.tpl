@@ -603,6 +603,9 @@ $eg_wa_href = $eg_wa_phone !== ''
   .eg-v11 .eg11-keyfact strong{
     font-size:13px;
   }
+  .eg-v11 .eg11-faq details{border-radius:12px}
+  .eg-v11 .eg11-faq summary{padding:16px 44px 16px 16px;font-size:13px}
+  .eg-v11 .eg11-faq p{padding:0 16px 16px;font-size:12px}
   .eg-v11 .eg11-nav{
     padding:7px;
   }
