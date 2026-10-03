@@ -35,8 +35,12 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
         $log = $this->model_catalog_egeser_folder_organizer->getLatestLog();
         $data['latest_log'] = $log;
 
-        $data['action'] = $this->url->link('catalog/egeser_folder_organizer/apply', 'token=' . $this->session->data['token'], true);
-        $data['revert_action'] = $this->url->link('catalog/egeser_folder_organizer/revert', 'token=' . $this->session->data['token'], true);
+        // Bu URL'ler <script> içinde ham JS string olarak kullanılacak, href
+        // olarak değil — $this->url->link() HTML için "&amp;" üretir, bu da
+        // JS'te gönderilince "token" parametresinin hiç ulaşmamasına ve
+        // (token eksik sayıldığı için) oturumun geçersiz görünmesine yol açar.
+        $data['action'] = html_entity_decode($this->url->link('catalog/egeser_folder_organizer/apply', 'token=' . $this->session->data['token'], true), ENT_QUOTES, 'UTF-8');
+        $data['revert_action'] = html_entity_decode($this->url->link('catalog/egeser_folder_organizer/revert', 'token=' . $this->session->data['token'], true), ENT_QUOTES, 'UTF-8');
         $data['token'] = $this->session->data['token'];
 
         $data['breadcrumbs'] = array(
