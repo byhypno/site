@@ -317,7 +317,11 @@
 .eh12 .eh13-category-card small{display:block;color:var(--eh12-red);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .eh12 .eh13-category-card h3{position:relative;z-index:1;margin:13px 0 10px;color:#1d1d1d;font-size:25px;line-height:1.15}
 .eh12 .eh13-category-card p{position:relative;z-index:1;margin:0;max-width:92%;color:#6e6e72;font-size:13px;line-height:1.7}
-.eh12 .eh13-category-card a{position:absolute;z-index:2;left:28px;bottom:26px;color:#171717;font-size:12px;font-weight:900}
+.eh12 .eh13-category-card a{position:absolute;z-index:5;inset:0;display:flex;align-items:flex-end;padding:0 28px 26px;color:#171717;font-size:12px;font-weight:900}
+.eh12 .eh13-category-card a span{display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--eg-border,#e6e1da);font-size:13px;font-weight:900;box-shadow:0 2px 10px rgba(18,18,18,.08);transition:background .2s ease,color .2s ease,border-color .2s ease}
+.eh12 .eh13-category-card:hover a span{background:var(--eh12-red);color:#fff;border-color:var(--eh12-red)}
+.eh12 .eh13-category-card--dark a span{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff}
+.eh12 .eh13-category-card--dark:hover a span{background:var(--eh12-red);border-color:var(--eh12-red)}
 .eh12 .eh13-category-card--dark{background:#1c1c1c;border-color:#1c1c1c}
 .eh12 .eh13-category-card--dark h3,.eh12 .eh13-category-card--dark a{color:#fff}
 .eh12 .eh13-category-card--dark p{color:#bdbdbd}
@@ -517,12 +521,6 @@
 .eh12 .eh13-category-card small{color:var(--eg-red-text)}
 .eh12 .eh13-category-card:after{
   background:linear-gradient(145deg,rgba(244,161,38,.13),rgba(242,27,34,.08));
-}
-.eh12 .eh13-category-card a:after{
-  content:"";
-  display:inline-block;width:20px;height:2px;margin-left:8px;
-  background:var(--eg-orange);
-  vertical-align:middle;
 }
 .eh12 .eh13-category-card--dark{
   background:
@@ -760,10 +758,6 @@
   position:relative;
   flex:1;
   padding:24px 26px 66px;
-}
-.eh12 .eh16-model-card__body a{
-  left:26px;
-  bottom:24px;
 }
 .eh12 .eh16-model-card:hover .eh16-model-card__visual{
   filter:saturate(1.03) contrast(1.02);
@@ -1709,8 +1703,8 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
           <small>BİREYSEL / TEK KAT</small>
           <h3>Tek Katlı Prefabrik Evler</h3>
           <p>Fonksiyonel planlama, farklı oda dağılımları ve tek katta yaşam konforu arayanlar için prefabrik ev çözümleri.</p>
-          <a href="<?php echo htmlspecialchars($eh13_url_tek, ENT_QUOTES, 'UTF-8'); ?>">Tek katlı modelleri incele →</a>
         </div>
+        <a href="<?php echo htmlspecialchars($eh13_url_tek, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Tek katlı modelleri incele"><span>Tek katlı modelleri incele →</span></a>
       </article>
       <article class="eh13-category-card eh16-model-card">
         <div class="eh16-model-card__visual eh16-model-card__visual--cift<?php echo $eh16_cift_img ? ' has-image' : ''; ?>"<?php if ($eh16_cift_img) { ?> style="background-image:url('<?php echo htmlspecialchars($eh16_cift_img, ENT_QUOTES, 'UTF-8'); ?>')"<?php } ?>>
@@ -1720,14 +1714,14 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
           <small>BİREYSEL / DUBLEKS</small>
           <h3>Çift Katlı Prefabrik Evler</h3>
           <p>Daha geniş yaşam alanı ve katlara ayrılmış fonksiyon isteyen aileler için çift katlı prefabrik ev alternatifleri.</p>
-          <a href="<?php echo htmlspecialchars($eh13_url_cift, ENT_QUOTES, 'UTF-8'); ?>">Çift katlı modelleri incele →</a>
         </div>
+        <a href="<?php echo htmlspecialchars($eh13_url_cift, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Çift katlı modelleri incele"><span>Çift katlı modelleri incele →</span></a>
       </article>
       <article class="eh13-category-card eh13-category-card--dark">
         <small>TÜM MODELLER</small>
         <h3>Prefabrik Ev ve Yapılar</h3>
         <p>Bireysel prefabrik evlerden kurumsal yapı çözümlerine kadar tüm ürün gruplarını tek sayfada inceleyin.</p>
-        <a href="<?php echo htmlspecialchars($eh13_url_prefabrik, ENT_QUOTES, 'UTF-8'); ?>">Tüm prefabrik yapıları gör →</a>
+        <a href="<?php echo htmlspecialchars($eh13_url_prefabrik, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Tüm prefabrik yapıları gör"><span>Tüm prefabrik yapıları gör →</span></a>
       </article>
     </div>
   </div>
