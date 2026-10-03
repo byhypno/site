@@ -467,10 +467,10 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-floorplan-caption{margin:0 0 10px;color:var(--eg11-ink);font-size:13px;font-weight:900;letter-spacing:.02em}
 .eg-v11 .eg11-floorplan-item a{display:block}
 .eg-v11 .eg11-floorplan-item img{display:block;width:100%;height:auto;min-height:0;max-height:620px;object-fit:contain;border-radius:12px;background:#fff}
-/* Birden fazla kat planı: model özeti üstte kalır, planlar altında
-   yan yana ve tam genişlikte, büyük gösterilir (ikisi aynı sütunu paylaşmaz). */
+/* Birden fazla kat planı: planlar üstte yan yana ve büyük, model özeti
+   altında tam genişlikte gösterilir (ikisi aynı sütunu paylaşmaz). */
 .eg-v11 .eg11-plan--multi{grid-template-columns:1fr;gap:24px}
-.eg-v11 .eg11-plan--multi .eg11-plan-panel{order:-1;max-width:480px}
+.eg-v11 .eg11-plan--multi .eg11-plan-panel{width:100%}
 .eg-v11 .eg11-plan--multi .eg11-floorplan-stack--multi{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .eg-v11 .eg11-plan--multi .eg11-floorplan-item img{max-height:760px}
 @media(max-width:767px){
