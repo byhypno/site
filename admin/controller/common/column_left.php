@@ -85,7 +85,16 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);
 			}
-			
+
+			// EGESER - Ürün görsellerini değiştir
+			if ($this->user->hasPermission('access', 'catalog/product')) {
+				$catalog[] = array(
+					'name'     => 'Ürün Görsellerini Değiştir',
+					'href'     => $this->url->link('catalog/egeser_image_manager', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
+
 			if ($this->user->hasPermission('access', 'catalog/recurring')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_recurring'),
