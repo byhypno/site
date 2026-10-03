@@ -306,6 +306,56 @@ if (!empty($attribute_groups) && is_array($attribute_groups)) {
     }
 }
 
+/* V13: Admin > Katalog > Teknik Özellik Sırası ekranından kaydedilen
+   sıralama varsa uygula; dosya yoksa/bozuksa mevcut sıra değişmeden kalır. */
+$eg_spec_order_path = DIR_TEMPLATE . 'egeser/data/eg_spec_order.php';
+
+if (is_file($eg_spec_order_path)) {
+    $eg_spec_order = include $eg_spec_order_path;
+
+    if (is_array($eg_spec_order) && !empty($eg_spec_order['buckets']) && is_array($eg_spec_order['buckets'])) {
+        $eg_ordered_buckets = array();
+
+        foreach ($eg_spec_order['buckets'] as $eg_bucket_name_ordered) {
+            if (!isset($eg_spec_buckets[$eg_bucket_name_ordered])) { continue; }
+
+            $eg_items = $eg_spec_buckets[$eg_bucket_name_ordered];
+            $eg_row_order = (!empty($eg_spec_order['rows'][$eg_bucket_name_ordered]) && is_array($eg_spec_order['rows'][$eg_bucket_name_ordered])) ? $eg_spec_order['rows'][$eg_bucket_name_ordered] : array();
+
+            if ($eg_row_order) {
+                $eg_items_sorted = array();
+
+                foreach ($eg_row_order as $eg_row_name_ordered) {
+                    foreach ($eg_items as $eg_idx2 => $eg_item2) {
+                        $eg_item_name2 = isset($eg_item2['name']) ? trim(strip_tags($eg_item2['name'])) : '';
+                        if ($eg_item_name2 === $eg_row_name_ordered) {
+                            $eg_items_sorted[] = $eg_item2;
+                            unset($eg_items[$eg_idx2]);
+                        }
+                    }
+                }
+
+                /* Listede olmayan (yeni/özel) satırlar sona eklenir. */
+                foreach ($eg_items as $eg_item2) { $eg_items_sorted[] = $eg_item2; }
+
+                $eg_items = $eg_items_sorted;
+            }
+
+            $eg_ordered_buckets[$eg_bucket_name_ordered] = $eg_items;
+        }
+
+        /* Sıralama dosyasında olmayan bir kutu varsa (örn. "Diğer Teknik
+           Bilgiler") sona eklenir. */
+        foreach ($eg_spec_buckets as $eg_bucket_name_remaining => $eg_items_remaining) {
+            if (!isset($eg_ordered_buckets[$eg_bucket_name_remaining])) {
+                $eg_ordered_buckets[$eg_bucket_name_remaining] = $eg_items_remaining;
+            }
+        }
+
+        $eg_spec_buckets = $eg_ordered_buckets;
+    }
+}
+
 $eg_spec_buckets = array_filter($eg_spec_buckets, function($items) { return !empty($items); });
 
 // EGESER - Product CTA URL builder V1.0

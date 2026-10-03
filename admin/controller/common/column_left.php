@@ -76,6 +76,15 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);
 			}
+
+			// EGESER - Teknik özellik sırası
+			if ($this->user->hasPermission('access', 'catalog/product')) {
+				$catalog[] = array(
+					'name'     => 'Teknik Özellik Sırası',
+					'href'     => $this->url->link('catalog/egeser_spec_order', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
 			
 			if ($this->user->hasPermission('access', 'catalog/recurring')) {
 				$catalog[] = array(
