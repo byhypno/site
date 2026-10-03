@@ -784,8 +784,8 @@ $eg_wa_href = $eg_wa_phone !== ''
     <div class="eg11-nav-wrap">
       <nav class="eg11-nav" aria-label="Ürün detay bölümleri">
         <a href="#eg-plan">Kat Planı</a>
-        <a href="#eg-highlights">Öne Çıkanlar</a>
-        <a href="#eg-tech">Teknik Özellikler</a>
+        <?php if (!empty($eg_highlights)) { ?><a href="#eg-highlights">Öne Çıkanlar</a><?php } ?>
+        <?php if (!empty($eg_spec_buckets)) { ?><a href="#eg-tech">Teknik Özellikler</a><?php } ?>
         <a href="#eg-process">Proje Süreci</a>
         <a href="#eg-faq">SSS</a>
         <a href="#eg-lead">Teklif Al</a>
