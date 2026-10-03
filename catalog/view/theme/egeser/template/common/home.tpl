@@ -126,8 +126,12 @@
 .eh12 .eh12-audience-card p{max-width:520px;margin:0;color:#666;line-height:1.75}
 .eh12 .eh12-audience-card--dark p{color:#bbb}
 .eh12 .eh12-audience-links{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:26px}
-.eh12 .eh12-audience-links a{display:flex;justify-content:space-between;gap:15px;padding:14px 15px;border:1px solid #ddd;border-radius:12px;background:#fff;color:#222;font-size:12px;font-weight:800}
+.eh12 .eh12-audience-links a{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 15px;border:1px solid #ddd;border-radius:12px;background:#fff;color:#222;font-size:12px;font-weight:800;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.eh12 .eh12-audience-links a b{transition:transform .2s ease}
+.eh12 .eh12-audience-links a:hover{background:var(--eh12-red);border-color:var(--eh12-red);color:#fff}
+.eh12 .eh12-audience-links a:hover b{transform:translateX(3px)}
 .eh12 .eh12-audience-card--dark .eh12-audience-links a{border-color:#393939;background:#272727;color:#fff}
+.eh12 .eh12-audience-card--dark .eh12-audience-links a:hover{background:var(--eh12-red);border-color:var(--eh12-red);color:#fff}
 
 /* PRODUCT CARDS */
 .eh12 .eh12-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
