@@ -1,10 +1,10 @@
 <?php echo $header; ?><?php echo $column_left; ?>
-<style type="text/css">
-.category-shortcuts { margin-top: 8px; }
-.category-shortcuts .btn { margin: 0 4px 4px 0; }
-.category-shortcuts .btn.disabled { opacity: 1; cursor: default; }
-</style>
 <div id="content">
+  <style type="text/css">
+  .category-shortcuts { margin-top: 8px; }
+  .category-shortcuts .btn { margin: 0 4px 4px 0; }
+  .category-shortcuts .btn.disabled { opacity: 1; cursor: default; }
+  </style>
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right"><a href="<?php echo $add; ?>" data-toggle="tooltip" title="<?php echo $button_add; ?>" class="btn btn-primary"><i class="fa fa-plus"></i></a>
