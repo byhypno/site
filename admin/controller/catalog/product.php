@@ -436,6 +436,8 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_category'] = $this->language->get('entry_category');
+		$data['text_select'] = $this->language->get('text_select');
+		$data['text_all_categories'] = $this->language->get('text_all_categories');
 
 		$data['button_copy'] = $this->language->get('button_copy');
 		$data['button_add'] = $this->language->get('button_add');
@@ -570,14 +572,52 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->load->model('catalog/category');
 
-		$data['categories'] = array();
+		$category_results = $this->model_catalog_category->getCategories();
 
-		foreach ($this->model_catalog_category->getCategories() as $category) {
+		$category_parents = array();
+
+		foreach ($category_results as $category) {
+			$category_parents[$category['category_id']] = (int)$category['parent_id'];
+		}
+
+		$data['categories'] = array();
+		$data['category_shortcuts'] = array();
+		$data['filter_category_name'] = '';
+
+		foreach ($category_results as $category) {
+			$category_name = strip_tags($category['name']);
+
 			$data['categories'][] = array(
 				'category_id' => $category['category_id'],
-				'name'        => strip_tags($category['name'])
+				'name'        => $category_name
 			);
+
+			if ($filter_category_id && $filter_category_id == $category['category_id']) {
+				$data['filter_category_name'] = $category_name;
+			}
+
+			/* Quick-select pills: only second-level categories (a child of a
+			   top-level category), e.g. "Tek Katlı Prefabrik Evler" under
+			   "Prefabrik Yapılar" — these are the groupings staff actually
+			   filter by day to day. */
+			$parent_id = (int)$category['parent_id'];
+
+			if ($parent_id && isset($category_parents[$parent_id]) && $category_parents[$parent_id] === 0) {
+				$name_parts = explode('&nbsp;&nbsp;&gt;&nbsp;&nbsp;', $category['name']);
+
+				$data['category_shortcuts'][] = array(
+					'category_id' => $category['category_id'],
+					'name'        => strip_tags(end($name_parts)),
+					'href'        => $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&filter_category_id=' . $category['category_id'], true)
+				);
+			}
 		}
+
+		$data['clear'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true);
+
+		$data['filter_active'] = ($filter_name || $filter_model || $filter_price || $filter_quantity || $filter_status !== null || $filter_image !== null || $filter_category_id);
+
+		$data['button_clear'] = $this->language->get('button_clear');
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;

@@ -1,4 +1,9 @@
 <?php echo $header; ?><?php echo $column_left; ?>
+<style type="text/css">
+.category-shortcuts { margin-top: 8px; }
+.category-shortcuts .btn { margin: 0 4px 4px 0; }
+.category-shortcuts .btn.disabled { opacity: 1; cursor: default; }
+</style>
 <div id="content">
   <div class="page-header">
     <div class="container-fluid">
@@ -31,6 +36,40 @@
       </div>
       <div class="panel-body">
         <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="margin-bottom: 8px;">
+                <label class="control-label" for="input-category"><i class="fa fa-folder-open-o"></i> <?php echo $entry_category; ?></label>
+                <select name="filter_category_id" id="input-category" class="form-control">
+                  <option value="*"><?php echo $text_select; ?></option>
+                  <?php foreach ($categories as $category) { ?>
+                  <?php if ($filter_category_id == $category['category_id']) { ?>
+                  <option value="<?php echo $category['category_id']; ?>" selected="selected"><?php echo $category['name']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+              </div>
+              <?php if ($category_shortcuts) { ?>
+              <div class="category-shortcuts">
+                <?php if ($filter_category_id) { ?>
+                <a href="<?php echo $clear; ?>" class="btn btn-xs btn-default"><?php echo $text_all_categories; ?></a>
+                <?php } else { ?>
+                <span class="btn btn-xs btn-primary disabled"><?php echo $text_all_categories; ?></span>
+                <?php } ?>
+                <?php foreach ($category_shortcuts as $shortcut) { ?>
+                <?php if ($filter_category_id == $shortcut['category_id']) { ?>
+                <a href="<?php echo $shortcut['href']; ?>" class="btn btn-xs btn-primary"><?php echo $shortcut['name']; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $shortcut['href']; ?>" class="btn btn-xs btn-default"><?php echo $shortcut['name']; ?></a>
+                <?php } ?>
+                <?php } ?>
+              </div>
+              <?php } ?>
+            </div>
+          </div>
+          <hr style="margin: 14px 0;" />
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
@@ -85,20 +124,14 @@
                   <?php } ?>
                 </select>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="input-category"><?php echo $entry_category; ?></label>
-                <select name="filter_category_id" id="input-category" class="form-control">
-                  <option value="*"></option>
-                  <?php foreach ($categories as $category) { ?>
-                  <?php if ($filter_category_id == $category['category_id']) { ?>
-                  <option value="<?php echo $category['category_id']; ?>" selected="selected"><?php echo $category['name']; ?></option>
-                  <?php } else { ?>
-                  <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
-                  <?php } ?>
-                  <?php } ?>
-                </select>
-              </div>
-              <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-right">
+              <?php if ($filter_active) { ?>
+              <a href="<?php echo $clear; ?>" class="btn btn-default"><i class="fa fa-eraser"></i> <?php echo $button_clear; ?></a>
+              <?php } ?>
+              <button type="button" id="button-filter" class="btn btn-primary"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>
             </div>
           </div>
         </div>
@@ -233,6 +266,17 @@ $('#button-filter').on('click', function() {
 	}
 
 	location = url;
+});
+
+$('#input-name, #input-model, #input-price, #input-quantity').on('keydown', function(e) {
+	if (e.which == 13) {
+		e.preventDefault();
+		$('#button-filter').trigger('click');
+	}
+});
+
+$('#input-category').on('change', function() {
+	$('#button-filter').trigger('click');
 });
 //--></script>
   <script type="text/javascript"><!--

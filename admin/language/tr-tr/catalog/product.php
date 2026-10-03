@@ -7,6 +7,7 @@ $_['heading_title']          = 'Ürünler';
 // Text
 $_['text_success']           = 'Başarılı: Ürünler başarılı bir şekilde değiştirildi!';
 $_['text_list']              = 'Ürün Listesi';
+$_['text_all_categories']    = 'Tümü';
 $_['text_add']               = 'Ürün Ekle';
 $_['text_edit']              = 'Ürün Düzenle';
 $_['text_plus']              = '+';
