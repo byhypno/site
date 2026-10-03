@@ -453,14 +453,15 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-regional-links a{padding:8px 14px;border:1px solid var(--eg11-line);border-radius:999px;background:#fff;color:var(--eg11-ink);font-size:12px;font-weight:800;text-decoration:none;transition:.15s}
 .eg-v11 .eg11-regional-links a:hover{border-color:var(--eg11-red);color:var(--eg11-red)}
 
-/* FAQ */
+/* FAQ (eh12-faq ile birebir aynı) */
 .eg-v11 .eg11-faq{display:grid;gap:9px;max-width:980px}
-.eg-v11 .eg11-faq details{border:1px solid var(--eg11-line);border-radius:15px;background:#fff;overflow:hidden}
-.eg-v11 .eg11-faq summary{position:relative;padding:19px 54px 19px 20px;cursor:pointer;font-weight:800;list-style:none}
+.eg-v11 .eg11-faq details{border:1px solid #E8E3DD;border-radius:15px;background:#fff;overflow:hidden;transition:border-color .2s ease}
+.eg-v11 .eg11-faq details:hover{border-color:rgba(244,161,38,.60)}
+.eg-v11 .eg11-faq summary{position:relative;padding:19px 52px 19px 20px;cursor:pointer;font-weight:800;color:#1d1d1d;list-style:none}
 .eg-v11 .eg11-faq summary::-webkit-details-marker{display:none}
-.eg-v11 .eg11-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#888}
-.eg-v11 .eg11-faq details[open] summary:after{content:"−";color:var(--eg11-red)}
-.eg-v11 .eg11-faq details[open] summary{background:var(--eg11-soft)}
+.eg-v11 .eg11-faq summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:23px;color:#9c6300}
+.eg-v11 .eg11-faq details[open]{background:linear-gradient(135deg,#fff,#FFF6EA);border-color:rgba(244,161,38,.55);box-shadow:inset 3px 0 0 #F21B22}
+.eg-v11 .eg11-faq details[open] summary:after{content:"−";color:#d71920}
 .eg-v11 .eg11-faq p{margin:0;padding:0 20px 20px;color:#666;line-height:1.75}
 
 /* RELATED */

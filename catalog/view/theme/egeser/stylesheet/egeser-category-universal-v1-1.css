@@ -670,23 +670,23 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 
 /* Ürün sayısı arttığında mevcut 3 kolon sistemi aynen devam eder */
 
-/* FAQ = ANA SAYFA STANDARDI */
+/* FAQ = ANA SAYFA STANDARDI (eh12-faq ile birebir aynı) */
 .eg-category-faq .eg-faq-list{
   display:grid;
-  gap:10px;
+  gap:9px;
 }
 .eg-category-faq .eg-faq-item{
   overflow:hidden;
   margin:0!important;
   padding:0!important;
-  border:1px solid #e5e1da!important;
+  border:1px solid #E8E3DD!important;
   border-radius:15px!important;
   background:#fff!important;
   box-shadow:none!important;
-  transition:border-color .18s ease, background-color .18s ease;
+  transition:border-color .2s ease;
 }
 .eg-category-faq .eg-faq-item:hover:not([open]){
-  border-color:#efc27e!important;
+  border-color:rgba(244,161,38,.60)!important;
 }
 .eg-category-faq .eg-faq-item summary{
   position:relative;
@@ -695,8 +695,8 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
   min-height:58px;
   padding:16px 58px 16px 20px!important;
   list-style:none;
-  background:#fff;
-  color:#262626;
+  background:none;
+  color:#1d1d1d;
   cursor:pointer;
   font-size:14px;
   font-weight:800;
@@ -710,35 +710,27 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
   right:20px;
   top:50%;
   transform:translateY(-50%);
-  color:#e89117;
-  font-size:25px;
+  color:#9c6300;
+  font-size:23px;
   font-weight:800;
   line-height:1;
 }
 .eg-category-faq .eg-faq-item[open]{
-  border-color:#efb45c!important;
-  background:#fffaf4!important;
+  border-color:rgba(244,161,38,.55)!important;
+  background:linear-gradient(135deg,#fff,#FFF6EA)!important;
+  box-shadow:inset 3px 0 0 #F21B22!important;
 }
 .eg-category-faq .eg-faq-item[open] summary:after{
   content:"−";
-  color:#e51f27;
+  color:#d71920;
 }
 .eg-category-faq .eg-faq-item>div{
   position:relative;
   padding:0 20px 18px 20px!important;
-  background:#fffaf4;
+  background:none;
   color:#666;
   font-size:13px;
-  line-height:1.72;
-}
-.eg-category-faq .eg-faq-item>div:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:#ef232a;
+  line-height:1.75;
 }
 
 /* Teklif formu -> footer: gereksiz beyaz kuyruğu azalt */
@@ -1271,16 +1263,16 @@ linear-gradient(135deg,#b8c0c6 0 48%,#8c969d 49% 51%,#737d84 52% 100%)}
 .eg-category-detail-panel__intro{color:#777;padding-bottom:14px;border-bottom:1px solid #e7ded0}
 .eg-category-detail-panel__richtext{color:#4f4f4f;line-height:1.7}
 
-/* FAQ = site standard */
-.eg-category-faq .eg-faq-list{display:grid;gap:10px}
-.eg-category-faq .eg-faq-item{overflow:hidden;margin:0!important;padding:0!important;border:1px solid #e5e1da!important;border-radius:15px!important;background:#fff!important}
-.eg-category-faq .eg-faq-item summary{position:relative;display:flex;align-items:center;min-height:58px;padding:16px 58px 16px 20px!important;list-style:none;background:#fff;color:#262626;cursor:pointer;font-size:14px;font-weight:800}
+/* FAQ = site standard (eh12-faq ile birebir aynı) */
+.eg-category-faq .eg-faq-list{display:grid;gap:9px}
+.eg-category-faq .eg-faq-item{overflow:hidden;margin:0!important;padding:0!important;border:1px solid #E8E3DD!important;border-radius:15px!important;background:#fff!important;transition:border-color .2s ease}
+.eg-category-faq .eg-faq-item:hover:not([open]){border-color:rgba(244,161,38,.60)!important}
+.eg-category-faq .eg-faq-item summary{position:relative;display:flex;align-items:center;min-height:58px;padding:16px 58px 16px 20px!important;list-style:none;background:none;color:#1d1d1d;cursor:pointer;font-size:14px;font-weight:800}
 .eg-category-faq .eg-faq-item summary::-webkit-details-marker{display:none}
-.eg-category-faq .eg-faq-item summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#e89117;font-size:25px;font-weight:800}
-.eg-category-faq .eg-faq-item[open]{border-color:#efb45c!important;background:#fffaf4!important}
-.eg-category-faq .eg-faq-item[open] summary:after{content:"−";color:#e51f27}
-.eg-category-faq .eg-faq-item>div{position:relative;padding:0 20px 18px 20px!important;background:#fffaf4;color:#666;line-height:1.72}
-.eg-category-faq .eg-faq-item>div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#ef232a}
+.eg-category-faq .eg-faq-item summary:after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#9c6300;font-size:23px;font-weight:800}
+.eg-category-faq .eg-faq-item[open]{border-color:rgba(244,161,38,.55)!important;background:linear-gradient(135deg,#fff,#FFF6EA)!important;box-shadow:inset 3px 0 0 #F21B22!important}
+.eg-category-faq .eg-faq-item[open] summary:after{content:"−";color:#d71920}
+.eg-category-faq .eg-faq-item>div{position:relative;padding:0 20px 18px 20px!important;background:none;color:#666;line-height:1.75}
 
 /* Lead form = product-detail layout */
 .eg-category-offer .eg-offer{
