@@ -1,5 +1,17 @@
 <?php
 class ControllerCatalogEgeserFolderOrganizer extends Controller {
+    /* Şimdilik sadece bu iki kategori düzenleniyor; diğer ürün
+       tipleri (ofis, yemekhane, vb.) bilinçli olarak kapsam dışı. */
+    private $allowed_categories = array('Tek Katlı Prefabrik Evler', 'Çift Katlı Prefabrik Evler');
+
+    private function filterToScope($items) {
+        $filtered = array();
+        foreach ($items as $item) {
+            if (in_array($item['category_name'], $this->allowed_categories, true)) { $filtered[] = $item; }
+        }
+        return $filtered;
+    }
+
     public function index() {
         $this->document->setTitle('Ürün Görsel Klasörlerini Düzenle');
 
@@ -14,10 +26,10 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
 
         $scan = $this->model_catalog_egeser_folder_organizer->scan();
 
-        $data['items'] = $scan['items'];
+        $data['items'] = $this->filterToScope($scan['items']);
 
         $ready_count = 0;
-        foreach ($scan['items'] as $item) { if ($item['status'] === 'ready') { $ready_count++; } }
+        foreach ($data['items'] as $item) { if ($item['status'] === 'ready') { $ready_count++; } }
         $data['ready_count'] = $ready_count;
 
         $log = $this->model_catalog_egeser_folder_organizer->getLatestLog();
@@ -59,10 +71,11 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
         }
 
         // Güvenlik: istemciden gelen her satırı, aynı anda alınan taze bir
-        // taramayla doğrula — sayfa açıldığından beri bir şey değişmiş olabilir.
+        // taramayla ve kapsam listesine karşı doğrula — sayfa açıldığından
+        // beri bir şey değişmiş olabilir.
         $fresh = $this->model_catalog_egeser_folder_organizer->scan();
         $fresh_by_product = array();
-        foreach ($fresh['items'] as $item) { $fresh_by_product[$item['product_id']] = $item; }
+        foreach ($this->filterToScope($fresh['items']) as $item) { $fresh_by_product[$item['product_id']] = $item; }
 
         $batch = array();
         $results = array();
