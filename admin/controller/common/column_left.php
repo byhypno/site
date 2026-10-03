@@ -85,15 +85,6 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);
 			}
-
-			// EGESER - Görsel klasörlerini düzenle
-			if ($this->user->hasPermission('access', 'catalog/product')) {
-				$catalog[] = array(
-					'name'     => 'Görsel Klasörlerini Düzenle',
-					'href'     => $this->url->link('catalog/egeser_folder_organizer', 'token=' . $this->session->data['token'], true),
-					'children' => array()
-				);
-			}
 			
 			if ($this->user->hasPermission('access', 'catalog/recurring')) {
 				$catalog[] = array(
