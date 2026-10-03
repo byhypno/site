@@ -74,10 +74,10 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
     }
 
     /* Veritabanındaki TÜM ürün görsellerini (herhangi bir klasörde
-       olursa olsun) okuyup ürün başına grupluyor. Bir klasör birden
-       fazla ürün tarafından kullanılıyorsa (paylaşılan/placeholder
-       klasör), o klasördeki görseller "güvensiz" sayılır ve hiçbir
-       ürün için taşınmaya aday gösterilmez. */
+       olursa olsun) okuyup ürün başına grupluyor. Aynı dosya yolunu
+       birden fazla ürün kullanıyorsa (gerçek bir paylaşılan/placeholder
+       görsel), o görsel "güvensiz" sayılır ve taşınmaya aday gösterilmez;
+       sadece aynı klasörü paylaşmak (ör. "tmp") tek başına engel değildir. */
     private function loadProductImageMap() {
         $rows = array();
 
@@ -91,17 +91,21 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
             $rows[] = array('source' => 'product_image', 'pk' => (int)$r['product_image_id'], 'product_id' => (int)$r['product_id'], 'image' => $r['image']);
         }
 
-        $folder_products = array(); // folder => [product_id => true]
+        /* "Paylaşım" tam dosya yoluna göre belirlenir, sadece klasöre göre
+           değil — aynı klasörde (örn. "tmp") birden fazla ürünün kendine
+           özel, farklı isimli gerçek görselleri bulunabilir; bu durum
+           paylaşım/placeholder sayılmaz. Gerçek placeholder, iki ürünün
+           BİREBİR AYNI dosya yolunu kullanmasıdır. */
+        $file_products = array(); // tam görsel yolu => [product_id => true]
         foreach ($rows as $r) {
-            $folder = dirname($r['image']);
-            if (!isset($folder_products[$folder])) { $folder_products[$folder] = array(); }
-            $folder_products[$folder][$r['product_id']] = true;
+            if (!isset($file_products[$r['image']])) { $file_products[$r['image']] = array(); }
+            $file_products[$r['image']][$r['product_id']] = true;
         }
 
         $by_product = array();
         foreach ($rows as $r) {
             $folder = dirname($r['image']);
-            $shared = count($folder_products[$folder]) > 1;
+            $shared = count($file_products[$r['image']]) > 1;
             $by_product[$r['product_id']][] = array(
                 'source' => $r['source'],
                 'pk'     => $r['pk'],
