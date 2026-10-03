@@ -3,12 +3,14 @@
   <style type="text/css">
   .eg-fo-badge { display: inline-block; padding: 3px 9px; border-radius: 10px; font-size: 11px; font-weight: 700; color: #fff; }
   .eg-fo-badge--ready { background: #5cb85c; }
-  .eg-fo-badge--orphan { background: #999; }
-  .eg-fo-badge--shared { background: #f0ad4e; }
+  .eg-fo-badge--already-ok { background: #777; }
+  .eg-fo-badge--blocked { background: #f0ad4e; }
   .eg-fo-badge--conflict { background: #d9534f; }
   .eg-fo-row--disabled { color: #999; }
   .eg-fo-arrow { color: #999; margin: 0 6px; }
   .eg-fo-new-name { font-weight: 700; color: #1d7a1d; }
+  .eg-fo-folders { font-size: 11px; color: #777; }
+  .eg-fo-folders code { display: block; }
   </style>
   <div class="page-header">
     <div class="container-fluid">
@@ -27,20 +29,18 @@
 
     <div class="alert alert-warning">
       <i class="fa fa-exclamation-triangle"></i>
-      <strong>Dikkatli kullanın:</strong> Bu araç <code>image/catalog/urunler/</code> altındaki numara isimli klasörleri, o klasörü kullanan ürünün adına göre yeniden adlandırır ve veritabanındaki ilgili ürün görsel kayıtlarını aynı anda günceller. Birden fazla ürünün paylaştığı veya veritabanında eşleşmeyen klasörler otomatik olarak atlanır, dokunulmaz.
+      <strong>Dikkatli kullanın:</strong> Bu araç her ürünün görsellerini (hangi klasörde dağınık olursa olsun) ürün adına göre tek bir klasörde toplar ve veritabanındaki ilgili görsel kayıtlarını aynı anda günceller. Bir klasörü <strong>başka bir ürünle paylaşan</strong> (örn. ortak bir "tmp" yer tutucu) görseller otomatik olarak atlanır — o ürüne önce gerçek bir görsel yüklemeniz gerekir.
     </div>
 
     <div id="eg-alert-area"></div>
 
-    <?php if (!$base_dir_exists) { ?>
-    <div class="alert alert-info">image/catalog/urunler/ klasörü bulunamadı.</div>
-    <?php } elseif (!$items) { ?>
-    <div class="alert alert-info">Bu klasör altında sayısal isimli bir alt klasör bulunamadı.</div>
+    <?php if (!$items) { ?>
+    <div class="alert alert-info">Görseli olan ürün bulunamadı.</div>
     <?php } else { ?>
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-list"></i> Bulunan klasörler (<?php echo count($items); ?>) — uygun olanlar: <?php echo $ready_count; ?></h3>
+        <h3 class="panel-title"><i class="fa fa-list"></i> Ürünler (<?php echo count($items); ?>) — uygun olanlar: <?php echo $ready_count; ?></h3>
       </div>
       <div class="panel-body">
         <div class="table-responsive">
@@ -48,10 +48,10 @@
             <thead>
               <tr>
                 <td style="width: 1px;" class="text-center"><input type="checkbox" id="eg-check-all" /></td>
-                <td>Klasör</td>
-                <td>Durum</td>
                 <td>Ürün</td>
-                <td>Yeni ad</td>
+                <td>Durum</td>
+                <td>Şu anki klasör(ler)</td>
+                <td>Yeni klasör</td>
                 <td>Görsel</td>
                 <td>Not</td>
               </tr>
@@ -61,24 +61,28 @@
               <tr class="<?php echo $item['status'] !== 'ready' ? 'eg-fo-row--disabled' : ''; ?>">
                 <td class="text-center">
                   <?php if ($item['status'] === 'ready') { ?>
-                  <input type="checkbox" class="eg-fo-check" value="<?php echo htmlspecialchars($item['folder_id'], ENT_QUOTES, 'UTF-8'); ?>" checked="checked" />
+                  <input type="checkbox" class="eg-fo-check" value="<?php echo (int)$item['product_id']; ?>" checked="checked" />
                   <?php } ?>
                 </td>
-                <td><code><?php echo htmlspecialchars($item['folder_id'], ENT_QUOTES, 'UTF-8'); ?></code></td>
+                <td><?php echo htmlspecialchars($item['product_name'], ENT_QUOTES, 'UTF-8'); ?></td>
                 <td>
                   <?php if ($item['status'] === 'ready') { ?><span class="eg-fo-badge eg-fo-badge--ready">Uygun</span>
-                  <?php } elseif ($item['status'] === 'orphan') { ?><span class="eg-fo-badge eg-fo-badge--orphan">Eşleşmedi</span>
-                  <?php } elseif ($item['status'] === 'shared') { ?><span class="eg-fo-badge eg-fo-badge--shared">Paylaşılan</span>
+                  <?php } elseif ($item['status'] === 'already-ok') { ?><span class="eg-fo-badge eg-fo-badge--already-ok">Zaten düzenli</span>
+                  <?php } elseif ($item['status'] === 'blocked') { ?><span class="eg-fo-badge eg-fo-badge--blocked">Yer tutucu</span>
                   <?php } else { ?><span class="eg-fo-badge eg-fo-badge--conflict">Çakışma</span>
                   <?php } ?>
                 </td>
-                <td><?php echo $item['product_name'] !== '' ? htmlspecialchars($item['product_name'], ENT_QUOTES, 'UTF-8') : '—'; ?></td>
+                <td class="eg-fo-folders">
+                  <?php foreach ($item['current_folders'] as $folder) { ?>
+                  <code><?php echo htmlspecialchars($folder, ENT_QUOTES, 'UTF-8'); ?></code>
+                  <?php } ?>
+                </td>
                 <td>
-                  <?php if ($item['new_slug'] !== '') { ?>
-                  <span class="eg-fo-arrow">→</span><span class="eg-fo-new-name"><?php echo htmlspecialchars($item['new_slug'], ENT_QUOTES, 'UTF-8'); ?></span>
+                  <?php if ($item['status'] === 'ready') { ?>
+                  <span class="eg-fo-new-name"><?php echo htmlspecialchars($item['new_slug'], ENT_QUOTES, 'UTF-8'); ?></span>
                   <?php } else { ?>—<?php } ?>
                 </td>
-                <td><?php echo (int)$item['image_count']; ?></td>
+                <td><?php echo (int)$item['image_count']; ?><?php if ($item['blocked_count']) { ?> <small>(<?php echo (int)$item['blocked_count']; ?> yer tutucu)</small><?php } ?></td>
                 <td><small><?php echo htmlspecialchars($item['note'], ENT_QUOTES, 'UTF-8'); ?></small></td>
               </tr>
               <?php } ?>
@@ -98,10 +102,10 @@
         <h3 class="panel-title"><i class="fa fa-history"></i> Son işlem</h3>
       </div>
       <div class="panel-body">
-        <p>En son <?php echo count($latest_log['entries']); ?> klasör yeniden adlandırıldı. Sorun fark ederseniz geri alabilirsiniz.</p>
+        <p>En son <?php echo count($latest_log['entries']); ?> ürünün görselleri taşındı. Sorun fark ederseniz geri alabilirsiniz.</p>
         <ul>
           <?php foreach ($latest_log['entries'] as $entry) { ?>
-          <li><code><?php echo htmlspecialchars($entry['folder_id'], ENT_QUOTES, 'UTF-8'); ?></code> <span class="eg-fo-arrow">→</span> <code><?php echo htmlspecialchars($entry['new_slug'], ENT_QUOTES, 'UTF-8'); ?></code> (<?php echo htmlspecialchars($entry['product_name'], ENT_QUOTES, 'UTF-8'); ?>)</li>
+          <li><?php echo htmlspecialchars($entry['product_name'], ENT_QUOTES, 'UTF-8'); ?> <span class="eg-fo-arrow">→</span> <code><?php echo htmlspecialchars($entry['new_slug'], ENT_QUOTES, 'UTF-8'); ?></code> (<?php echo isset($entry['moved']) ? count($entry['moved']) : 0; ?> görsel)</li>
           <?php } ?>
         </ul>
         <button type="button" id="button-revert" class="btn btn-default"><i class="fa fa-undo"></i> Son İşlemi Geri Al</button>
@@ -121,11 +125,11 @@ $('#button-apply').on('click', function() {
   $('.eg-fo-check:checked').each(function() { items.push($(this).val()); });
 
   if (!items.length) {
-    alert('Hiçbir klasör seçilmedi.');
+    alert('Hiçbir ürün seçilmedi.');
     return;
   }
 
-  if (!confirm(items.length + ' klasör yeniden adlandırılacak ve ilgili ürünlerin görsel kayıtları güncellenecek. Devam edilsin mi?')) {
+  if (!confirm(items.length + ' ürünün görselleri tek klasörde toplanacak ve ilgili görsel kayıtları güncellenecek. Devam edilsin mi?')) {
     return;
   }
 
@@ -173,10 +177,10 @@ function renderResults(json, verb) {
   } else {
     var ok = 0, fail = 0, failLines = '';
     (json.results || []).forEach(function(r) {
-      if (r.success) { ok++; } else { fail++; failLines += '<li>' + r.folder_id + ': ' + (r.error || 'bilinmeyen hata') + '</li>'; }
+      if (r.success) { ok++; } else { fail++; failLines += '<li>' + (r.product_name || r.product_id || '') + ': ' + (r.error || 'bilinmeyen hata') + '</li>'; }
     });
-    if (ok) { html += '<div class="alert alert-success">' + ok + ' klasör başarıyla ' + verb + '.</div>'; }
-    if (fail) { html += '<div class="alert alert-danger">' + fail + ' klasörde sorun oluştu:<ul>' + failLines + '</ul></div>'; }
+    if (ok) { html += '<div class="alert alert-success">' + ok + ' ürün başarıyla ' + verb + '.</div>'; }
+    if (fail) { html += '<div class="alert alert-danger">' + fail + ' üründe sorun oluştu:<ul>' + failLines + '</ul></div>'; }
   }
 
   $('#eg-alert-area').html(html);

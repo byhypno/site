@@ -14,7 +14,6 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
 
         $scan = $this->model_catalog_egeser_folder_organizer->scan();
 
-        $data['base_dir_exists'] = $scan['base_dir_exists'];
         $data['items'] = $scan['items'];
 
         $ready_count = 0;
@@ -54,7 +53,7 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
         $submitted = isset($this->request->post['items']) && is_array($this->request->post['items']) ? $this->request->post['items'] : array();
 
         if (!$submitted) {
-            $json['error'] = 'Hiçbir klasör seçilmedi.';
+            $json['error'] = 'Hiçbir ürün seçilmedi.';
             $this->respondJson($json);
             return;
         }
@@ -62,34 +61,25 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
         // Güvenlik: istemciden gelen her satırı, aynı anda alınan taze bir
         // taramayla doğrula — sayfa açıldığından beri bir şey değişmiş olabilir.
         $fresh = $this->model_catalog_egeser_folder_organizer->scan();
-        $fresh_by_folder = array();
-        foreach ($fresh['items'] as $item) { $fresh_by_folder[$item['folder_id']] = $item; }
+        $fresh_by_product = array();
+        foreach ($fresh['items'] as $item) { $fresh_by_product[$item['product_id']] = $item; }
 
         $batch = array();
         $results = array();
 
-        foreach ($submitted as $folder_id) {
-            $folder_id = (string)$folder_id;
+        foreach ($submitted as $product_id) {
+            $product_id = (int)$product_id;
 
-            if (!isset($fresh_by_folder[$folder_id]) || $fresh_by_folder[$folder_id]['status'] !== 'ready') {
-                $results[] = array('folder_id' => $folder_id, 'success' => false, 'error' => 'Bu klasör artık uygun durumda değil (sayfayı yenileyip tekrar deneyin).');
+            if (!isset($fresh_by_product[$product_id]) || $fresh_by_product[$product_id]['status'] !== 'ready') {
+                $results[] = array('product_id' => $product_id, 'success' => false, 'error' => 'Bu ürün artık uygun durumda değil (sayfayı yenileyip tekrar deneyin).');
                 continue;
             }
 
-            $expected = $fresh_by_folder[$folder_id];
-
-            $outcome = $this->model_catalog_egeser_folder_organizer->applyOne($folder_id, $expected['new_slug'], $expected['product_id']);
-            $outcome['folder_id'] = $folder_id;
-            $outcome['product_name'] = $expected['product_name'];
+            $outcome = $this->model_catalog_egeser_folder_organizer->applyOne($product_id);
             $results[] = $outcome;
 
             if (!empty($outcome['success'])) {
-                $batch[] = array(
-                    'folder_id'    => $folder_id,
-                    'new_slug'     => $expected['new_slug'],
-                    'product_id'   => $expected['product_id'],
-                    'product_name' => $expected['product_name']
-                );
+                $batch[] = $outcome;
             }
         }
 
@@ -125,9 +115,9 @@ class ControllerCatalogEgeserFolderOrganizer extends Controller {
         $results = array();
 
         foreach ($log['entries'] as $entry) {
-            $outcome = $this->model_catalog_egeser_folder_organizer->revertOne($entry['folder_id'], $entry['new_slug']);
-            $outcome['folder_id'] = $entry['folder_id'];
-            $outcome['new_slug'] = $entry['new_slug'];
+            $outcome = $this->model_catalog_egeser_folder_organizer->revertOne($entry);
+            $outcome['product_id'] = isset($entry['product_id']) ? $entry['product_id'] : null;
+            $outcome['product_name'] = isset($entry['product_name']) ? $entry['product_name'] : '';
             $results[] = $outcome;
         }
 
