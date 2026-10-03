@@ -43,10 +43,6 @@
             Projenizi yüz yüze değerlendirmek, ürünleri yakından incelemek ve teknik
             detaylar hakkında bilgi almak için bizimle iletişime geçebilirsiniz.
           </p>
-          <div class="egc-sidebox">
-            <small>ZİYARET</small>
-            <strong>Showroom görüşmeleri için randevu önerilir.</strong>
-          </div>
         </div>
       </aside>
     </section>
