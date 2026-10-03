@@ -467,8 +467,16 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-floorplan-caption{margin:0 0 10px;color:var(--eg11-ink);font-size:13px;font-weight:900;letter-spacing:.02em}
 .eg-v11 .eg11-floorplan-item a{display:block}
 .eg-v11 .eg11-floorplan-item img{display:block;width:100%;height:auto;min-height:0;max-height:620px;object-fit:contain;border-radius:12px;background:#fff}
+/* Birden fazla kat planı: model özeti üstte kalır, planlar altında
+   yan yana ve tam genişlikte, büyük gösterilir (ikisi aynı sütunu paylaşmaz). */
+.eg-v11 .eg11-plan--multi{grid-template-columns:1fr;gap:24px}
+.eg-v11 .eg11-plan--multi .eg11-plan-panel{order:-1;max-width:480px}
+.eg-v11 .eg11-plan--multi .eg11-floorplan-stack--multi{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.eg-v11 .eg11-plan--multi .eg11-floorplan-item img{max-height:760px}
 @media(max-width:767px){
   .eg-v11 .eg11-floorplan-item{padding:10px;border-radius:16px}
+  .eg-v11 .eg11-plan--multi .eg11-floorplan-stack--multi{grid-template-columns:1fr}
+  .eg-v11 .eg11-plan--multi .eg11-floorplan-item img{max-height:none}
 }
 
 .eg-v11 .eg11-plan-placeholder{display:grid;place-items:center;min-height:520px;padding:40px;text-align:center;background:
@@ -895,7 +903,7 @@ $eg_wa_href = $eg_wa_phone !== ''
         <p>Plan görseli, oda kurgusu ve modelin temel ölçü bilgileri aynı bölümde değerlendirilir.</p>
       </div>
 
-      <div class="eg11-plan">
+      <div class="eg11-plan<?php echo count($eg_floor_plans) > 1 ? ' eg11-plan--multi' : ''; ?>">
         <div class="eg11-plan-media<?php echo count($eg_floor_plans) > 1 ? ' eg11-plan-media--multi' : ''; ?>">
           <?php if (!empty($eg_floor_plans)) { ?>
             <div class="eg11-floorplan-stack<?php echo count($eg_floor_plans) > 1 ? ' eg11-floorplan-stack--multi' : ''; ?>">
