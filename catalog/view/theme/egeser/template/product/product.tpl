@@ -463,13 +463,11 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg11-plan-media img{display:block;width:100%;min-height:520px;object-fit:contain;background:#fff}
 .eg-v11 .eg11-plan-media--multi{overflow:visible;background:transparent;border:0}
 .eg-v11 .eg11-floorplan-stack{display:grid;grid-template-columns:1fr;gap:16px;width:100%}
-.eg-v11 .eg11-floorplan-stack--multi{grid-template-columns:repeat(2,minmax(0,1fr))}
 .eg-v11 .eg11-floorplan-item{margin:0;padding:14px;border:1px solid var(--eg11-line);border-radius:20px;background:#fff;overflow:hidden}
 .eg-v11 .eg11-floorplan-caption{margin:0 0 10px;color:var(--eg11-ink);font-size:13px;font-weight:900;letter-spacing:.02em}
 .eg-v11 .eg11-floorplan-item a{display:block}
 .eg-v11 .eg11-floorplan-item img{display:block;width:100%;height:auto;min-height:0;max-height:620px;object-fit:contain;border-radius:12px;background:#fff}
 @media(max-width:767px){
-  .eg-v11 .eg11-floorplan-stack--multi{grid-template-columns:1fr}
   .eg-v11 .eg11-floorplan-item{padding:10px;border-radius:16px}
 }
 
