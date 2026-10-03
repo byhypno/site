@@ -244,6 +244,39 @@ $eg_bucket_for_name = function($name) {
     return 'Diğer Teknik Bilgiler';
 };
 
+/* V12: Bireysel (konut) ürünlerinde yapı/iç mekân/tesisat özellikleri
+   her üründe aynı olduğundan varsayılan değerlerle önceden doldurulur;
+   bir ürüne gerçekten farklı bir attribute girilirse aşağıdaki döngü
+   bu varsayılanın üzerine yazar. Kurumsal ürünler bu kapsamda değil. */
+if (!$eg_is_corporate) {
+    $eg_default_specs = array(
+        'Yapı ve Yalıtım' => array(
+            'Duvar Kalınlığı' => '10 cm',
+            'Çatı Sistemi'    => 'Trapez Sac'
+        ),
+        'İç Mekân' => array(
+            'Tavan'       => 'Alçıpan',
+            'Zemin'       => '8 mm Floorpan Parke',
+            'PVC Doğrama' => '120x100 Ölçülerinde çift açılır',
+            'Cam Sistemi' => '4+12+4 Isıcamlı',
+            'İç Kapılar'  => 'Membran Kapı',
+            'Dış Kapı'    => 'Çelik Kapı',
+            'Mutfak'      => '250 cm MDF Takım',
+            'Banyo'       => '90x90 Duşakabin Klozet Takımı Hilton Takımı'
+        ),
+        'Elektrik ve Tesisat' => array(
+            'Elektrik Tesisatı' => 'Aydınlatma Sortileri 2x1,5 NYM Bakır Kablo, Priz Sortileri 3x2,5 NYM Bakır Kablo',
+            'Sıhhi Tesisat'     => 'Standart soğuk ve sıcak hat'
+        )
+    );
+
+    foreach ($eg_default_specs as $eg_default_bucket => $eg_default_rows) {
+        foreach ($eg_default_rows as $eg_default_name => $eg_default_text) {
+            $eg_spec_buckets[$eg_default_bucket][] = array('name' => $eg_default_name, 'text' => $eg_default_text);
+        }
+    }
+}
+
 if (!empty($attribute_groups) && is_array($attribute_groups)) {
     foreach ($attribute_groups as $eg_group_v11) {
         if (empty($eg_group_v11['attribute']) || !is_array($eg_group_v11['attribute'])) { continue; }
@@ -252,7 +285,23 @@ if (!empty($attribute_groups) && is_array($attribute_groups)) {
             $eg_attr_text_v11 = isset($eg_attr_v11['text']) ? trim(strip_tags($eg_attr_v11['text'])) : '';
             if ($eg_attr_name_v11 === '' || $eg_attr_text_v11 === '') { continue; }
             $eg_bucket = $eg_bucket_for_name($eg_attr_name_v11);
-            $eg_spec_buckets[$eg_bucket][] = $eg_attr_v11;
+
+            /* Ürüne özel girilmiş bir değer varsa, aynı isimli
+               varsayılanın yerine geçsin (çoğaltmasın). */
+            $eg_replaced = false;
+            foreach ($eg_spec_buckets[$eg_bucket] as $eg_idx => $eg_existing) {
+                $eg_existing_name = isset($eg_existing['name']) ? trim(strip_tags($eg_existing['name'])) : '';
+                $eg_match = (function_exists('mb_strtolower') ? mb_strtolower($eg_existing_name, 'UTF-8') : strtolower($eg_existing_name))
+                    === (function_exists('mb_strtolower') ? mb_strtolower($eg_attr_name_v11, 'UTF-8') : strtolower($eg_attr_name_v11));
+                if ($eg_match) {
+                    $eg_spec_buckets[$eg_bucket][$eg_idx] = $eg_attr_v11;
+                    $eg_replaced = true;
+                    break;
+                }
+            }
+            if (!$eg_replaced) {
+                $eg_spec_buckets[$eg_bucket][] = $eg_attr_v11;
+            }
         }
     }
 }
