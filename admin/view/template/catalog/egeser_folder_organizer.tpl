@@ -49,6 +49,7 @@
               <tr>
                 <td style="width: 1px;" class="text-center"><input type="checkbox" id="eg-check-all" /></td>
                 <td>Ürün</td>
+                <td>Kategori</td>
                 <td>Durum</td>
                 <td>Şu anki klasör(ler)</td>
                 <td>Yeni klasör</td>
@@ -65,6 +66,7 @@
                   <?php } ?>
                 </td>
                 <td><?php echo htmlspecialchars($item['product_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($item['category_name'], ENT_QUOTES, 'UTF-8'); ?></td>
                 <td>
                   <?php if ($item['status'] === 'ready') { ?><span class="eg-fo-badge eg-fo-badge--ready">Uygun</span>
                   <?php } elseif ($item['status'] === 'already-ok') { ?><span class="eg-fo-badge eg-fo-badge--already-ok">Zaten düzenli</span>

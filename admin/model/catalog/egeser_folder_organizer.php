@@ -28,6 +28,51 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
         return trim($s, '-');
     }
 
+    /* Her ürün için bir "grup" kategorisi belirler — ör. "Tek Katlı
+       Prefabrik Evler" (ikinci seviye kategori: bir üst kategorinin
+       çocuğu, torunu değil). Bir ürünün birden fazla ikinci seviye
+       kategorisi varsa en küçük category_id olan seçilir; hiç yoksa
+       ürünün sahip olduğu herhangi bir kategori kullanılır; o da
+       yoksa "Diğer Ürünler" grubuna düşer. */
+    private function loadCategoryGroups() {
+        $cat_rows = $this->db->query("SELECT category_id, parent_id FROM " . DB_PREFIX . "category")->rows;
+        $parents = array();
+        foreach ($cat_rows as $r) { $parents[(int)$r['category_id']] = (int)$r['parent_id']; }
+
+        $name_rows = $this->db->query("SELECT category_id, name FROM " . DB_PREFIX . "category_description WHERE language_id = '" . (int)$this->config->get('config_language_id') . "'")->rows;
+        $names = array();
+        foreach ($name_rows as $r) { $names[(int)$r['category_id']] = $r['name']; }
+
+        $ptc_rows = $this->db->query("SELECT product_id, category_id FROM " . DB_PREFIX . "product_to_category")->rows;
+        $product_categories = array();
+        foreach ($ptc_rows as $r) { $product_categories[(int)$r['product_id']][] = (int)$r['category_id']; }
+
+        $groups = array();
+
+        foreach ($product_categories as $pid => $cat_ids) {
+            $second_level = null;
+            $fallback = null;
+
+            foreach ($cat_ids as $cid) {
+                if (!isset($names[$cid])) { continue; }
+
+                $parent_id = isset($parents[$cid]) ? $parents[$cid] : 0;
+                $is_second_level = ($parent_id !== 0 && isset($parents[$parent_id]) && $parents[$parent_id] === 0);
+
+                if ($is_second_level && ($second_level === null || $cid < $second_level)) { $second_level = $cid; }
+                if ($fallback === null || $cid < $fallback) { $fallback = $cid; }
+            }
+
+            $chosen = $second_level !== null ? $second_level : $fallback;
+
+            if ($chosen !== null) {
+                $groups[$pid] = array('category_id' => $chosen, 'name' => $names[$chosen]);
+            }
+        }
+
+        return $groups;
+    }
+
     /* Veritabanındaki TÜM ürün görsellerini (herhangi bir klasörde
        olursa olsun) okuyup ürün başına grupluyor. Bir klasör birden
        fazla ürün tarafından kullanılıyorsa (paylaşılan/placeholder
@@ -83,10 +128,16 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
         $qn = $this->db->query("SELECT product_id, name FROM " . DB_PREFIX . "product_description WHERE language_id = '" . (int)$this->config->get('config_language_id') . "' AND product_id IN (" . $ids . ")");
         foreach ($qn->rows as $r) { $names[(int)$r['product_id']] = $r['name']; }
 
+        $category_groups = $this->loadCategoryGroups();
+
         $used_slugs = array();
 
-        // Tutarlı sırayla göster: ürün adına göre.
-        uksort($by_product, function($a, $b) use ($names) {
+        // Tutarlı sırayla göster: önce kategori, sonra ürün adı.
+        uksort($by_product, function($a, $b) use ($names, $category_groups) {
+            $ca = isset($category_groups[$a]) ? $category_groups[$a]['name'] : 'Diğer Ürünler';
+            $cb = isset($category_groups[$b]) ? $category_groups[$b]['name'] : 'Diğer Ürünler';
+            $cmp = strcmp($ca, $cb);
+            if ($cmp !== 0) { return $cmp; }
             $na = isset($names[$a]) ? $names[$a] : '';
             $nb = isset($names[$b]) ? $names[$b] : '';
             return strcmp($na, $nb);
@@ -106,12 +157,18 @@ class ModelCatalogEgeserFolderOrganizer extends Model {
 
             $slug = $this->slugify($name);
             if ($slug === '') { $slug = 'urun'; }
-            $new_slug = $slug . '-' . $product_id;
+
+            $category_name = isset($category_groups[$product_id]) ? $category_groups[$product_id]['name'] : 'Diğer Ürünler';
+            $group_slug = $this->slugify($category_name);
+            if ($group_slug === '') { $group_slug = 'diger-urunler'; }
+
+            $new_slug = $group_slug . '/' . $slug . '-' . $product_id;
             $new_folder = $this->base_relative . $new_slug;
 
             $item = array(
                 'product_id'    => $product_id,
                 'product_name'  => $name,
+                'category_name' => $category_name,
                 'current_folders' => array_keys($folders),
                 'image_count'   => count($images),
                 'movable_count' => count($movable),
