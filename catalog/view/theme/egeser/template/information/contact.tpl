@@ -36,8 +36,8 @@
         <?php if ($egc_showroom_img) { ?>
         <div class="egc-hero__side-photo" style="background-image:url('<?php echo htmlspecialchars($egc_showroom_img, ENT_QUOTES, 'UTF-8'); ?>')"></div>
         <?php } ?>
-        <div class="egc-hero__side-text">
-          <div class="egc-kicker egc-kicker--gold">SHOWROOM & İLETİŞİM</div>
+        <span class="egc-hero__badge">SHOWROOM & İLETİŞİM</span>
+        <div class="egc-hero__floatcard">
           <h2>Kemalpaşa / İzmir</h2>
           <p>
             Projenizi yüz yüze değerlendirmek, ürünleri yakından incelemek ve teknik
