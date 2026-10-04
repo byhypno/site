@@ -1642,9 +1642,17 @@ unset($eh13_graph_item);
 if (!function_exists('eh12_bs_resize')) {
   function eh12_bs_resize($image_dir, $filename, $width, $height) {
     if (!is_file($image_dir . $filename)) { return $filename; }
+    // model_tool_image->resize() ile aynı güvenlik kontrolü: dosya gerçekten
+    // DIR_IMAGE altında mı (symlink/.. ile dışarı çıkılmış olabilir).
+    $real = realpath($image_dir . $filename);
+    if ($real === false || substr(str_replace('\\', '/', $real), 0, strlen($image_dir)) !== $image_dir) {
+      return $filename;
+    }
+    $dot = mb_strrpos($filename, '.');
+    if ($dot === false) { return $filename; }
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     $image_old = $filename;
-    $image_new = 'cache/' . mb_substr($filename, 0, mb_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+    $image_new = 'cache/' . mb_substr($filename, 0, $dot) . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
     if (!is_file($image_dir . $image_new) || (filemtime($image_dir . $image_old) > filemtime($image_dir . $image_new))) {
       $info = @getimagesize($image_dir . $image_old);
       if (!$info || !in_array($info[2], array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF), true)) {

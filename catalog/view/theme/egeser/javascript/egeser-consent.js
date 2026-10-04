@@ -22,7 +22,7 @@
       var fresh = document.createElement('script');
       for (var a = 0; a < old.attributes.length; a++) {
         var attr = old.attributes[a];
-        if (attr.name === 'type') { continue; }
+        if (attr.name === 'type' || attr.name === 'data-eg-consent') { continue; }
         if (attr.name === 'data-eg-src') {
           fresh.src = attr.value;
           continue;
