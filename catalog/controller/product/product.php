@@ -264,7 +264,14 @@ class ControllerProductProduct extends Controller {
 				'href' => $this->url->link('product/product', 'product_id=' . (int)$this->request->get['product_id'])
 			);
 
-			$this->document->setTitle($product_info['meta_title']);
+			// Ürün meta_title alanları marka ekini içermeden girilmiş olabilir;
+			// kategori sayfalarıyla tutarlı olsun ve marka/arama görünürlüğü
+			// kaybolmasın diye eksikse otomatik ekleniyor.
+			$eg_meta_title = trim($product_info['meta_title']);
+			if ($eg_meta_title !== '' && stripos($eg_meta_title, 'Egeser Prefabrik') === false) {
+				$eg_meta_title .= ' | Egeser Prefabrik';
+			}
+			$this->document->setTitle($eg_meta_title);
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');

@@ -605,6 +605,7 @@ $eg_wa_href = $eg_wa_phone !== ''
 .eg-v11 .eg-corporate-field[hidden]{display:none!important}
 .eg-v11 .eg-consent{display:flex!important;gap:9px;align-items:flex-start;color:#d1d1d1!important;font-size:11px!important;font-weight:400!important}
 .eg-v11 .eg-consent input{width:auto!important;min-height:0!important;margin-top:3px}
+.eg-v11 .eg-consent a{color:#f2b263!important;text-decoration:underline}
 .eg-v11 .eg-form-actions{display:flex;align-items:center;gap:14px;margin-top:16px}
 .eg-v11 .eg-form-actions .eg-btn{border:0;cursor:pointer}
 .eg-v11 .eg-hp-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}

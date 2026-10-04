@@ -113,6 +113,7 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
         <a href="<?php echo !empty($egeser_url_kvkk) ? $egeser_url_kvkk : '/kvkk-aydinlatma-metni'; ?>">KVKK</a>
         <a href="<?php echo !empty($egeser_url_gizlilik) ? $egeser_url_gizlilik : '/gizlilik-politikasi'; ?>">Gizlilik</a>
         <a href="<?php echo !empty($egeser_url_cerez) ? $egeser_url_cerez : '/cerez-politikasi'; ?>">Çerez Politikası</a>
+        <a href="#" data-eg-consent-reopen>Çerez Tercihleri</a>
       </div>
     </div>
   </div>
@@ -162,6 +163,14 @@ $eg112_linkedin_footer = 'https://tr.linkedin.com/company/egeser-konteyner-prefa
 
 <!-- V5 tek grid dosyasi sayfa ici stillerden sonra yuklenir. -->
 <link href="catalog/view/theme/egeser/stylesheet/egeser-layout-v5.css?v=20260918-5" rel="stylesheet" />
+
+<div id="eg-consent-banner" role="dialog" aria-label="Çerez tercihleri">
+  <p>Sitemizde deneyimi iyileştirmek ve ziyaret istatistiklerini ölçmek için çerezler kullanıyoruz. Detaylar için <a href="<?php echo !empty($egeser_url_cerez) ? $egeser_url_cerez : '/cerez-politikasi'; ?>" target="_blank" rel="noopener noreferrer">Çerez Politikası</a> sayfamıza bakabilirsiniz.</p>
+  <div id="eg-consent-banner__actions">
+    <button type="button" id="eg-consent-reject">Sadece Zorunlu</button>
+    <button type="button" id="eg-consent-accept">Kabul Et</button>
+  </div>
+</div>
 
 </body>
 </html>

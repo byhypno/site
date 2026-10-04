@@ -31,6 +31,10 @@ Options -Indexes
  Header always set X-Content-Type-Options "nosniff"
  Header always set X-Frame-Options "SAMEORIGIN"
  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+ # Site zaten tum trafigi HTTPS'e yonlendiriyor (asagidaki RewriteCond),
+ # bu yuzden HSTS kosulsuz eklenebilir. "preload" kasitli olarak eklenmedi;
+ # tarayici onbellek listesine girmek geri donusu zor bir adimdir.
+ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
  Header always unset X-Powered-By
 </IfModule>
 

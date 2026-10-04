@@ -227,6 +227,7 @@
 .eh12 .eg-corporate-field[hidden]{display:none!important}
 .eh12 .eg-consent{display:flex!important;gap:9px;align-items:flex-start;color:#d1d1d1!important;font-size:11px!important;font-weight:400!important}
 .eh12 .eg-consent input{width:auto!important;min-height:0!important;margin-top:3px}
+.eh12 .eg-consent a{color:#f2b263!important;text-decoration:underline}
 .eh12 .eg-form-actions{display:flex;align-items:center;gap:14px;margin-top:16px}
 .eh12 .eg-form-actions .eg-btn{border:0;cursor:pointer}
 .eh12 .eg-hp-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
@@ -1632,6 +1633,40 @@ unset($eh13_graph_item);
 </script>
 
 <?php
+// Bu şerit, denetleme bulgusuna göre orijinal boyuttaki görseli 150x190
+// olarak göstermeden önce sunucu tarafında küçültüp önbelleğe alır.
+// Bu dosya controller'sız doğrudan render edildiği için ($this burada
+// Template nesnesine ait, Controller'a değil) model_tool_image->resize()
+// çağrılamıyor; aynı mantık burada bağımsız bir fonksiyon olarak yeniden
+// uygulanıyor.
+if (!function_exists('eh12_bs_resize')) {
+  function eh12_bs_resize($image_dir, $filename, $width, $height) {
+    if (!is_file($image_dir . $filename)) { return $filename; }
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    $image_old = $filename;
+    $image_new = 'cache/' . mb_substr($filename, 0, mb_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+    if (!is_file($image_dir . $image_new) || (filemtime($image_dir . $image_old) > filemtime($image_dir . $image_new))) {
+      $info = @getimagesize($image_dir . $image_old);
+      if (!$info || !in_array($info[2], array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF), true)) {
+        return $image_old;
+      }
+      $path = '';
+      foreach (explode('/', dirname($image_new)) as $directory) {
+        $path .= '/' . $directory;
+        if (!is_dir($image_dir . $path)) { @mkdir($image_dir . $path, 0777, true); }
+      }
+      if (class_exists('Image') && ($info[0] != $width || $info[1] != $height)) {
+        $image = new Image($image_dir . $image_old);
+        $image->resize($width, $height);
+        $image->save($image_dir . $image_new);
+      } else {
+        @copy($image_dir . $image_old, $image_dir . $image_new);
+      }
+    }
+    return str_replace(' ', '%20', $image_new);
+  }
+}
+
 $eh12_bs_items = array();
 if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') && defined('DB_DATABASE')) {
   $eh12_bs_conn = @mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE, defined('DB_PORT') ? (int)DB_PORT : 3306);
@@ -1651,7 +1686,7 @@ if (defined('DB_HOSTNAME') && defined('DB_USERNAME') && defined('DB_PASSWORD') &
             continue;
           }
           $eh12_bs_items[] = array(
-            'image' => 'image/' . $eh12_bs_p['image'],
+            'image' => 'image/' . eh12_bs_resize(DIR_IMAGE, $eh12_bs_p['image'], 150, 190),
             'title' => isset($eh12_bs_p['title']) ? $eh12_bs_p['title'] : '',
             'type' => isset($eh12_bs_p['type']) ? $eh12_bs_p['type'] : (isset($eh12_bs_p['eyebrow']) ? $eh12_bs_p['eyebrow'] : ''),
             'location' => isset($eh12_bs_p['location']) ? $eh12_bs_p['location'] : '',

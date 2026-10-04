@@ -86,7 +86,7 @@ $eg_form_is_corporate = ($eg_form_default_customer_type === 'Kurumsal');
       <div class="eg-field eg-field--full">
         <label class="eg-consent">
           <input type="checkbox" name="consent" value="1" required>
-          <span>İletişim bilgilerimin teklif talebimin yanıtlanması amacıyla işlenmesini kabul ediyorum. *</span>
+          <span>İletişim bilgilerimin teklif talebimin yanıtlanması amacıyla işlenmesini kabul ediyorum. (<a href="/gizlilik-politikasi" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a>) *</span>
         </label>
       </div>
     </div>
