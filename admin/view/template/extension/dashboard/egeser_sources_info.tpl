@@ -30,7 +30,6 @@
   </div>
 </div>
 <script type="text/javascript" src="view/javascript/jquery/flot/jquery.flot.js"></script>
-<script type="text/javascript" src="view/javascript/jquery/flot/jquery.flot.pie.js"></script>
 <script type="text/javascript"><!--
 $(function() {
 	var data = [
@@ -39,7 +38,15 @@ $(function() {
 		<?php } ?>
 	];
 
-	if (data.length) {
+	if (!data.length) {
+		return;
+	}
+
+	// Baska bir dashboard widget'i da jquery.flot.js'i sayfada tekrar
+	// yukluyorsa, Flot'un eklenti listesi sifirlanip pasta grafik
+	// eklentisini (pie) kaybedebiliyor. O yuzden pie eklentisini her
+	// seferinde, cizimden hemen once, taze olarak yukluyoruz.
+	$.getScript('view/javascript/jquery/flot/jquery.flot.pie.js', function() {
 		$.plot('#egeser-sources-pie', data, {
 			series: {
 				pie: {
@@ -51,6 +58,6 @@ $(function() {
 			legend: { show: false },
 			grid: { hoverable: true }
 		});
-	}
+	});
 });
 //--></script>
