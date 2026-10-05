@@ -120,7 +120,7 @@ class EgeserGeoIl {
             if ($count <= 0 || !isset(self::NAME_BY_CODE[$code])) continue;
             $slug = self::slugByCode($code);
             $color = self::colorScale($count, $max);
-            $css .= '#' . $slug . ' path{fill:' . $color . ';}';
+            $css .= '#' . $slug . ' path{fill:' . $color . ' !important;}';
         }
 
         return $css;

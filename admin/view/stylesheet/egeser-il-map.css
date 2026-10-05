@@ -9,7 +9,10 @@
 .egeser-il-map-wrap svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; }
 .egeser-il-map-missing { padding: 24px; text-align: center; color: #a94442; background: #f2dede; border: 1px solid #ebccd1; border-radius: 4px; }
 .egeser-il-map-wrap .turkey path {
-    fill: #eef2f6;
+    /* Kaynak SVG her path'e inline style="fill:rgb(175,175,175)" basiyor;
+       inline stil CSS'teki ID secicilerden bile daha guclu oldugu icin
+       !important olmadan hicbir renk hic uygulanamiyordu. */
+    fill: #eef2f6 !important;
     stroke: #ffffff;
     stroke-width: 0.6;
     transition: fill 0.15s ease;
