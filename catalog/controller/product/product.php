@@ -266,10 +266,16 @@ class ControllerProductProduct extends Controller {
 
 			// Ürün meta_title alanları marka ekini içermeden girilmiş olabilir;
 			// kategori sayfalarıyla tutarlı olsun ve marka/arama görünürlüğü
-			// kaybolmasın diye eksikse otomatik ekleniyor.
+			// kaybolmasın diye eksikse otomatik ekleniyor — ama yalnızca sonuç
+			// Google'ın SERP'te kesmeye başladığı ~60 karaktere sığıyorsa. Zaten
+			// uzun ve anahtar kelime dolu bir başlığı (ör. "... Anahtar Teslim")
+			// markayla daha da uzatıp kesilmeye zorlamak SEO'yu iyileştirmez.
 			$eg_meta_title = trim($product_info['meta_title']);
 			if ($eg_meta_title !== '' && stripos($eg_meta_title, 'Egeser Prefabrik') === false) {
-				$eg_meta_title .= ' | Egeser Prefabrik';
+				$eg_meta_title_with_brand = $eg_meta_title . ' | Egeser Prefabrik';
+				if (utf8_strlen($eg_meta_title_with_brand) <= 60) {
+					$eg_meta_title = $eg_meta_title_with_brand;
+				}
 			}
 			$this->document->setTitle($eg_meta_title);
 			$this->document->setDescription($product_info['meta_description']);
