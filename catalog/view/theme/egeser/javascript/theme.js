@@ -72,8 +72,14 @@ function track(name, params){
         }
       }else if(name==='whatsapp_click'){
         window.gtag('event','contact',Object.assign({method:'whatsapp'},params));
+        if(cfg.google_ads_id && cfg.google_ads_whatsapp_label){
+          window.gtag('event','conversion',{send_to:cfg.google_ads_id+'/'+cfg.google_ads_whatsapp_label});
+        }
       }else if(name==='phone_click'){
         window.gtag('event','contact',Object.assign({method:'phone'},params));
+        if(cfg.google_ads_id && cfg.google_ads_phone_label){
+          window.gtag('event','conversion',{send_to:cfg.google_ads_id+'/'+cfg.google_ads_phone_label});
+        }
       }else{
         window.gtag('event',name,params);
       }

@@ -52,6 +52,8 @@ class ControllerCommonHeader extends Controller {
 		$data['egeser_meta_pixel_id'] = trim((string)($this->config->has('egeser_health_meta_pixel_id') ? $this->config->get('egeser_health_meta_pixel_id') : $this->config->get('egeser_meta_pixel_id')));
 		$data['egeser_google_ads_id'] = trim((string)($this->config->has('egeser_health_google_ads_id') ? $this->config->get('egeser_health_google_ads_id') : $this->config->get('egeser_google_ads_id')));
 		$data['egeser_google_ads_lead_label'] = trim((string)($this->config->has('egeser_health_google_ads_lead_label') ? $this->config->get('egeser_health_google_ads_lead_label') : $this->config->get('egeser_google_ads_lead_label')));
+		$data['egeser_google_ads_whatsapp_label'] = trim((string)$this->config->get('egeser_health_google_ads_whatsapp_label'));
+		$data['egeser_google_ads_phone_label'] = trim((string)$this->config->get('egeser_health_google_ads_phone_label'));
 
 		// EGESER - Open Graph / Twitter URL'si canonical varsa onu kullanir.
 		$egeser_social_url = '';

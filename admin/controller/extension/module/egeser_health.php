@@ -60,6 +60,8 @@ class ControllerExtensionModuleEgeserHealth extends Controller {
             'egeser_health_meta_pixel_id' => '',
             'egeser_health_google_ads_id' => '',
             'egeser_health_google_ads_lead_label' => '',
+            'egeser_health_google_ads_whatsapp_label' => '',
+            'egeser_health_google_ads_phone_label' => '',
             'egeser_health_cron_key' => '',
             'egeser_performance_cron_status' => 1,
             'egeser_performance_content_visibility' => 1,
@@ -360,6 +362,8 @@ Tarih: " . date('Y-m-d H:i:s'));
         $meta = isset($this->request->post['egeser_health_meta_pixel_id']) ? trim($this->request->post['egeser_health_meta_pixel_id']) : '';
         $ads = isset($this->request->post['egeser_health_google_ads_id']) ? trim($this->request->post['egeser_health_google_ads_id']) : '';
         $label = isset($this->request->post['egeser_health_google_ads_lead_label']) ? trim($this->request->post['egeser_health_google_ads_lead_label']) : '';
+        $wa_label = isset($this->request->post['egeser_health_google_ads_whatsapp_label']) ? trim($this->request->post['egeser_health_google_ads_whatsapp_label']) : '';
+        $phone_label = isset($this->request->post['egeser_health_google_ads_phone_label']) ? trim($this->request->post['egeser_health_google_ads_phone_label']) : '';
 
         $site_urls = array(
             'Instagram' => isset($this->request->post['egeser_site_instagram']) ? trim($this->request->post['egeser_site_instagram']) : '',
@@ -380,6 +384,8 @@ Tarih: " . date('Y-m-d H:i:s'));
         if ($meta && !preg_match('/^[0-9]{5,20}$/', $meta)) $this->error['warning'] = 'Meta Pixel ID formatı geçersiz.';
         if ($ads && !preg_match('/^AW-[0-9]+$/i', $ads)) $this->error['warning'] = 'Google Ads ID formatı geçersiz. Örnek: AW-123456789';
         if ($label && !preg_match('/^[A-Za-z0-9_-]+$/', $label)) $this->error['warning'] = 'Google Ads dönüşüm etiketi formatı geçersiz.';
+        if ($wa_label && !preg_match('/^[A-Za-z0-9_-]+$/', $wa_label)) $this->error['warning'] = 'Google Ads WhatsApp dönüşüm etiketi formatı geçersiz.';
+        if ($phone_label && !preg_match('/^[A-Za-z0-9_-]+$/', $phone_label)) $this->error['warning'] = 'Google Ads telefon dönüşüm etiketi formatı geçersiz.';
 
         return !$this->error;
     }

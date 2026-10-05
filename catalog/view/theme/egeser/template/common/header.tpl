@@ -69,7 +69,9 @@ window.EgeserTracking = <?php echo json_encode(array(
   'ga4' => $egeser_ga4_id,
   'meta' => $egeser_meta_pixel_id,
   'google_ads_id' => $egeser_google_ads_id,
-  'google_ads_lead_label' => $egeser_google_ads_lead_label
+  'google_ads_lead_label' => $egeser_google_ads_lead_label,
+  'google_ads_whatsapp_label' => $egeser_google_ads_whatsapp_label,
+  'google_ads_phone_label' => $egeser_google_ads_phone_label
 ), JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
 </script>
 <?php if (!empty($egeser_ga4_id)) { ?>

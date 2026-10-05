@@ -299,7 +299,15 @@
           </div></div>
           <div class="form-group"><label class="col-sm-3 control-label">Google Ads Lead Etiketi</label><div class="col-sm-9">
             <input type="text" name="egeser_health_google_ads_lead_label" value="<?php echo htmlspecialchars($egeser_health_google_ads_lead_label, ENT_QUOTES, 'UTF-8'); ?>" placeholder="AbCdEf..." class="form-control" />
-            <p class="help-block">Form başarıyla gönderildiğinde GA4 generate_lead, Meta Lead ve tanımlıysa Google Ads conversion olayı tetiklenir. WhatsApp/telefon tıklamaları ayrıca ölçülür.</p>
+            <p class="help-block">Form başarıyla gönderildiğinde GA4 generate_lead, Meta Lead ve bu etiket tanımlıysa Google Ads conversion olayı tetiklenir.</p>
+          </div></div>
+          <div class="form-group"><label class="col-sm-3 control-label">Google Ads WhatsApp Etiketi</label><div class="col-sm-9">
+            <input type="text" name="egeser_health_google_ads_whatsapp_label" value="<?php echo htmlspecialchars($egeser_health_google_ads_whatsapp_label, ENT_QUOTES, 'UTF-8'); ?>" placeholder="AbCdEf..." class="form-control" />
+            <p class="help-block">Boş bırakılırsa WhatsApp tıklamaları GA4/Meta'ya gider ama Google Ads'e dönüşüm olarak bildirilmez. Google Ads'te Araçlar &gt; Dönüşümler &gt; Yeni Dönüşüm Eylemi ile ayrı bir "WhatsApp İletişim" eylemi oluşturup buraya etiketini girin.</p>
+          </div></div>
+          <div class="form-group"><label class="col-sm-3 control-label">Google Ads Telefon Etiketi</label><div class="col-sm-9">
+            <input type="text" name="egeser_health_google_ads_phone_label" value="<?php echo htmlspecialchars($egeser_health_google_ads_phone_label, ENT_QUOTES, 'UTF-8'); ?>" placeholder="AbCdEf..." class="form-control" />
+            <p class="help-block">Aynı şekilde, telefon numarasına tıklamaları ayrı bir Google Ads dönüşüm eylemi olarak saymak isterseniz.</p>
           </div></div>
         </form>
 
