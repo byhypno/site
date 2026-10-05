@@ -350,8 +350,18 @@ class EgeserVisitorTracker {
         } else {
             $host = $this->refererHost();
             $self_host = strtolower((string)parse_url($this->config->get('config_url'), PHP_URL_HOST));
+            $current_host = isset($this->request->server['HTTP_HOST']) ? strtolower((string)$this->request->server['HTTP_HOST']) : '';
 
-            if ($host === '' || $host === $self_host) {
+            // www. ile www'siz varyantlari ayni site sayalim; config_url
+            // ayarindaki host ile ziyaretcinin gercekte bulundugu host
+            // farkli yazilmis olabilir (ornegin biri www'li, digeri degil).
+            $strip_www = function ($h) { return preg_replace('/^www\./', '', $h); };
+            $is_own_host = $host !== '' && (
+                $strip_www($host) === $strip_www($self_host) ||
+                $strip_www($host) === $strip_www($current_host)
+            );
+
+            if ($host === '' || $is_own_host) {
                 $source = 'direct';
                 $medium = 'none';
             } elseif (preg_match('/(^|\.)google\./i', $host)) {
