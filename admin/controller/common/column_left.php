@@ -77,6 +77,15 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 
+			// EGESER - Urun aciklamasi bosluk duzeltme
+			if ($this->user->hasPermission('access', 'catalog/product')) {
+				$catalog[] = array(
+					'name'     => 'Açıklama Boşluk Düzeltme',
+					'href'     => $this->url->link('tool/egeser_description_fix', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
+
 			// EGESER - Teknik özellik sırası
 			if ($this->user->hasPermission('access', 'catalog/product')) {
 				$catalog[] = array(
