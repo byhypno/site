@@ -220,12 +220,17 @@ function bindLeadForm(form){
 
 Array.prototype.forEach.call(qa('.js-egeser-lead-form'),bindLeadForm);
 
-Array.prototype.forEach.call(qa('[data-wa-message]'),function(link){
+// [data-wa-message]: urun sayfasi gibi yerlerde href JS'de kurulur.
+// a[href*="wa.me"]: footer/iletisim/anasayfa/floating buton gibi href'i
+// zaten PHP tarafinda hazir gelen tum diger WhatsApp linklerini de
+// kapsar - oncesinde bunlar hic takip edilmiyordu.
+Array.prototype.forEach.call(qa('[data-wa-message], a[href*="wa.me"]'),function(link){
   link.addEventListener('click',function(){
     var phone=(link.getAttribute('data-wa-phone') || '').replace(/\D/g,'');
     var message=link.getAttribute('data-wa-message') || '';
-    if(!phone) return;
-    link.href='https://wa.me/'+phone+'?text='+encodeURIComponent(message);
+    if(phone){
+      link.href='https://wa.me/'+phone+'?text='+encodeURIComponent(message);
+    }
     track('whatsapp_click',{
       placement:link.getAttribute('data-placement') || 'unknown',
       entity_type:link.getAttribute('data-entity-type') || '',
