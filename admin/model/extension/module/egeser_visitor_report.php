@@ -51,6 +51,38 @@ class ModelExtensionModuleEgeserVisitorReport extends Model {
         return (int)$q->row['c'];
     }
 
+    /**
+     * Donusum hunisi: her asamayi en az bir kez yasayan benzersiz
+     * ziyaretci sayisi (asamalar birbirinin kesin alt kumesi degildir -
+     * ornegin iletisim sayfasindan dogrudan arayan bir ziyaretci urun
+     * incelemeden de "iletisime gecen" sayilabilir - bu yuzden kesin
+     * sirali bir huni degil, asama bazli bir katilim kirilimidir).
+     */
+    public function getFunnel($date_from, $date_to) {
+        $range = $this->range($date_from, $date_to);
+
+        $visitors = (int)$this->db->query("SELECT COUNT(DISTINCT visitor_id) AS c FROM `" . DB_PREFIX . "egeser_session`
+            WHERE started_at BETWEEN '" . $this->db->escape($range[0]) . "' AND '" . $this->db->escape($range[1]) . "'")->row['c'];
+
+        $product_viewers = $this->distinctVisitors("'product_view'", $range);
+        $engaged = $this->distinctVisitors("'whatsapp_click','phone_click'", $range);
+        $converted = $this->distinctVisitors("'quote_form_submit','contact_form_submit'", $range);
+
+        return array(
+            array('label' => 'Ziyaretçi', 'count' => $visitors),
+            array('label' => 'Ürün İnceleyen', 'count' => $product_viewers),
+            array('label' => 'İletişime Geçen', 'count' => $engaged),
+            array('label' => 'Form Gönderen', 'count' => $converted)
+        );
+    }
+
+    private function distinctVisitors($type_sql, $range) {
+        $q = $this->db->query("SELECT COUNT(DISTINCT visitor_id) AS c FROM `" . DB_PREFIX . "egeser_event`
+            WHERE event_type IN (" . $type_sql . ")
+              AND created_at BETWEEN '" . $this->db->escape($range[0]) . "' AND '" . $this->db->escape($range[1]) . "'");
+        return (int)$q->row['c'];
+    }
+
     private function range($date_from, $date_to) {
         return array($date_from . ' 00:00:00', $date_to . ' 23:59:59');
     }
