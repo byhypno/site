@@ -76,6 +76,13 @@ class ControllerCommonDashboard extends Controller {
 			}
 		}
 
+		// Cekirdek hatasi: toplam genislik hic 12'ye ulasmazsa (ornegin
+		// az sayida widget acikken) son sutun hicbir zaman $data['rows']'a
+		// eklenmiyor ve panel bomboş gorunuyordu. Kalan widget'lari da ekle.
+		if ($column) {
+			$data['rows'][] = $column;
+		}
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
