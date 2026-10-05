@@ -454,7 +454,20 @@ class EgeserVisitorTracker {
 
         $patterns = '/googlebot|bingbot|yandexbot|baiduspider|duckduckbot|ahrefsbot|semrushbot|mj12bot|dotbot|petalbot|bytespider|applebot|facebookexternalhit|slackbot|telegrambot|whatsapp|discordbot|linkedinbot|pinterestbot|redditbot|curl|wget|python-requests|python-urllib|scrapy|headlesschrome|phantomjs|selenium|puppeteer|bot|spider|crawler|crawling|monitor|uptime|pingdom|statuscake/i';
 
-        return (bool)preg_match($patterns, $ua);
+        if (preg_match($patterns, $ua)) {
+            return true;
+        }
+
+        // Gercek bir tarayici her zaman gecerli bir alan adindan (en az
+        // bir nokta/uzanti iceren) Referer gonderir. "http://ghost-rider/"
+        // gibi uydurma, uzantisiz referrer'lar sahte UA tasiyan botlara
+        // ait - bu KPI'leri kirletmesin diye tamamen atlanir.
+        $referer_host = $this->refererHost();
+        if ($referer_host !== '' && strpos($referer_host, '.') === false) {
+            return true;
+        }
+
+        return false;
     }
 
     // ------------------------------------------------------------------
