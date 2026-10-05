@@ -1,5 +1,6 @@
 <?php
 require_once(DIR_SYSTEM . 'library/egeser_visitor_schema.php');
+require_once(DIR_SYSTEM . 'library/egeser_geo_il.php');
 
 /**
  * Egeser Ziyaretci & Lead Takip Merkezi - birinci taraf ziyaretci/oturum
@@ -176,6 +177,7 @@ class EgeserVisitorTracker {
         $token = $this->generateToken();
         $touch = $this->currentTouch();
         $device = $this->parseDevice();
+        $city = $this->resolveCity();
 
         $this->db->query("INSERT INTO `" . DB_PREFIX . "egeser_visitor`
             SET visitor_token='" . $this->db->escape($token) . "',
@@ -188,6 +190,7 @@ class EgeserVisitorTracker {
                 device_type='" . $this->db->escape($device['device_type']) . "',
                 browser='" . $this->db->escape($device['browser']) . "',
                 os='" . $this->db->escape($device['os']) . "',
+                city='" . $this->db->escape($city) . "',
                 is_bot=0,
                 created_at=NOW(), updated_at=NOW()");
 
@@ -376,6 +379,16 @@ class EgeserVisitorTracker {
     // ------------------------------------------------------------------
     // Cihaz / tarayici / OS (hafif regex tabanli, harici kutuphane yok)
     // ------------------------------------------------------------------
+
+    private function resolveCity() {
+        $ip = isset($this->request->server['REMOTE_ADDR']) ? (string)$this->request->server['REMOTE_ADDR'] : '';
+        if ($ip === '') {
+            return '';
+        }
+
+        $il_code = EgeserGeoIl::resolveIlCode($this->db, $ip);
+        return $il_code ? EgeserGeoIl::NAME_BY_CODE[$il_code] : '';
+    }
 
     private function parseDevice() {
         $ua = isset($this->request->server['HTTP_USER_AGENT']) ? (string)$this->request->server['HTTP_USER_AGENT'] : '';

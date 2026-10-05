@@ -193,6 +193,34 @@ class ControllerExtensionModuleEgeserVisitorReport extends Controller {
     }
 
     // ------------------------------------------------------------------
+    // Il Haritasi
+    // ------------------------------------------------------------------
+
+    public function map() {
+        if (!$this->checkPermission()) return;
+
+        $this->load->language('extension/module/egeser_visitor_report');
+        $this->load->model('extension/module/egeser_visitor_report');
+        $this->model_extension_module_egeser_visitor_report->install();
+
+        require_once(DIR_SYSTEM . 'library/egeser_geo_il.php');
+
+        $range = $this->resolveDateRange();
+
+        $data = $this->commonData('map', $range);
+        $data['kpis'] = $this->model_extension_module_egeser_visitor_report->getKpis($range['date_from'], $range['date_to']);
+
+        $il_counts = $this->model_extension_module_egeser_visitor_report->getVisitorsByIl($range['date_from'], $range['date_to']);
+        $data['il_svg_raw'] = file_get_contents(DIR_IMAGE . 'egeser/turkey-map.svg');
+        $data['il_style_css'] = EgeserGeoIl::buildStyleCss($il_counts);
+        $data['il_counts_json'] = EgeserGeoIl::buildCountsJson($il_counts);
+        $data['il_ranking'] = $this->model_extension_module_egeser_visitor_report->getIlRanking($range['date_from'], $range['date_to']);
+        $data['map_counts_id'] = 'egeser-map-counts-report';
+
+        $this->response->setOutput($this->load->view('extension/module/egeser_visitor_report_map', $data));
+    }
+
+    // ------------------------------------------------------------------
     // Trafik Kaynaklari
     // ------------------------------------------------------------------
 
@@ -321,7 +349,12 @@ class ControllerExtensionModuleEgeserVisitorReport extends Controller {
         $header = array();
         $filename = 'egeser-' . $report . '-' . date('Ymd') . '.csv';
 
-        if ($report === 'sources') {
+        if ($report === 'map') {
+            $header = array('İl', 'Ziyaretçi', 'Hizmet Bölgesi');
+            foreach ($this->model_extension_module_egeser_visitor_report->getIlRanking($range['date_from'], $range['date_to']) as $r) {
+                $rows[] = array($r['name'], $r['visitors'], $r['is_service_area'] ? 'Evet' : 'Hayır');
+            }
+        } elseif ($report === 'sources') {
             $header = array('Kaynak', 'Oturum', 'Ziyaretçi', 'Sayfa Görüntüleme', 'Ürün Görüntüleme', 'WhatsApp', 'Dönüşüm', 'Dönüşüm Oranı (%)');
             foreach ($this->model_extension_module_egeser_visitor_report->getTrafficSources($range['date_from'], $range['date_to']) as $r) {
                 $rows[] = array($r['source'], $r['sessions'], $r['visitors'], $r['pageviews'], $r['product_views'], $r['whatsapp_clicks'], $r['conversions'], $r['conversion_rate']);
@@ -435,6 +468,7 @@ class ControllerExtensionModuleEgeserVisitorReport extends Controller {
 
         $tabs = array(
             'dashboard' => array('key' => 'dashboard', 'text' => $this->language->get('tab_dashboard'), 'route' => 'extension/module/egeser_visitor_report/dashboard'),
+            'map' => array('key' => 'map', 'text' => $this->language->get('tab_map'), 'route' => 'extension/module/egeser_visitor_report/map'),
             'live' => array('key' => 'live', 'text' => $this->language->get('tab_live'), 'route' => 'extension/module/egeser_visitor_report/live'),
             'daily' => array('key' => 'daily', 'text' => $this->language->get('tab_daily'), 'route' => 'extension/module/egeser_visitor_report/daily'),
             'journeys' => array('key' => 'journeys', 'text' => $this->language->get('tab_journeys'), 'route' => 'extension/module/egeser_visitor_report/journeys'),

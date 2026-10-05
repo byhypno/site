@@ -4,6 +4,7 @@ $_['heading_title'] = 'EGESER Ziyaretçi & Lead Takip Merkezi';
 
 // Tabs
 $_['tab_dashboard'] = 'Dashboard';
+$_['tab_map'] = 'Harita';
 $_['tab_live'] = 'Canlı Ziyaretçiler';
 $_['tab_daily'] = 'Günlük Rapor';
 $_['tab_journeys'] = 'Ziyaretçi Yolculukları';

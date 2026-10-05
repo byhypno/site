@@ -1,5 +1,6 @@
 <?php
 require_once(DIR_SYSTEM . 'library/egeser_visitor_schema.php');
+require_once(DIR_SYSTEM . 'library/egeser_geo_il.php');
 
 class ModelExtensionModuleEgeserVisitorReport extends Model {
     private $page_events = "'page_view','product_view','category_view'";
@@ -188,6 +189,117 @@ class ModelExtensionModuleEgeserVisitorReport extends Model {
         }
 
         return $sessions;
+    }
+
+    // ------------------------------------------------------------------
+    // Dashboard Widget Grafigi (Satis Analizleri yerine Ziyaretci/Urun)
+    // ------------------------------------------------------------------
+
+    /**
+     * report/sale modelindeki getTotalOrdersByDay/Week/Month/Year ile
+     * ayni anahtar semasini kullanir (saat/gun/ay index'leri), boylece
+     * stok chart.php widget'inin xaxis mantigi aynen tasinabilir.
+     * $metric: 'visitors' ya da 'product_views'.
+     */
+    public function getChartSeries($metric, $range) {
+        $data = array();
+
+        if ($range === 'day') {
+            for ($i = 0; $i < 24; $i++) $data[$i] = 0;
+            $where = "DATE(x.ts) = DATE(NOW())";
+            $keyExpr = "HOUR(x.ts)";
+        } elseif ($range === 'week') {
+            $date_start = strtotime('-' . date('w') . ' days');
+            for ($i = 0; $i < 7; $i++) {
+                $date = date('Y-m-d', $date_start + ($i * 86400));
+                $data[(int)date('w', strtotime($date))] = 0;
+            }
+            $where = "DATE(x.ts) >= '" . $this->db->escape(date('Y-m-d', $date_start)) . "'";
+            $keyExpr = "DAYOFWEEK(x.ts) - 1"; // 0=Pazar..6=Cumartesi, PHP date('w') ile ayni
+        } elseif ($range === 'year') {
+            for ($i = 1; $i <= 12; $i++) $data[$i] = 0;
+            $where = "YEAR(x.ts) = YEAR(NOW())";
+            $keyExpr = "MONTH(x.ts)";
+        } else { // month
+            for ($i = 1; $i <= (int)date('t'); $i++) $data[$i] = 0;
+            $where = "DATE(x.ts) >= '" . $this->db->escape(date('Y-m-01')) . "'";
+            $keyExpr = "DAY(x.ts)";
+        }
+
+        if ($metric === 'product_views') {
+            $ts = 'created_at';
+            $sql = "SELECT " . str_replace('x.ts', 'x.' . $ts, $keyExpr) . " AS k, COUNT(*) AS total
+                FROM `" . DB_PREFIX . "egeser_event` x
+                WHERE x.event_type = 'product_view' AND " . str_replace('x.ts', 'x.' . $ts, $where) . "
+                GROUP BY " . str_replace('x.ts', 'x.' . $ts, $keyExpr);
+        } else {
+            $ts = 'started_at';
+            $sql = "SELECT " . str_replace('x.ts', 'x.' . $ts, $keyExpr) . " AS k, COUNT(DISTINCT x.visitor_id) AS total
+                FROM `" . DB_PREFIX . "egeser_session` x
+                WHERE " . str_replace('x.ts', 'x.' . $ts, $where) . "
+                GROUP BY " . str_replace('x.ts', 'x.' . $ts, $keyExpr);
+        }
+
+        $q = $this->db->query($sql);
+        foreach ($q->rows as $row) {
+            $k = (int)$row['k'];
+            if (array_key_exists($k, $data)) {
+                $data[$k] = (int)$row['total'];
+            }
+        }
+
+        return $data;
+    }
+
+    // ------------------------------------------------------------------
+    // Il Bazli Ziyaretci Haritasi
+    // ------------------------------------------------------------------
+
+    /**
+     * Donen dizi: il_code (1-81) => benzersiz ziyaretci sayisi. Sadece
+     * ili tespit edilmis (city dolu) ziyaretciler dahildir.
+     */
+    public function getVisitorsByIl($date_from, $date_to) {
+        $range = $this->range($date_from, $date_to);
+
+        $q = $this->db->query("SELECT v.city, COUNT(DISTINCT v.visitor_id) AS visitors
+            FROM `" . DB_PREFIX . "egeser_visitor` v
+            INNER JOIN `" . DB_PREFIX . "egeser_session` s ON (s.visitor_id = v.visitor_id)
+            WHERE s.started_at BETWEEN '" . $this->db->escape($range[0]) . "' AND '" . $this->db->escape($range[1]) . "'
+              AND v.city <> ''
+            GROUP BY v.city");
+
+        $byCode = array();
+        foreach ($q->rows as $row) {
+            $code = EgeserGeoIl::codeByName($row['city']);
+            if ($code) {
+                $byCode[$code] = (int)$row['visitors'];
+            }
+        }
+
+        return $byCode;
+    }
+
+    /**
+     * Haritayla birlikte gosterilen il siralama tablosu: isim, ziyaretci,
+     * Ege hizmet bolgesi isareti.
+     */
+    public function getIlRanking($date_from, $date_to) {
+        $byCode = $this->getVisitorsByIl($date_from, $date_to);
+        arsort($byCode);
+
+        $rows = array();
+        foreach ($byCode as $code => $visitors) {
+            if ($visitors <= 0) continue;
+            $rows[] = array(
+                'il_code' => $code,
+                'name' => EgeserGeoIl::NAME_BY_CODE[$code],
+                'visitors' => $visitors,
+                'is_service_area' => in_array($code, EgeserGeoIl::EGE_SERVICE_CODES, true)
+            );
+        }
+
+        return $rows;
     }
 
     // ------------------------------------------------------------------

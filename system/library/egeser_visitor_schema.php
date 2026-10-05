@@ -102,5 +102,16 @@ class EgeserVisitorSchema {
             KEY `idx_conversion_type` (`conversion_type`),
             KEY `idx_created_at` (`created_at`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
+
+        // IP -> il esleme referans tablosu. Veri (satirlar) burada degil,
+        // ayrica teslim edilen 09_GEOIP_IL_TESPITI_KUR.sql ile import
+        // edilir; burada sadece tablo yoksa diye bos iskeleti kurulur.
+        $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "egeser_geo_ip_range` (
+            `ip_from` INT UNSIGNED NOT NULL,
+            `ip_to` INT UNSIGNED NOT NULL,
+            `il_code` TINYINT UNSIGNED NOT NULL,
+            PRIMARY KEY (`ip_from`),
+            KEY `idx_il_code` (`il_code`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
     }
 }
