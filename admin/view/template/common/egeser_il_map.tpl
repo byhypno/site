@@ -9,9 +9,16 @@
   <button type="button" class="btn btn-default" data-map-view="full"><i class="fa fa-flag"></i> Tüm Türkiye</button>
 </div>
 
+<?php if (empty($il_svg_raw)) { ?>
+<div class="egeser-il-map-missing">
+  <i class="fa fa-exclamation-triangle"></i> Harita dosyası bulunamadı: <code>admin/view/image/egeser/turkey-map.svg</code><br />
+  <small>Bu dosyanın sunucuya doğru yüklendiğinden emin olun.</small>
+</div>
+<?php } else { ?>
 <div class="egeser-il-map-wrap" data-counts-id="<?php echo $map_counts_id; ?>" data-crop-slugs="izmir,manisa,aydin,usak,balikesir,mugla">
   <?php echo $il_svg_raw; ?>
 </div>
+<?php } ?>
 
 <div class="egeser-il-legend">
   <span>Az</span>
