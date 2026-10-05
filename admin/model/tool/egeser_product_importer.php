@@ -90,6 +90,93 @@ class ModelToolEgeserProductImporter extends Model {
         return array('created'=>$created,'updated'=>$updated,'skipped'=>$skipped,'preview'=>$preview);
     }
 
+    public function getCategoryOptions() {
+        $lang = $this->getLanguageId();
+        $q = $this->db->query("SELECT c.category_id, cd.name FROM " . DB_PREFIX . "category c INNER JOIN " . DB_PREFIX . "category_description cd ON cd.category_id = c.category_id AND cd.language_id = '" . (int)$lang . "' ORDER BY cd.name ASC");
+        return $q->rows;
+    }
+
+    public function exportCsv($category_id = 0) {
+        $lang = $this->getLanguageId();
+
+        $sql = "SELECT p.product_id, p.model, p.price, p.quantity, p.status, pd.name
+                FROM " . DB_PREFIX . "product p
+                INNER JOIN " . DB_PREFIX . "product_description pd ON pd.product_id = p.product_id AND pd.language_id = '" . (int)$lang . "'";
+        if ($category_id) {
+            $sql .= " INNER JOIN " . DB_PREFIX . "product_to_category ptc ON ptc.product_id = p.product_id AND ptc.category_id = '" . (int)$category_id . "'";
+        }
+        $sql .= " ORDER BY p.product_id ASC";
+        $products = $this->db->query($sql)->rows;
+
+        if (empty($products)) {
+            throw new Exception('Dışa aktarılacak ürün bulunamadı.');
+        }
+
+        $product_ids = array();
+        foreach ($products as $p) $product_ids[] = (int)$p['product_id'];
+        $ids_in = implode(',', $product_ids);
+
+        $cat_map = array();
+        $cq = $this->db->query("SELECT ptc.product_id, cd.name FROM " . DB_PREFIX . "product_to_category ptc INNER JOIN " . DB_PREFIX . "category_description cd ON cd.category_id = ptc.category_id AND cd.language_id = '" . (int)$lang . "' WHERE ptc.product_id IN (" . $ids_in . ") ORDER BY ptc.product_id ASC, cd.name ASC");
+        foreach ($cq->rows as $r) {
+            $cat_map[$r['product_id']][] = $r['name'];
+        }
+
+        $kw_map = array();
+        $queries = array();
+        foreach ($product_ids as $pid) $queries[] = "'product_id=" . $pid . "'";
+        $kq = $this->db->query("SELECT query, keyword FROM " . DB_PREFIX . "url_alias WHERE query IN (" . implode(',', $queries) . ")");
+        foreach ($kq->rows as $r) {
+            $pid = (int)substr($r['query'], 11);
+            $kw_map[$pid] = $r['keyword'];
+        }
+
+        $attr_map = array();
+        $attr_order = array();
+        $aq = $this->db->query("SELECT pa.product_id, ad.name, pa.text, a.sort_order
+                                 FROM " . DB_PREFIX . "product_attribute pa
+                                 INNER JOIN " . DB_PREFIX . "attribute_description ad ON ad.attribute_id = pa.attribute_id AND ad.language_id = pa.language_id
+                                 INNER JOIN " . DB_PREFIX . "attribute a ON a.attribute_id = pa.attribute_id
+                                 WHERE pa.language_id = '" . (int)$lang . "' AND pa.product_id IN (" . $ids_in . ")
+                                 ORDER BY a.sort_order ASC, ad.name ASC");
+        foreach ($aq->rows as $r) {
+            $attr_map[$r['product_id']][$r['name']] = $r['text'];
+            if (!isset($attr_order[$r['name']])) $attr_order[$r['name']] = (int)$r['sort_order'];
+        }
+        asort($attr_order);
+        $attr_names = array_keys($attr_order);
+
+        $headers = array('islem','model','urun_adi','kategori','seo_url','fiyat','durum','miktar');
+        foreach ($attr_names as $name) $headers[] = 'ozellik:' . $name;
+
+        $out = fopen('php://temp', 'r+');
+        fwrite($out, "\xEF\xBB\xBF");
+        fputcsv($out, $headers, ';');
+
+        foreach ($products as $p) {
+            $pid = (int)$p['product_id'];
+            $row = array(
+                'GUNCELLE',
+                $p['model'],
+                $p['name'],
+                isset($cat_map[$pid]) ? implode('|', $cat_map[$pid]) : '',
+                isset($kw_map[$pid]) ? $kw_map[$pid] : '',
+                number_format((float)$p['price'], 2, '.', ''),
+                $p['status'] ? 'Aktif' : 'Pasif',
+                (int)$p['quantity']
+            );
+            foreach ($attr_names as $name) {
+                $row[] = isset($attr_map[$pid][$name]) ? $attr_map[$pid][$name] : '';
+            }
+            fputcsv($out, $row, ';');
+        }
+
+        rewind($out);
+        $csv = stream_get_contents($out);
+        fclose($out);
+        return $csv;
+    }
+
     public function writeLog($message) {
         $dir = defined('DIR_LOGS') ? DIR_LOGS : (DIR_SYSTEM . 'storage/logs/');
         @file_put_contents(rtrim($dir, '/\\') . DIRECTORY_SEPARATOR . 'egeser_product_import.log', '[' . date('Y-m-d H:i:s') . '] ' . $message . PHP_EOL, FILE_APPEND);

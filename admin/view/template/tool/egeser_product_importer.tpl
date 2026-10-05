@@ -3,6 +3,15 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
+        <div class="btn-group" style="margin-right:8px;">
+          <select id="egeser-export-category" class="form-control" style="display:inline-block;width:auto;">
+            <option value="">Tüm Ürünler</option>
+            <?php foreach ($categories as $c) { ?>
+            <option value="<?php echo (int)$c['category_id']; ?>"><?php echo htmlspecialchars($c['name'], ENT_QUOTES, 'UTF-8'); ?></option>
+            <?php } ?>
+          </select>
+          <a href="#" id="egeser-export-btn" data-base="<?php echo $export_url; ?>" data-toggle="tooltip" title="Mevcut ürünleri Excel/CSV olarak indirin, düzenleyin, sonra aynı dosyayı aşağıdan tekrar yükleyin." class="btn btn-default"><i class="fa fa-file-excel-o"></i> Mevcut Ürünleri İndir</a>
+        </div>
         <a href="<?php echo $template_url; ?>" data-toggle="tooltip" title="<?php echo $button_template; ?>" class="btn btn-default"><i class="fa fa-download"></i> <?php echo $button_template; ?></a>
       </div>
       <h1><?php echo $heading_title; ?></h1>
@@ -19,6 +28,7 @@
       <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-upload"></i> Dosya Yükle</h3></div>
       <div class="panel-body">
         <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_template_help; ?><br><strong>CSV:</strong> her sunucuda desteklenir. &nbsp; <strong>XLSX:</strong> <?php echo $xlsx_available ? '<span class="text-success">aktif</span>' : '<span class="text-danger">PHP ZipArchive kapalı; CSV kullanın</span>'; ?><br><strong>Kategori ayırıcı:</strong> <code>|</code> &nbsp; <strong>Ek görsel ayırıcı:</strong> <code>|</code> &nbsp; <strong>Özellik sütunu:</strong> <code>ozellik:Toplam Alan</code></div>
+        <div class="alert alert-info"><i class="fa fa-magic"></i> <strong>Mevcut ürünleri güncellemek için:</strong> sağ üstten "Mevcut Ürünleri İndir" ile indirin (istersen kategoriye göre süzün) &rarr; Excel'de açıp fiyat/stok/durum/özellik hücrelerini düzenleyin &rarr; dosyayı kaydedin &rarr; aşağıdan aynı dosyayı yükleyip önce "Önizle" ile kontrol edin, sonra "Mevcut ürünleri güncelle" kutusunu işaretleyip uygulayın. İndirilen dosyada <code>model</code> ve <code>seo_url</code> sütunlarını değiştirmeyin; sistem ürünü bu ikisinden biriyle eşleştirir.</div>
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal" id="form-preview">
           <input type="hidden" name="mode" value="preview">
           <div class="form-group">
@@ -87,4 +97,13 @@
     <?php } ?>
   </div>
 </div>
+<script>
+document.getElementById('egeser-export-btn').addEventListener('click', function (e) {
+  e.preventDefault();
+  var cat = document.getElementById('egeser-export-category').value;
+  var url = this.getAttribute('data-base');
+  if (cat) url += '&category_id=' + encodeURIComponent(cat);
+  window.location.href = url;
+});
+</script>
 <?php echo $footer; ?>

@@ -85,7 +85,9 @@ class ControllerToolEgeserProductImporter extends Controller {
         $data['token'] = $this->session->data['token'];
         $data['action'] = $this->url->link('tool/egeser_product_importer', 'token=' . $this->session->data['token'], true);
         $data['template_url'] = $this->url->link('tool/egeser_product_importer/template', 'token=' . $this->session->data['token'], true);
+        $data['export_url'] = $this->url->link('tool/egeser_product_importer/export', 'token=' . $this->session->data['token'], true);
         $data['clear_url'] = $this->url->link('tool/egeser_product_importer', 'token=' . $this->session->data['token'] . '&clear=1', true);
+        $data['categories'] = $this->model_tool_egeser_product_importer->getCategoryOptions();
 
         $data['breadcrumbs'] = array();
         $data['breadcrumbs'][] = array('text' => $this->language->get('text_home'), 'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true));
@@ -95,6 +97,32 @@ class ControllerToolEgeserProductImporter extends Controller {
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
         $this->response->setOutput($this->load->view('tool/egeser_product_importer.tpl', $data));
+    }
+
+    public function export() {
+        $this->load->language('tool/egeser_product_importer');
+        if (!$this->validatePermission()) {
+            $this->response->addHeader('HTTP/1.1 403 Forbidden');
+            $this->response->setOutput('Forbidden');
+            return;
+        }
+
+        $this->load->model('tool/egeser_product_importer');
+        $category_id = isset($this->request->get['category_id']) ? (int)$this->request->get['category_id'] : 0;
+
+        try {
+            $csv = $this->model_tool_egeser_product_importer->exportCsv($category_id);
+        } catch (Exception $e) {
+            $this->response->addHeader('HTTP/1.1 400 Bad Request');
+            $this->response->setOutput('Dışa aktarma hatası: ' . $e->getMessage());
+            return;
+        }
+
+        $filename = 'Egeser_Urunler_' . date('Y-m-d_His') . '.csv';
+        $this->response->addHeader('Content-Type: text/csv; charset=UTF-8');
+        $this->response->addHeader('Content-Disposition: attachment; filename="' . $filename . '"');
+        $this->response->addHeader('Cache-Control: no-store, no-cache, must-revalidate');
+        $this->response->setOutput($csv);
     }
 
     public function template() {
