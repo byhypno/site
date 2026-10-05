@@ -97,11 +97,20 @@ class ControllerExtensionDashboardEgeserMap extends Controller {
 		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', $this->permission_key);
 		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', $this->permission_key);
 
+		// OpenCart 2.3'un extension/extension/dashboard.php'si oc_extension'a
+		// 'dashboard_' onekli kod yazar ama getInstalled()/getList() oneksiz
+		// kodu bekler (cekirdek hatasi - widget hicbir zaman "Kurulu"
+		// gorunmez). Dogru (oneksiz) kaydi burada kendimiz ekliyoruz.
+		$this->load->model('extension/extension');
+		$this->model_extension_extension->install('dashboard', 'egeser_map');
+
 		require_once(DIR_SYSTEM . 'library/egeser_visitor_schema.php');
 		EgeserVisitorSchema::install($this->db);
 	}
 
 	public function uninstall() {
+		$this->load->model('extension/extension');
+		$this->model_extension_extension->uninstall('dashboard', 'egeser_map');
 		// Ziyaretci verisi kasitli olarak silinmez; sadece widget kaydi kalkar.
 	}
 }
