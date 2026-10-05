@@ -185,39 +185,43 @@ class ModelToolEgeserProductImporter extends Model {
     private function analyzeRow($row, $row_no, $allow_update) {
         $name = $this->field($row, array('urun_adi','ürün_adı','ürün adı','name','name(tr-tr)'));
         $model = $this->field($row, array('model','model_kodu','model kodu'));
-        $keyword = $this->cleanKeyword($this->field($row, array('seo_url','seo_keyword','seo url')));
+        $keyword_from_file = $this->cleanKeyword($this->field($row, array('seo_url','seo_keyword','seo url')));
         $operation = $this->lower($this->field($row, array('islem','işlem','action')));
         $categories_raw = $this->field($row, array('kategori','category','categories'));
         $errors = array(); $warnings = array();
 
         if ($operation === 'skip' || $operation === 'atla') {
-            return array('row'=>$row_no,'action'=>'skip','product_id'=>0,'model'=>$model,'name'=>$name,'categories'=>$categories_raw,'keyword'=>$keyword,'price'=>'','status'=>'','errors'=>array(),'warnings'=>array('Satır islem=ATLA olduğu için uygulanmayacak.'),'source'=>$row);
+            return array('row'=>$row_no,'action'=>'skip','product_id'=>0,'model'=>$model,'name'=>$name,'categories'=>$categories_raw,'keyword'=>$keyword_from_file,'price'=>'','status'=>'','errors'=>array(),'warnings'=>array('Satır islem=ATLA olduğu için uygulanmayacak.'),'source'=>$row);
         }
 
         if ($name === '') $errors[] = 'Ürün adı boş.';
         if ($model === '') $errors[] = 'Model kodu boş.';
 
         $existing_by_model = $model !== '' ? $this->findProductByModel($model) : 0;
-        $existing_by_keyword = $keyword !== '' ? $this->findProductByKeyword($keyword) : 0;
+        $existing_by_keyword = $keyword_from_file !== '' ? $this->findProductByKeyword($keyword_from_file) : 0;
         if ($existing_by_model && $existing_by_keyword && $existing_by_model != $existing_by_keyword) {
             $errors[] = 'Model kodu ve SEO URL farklı mevcut ürünlere ait.';
         }
         $product_id = $existing_by_model ? $existing_by_model : $existing_by_keyword;
 
-        if ($keyword === '') {
-            if ($product_id) {
-                $current_kw = $this->getProductKeyword($product_id);
-                if ($current_kw !== '') $keyword = $current_kw;
+        // GUVENLIK: mevcut urunlerde SEO URL dosyadan asla yazilmaz, her zaman
+        // urunun su anki URL'si korunur. Boylece Excel'de bu sutun yanlislikla
+        // degisse/kopyalansa bile hicbir urunun linki bozulamaz.
+        if ($product_id) {
+            $keyword = $this->getProductKeyword($product_id);
+            if ($keyword_from_file !== '' && $keyword_from_file !== $keyword) {
+                $warnings[] = 'SEO URL güvenlik nedeniyle değiştirilmedi (mevcut URL korunuyor: ' . $keyword . '). URL değiştirmek için "SEO / 301 Yönlendirmeler" aracını kullanın.';
             }
+        } else {
+            $keyword = $keyword_from_file;
             if ($keyword === '' && $name !== '') {
                 $keyword = $this->slugify($name);
                 $warnings[] = 'SEO URL boştu; önizleme için otomatik üretildi: ' . $keyword;
             }
-        }
-
-        if ($keyword !== '') {
-            $conflict = $this->getAliasConflict($keyword, $product_id);
-            if ($conflict) $errors[] = 'SEO URL başka bir kayıt tarafından kullanılıyor: ' . $conflict;
+            if ($keyword !== '') {
+                $conflict = $this->getAliasConflict($keyword, 0);
+                if ($conflict) $errors[] = 'SEO URL başka bir kayıt tarafından kullanılıyor: ' . $conflict;
+            }
         }
 
         $category_ids = array(); $category_names = array();
@@ -285,8 +289,13 @@ class ModelToolEgeserProductImporter extends Model {
 
         $name = $this->field($row, array('urun_adi','ürün_adı','ürün adı','name','name(tr-tr)'));
         $model = $this->field($row, array('model','model_kodu','model kodu'));
-        $keyword = $this->cleanKeyword($this->field($row, array('seo_url','seo_keyword','seo url')));
-        if ($keyword === '') $keyword = $product_id ? $this->getProductKeyword($product_id) : $this->slugify($name);
+        // GUVENLIK: mevcut urunde SEO URL dosyadan asla yazilmaz, mevcut URL korunur.
+        if ($product_id) {
+            $keyword = $this->getProductKeyword($product_id);
+        } else {
+            $keyword = $this->cleanKeyword($this->field($row, array('seo_url','seo_keyword','seo url')));
+            if ($keyword === '') $keyword = $this->slugify($name);
+        }
 
         $desc = $this->field($row, array('aciklama_html','açıklama_html','description','description(tr-tr)'));
         if ($desc === '' && $product_id && isset($current_desc['description'])) $desc = $current_desc['description'];
@@ -316,15 +325,24 @@ class ModelToolEgeserProductImporter extends Model {
             $product_images = $product_id ? $this->model_catalog_product->getProductImages($product_id) : array();
         }
 
-        $attributes_from_file = $this->extractAttributes($row);
-        if (!empty($attributes_from_file)) {
-            $product_attributes = array();
-            foreach ($attributes_from_file as $attr_name => $text) {
-                $attribute_id = $this->getOrCreateAttribute($attr_name, $lang);
-                $product_attributes[] = array('attribute_id'=>$attribute_id,'product_attribute_description'=>array($lang=>array('text'=>$text)));
+        // GUVENLIK: dosyada bos birakilan ozellik hucresi mevcut degeri SILMEZ,
+        // sadece dosyada deger girilen ozellikler guncellenir/eklenir. Mevcut
+        // urunun diger tum ozellikleri (dosyada hic sutunu olmasa da) korunur.
+        $attr_by_id = array();
+        if ($product_id) {
+            foreach ($this->model_catalog_product->getProductAttributes($product_id) as $ea) {
+                $text = isset($ea['product_attribute_description'][$lang]['text']) ? $ea['product_attribute_description'][$lang]['text'] : '';
+                $attr_by_id[(int)$ea['attribute_id']] = $text;
             }
-        } else {
-            $product_attributes = $product_id ? $this->model_catalog_product->getProductAttributes($product_id) : array();
+        }
+        $attributes_from_file = $this->extractAttributes($row);
+        foreach ($attributes_from_file as $attr_name => $text) {
+            $attribute_id = $this->getOrCreateAttribute($attr_name, $lang);
+            $attr_by_id[$attribute_id] = $text;
+        }
+        $product_attributes = array();
+        foreach ($attr_by_id as $attribute_id => $text) {
+            $product_attributes[] = array('attribute_id'=>$attribute_id,'product_attribute_description'=>array($lang=>array('text'=>$text)));
         }
 
         $price_field = $this->field($row, array('fiyat','price'));
