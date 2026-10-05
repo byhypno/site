@@ -5,8 +5,8 @@
 <script type="application/json" id="<?php echo $map_counts_id; ?>"><?php echo $il_counts_json; ?></script>
 
 <div class="btn-group btn-group-xs egeser-il-map-toggle" style="margin-bottom:8px;">
-  <button type="button" class="btn btn-default active" data-map-view="crop"><i class="fa fa-map-marker"></i> Ege Bölgesi</button>
-  <button type="button" class="btn btn-default" data-map-view="full"><i class="fa fa-flag"></i> Tüm Türkiye</button>
+  <button type="button" class="btn btn-default" data-map-view="crop"><i class="fa fa-map-marker"></i> Ege Bölgesi</button>
+  <button type="button" class="btn btn-default active" data-map-view="full"><i class="fa fa-flag"></i> Tüm Türkiye</button>
 </div>
 
 <?php if (empty($il_svg_raw)) { ?>
