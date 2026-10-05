@@ -107,7 +107,10 @@ class ControllerExtensionDashboardEgeserChart extends Controller {
 		}
 
 		if ($range === 'day') {
-			for ($i = 0; $i < 24; $i++) $json['xaxis'][] = array($i, $i);
+			// Kucuk widget genisliginde 24 etiket ust uste biniyor;
+			// pozisyonlar kalsin (cubuklar dogru yerde), sadece her 3
+			// saatte bir etiket goster.
+			for ($i = 0; $i < 24; $i++) $json['xaxis'][] = array($i, ($i % 3 === 0) ? $i : '');
 		} elseif ($range === 'week') {
 			$date_start = strtotime('-' . date('w') . ' days');
 			for ($i = 0; $i < 7; $i++) {
@@ -117,9 +120,11 @@ class ControllerExtensionDashboardEgeserChart extends Controller {
 		} elseif ($range === 'year') {
 			for ($i = 1; $i <= 12; $i++) $json['xaxis'][] = array($i, date('M', mktime(0, 0, 0, $i)));
 		} else {
-			for ($i = 1; $i <= (int)date('t'); $i++) {
+			$days_in_month = (int)date('t');
+			for ($i = 1; $i <= $days_in_month; $i++) {
 				$date = date('Y') . '-' . date('m') . '-' . $i;
-				$json['xaxis'][] = array((int)date('j', strtotime($date)), date('d', strtotime($date)));
+				$show_label = ($i === 1 || $i === $days_in_month || $i % 5 === 0);
+				$json['xaxis'][] = array((int)date('j', strtotime($date)), $show_label ? date('d', strtotime($date)) : '');
 			}
 		}
 
